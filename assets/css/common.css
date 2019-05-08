@@ -1,0 +1,15 @@
+a{
+  color: #333;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+html{
+  font-family: MicrosoftYaHei;
+}
+.container {
+  color: #000;
+  width: 1200px;
+  margin: 0 auto;
+}
