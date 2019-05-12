@@ -310,6 +310,7 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     display: none;
+    z-index: 9999
 
     &.active {
       display: block;
