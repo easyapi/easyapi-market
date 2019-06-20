@@ -86,16 +86,16 @@
   import axios from '~/plugins/axios'
 
   export default {
-    name: "service",
-    head() {
+    name: 'service',
+    head () {
       return {
         name: '',
         title: 'API接口 - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '服务市场API接口'},
-          {hid: 'keyswords', name: 'keyswords', content: '服务市场API接口'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '服务市场API接口' },
+          { hid: 'keyword', name: 'keyword', content: '服务市场API接口' }
         ]
       }
     },
@@ -104,7 +104,7 @@
       Footer,
       Pagination
     },
-    data() {
+    data () {
       return {
         name: '',
         serviceTypeId: '全部',
@@ -117,9 +117,9 @@
         total: 150,     // 记录总条数
         pageSize: 10,   // 每页显示条数
         current: 0   // 当前的页数
-      };
+      }
     },
-    async asyncData({params, error}) {
+    async asyncData ({ params, error }) {
       let [res1, res2] = await Promise.all([
         axios.get('/api/services'),
         axios.get('/api/service/types')
@@ -130,33 +130,28 @@
       }
     },
     methods: {
-      pageChange(currentPage) {
-        // let currentPage = 0;
+      pageChange (currentPage) {
         let url = `/api/services?page=${currentPage}&size=${this.pageSize}`
-        // this.getServiceList(url);
-
-        // let url = `/api/services`
-        let urlName = this.$route.query.name && this.$route.query.name.trim();
-
+        let urlName = this.$route.query.name && this.$route.query.name.trim()
         return urlName ? this.getServiceList(url, urlName) : this.getServiceList(url)
       },
       //样式切换
-      getService(id) {
-        this.serviceTypeId = id;
+      getService (id) {
+        this.serviceTypeId = id
         let action = 'click'
         this.getServiceList(null, null, action)
       },
-      charge(t) {
-        this.type = t;
+      charge (t) {
+        this.type = t
         let action = 'click'
         this.getServiceList(null, null, action)
       },
-      styleSwitch(t) {
-        this.sort = t;
+      styleSwitch (t) {
+        this.sort = t
         this.getServiceList()
       },
 
-      getServiceList(url, name, action) {
+      getServiceList (url, name, action) {
         let _this = this
         let obj = {}
         if (name) {
@@ -164,7 +159,7 @@
         }
 
         if (_this.serviceTypeId !== '全部') {
-          obj.serviceTypeId = this.serviceTypeId;
+          obj.serviceTypeId = this.serviceTypeId
 
           if (name) {
             delete obj.serviceTypeId
@@ -184,7 +179,7 @@
             obj.sort = 'sales,desc'
           }
         }
-        let {query: {serviceTypeId, type, sort}} = this.$route
+        let { query: { serviceTypeId, type, sort } } = this.$route
 
         _this.saveParams({
           serviceTypeId: action ? this.serviceTypeId : serviceTypeId || '全部',
@@ -193,7 +188,7 @@
           ...obj,
         }).then(res => {
           setTimeout(() => {
-            let {query} = this.$route
+            let { query } = this.$route
 
             let newObj = {
               ...query,
@@ -203,7 +198,7 @@
             this.serviceTypeId = query.serviceTypeId
             this.type = query.type
 
-            let {page, size, serviceTypeId, type, sort, types} = newObj
+            let { page, size, serviceTypeId, type, sort, types } = newObj
 
             if (serviceTypeId == '全部') {
               delete newObj.serviceTypeId
@@ -227,37 +222,28 @@
               params: newObj
             }).then(res => {
               if (res.data.code === 0) {
-                _this.isNoData = true;
+                _this.isNoData = true
               } else {
-                _this.isNoData = false;
+                _this.isNoData = false
               }
-              _this.serviceList = res.data.content;
+              _this.serviceList = res.data.content
               _this.total = res.data.totalElements
             }).catch(error => {
               console.log(error.response)
-            });
+            })
           }, 0)
         })
       },
-      getName(name) {
-        let currentPage = 0;
+      getName (name) {
+        let currentPage = 0
         let url = `/api/services`
-        let urlName = name && name.trim();
+        let urlName = name && name.trim()
 
         return urlName ? this.getServiceList(url, urlName) : this.getServiceList(url)
       },
 
       //保存query参数
-      saveParams(params) {
-        // let queryObj = {
-        //   page: '1',
-        //   size: '10',
-        //   serviceTypeId: this.serviceTypeId,
-        //   type: this.type,
-        //   sort: this.sort
-        // }
-
-        // let newObj = Object.assign({},queryObj,params)
+      saveParams (params) {
 
         if (params.types == '2,3,4') {
           params.type = 2
@@ -283,7 +269,7 @@
       },
 
       //拼接对象
-      contactObject(obj) {
+      contactObject (obj) {
         if (!obj) return
         let str = ''
 
@@ -295,12 +281,7 @@
       }
     },
 
-    mounted() {
-      //  let _this = this
-      //    setTimeout(() => {
-      //     _this.getName (this.$route.query.name)
-
-      //   },10)
+    mounted () {
     }
 
   }

@@ -22,14 +22,14 @@
 
   export default {
     name: 'post-detail',
-    head() {
+    head () {
       return {
         title: this.result && this.result.title + ' - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '服务市场详情'},
-          {hid: 'keyswords', name: 'keyswords', content: '服务市场详情'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '服务市场详情' },
+          { hid: 'keyword', name: 'keyword', content: '服务市场详情' }
         ]
       }
     },
@@ -37,27 +37,27 @@
       Header,
       Footer
     },
-    data() {
+    data () {
       return {
         subscribe: false,
         serviceDetailList: [],
         clicked: 0,
         frequency: '',
         result: null
-      };
+      }
     },
     methods: {
-      getDetails() {
+      getArticle () {
         return axios.get(`https://api2.easyapi.com/api/article/${this.$route.params.id}?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8`)
           .then(res => {
             this.result = res.data.content
           })
       }
     },
-    created() {
+    created () {
     },
-    mounted() {
-      this.getDetails()
+    mounted () {
+      this.getArticle()
     }
   }
 </script>

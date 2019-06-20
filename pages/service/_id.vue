@@ -74,9 +74,7 @@
             <div class="customer">
               <p class="title">在线客服</p>
               <p class="img">
-              <span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
-                border="0" src="http://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息"
-                title="点击这里给我发消息"/></a></span><span class="text">EasyAPI工程师</span>
+                <span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></span><span class="text">EasyAPI工程师</span>
               </p>
             </div>
             <div class="time">
@@ -145,14 +143,14 @@
 
   export default {
     name: 'service-detail',
-    head() {
+    head () {
       return {
         title: this.service.name + ' - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '服务市场详情'},
-          {hid: 'keyswords', name: 'keyswords', content: '服务市场详情'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '服务市场详情' },
+          { hid: 'keyword', name: 'keyword', content: '服务市场详情' }
         ]
       }
     },
@@ -160,77 +158,74 @@
       Header,
       Footer
     },
-    data() {
+    data () {
       return {
         subscribe: false,
         service: '',
         clicked: 0,
         servicePriceList: [],
         isIfBuy: false
-      };
+      }
     },
-    async asyncData({params, error}) {
+    async asyncData ({ params, error }) {
       let [res1, res2] = await Promise.all([
         axios.get(`/api/service/${params.id}`, {
-          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+          headers: { 'Authorization': 'Bearer ' + Cookies.get('authenticationToken') }
         }),
         axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`, {
-          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+          headers: { 'Authorization': 'Bearer ' + Cookies.get('authenticationToken') }
         })
       ])
       if (res2.data.code !== 0) {
       }
-      console.log(res1.data.content,'res1.data.content  接口打印')
-      Cookies.set('objService',JSON.stringify(res1.data.content) )
-
+      Cookies.set('objService', JSON.stringify(res1.data.content))
       return {
         service: res1.data.content,
         servicePriceList: res2.data.content
       }
     },
-    created() {
-      if(Cookies.get('objService')) {
-          this.service =JSON.parse( Cookies.get('objService')) ;
-          console.log(this.service,'this.service')
+    created () {
+      if (Cookies.get('objService')) {
+        this.service = JSON.parse(Cookies.get('objService'))
       }
     },
-    mounted() {
+    mounted () {
 
     },
     methods: {
-      use(url, hasConsole, serviceId) {
+      use (url, hasConsole, serviceId) {
         if (hasConsole === true) {
           window.location.href = 'https://' + url + '.easyapi.com/console/'
         } else {
-          this.$router.push({path: "https://service.easyapi.com/Statistics", query: {serviceId: serviceId}})
+          this.$router.push({ path: 'https://service.easyapi.com/Statistics', query: { serviceId: serviceId } })
         }
       },
-      homepage(url) {
+      homepage (url) {
         window.location.href = 'https://' + url + '.easyapi.com/'
       },
-      changeItem(index) {
-        this.clicked = index;
+      changeItem (index) {
+        this.clicked = index
       },
-      subscribeDialog() {
+      subscribeDialog () {
         this.subscribe = true
       },
-      subscribeService() {
+      subscribeService () {
         axios({
           headers: {
-            'Authorization': 'Bearer ' + Cookies.get("authenticationToken")
+            'Authorization': 'Bearer ' + Cookies.get('authenticationToken')
           },
           method: 'post',
           url: '/console/team/service/' + this.$route.params.id + '/subscribe',
         }).then(res => {
-          this.$Message.success(res.data.message);
+          this.$Message.success(res.data.message)
         }).catch(error => {
           if (error.response.data.code === -9) {
-            this.$Message.warning("请先登录");
-            window.location.href = "https://account.easyapi.com/login";
+            this.$Message.warning('请先登录')
+            window.location.href = 'https://account.easyapi.com/login'
           } else {
-            this.$Message.warning(error.response.data.message);
+            this.$Message.warning(error.response.data.message)
           }
-        });
+        })
       },
     },
   }

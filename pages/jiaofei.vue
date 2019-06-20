@@ -17,7 +17,7 @@
         <DivListWrap>
           <div class='jiaofei-list' v-for="(item,key) in serviceList" :key="key">
             <div>
-              <img :src="item.avter" alt="图片加载中..."/>
+              <img :src="item.icon" alt="图片加载中..."/>
             </div>
             <div>
               <h3>{{item.title}}</h3>
@@ -35,7 +35,7 @@
         <DivListWrap>
           <div class='jiao-us-advan' v-for="(item,key) in adviceList" :key="key">
             <div>
-              <img :src="item.avter" alt="图片加载中..."/>
+              <img :src="item.icon" alt="图片加载中..."/>
             </div>
             <div>
               {{item.title}}
@@ -60,25 +60,25 @@
   import TitleMid from '~/components/layout/titleMid'
 
   export default {
-    name: "jiaofei",
+    name: 'jiaofei',
     components: {
       Header,
       Footer,
       DivListWrap,
       TitleMid
     },
-    data() {
+    data () {
       return {
         serviceList: [
           {
-            avter: 'https://qiniu.easyapi.com/market/jiaofei/communication.png',
+            icon: 'https://qiniu.easyapi.com/market/jiaofei/communication.png',
             title: '通讯业务',
             freeSay: '话费充值',
             flow: '流量充值',
             network: '宽带充值',
           },
           {
-            avter: 'https://qiniu.easyapi.com/market/jiaofei/game.png',
+            icon: 'https://qiniu.easyapi.com/market/jiaofei/game.png',
 
             title: '游戏充值',
             freeSay: '网络游戏',
@@ -86,7 +86,7 @@
             network: ' QQ业务',
           },
           {
-            avter: 'https://qiniu.easyapi.com/market/jiaofei/payment.png',
+            icon: 'https://qiniu.easyapi.com/market/jiaofei/payment.png',
             title: '生活缴费',
             freeSay: '水电煤',
             flow: '加油卡',
@@ -95,36 +95,33 @@
         ],
         adviceList: [
           {
-            avter: 'https://qiniu.easyapi.com/market/jiaofei/api.png',
-
+            icon: 'https://qiniu.easyapi.com/market/jiaofei/api.png',
             title: 'API充值',
             freeSay: '无需提前充值，通过EasyAPI充值API接口，随冲随用，不占用资金',
 
           },
           {
-            avter: 'https://qiniu.easyapi.com/market/jiaofei/goods.png',
-
+            icon: 'https://qiniu.easyapi.com/market/jiaofei/goods.png',
             title: '货源稳定',
             freeSay: '海量优质货源供应，众多供应商后台随机切换，保障货源稳定',
 
           },
           {
-            avter: 'https://qiniu.easyapi.com/market/jiaofei/others.png',
-
+            icon: 'https://qiniu.easyapi.com/market/jiaofei/others.png',
             title: '其他',
             freeSay: ' 如果您需要更多其他充值缴费相关，请联系我们',
           },
         ]
       }
     },
-    head() {
+    head () {
       return {
         title: '缴费专辑 - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '服务市场场景化服务'},
-          {hid: 'keyswords', name: 'keyswords', content: '服务市场场景化服务'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '服务市场场景化服务' },
+          { hid: 'keyword', name: 'keyword', content: '服务市场场景化服务' }
         ]
       }
     },

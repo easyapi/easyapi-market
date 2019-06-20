@@ -20,14 +20,14 @@
 
   export default {
     name: 'post',
-    head() {
+    head () {
       return {
         title: '市场动态 - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '市场动态'},
-          {hid: 'keyswords', name: 'keyswords', content: '市场动态'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '市场动态' },
+          { hid: 'keyword', name: 'keyword', content: '市场动态' }
         ]
       }
     },
@@ -37,7 +37,7 @@
       ListItem,
       Loading
     },
-    data() {
+    data () {
       return {
         subscribe: false,
         serviceDetailList: [],
@@ -45,7 +45,7 @@
         frequency: '',
         list: [],
         totalPages: 0,
-        getList: function (page = 0) {
+        getArticleList: function (page = 0) {
           return axios
             .get(`https://api2.easyapi.com/api/articles?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8&page=${page}&size=10`)
             .then(res => {
@@ -53,14 +53,14 @@
               this.totalPages = res.data.totalPages
             })
         }
-      };
+      }
     },
     methods: {},
-    created() {
-      this.params = this.$route.query.params;
+    created () {
+      this.params = this.$route.query.params
     },
-    mounted() {
-      this.getList()
+    mounted () {
+      this.getArticleList()
     }
   }
 </script>

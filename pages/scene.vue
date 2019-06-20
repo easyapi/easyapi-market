@@ -2,11 +2,11 @@
   <div>
     <Header></Header>
     <div>
-      
+
     </div>
     <div class="container">
       <DivListWarp>
-        <div class="sence-warp" v-for="(item,index) in imgList" :key="index">
+        <div class="scene-warp" v-for="(item,index) in imgList" :key="index">
           <a :href="item.href" class="img">
             <img :src="item.src" alt="图片加载中...">
           </a>
@@ -90,7 +90,7 @@
           {charset: 'utf-8'},
           {name: 'viewport', content: 'width=device-width, initial-scale=1'},
           {hid: 'description', name: 'description', content: '服务市场场景化服务'},
-          {hid: 'keyswords', name: 'keyswords', content: '服务市场场景化服务'}
+          {hid: 'keyword', name: 'keyword', content: '服务市场场景化服务'}
         ]
       }
     },
@@ -98,7 +98,7 @@
 </script>
 
 <style lang="stylus">
-  .sence-warp {
+  .scene-warp {
     text-align center
     margin-bottom 20px
     width 387px
@@ -107,7 +107,7 @@
       display block
       width 387px
       height 223px
-      background-color white 
+      background-color white
     }
     .tex {
       display block
@@ -121,7 +121,6 @@
       color #000000 !important
       font-size 18px !important
     }
-
   }
 
 </style>
