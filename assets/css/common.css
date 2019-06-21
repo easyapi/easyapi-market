@@ -8,8 +8,62 @@ a{
 html{
   font-family: MicrosoftYaHei;
 }
+a{
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+ul, li, ol {
+  list-style: none;
+}
+span,img{
+  display: inline-block;
+}
+/*弹性布局*/
+.flex-r {
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  /*是否换行*/
+  /*flex-wrap:wrap;*/
+}
+
+.flex-c {
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+
+}
+
 .container {
   color: #000;
   width: 1200px;
   margin: 0 auto;
+}
+.mg-lf-15{
+  margin-left: 15px;
+}
+.mg-lf-20{
+  margin-left: 20px;
+}
+.mg-rt-10{
+  margin-right: 10px;
 }

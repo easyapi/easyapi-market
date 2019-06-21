@@ -5,80 +5,80 @@
       <div class="service-market">
         <div class="service-market-left">
           <div class="service-title"><h4>服务市场分类</h4></div>
-          <Row class="row">
-            <Col span="8" class="col">
+          <el-row class="row">
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">生活常用</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">天气预报</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">条码查询</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">即时通讯</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">短信服务</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">语音服务</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">充值缴费</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">加油卡充值</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">话费流量</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">开发服务</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">内容管理</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">广告管家</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">医疗健康</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">常见疾病</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">生活常用</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">金融征信</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">企业开票信息</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">生活常用</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">电商购物</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">生活常用</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">生活常用</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">基础数据</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">省市区数据</a>
-            </Col>
-            <Col span="8" class="col">
+            </el-col>
+            <el-col :span="8" class="col">
               <a class="col-fl" @click="getService(index)">生活常用</a>
-            </Col>
-          </Row>
+            </el-col>
+          </el-row>
         </div>
         <div class="service-market-right">
           <img src="https://qiniu.easyapi.com/market/ad/easyapi.png" alt="">
@@ -104,23 +104,27 @@
       <!--最新更新-->
       <div class="lastest-update">
         <div class="lastest-update-title"><span class="border"></span><span>最新更新</span></div>
-        <Row class="lastest-update-con-top">
-          <Col span="18" class="lastest-update-con-left">
-            <Row class="row">
-              <Col span="6" class="col" v-for="(item, index) in newestServiceList" :key="item.serviceId"
-                   v-if="index < 8">
+        <el-row class="lastest-update-con-top">
+          <el-col :span="18" class="lastest-update-con-left">
+            <el-row class="row">
+              <el-col :span="6" class="col" v-for="(item, index) in newestServiceList" :key="item.serviceId"
+                      v-if="index < 8">
                 <nuxt-link :to="{name:'service-id',params:{id:item.serviceId}}">
                   <p class="img"><img v-bind:src="item.img" alt=""></p>
                   <p class="text">{{item.name}}</p>
                 </nuxt-link>
-              </Col>
-            </Row>
-          </Col>
-          <Col span="6" class="lastest-update-con-right">
-            <Row class="row">
-              <Col span="20"><nuxt-link to="/post/" class="more-state">更多动态</nuxt-link></Col>
-              <Col span="4"><nuxt-link to="/post/" class="more">更多</nuxt-link></Col>
-            </Row>
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="6" class="lastest-update-con-right">
+            <el-row class="row">
+              <el-col :span="20">
+                <nuxt-link to="/post/" class="more-state">更多动态</nuxt-link>
+              </el-col>
+              <el-col :span="4">
+                <nuxt-link to="/post/" class="more">更多</nuxt-link>
+              </el-col>
+            </el-row>
             <div class="row-con" v-for="(item,index) in list" :key="index">
               <div>
                 <span class="circle"></span>
@@ -129,8 +133,8 @@
               </span>
               </div>
             </div>
-          </Col>
-        </Row>
+          </el-col>
+        </el-row>
         <div class="lastest-update-con-bottom">
         <span class="scenarioServices">
            <nuxt-link to="/scene">场景化服务</nuxt-link>
@@ -149,44 +153,44 @@
 
       <div class="join-market">
         <div class="join-market-title"><span class="border"></span><span>加入市场</span></div>
-        <Row class="join-market-con">
-          <Col span="6" class="col">
-            <Row>
-              <Col span="8"><img src="https://qiniu.easyapi.com/market/index/ic_time.png" alt=""></Col>
-              <Col span="16" style="padding: 30px 0">
+        <el-row class="join-market-con">
+          <el-col :span="6" class="col">
+            <el-row>
+              <el-col :span="8"><img src="https://qiniu.easyapi.com/market/index/ic_time.png" alt=""></el-col>
+              <el-col :span="16" style="padding: 30px 0">
                 <p class="text">提升开发效率</p>
                 <p class="join-market-text">提供统一风格接口服务</p>
-              </Col>
-            </Row>
-          </Col>
-          <Col span="6" class="col">
-            <Row>
-              <Col span="8"><img src="https://qiniu.easyapi.com/market/index/ic_money.png" alt=""></Col>
-              <Col span="16" style="padding: 30px 0">
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="6" class="col">
+            <el-row>
+              <el-col :span="8"><img src="https://qiniu.easyapi.com/market/index/ic_money.png" alt=""></el-col>
+              <el-col :span="16" style="padding: 30px 0">
                 <p class="text">服务转化收益</p>
                 <p class="join-market-text">把您的服务共享出来</p>
-              </Col>
-            </Row>
-          </Col>
-          <Col span="6" class="col">
-            <Row>
-              <Col span="8"><img src="https://qiniu.easyapi.com/market/index/ic_earth.png" alt=""></Col>
-              <Col span="16" style="padding: 30px 0">
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="6" class="col">
+            <el-row>
+              <el-col :span="8"><img src="https://qiniu.easyapi.com/market/index/ic_earth.png" alt=""></el-col>
+              <el-col :span="16" style="padding: 30px 0">
                 <p class="text">繁荣数据生态</p>
                 <p class="join-market-text">喂养数据，制造生态</p>
-              </Col>
-            </Row>
-          </Col>
-          <Col span="6" class="col">
-            <Row>
-              <Col span="8"><img src="https://qiniu.easyapi.com/market/index/ic_feedback.png" alt=""></Col>
-              <Col span="16" style="padding: 30px 0">
+              </el-col>
+            </el-row>
+          </el-col>
+          <el-col :span="6" class="col">
+            <el-row>
+              <el-col :span="8"><img src="https://qiniu.easyapi.com/market/index/ic_feedback.png" alt=""></el-col>
+              <el-col :span="16" style="padding: 30px 0">
                 <p class="text">让世界拥抱API</p>
                 <p class="join-market-text">让一切服务通过API相连</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
       </div>
     </div>
     <Footer></Footer>
@@ -261,118 +265,44 @@
     }
   }
 </script>
-<style scoped>
-  .lastest-update-con-bottom {
-    width: 100%;
-    height: auto;
-    display: flex;
-    margin-top: 10px;
-  }
-
-  .lastest-update-con-bottom .scenarioServices {
-    width: 285px;
-    height: 146px;
-    background: url("https://qiniu.easyapi.com/market/index/scene.png") no-repeat;
-    background-size: 100% 100%;
-    margin-right: 18px;
-  }
-
-  .lastest-update-con-bottom .scenarioServices a {
-    color: #ffffff;
-    font-size: 18px;
-    text-align: center;
-    line-height: 146px;
-    display: block;
-  }
-
-  .lastest-update-con-bottom .paymentAlbum {
-    width: 285px;
-    height: 146px;
-    background: url("https://qiniu.easyapi.com/market/index/jiaofei.png") no-repeat;
-    background-size: 100% 100%;
-    margin-right: 18px;
-  }
-
-  .lastest-update-con-bottom .paymentAlbum a {
-    color: #ffffff;
-    font-size: 18px;
-    text-align: center;
-    line-height: 146px;
-    display: block;
-  }
-
-  .lastest-update-con-bottom .financialAlbum {
-    width: 285px;
-    height: 146px;
-    background: url("https://qiniu.easyapi.com/market/index/finance.png") no-repeat;
-    background-size: 100% 100%;
-    margin-right: 18px;
-  }
-
-  .lastest-update-con-bottom .financialAlbum a {
-    color: #ffffff;
-    font-size: 18px;
-    text-align: center;
-    line-height: 146px;
-    display: block;
-  }
-
-  .lastest-update-con-bottom .clickInvoice {
-    width: 285px;
-    height: 146px;
-    background: url("https://qiniu.easyapi.com/market/index/e_invoice.png") no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .lastest-update-con-bottom .clickInvoice a {
-    color: #ffffff;
-    font-size: 18px;
-    text-align: center;
-    line-height: 146px;
-    display: block;
-  }
-</style>
 <style lang="stylus">
-  .container {
-  }
 
-  li {
-    list-style: none;
-  }
-
+</style>
+<style scoped lang="stylus">
   .index-container {
-    font-sie: 12px;
+    font-size: 12px;
     color: #333;
     width: 1200px;
     margin: 0 auto;
     /*服务市场分类*/
-
     .service-market {
       width 100%;
-
+      height: 372px;
       a {
         color #fff;
+        font-size: 12px;
       }
-      height: 372px;
-
-      .service-title {
-        color: #fff;
-        font-size 16px;
-        border-bottom: 1px solid #8ce0eb;
-        height: 45px;
-        line-height: 45px;
-
-        h4 {
-          margin-left 10px;
-          font-size 16px
-        }
-      }
-
       .service-market-left {
         float left;
         width 22%;
         height 100%;
         background: #1bc1d6;
+        .service-title {
+          color: #fff;
+          font-size 16px;
+          border-bottom: 1px solid #8ce0eb;
+          height: 45px;
+          line-height: 45px;
+
+          h4 {
+            margin-left: 10px;
+            font-size: 16px;
+          }
+
+          a.col-fl {
+            font-size: 12px;
+          }
+        }
 
         .row {
           height 40px;
@@ -380,12 +310,12 @@
 
           .col {
             border-bottom: 1px solid #8ce0eb;
+            height 41px;
           }
 
           .col:nth-of-type(3n+1) {
             padding-left: 10px;
             height 41px;
-
             a {
               display inline-block
               width 58px;
@@ -496,6 +426,8 @@
       }
 
       .lastest-update-con-top {
+        font-size 12px
+
         .lastest-update-con-left {
           height 100%;
 
@@ -607,5 +539,83 @@
     }
   }
 
+
+
+
+
+
+
+
+
+  .lastest-update-con-bottom {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .lastest-update-con-bottom .scenarioServices {
+    width: 285px;
+    height: 146px;
+    background: url("https://qiniu.easyapi.com/market/index/scene.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right: 18px;
+  }
+
+  .lastest-update-con-bottom .scenarioServices a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
+
+  .lastest-update-con-bottom .paymentAlbum {
+    width: 285px;
+    height: 146px;
+    background: url("https://qiniu.easyapi.com/market/index/jiaofei.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right: 18px;
+  }
+
+  .lastest-update-con-bottom .paymentAlbum a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
+
+  .lastest-update-con-bottom .financialAlbum {
+    width: 285px;
+    height: 146px;
+    background: url("https://qiniu.easyapi.com/market/index/finance.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right: 18px;
+  }
+
+  .lastest-update-con-bottom .financialAlbum a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
+
+  .lastest-update-con-bottom .clickInvoice {
+    width: 285px;
+    height: 146px;
+    background: url("https://qiniu.easyapi.com/market/index/e_invoice.png") no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .lastest-update-con-bottom .clickInvoice a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
 </style>
+
 

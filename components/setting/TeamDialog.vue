@@ -3,7 +3,7 @@
     <h2 class="current-team-name lrPading-20">当前团队</h2>
     <div class="clear current-team-content lrPading-20">
       <!-- <span > -->
-      <img class="lf teams-img" :src='teamImg+"!icon.jpg"' alt=""  v-if="teamImg">
+      <img class="lf teams-img" :src='teamImg+"!icon.jpg"' alt="" v-if="teamImg">
       <!-- </span> -->
       <div class="lf teams-img-r">
         <p>{{teamName}}</p>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="create-team">
-      <Button type="info" class="ea-info-btn" @click="jumpPage">创建新团队</Button>
+      <el-button type="primary" size="small" @click="jumpPage">创建新团队</el-button>
     </div>
   </div>
 </template>
@@ -33,13 +33,13 @@
     name: '',
     components: {},
     props: {
-      showTeamDialog:{
+      showTeamDialog: {
         type: Boolean,
         default: false
       },
-      teamImg:String,
-      teamName:String,
-      teamList:{
+      teamImg: String,
+      teamName: String,
+      teamList: {
         type: Array,
         default: function () {
           return []
@@ -55,8 +55,8 @@
     //计算属性
     computed: {},
     watch: {
-      showTeamDialog:function (v) {
-        return this.showTeamInfo=v
+      showTeamDialog: function (v) {
+        return this.showTeamInfo = v
       }
     },
     created() {
@@ -73,10 +73,10 @@
     },
     //方法
     methods: {
-      tabTeamFn(e){
-        this.$emit('on-selectTeam',e);
+      tabTeamFn(e) {
+        this.$emit('on-selectTeam', e);
       },
-      jumpPage(){
+      jumpPage() {
         this.$emit('on-creadTeam');
       }
     }
@@ -148,6 +148,7 @@
             margin-right: 5px;
             font-weight: normal;
             font-size: 14px;
+            line-height: normal;
           }
         }
       }

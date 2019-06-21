@@ -17,11 +17,12 @@ module.exports = {
     ]
   },
   css: [
-    {src: '~/assets/css/common.css', lang: 'common'},
+    '@/assets/scss/element-variables.scss',
+    '@/assets/css/common.css',
   ],
   plugins: [
     {src: '~/plugins/vue-notifications', ssr: false},
-    {src: '~plugins/iview', ssr: true},
+    {src: '~plugins/element-ui', ssr: true},
     {src: "~/plugins/axios", ssr: false}
   ],
   /*

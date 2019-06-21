@@ -3,50 +3,50 @@
     <Header v-bind:callback='getServiceList'></Header>
     <div class="container">
       <div class="search-list">
-        <Row class="row">
-          <Col :span="2" class="col-left">商品分类：</Col>
-          <Col :span="22" class="col-right">
-            <Row>
-              <Col :span="2">
+        <el-row class="row">
+          <el-col :span="2" class="col-left">商品分类：</el-col>
+          <el-col :span="22" class="col-right">
+            <el-row>
+              <el-col :span="2">
                 <a class="col-right-con" :class="{active:serviceTypeId==='全部'}" @click="getService('全部')">全部</a>
-              </Col>
-              <Col :span="2" v-for="(item, index) in serviceTypeList" :key="index">
+              </el-col>
+              <el-col :span="2" v-for="(item, index) in serviceTypeList" :key="index">
                 <a class="col-right-con" :class="{active:serviceTypeId==item.serviceTypeId}" @click="getService(item.serviceTypeId)">
                   {{item.name}}
                 </a>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row class="row">
-          <Col :span="2" class="col-left">付费类型：</Col>
-          <Col :span="21" class="col-right">
-            <Row>
-              <Col :span="2"><a class="col-right-con" :class="{active:type==='全部'}" @click="charge('全部')">全部</a></Col>
-              <Col :span="2"><a class="col-right-con" :class="{active:type==='1'}" @click="charge('1')">免费</a></Col>
-              <Col :span="2"><a class="col-right-con" :class="{active:type==='2'}" @click="charge('2')">收费</a></Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row class="row">
-          <Col :span="2" class="col-left" style="font-weight:700;">排序方式：</Col>
-          <Col :span="21" class="col-right">
-            <Row>
-              <Col :span="2">
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+        <el-row class="row">
+          <el-col :span="2" class="col-left">付费类型：</el-col>
+          <el-col :span="21" class="col-right">
+            <el-row>
+              <el-col :span="2"><a class="col-right-con" :class="{active:type==='全部'}" @click="charge('全部')">全部</a></el-col>
+              <el-col :span="2"><a class="col-right-con" :class="{active:type==='1'}" @click="charge('1')">免费</a></el-col>
+              <el-col :span="2"><a class="col-right-con" :class="{active:type==='2'}" @click="charge('2')">收费</a></el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+        <el-row class="row">
+          <el-col :span="2" class="col-left" style="font-weight:700;">排序方式：</el-col>
+          <el-col :span="21" class="col-right">
+            <el-row>
+              <el-col :span="2">
                 <a class="col-right-con" :class="{tqActive:sort==='1'}" @click="styleSwitch('1')">热门
                   <img src="../../assets/images/arrowTenBlue.png" alt="暂无数据" v-if="sort==='1'">
                   <img src="../../assets/images/arrowTenGray.png" alt="暂无数据" v-else>
                 </a>
-              </Col>
-              <Col :span="2">
+              </el-col>
+              <el-col :span="2">
                 <a class="col-right-con" :class="{tqActive:sort==='2'}" @click="styleSwitch('2')">最新
                   <img src="../../assets/images/arrowTenBlue.png" alt="暂无数据" v-if="sort==='2'">
                   <img src="../../assets/images/arrowTenGray.png" alt="暂无数据" v-else>
                 </a>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
       </div>
       <div class="recommend-service">
         <div class="recommend-service-con">

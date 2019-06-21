@@ -1,47 +1,53 @@
 <template>
-  <div class="header">
-    <ul class="header-con-left">
-      <li class="header-logo">
-        <nuxt-link :to="{name:'index'}" class="logo">
+  <div class="header flex-r">
+    <ul class="header-con-left flex-r">
+      <div class="header-logo flex-r">
+        <nuxt-link :to="{name:'index'}" class="logo flex-r">
           <img src="https://qiniu.easyapi.com/market/logo.png" alt="" width="100">
         </nuxt-link>
         <span class="circle"></span>
+      </div>
+      <li class="header-market">
+        <nuxt-link :to="{name:'index'}">API市场</nuxt-link>
       </li>
-      <nuxt-link :to="{name:'index'}">
-        <li class="header-market" style="margin-left:10px;">API市场</li>
-      </nuxt-link>
-      <nuxt-link :to="{name:'index'}">
-        <li class="index">首页</li>
-      </nuxt-link>
-      <nuxt-link :to="{name:'service'}">
-        <li class="header-port">API接口</li>
-      </nuxt-link>
-      <nuxt-link :to="{name:'scene'}">
-        <li class="header-scenarized-service">场景化服务</li>
-      </nuxt-link>
+      <li class="item-menu mg-lf-20">
+        <nuxt-link :to="{name:'index'}">首页</nuxt-link>
+      </li>
+      <li class="item-menu">
+        <nuxt-link :to="{name:'service'}">API接口</nuxt-link>
+      </li>
+      <li class="item-menu">
+        <nuxt-link :to="{name:'scene'}">场景化服务</nuxt-link>
+      </li>
     </ul>
-    <ul class="header-con-right">
-      <li class="header-login">
+    <ul class="header-con-right flex-r">
+      <li class="header-search">
+        <el-input size="small" placeholder="搜索服务" class="search" v-model="name" @keyup.enter.native="search">
+          <i slot="prefix" class="el-input__icon el-icon-search"></i>
+        </el-input>
+      </li>
+      <li class="item-menu header-service-center">
+        <a href="https://service.easyapi.com">服务中心</a>
+      </li>
+      <li class="item-menu current-team-box">
+        <a id="showTeamInfo" class="flex-r" :class="{active:showTeamInfo}">
+          <span class="team-icon"></span>
+        </a>
+        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo"
+                    :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
+      </li>
+      <li class="item-menu header-login">
         <div class="userAvatar ea-Dropdown">
-          <a v-if="photo">
+          <a v-if="photo" class="flex-r">
             <img id="showPersonage" :src="photo+'!icon.jpg'" alt="" v-if="photo">
           </a>
+
         </div>
         <div :class="{active:isActive}" class="ea-DropdownMenu">
           <a href="https://account.easyapi.com/notification/">我的通知</a>
           <a href="https://account.easyapi.com/setting/data">个人设置</a>
           <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
         </div>
-      </li>
-      <li class="current-team-box">
-        <a id="showTeamInfo" :class="{active:showTeamInfo}">
-          <span class="team-icon"></span>
-        </a>
-        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo" :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
-      </li>
-      <li class="header-service-center"><a href="https://service.easyapi.com">服务中心</a></li>
-      <li class="header-search">
-        <Input icon="ios-search" placeholder="搜索服务" class="search" v-model="name" @keyup.enter.native="search"></Input>
       </li>
     </ul>
   </div>
@@ -52,11 +58,12 @@
   import {getServiceList, getServiceTypeList, getMyTeam} from '~/api/api'
   import axios from '~/plugins/axios'
   import TeamDialog from './setting/TeamDialog'
+
   export default {
     name: "Header",
     layout: '',
     props: ['callback'],
-    components:{
+    components: {
       TeamDialog,
     },
     data() {
@@ -86,7 +93,7 @@
         _this.$router.push({path: "/service", query: {name: this.name}})
 
         setTimeout(() => {
-           _this.callback && _this.callback(null, this.name)
+          _this.callback && _this.callback(null, this.name)
         }, 0);
       },
 
@@ -133,144 +140,172 @@
 </script>
 
 <style scoped lang="stylus">
-  .ea-DropdownMenu
-    position absolute
-    top 60px
-    right 0
-    z-index 100
-    border 1px solid #eee
-    border-top none
-    box-shadow 0px 1px 3px #ddd;
-    background-color #fff
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    width 100px
-    display none
-    &.active
-      display block
-    a
-      display block
-      line-height 26px
-      height inherit
-      padding-left 15px
-      color #777
-      font-weight normal
-      &:hover
-        background-color #1ac1d6
-        color: #fff
 
-  a {
-    color: #fff;
-  }
-
-  .circle {
-    display inline-block
-    background white
-    width 6px
-    height 6px
-    border-radius 50%
-    margin-bottom 13px
-  }
-
-  .header-market {
-    font-size 16px
-    padding-right 20px
-    border-right 1px solid #0bacc0
-  }
-
-  .bg-color {
-    background #00adc2
-  }
 
   .header {
     font-weight 700
     font-size: 14px;
     height: 60px;
     line-height 60px
-    width 100%;
     background: #18c1d6;
-    overflow hidden
     margin-bottom 30px;
+    align-items: center;
+    justify-content space-between
+    padding: 0 0px 0 30px;
+
+    a {
+      color: #fff;
+    }
+
     .header-con-left {
-      height: 100%;
-      width 50%;
-      float left;
       li {
         height 100%;
-        float left;
         list-style none;
-        margin-left 30px;
-        img {
-          padding-top 18px
+
+        a {
+          height: 60px;
         }
       }
+
+      .header-logo {
+        align-items: center;
+
+        a.logo {
+          align-items: center;
+        }
+
+        .circle {
+          display: inline-block;
+          background: white;
+          width: 6px;
+          height: 6px;
+          border-radius 50%;
+        }
+      }
+
+      .header-market {
+        font-size 16px
+        margin-left 10px
+        padding-right 30px
+        border-right 1px solid #0bacc0
+      }
+
+      .item-menu {
+        a {
+          padding: 0 20px;
+        }
+
+      }
     }
-    .header-service-center {
-      border-left 1px solid #0bacc0
-      padding-left 20px
-      box-sizing border-box
-    }
-    #showTeamInfo {
-      border-left 1px solid #0bacc0
-      border-right 1px solid #0bacc0
-    }
+
+
     .header-con-right {
-      height 100%
-      width 50%;
-      float right;
+      height: 60px;
+      align-items center
 
       li {
         height 100%
         list-style none;
-        margin-left 20px;
-        float right;
+
         img {
           width 35px
           height 35px
-          margin 12.5px 20px 0px 0px
           border-radius 50%
           cursor pointer
         }
       }
+
       .header-search {
-        padding-top 2px
+        padding: 0 20px
+
         .search {
-          margin-top -5px;
           width 200px;
         }
       }
+
+      .item-menu {
+        border-left: 1px solid #0bacc0;
+
+        a {
+          padding: 0 20px;
+
+        }
+      }
+
+
+      .current-team-box {
+        & > a {
+          position relative
+          height: 60px;
+          padding-top: 12.5px;
+          display: inline-block;
+
+          &.active {
+            background-color: #19B7CB;
+          }
+
+          &:hover {
+            background-color: #19B7CB;
+          }
+
+          .team-icon {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: url('../assets/images/team-icon.png') no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+
+      .header-login {
+       &>.ea-Dropdown>a{
+         height: 60px;
+         padding-top: 12.5px;
+       }
+        position: relative;
+      }
     }
   }
 
-  .header .header-con-left li:nth-child(1) {
-    // margin-left 10px
-  }
-</style>
-<style scoped lang="stylus">
-  .current-team-box {
-    & > a {
-      position relative
-      height: 60px;
-      display: inline-block;
-      padding: 12.5px 20px
-      &.active {
-        background-color: #19B7CB;
-      }
+
+  .ea-DropdownMenu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    z-index: 100;
+    border: 1px solid #eee;
+    border-top: none;
+    box-shadow: 0px 1px 3px #ddd;
+    background-color: #fff;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 100px;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+
+    a {
+      display: block;
+      line-height: 26px;
+      height: inherit;
+      padding-left: 15px;
+      color: #777;
+      font-weight: normal;
 
       &:hover {
-        background-color: #19B7CB;
+        background-color: #1ac1d6;
+        color: #fff;
       }
 
-      .team-icon {
-        display: inline-block;
-        width: 35px;
-        height: 35px;
-        background: url('../assets/images/team-icon.png') no-repeat;
-        background-size: cover;
-      }
     }
+
+
   }
 
-
 </style>
+
 

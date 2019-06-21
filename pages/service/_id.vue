@@ -2,10 +2,10 @@
   <div>
     <Header></Header>
     <div class="container">
-      <Row class="service-detail-con">
-        <Col :span="18" class="service-detail-left">
-          <Row class="service-detail-left-title">
-            <Col :span="20" class="col-left">
+      <el-row class="service-detail-con">
+        <el-col :span="18" class="service-detail-left">
+          <el-row class="service-detail-left-title">
+            <el-col :span="20" class="col-left">
               <div class="img"><img v-bind:src="service.img" alt=""></div>
               <div class="con">
                 <p class="con-title">{{service.name}}</p>
@@ -23,26 +23,28 @@
                   <span>{{service.sales}}次接入</span>
                 </p>
               </div>
-            </Col>
-            <Col :span="4" class="col-right">
+            </el-col>
+            <el-col :span="4" class="col-right">
               <p v-if="service.hasConsole===true">
-                <Button @click="homepage(service.url)">进入官网</Button>
+                <el-button size="small" plain @click="homepage(service.url)">进入官网</el-button>
               </p>
               <p>
-                <Button>API文档</Button>
+                <el-button size="small" plain>API文档</el-button>
               </p>
-            </Col>
-          </Row>
+            </el-col>
+          </el-row>
           <div class="combo">
             <div class="combo-con" v-if="service.type===2">
-              <span>套餐:</span>
-              <Button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">{{item.times}}次
-              </Button>
+              <span class="mg-rt-10">套餐:</span>
+              <el-button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index"
+                         @click="changeItem(index)">{{item.times}}次
+              </el-button>
             </div>
             <div class="combo-con" v-if="service.type===3">
-              <span>套餐:</span>
-              <Button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">{{item.month}}个月
-              </Button>
+              <span class="mg-rt-10">套餐:</span>
+              <el-button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index"
+                         @click="changeItem(index)">{{item.month}}个月
+              </el-button>
             </div>
             <div class="price">
               <p v-if="service.type===2">
@@ -57,10 +59,11 @@
               </p>
             </div>
             <div class="con-btn">
-              <Button v-if="service && service.ifBuy == true" @click="use(service.url,service.hasConsole,service.serviceId)">
+              <el-button type="primary" v-if="service && service.ifBuy == true"
+                         @click="use(service.url,service.hasConsole,service.serviceId)">
                 立即使用
-              </Button>
-              <Button v-else @click="subscribeDialog()">立即开通</Button>
+              </el-button>
+              <el-button type="primary" v-else @click="subscribeDialog()">立即开通</el-button>
             </div>
           </div>
           <div class="service-explain">
@@ -68,16 +71,19 @@
             <div class="border"></div>
             <div class="img service-detail-imgs" v-html="service.content" style="text-align: center"></div>
           </div>
-        </Col>
-        <Col :span="6" class="service-detail-right">
+        </el-col>
+        <el-col :span="6" class="service-detail-right">
           <div class="contact">
             <div class="customer">
               <p class="title">在线客服</p>
-              <p class="img">
-              <span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
-                border="0" src="http://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息"
-                title="点击这里给我发消息"/></a></span><span class="text">EasyAPI工程师</span>
-              </p>
+              <div class="img flex-r">
+
+                <a target="_blank" class="flex-c" href="http://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
+                  border="0" src="http://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息"
+                  title="点击这里给我发消息"/>
+                </a>
+                <span class="text">EasyAPI工程师</span>
+              </div>
             </div>
             <div class="time">
               <p>服务时间</p>
@@ -105,7 +111,8 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png" alt="广告管家"></a>
+                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png"
+                                                      alt="广告管家"></a>
               </div>
               <div class="con">
                 <p>广告管家</p>
@@ -114,7 +121,8 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png" alt="快速提现"></a>
+                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png"
+                                                            alt="快速提现"></a>
               </div>
               <div class="con">
                 <p>快速提现</p>
@@ -122,17 +130,19 @@
               </div>
             </div>
           </div>
-        </Col>
-      </Row>
+        </el-col>
+      </el-row>
     </div>
-    <Modal
+    <el-dialog
       title="开通服务"
-      v-model="subscribe"
-      @on-ok="subscribeService">
+      v-model="subscribe">
       <p v-if="service.type===1" style="text-align: center;font-size: 14px">确定开通此服务吗？</p>
       <p v-if="service.type===2" style="text-align: center;font-size: 14px">开通即送100次免费体验次数，确定开通此服务吗？</p>
       <p v-if="service.type===3" style="text-align: center;font-size: 14px">开通即送7天免费体验期，确定开通此服务吗？</p>
-    </Modal>
+    <div slot="footer">
+      <el-button type="primary" @click="subscribeService">确 定</el-button>
+    </div>
+    </el-dialog>
     <Footer></Footer>
   </div>
 </template>
@@ -180,8 +190,8 @@
       ])
       if (res2.data.code !== 0) {
       }
-      console.log(res1.data.content,'res1.data.content  接口打印')
-      Cookies.set('objService',JSON.stringify(res1.data.content) )
+      console.log(res1.data.content, 'res1.data.content  接口打印')
+      Cookies.set('objService', JSON.stringify(res1.data.content))
 
       return {
         service: res1.data.content,
@@ -189,9 +199,9 @@
       }
     },
     created() {
-      if(Cookies.get('objService')) {
-          this.service =JSON.parse( Cookies.get('objService')) ;
-          console.log(this.service,'this.service')
+      if (Cookies.get('objService')) {
+        this.service = JSON.parse(Cookies.get('objService'));
+        console.log(this.service, 'this.service')
       }
     },
     mounted() {
@@ -236,10 +246,12 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+
   .service-detail-con {
     .service-detail-left {
       padding-right 100px;
+      font-size: 12px;
 
       .service-detail-left-title {
         border-bottom 1px solid #f4f4f4;
@@ -299,7 +311,7 @@
           padding-left 20px;
 
           p {
-            Button {
+            el-button {
               width: 100%;
               height: 34px;
               color: #18c1d6;
@@ -318,7 +330,7 @@
         margin-top 20px;
 
         .combo-con {
-          Button {
+          el-button {
             min-width 80px;
             height 40px;
             border-radius 0;
@@ -339,7 +351,7 @@
         }
 
         .con-btn {
-          Button {
+          el-button {
             width: 140px;
             height: 40px;
             background-color: #1ac1d6;
@@ -371,6 +383,7 @@
           width 100%;
           min-height height 288px;
         }
+
         .service-detail-imgs > div {
           display flex
           flex-direction column
@@ -395,6 +408,10 @@
           }
 
           .img {
+            align-items: flex-end;
+            a{
+              justify-content: flex-end;
+            }
             .text {
               margin-left 10px;
               font-size 14px;
