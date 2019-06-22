@@ -6,9 +6,8 @@ EasyAPI服务市场
 ## 相关技术和第三方库
 * [Nuxt](https://zh.nuxtjs.org)
 * [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
-* [vuex中文文档](https://vuex.vuejs.org/zh-cn/)
 * [axios中文说明](https://www.kancloud.cn/yunye/axios/234845)
-* [iview组件库](https://www.iviewui.com/)
+* [Element组件库](https://element.eleme.cn/)
 
 ## Build Setup
 
