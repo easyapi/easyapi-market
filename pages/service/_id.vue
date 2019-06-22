@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class="container">
+    <div class="container" v-if="service">
       <el-row class="service-detail-con">
         <el-col :span="18" class="service-detail-left">
           <el-row class="service-detail-left-title">
@@ -139,9 +139,9 @@
       <p v-if="service.type===1" style="text-align: center;font-size: 14px">确定开通此服务吗？</p>
       <p v-if="service.type===2" style="text-align: center;font-size: 14px">开通即送100次免费体验次数，确定开通此服务吗？</p>
       <p v-if="service.type===3" style="text-align: center;font-size: 14px">开通即送7天免费体验期，确定开通此服务吗？</p>
-    <div slot="footer">
-      <el-button type="primary" @click="subscribeService">确 定</el-button>
-    </div>
+      <div slot="footer">
+        <el-button type="primary" @click="subscribeService">确 定</el-button>
+      </div>
     </el-dialog>
     <Footer></Footer>
   </div>
@@ -155,6 +155,7 @@
 
   export default {
     name: 'service-detail',
+    loading: true,
     head() {
       return {
         title: this.service.name + ' - EasyAPI服务市场',
@@ -180,34 +181,58 @@
       };
     },
     async asyncData({params, error}) {
-      let [res1, res2] = await Promise.all([
-        axios.get(`/api/service/${params.id}`, {
-          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
-        }),
-        axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`, {
-          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
-        })
-      ])
-      if (res2.data.code !== 0) {
-      }
-      console.log(res1.data.content, 'res1.data.content  接口打印')
-      Cookies.set('objService', JSON.stringify(res1.data.content))
+      // let [res1, res2] = await Promise.all([
+      //   axios.get(`/api/service/${params.id}`, {
+      //     headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+      //   }),
+      //   axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`, {
+      //     headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+      //   })
+      // ])
 
-      return {
-        service: res1.data.content,
-        servicePriceList: res2.data.content
-      }
+      // if (res2.data.code !== 0) {
+      // }
+      // Cookies.set('objService', JSON.stringify(res1.data.content))
+
+      // return {
+      //   service: res1.data.content,
+      //   servicePriceList: res2.data.content
+      // }
     },
     created() {
-      if (Cookies.get('objService')) {
-        this.service = JSON.parse(Cookies.get('objService'));
-        console.log(this.service, 'this.service')
-      }
+      // if (Cookies.get('objService')) {
+      //   this.service = JSON.parse(Cookies.get('objService'));
+      // }
+      //临时处理方法
+      this.getService();
+      this.getServicePirce()
     },
     mounted() {
 
     },
     methods: {
+      getService() {
+        console.log(this.$route)
+        axios.get(`/api/service/${this.$route.params.id}`, {
+          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+        }).then(res => {
+          this.service = res.data.content;
+        }).catch(error => {
+          console.log(error)
+        });
+
+      },
+      getServicePirce() {
+        axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${this.$route.params.id}`, {
+          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+        }).then(res => {
+          this.servicePriceList = res.data.content;
+        }).catch(error => {
+          console.log(error)
+        });
+      },
+
+
       use(url, hasConsole, serviceId) {
         if (hasConsole === true) {
           window.location.href = 'https://' + url + '.easyapi.com/console/'
@@ -409,9 +434,11 @@
 
           .img {
             align-items: flex-end;
-            a{
+
+            a {
               justify-content: flex-end;
             }
+
             .text {
               margin-left 10px;
               font-size 14px;
