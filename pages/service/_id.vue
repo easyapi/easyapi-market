@@ -77,7 +77,6 @@
             <div class="customer">
               <p class="title">在线客服</p>
               <div class="img flex-r">
-
                 <a target="_blank" class="flex-c" href="http://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
                   border="0" src="http://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息"
                   title="点击这里给我发消息"/>
@@ -205,7 +204,7 @@
       // }
       //临时处理方法
       this.getService();
-      this.getServicePirce()
+      this.getServicePrice()
     },
     mounted() {
 
@@ -222,7 +221,7 @@
         });
 
       },
-      getServicePirce() {
+      getServicePrice() {
         axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${this.$route.params.id}`, {
           headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
         }).then(res => {
@@ -232,12 +231,11 @@
         });
       },
 
-
       use(url, hasConsole, serviceId) {
         if (hasConsole === true) {
           window.location.href = 'https://' + url + '.easyapi.com/console/'
         } else {
-          this.$router.push({path: "https://service.easyapi.com/Statistics", query: {serviceId: serviceId}})
+          this.$router.push({path: "https://service.easyapi.com/stat", query: {serviceId: serviceId}})
         }
       },
       homepage(url) {
