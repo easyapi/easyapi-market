@@ -49,5 +49,8 @@ module.exports = {
     ],
     maxChunkSize: 360000, // 单个包最大尺寸
     extractCSS: true // 单独提取CSS
+  },
+  server: {
+    port: 8265, // default: 3000
   }
 }
