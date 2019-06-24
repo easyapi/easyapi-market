@@ -2,6 +2,7 @@
   <div>
     <Header></Header>
     <div class="container">
+
       <el-row class="service-detail-con">
         <el-col :span="18" class="service-detail-left">
           <el-row class="service-detail-left-title">
@@ -18,7 +19,7 @@
                   <span v-if="service.state==-1"><a herf="">异常</a></span>
                 </p>
                 <p class="con-con">
-                  <span>{{service.serviceType.name}}</span>
+                  <span>{{serviceType.name}}</span>
                   |
                   <span>{{service.sales}}次接入</span>
                 </p>
@@ -174,55 +175,67 @@
       return {
         subscribe: false,
         service: '',
+        serviceType: '',
         clicked: 0,
         servicePriceList: [],
         isIfBuy: false
       };
     },
-    async asyncData({params, error}) {
-      const [res1, res2] = await Promise.all([
-        axios.get(`/api/service/${params.id}`, {headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}}),
-        axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`, {headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}})
-      ])
-      // Cookies.set('objService', JSON.stringify(res1.data.content))
-
-      return {
-        service: res1.data.content,
-        servicePriceList: res2.data.content
-      }
-    },
+    // async asyncData({params, error}) {
+    //   console.log(params)
+    //   // const [res1, res2] = await Promise.all([
+    //   //   axios.get(`https://api2.easyapi.com/api/service/${params.id}`),
+    //   //   axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`)
+    //   // ])
+    //   const res1 = await axios.get(`https://api2.easyapi.com/api/service/${params.id}`)
+    //   const res2 = await axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`)
+    //   // Cookies.set('objService', JSON.stringify(res1.data.content))
+    //
+    //   return {
+    //     service: res1.data.content,
+    //     serviceType: res1.data.content.serviceType,
+    //     servicePriceList: res2.data.content
+    //   }
+    // },
     created() {
       // if (Cookies.get('objService')) {
       //   this.service = JSON.parse(Cookies.get('objService'));
       // }
       // //临时处理方法
-      // this.getService();
-      // this.getServicePrice()
+      this.getService();
+      this.getServicePrice()
     },
     mounted() {
 
     },
     methods: {
-      // getService() {
-      //   console.log(this.$route)
-      //   axios.get(`/api/service/${this.$route.params.id}`, {
-      //     headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
-      //   }).then(res => {
-      //     this.service = res.data.content;
-      //   }).catch(error => {
-      //     console.log(error)
-      //   });
-      //
-      // },
-      // getServicePrice() {
-      //   axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${this.$route.params.id}`, {
-      //     headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
-      //   }).then(res => {
-      //     this.servicePriceList = res.data.content;
-      //   }).catch(error => {
-      //     console.log(error)
-      //   });
-      // },
+      getService() {
+        console.log(this.$route)
+        axios.get(`/api/service/${this.$route.params.id}`, {
+          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+        }).then(res => {
+          if (res.data.code === "1") {
+            this.service = res.data.content;
+            if (this.service.serviceType) {
+              this.serviceType = this.service.serviceType
+            }
+          }
+
+        }).catch(error => {
+          console.log(error)
+        });
+
+      },
+      getServicePrice() {
+        axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${this.$route.params.id}`, {
+          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
+        }).then(res => {
+
+          this.servicePriceList = res.data.content;
+        }).catch(error => {
+          console.log(error)
+        });
+      },
 
       use(url, hasConsole, serviceId) {
         if (hasConsole === true) {
