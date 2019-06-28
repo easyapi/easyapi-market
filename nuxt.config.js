@@ -17,18 +17,26 @@ module.exports = {
     ]
   },
   css: [
-    '@/assets/scss/element-variables.scss',
     '@/assets/css/common.css',
+    '@/assets/scss/element-variables.scss'
   ],
   plugins: [
-    {src: '~/plugins/vue-notifications', ssr: false},
-    {src: '~plugins/element-ui', ssr: true},
-    {src: "~/plugins/axios", ssr: false}
+    {
+      src: '~/plugins/vue-notifications', ssr: false
+    },
+    {
+      src: '~plugins/element-ui', ssr: true
+    },
+    {
+      src: '~/plugins/axios', ssr: false
+    }
   ],
   /*
   ** Customize the progress bar color
   */
-  loading: {color: '#3B8070'},
+  loading: {
+    olor: '#3B8070'
+  },
   /*
   ** Build configuration
   */

@@ -140,18 +140,16 @@
 </script>
 
 <style scoped lang="stylus">
-
-
   .header {
-    font-weight 700
+    font-weight: 700;
     font-size: 14px;
     height: 60px;
-    line-height 60px
+    line-height: 60px;
     background: #18c1d6;
     margin-bottom 30px;
     align-items: center;
-    justify-content space-between
-    padding: 0 0px 0 30px;
+    justify-content: space-between;
+    padding: 0 0 0 30px;
 
     a {
       color: #fff;
@@ -160,7 +158,7 @@
     .header-con-left {
       li {
         height 100%;
-        list-style none;
+        list-style: none;
 
         a {
           height: 60px;
@@ -184,10 +182,10 @@
       }
 
       .header-market {
-        font-size 16px
-        margin-left 10px
-        padding-right 30px
-        border-right 1px solid #0bacc0
+        font-size: 16px;
+        margin-left: 10px;
+        padding-right: 30px;
+        border-right: 1px solid #0bacc0;
       }
 
       .item-menu {
@@ -201,25 +199,25 @@
 
     .header-con-right {
       height: 60px;
-      align-items center
+      align-items: center;
 
       li {
-        height 100%
+        height: 100%;
         list-style none;
 
         img {
-          width 35px
-          height 35px
-          border-radius 50%
-          cursor pointer
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          cursor: pointer;
         }
       }
 
       .header-search {
-        padding: 0 20px
+        padding: 0 20px;
 
         .search {
-          width 200px;
+          width: 200px;
         }
       }
 
@@ -235,7 +233,7 @@
 
       .current-team-box {
         & > a {
-          position relative
+          position: relative;
           height: 60px;
           padding-top: 12.5px;
           display: inline-block;
@@ -259,10 +257,10 @@
       }
 
       .header-login {
-       &>.ea-Dropdown>a{
-         height: 60px;
-         padding-top: 12.5px;
-       }
+        & > .ea-Dropdown > a {
+          height: 60px;
+          padding-top: 12.5px;
+        }
         position: relative;
       }
     }
@@ -300,9 +298,7 @@
         background-color: #1ac1d6;
         color: #fff;
       }
-
     }
-
 
   }
 
