@@ -81,7 +81,7 @@
       }
     },
     mounted () {
-      console.log(this.$router.push, '$router')
+
     }
   }
 </script>

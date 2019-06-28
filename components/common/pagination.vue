@@ -81,7 +81,7 @@
     },
     methods: {
       setCurrent: function (idx, ele) {
-        console.log(ele, 'I am this.current ele')
+
         if (ele) {
           this.pageClick(idx)
         }
