@@ -147,7 +147,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .top .header .header-service-center {
     border-left: 0 !important;
   }

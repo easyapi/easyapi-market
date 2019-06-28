@@ -265,7 +265,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .index-container {
     font-size: 12px;
     color: #333;

@@ -110,7 +110,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .pagination {
     overflow: hidden;
     display: table;

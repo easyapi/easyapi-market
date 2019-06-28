@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .title-mid {
     margin: 67px 0 46px;
     font-size: 28px;

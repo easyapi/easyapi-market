@@ -62,7 +62,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .detail-wrapper {
     padding: 0 58px;
     border: 1px solid #ddd;

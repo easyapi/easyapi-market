@@ -34,7 +34,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .loading-wrapper {
     display: flex;
     line-height: 80px;

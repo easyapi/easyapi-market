@@ -15,7 +15,7 @@
   </a>
 </template>
 
-<style>
+<style scoped>
   .list-item {
     display: flex;
     margin-bottom: 20px;

@@ -91,15 +91,15 @@
 
   export default {
     name: 'service',
-    head() {
+    head () {
       return {
         name: '',
         title: 'API接口 - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '服务市场API接口'},
-          {hid: 'keyword', name: 'keyword', content: '服务市场API接口'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '服务市场API接口' },
+          { hid: 'keyword', name: 'keyword', content: '服务市场API接口' }
         ]
       }
     },
@@ -108,7 +108,7 @@
       Footer,
       Pagination
     },
-    data() {
+    data () {
       return {
         name: '',
         serviceTypeId: '全部',
@@ -123,7 +123,7 @@
         current: 0   // 当前的页数
       }
     },
-    async asyncData({params, error}) {
+    async asyncData ({ params, error }) {
       let [res1, res2] = await Promise.all([
         axios.get('/api/services'),
         axios.get('/api/service/types')
@@ -134,28 +134,28 @@
       }
     },
     methods: {
-      pageChange(currentPage) {
+      pageChange (currentPage) {
         let url = `/api/services?page=${currentPage}&size=${this.pageSize}`
         let urlName = this.$route.query.name && this.$route.query.name.trim()
         return urlName ? this.getServiceList(url, urlName) : this.getServiceList(url)
       },
       //样式切换
-      getService(id) {
+      getService (id) {
         this.serviceTypeId = id
         let action = 'click'
         this.getServiceList(null, null, action)
       },
-      charge(t) {
+      charge (t) {
         this.type = t
         let action = 'click'
         this.getServiceList(null, null, action)
       },
-      styleSwitch(t) {
+      styleSwitch (t) {
         this.sort = t
         this.getServiceList()
       },
 
-      getServiceList(url, name, action) {
+      getServiceList (url, name, action) {
         let _this = this
         let obj = {}
         if (name) {
@@ -183,7 +183,7 @@
             obj.sort = 'sales,desc'
           }
         }
-        let {query: {serviceTypeId, type, sort}} = this.$route
+        let { query: { serviceTypeId, type, sort } } = this.$route
 
         _this.saveParams({
           serviceTypeId: action ? this.serviceTypeId : serviceTypeId || '全部',
@@ -192,7 +192,7 @@
           ...obj,
         }).then(res => {
           setTimeout(() => {
-            let {query} = this.$route
+            let { query } = this.$route
 
             let newObj = {
               ...query,
@@ -202,7 +202,7 @@
             this.serviceTypeId = query.serviceTypeId
             this.type = query.type
 
-            let {page, size, serviceTypeId, type, sort, types} = newObj
+            let { page, size, serviceTypeId, type, sort, types } = newObj
 
             if (serviceTypeId == '全部') {
               delete newObj.serviceTypeId
@@ -238,7 +238,7 @@
           }, 0)
         })
       },
-      getName(name) {
+      getName (name) {
         let currentPage = 0
         let url = `/api/services`
         let urlName = name && name.trim()
@@ -247,7 +247,7 @@
       },
 
       //保存query参数
-      saveParams(params) {
+      saveParams (params) {
 
         if (params.types == '2,3,4') {
           params.type = 2
@@ -273,7 +273,7 @@
       },
 
       //拼接对象
-      contactObject(obj) {
+      contactObject (obj) {
         if (!obj) return
         let str = ''
 
@@ -285,12 +285,13 @@
       }
     },
 
-    mounted() {
+    mounted () {
     }
 
   }
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
   .col-right-con {
     display: block;
   }
@@ -298,8 +299,7 @@
   .text-no-data {
     color: rgb(31, 81, 204)
   }
-</style>
-<style lang="scss">
+
   .search-list {
     padding: 22px 22px 0;
     color: #666;

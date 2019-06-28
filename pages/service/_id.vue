@@ -283,7 +283,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   .service-detail-con {
     .service-detail-left {

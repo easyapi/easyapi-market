@@ -82,7 +82,7 @@
     }
   }
 </script>
-<style  lang="scss">
+<style  lang="scss" scoped>
   .current-team-info {
     position: absolute;
     padding: 0 20px;

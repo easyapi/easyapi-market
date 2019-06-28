@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .div-list-wrap {
     display: flex;
     flex-wrap: wrap;

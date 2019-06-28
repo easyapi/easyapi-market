@@ -97,7 +97,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .scene-warp {
     text-align: center;
     margin-bottom: 20px;
