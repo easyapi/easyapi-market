@@ -7,7 +7,7 @@ axios.defaults.baseURL = 'https://api2.easyapi.com'
 
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
-  Cookies.set('authenticationToken','eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ6d2pAYmFuZ3F1LmNvbSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE1NjQyOTgwNDh9.4QS4G0Genz3qYZWSrWkXY9ocjFcANqlWTWxXduaAyT6Ah_9RcYwcNi_-HTZZRY8pf5as8Eduga6Zfi3DhEI-rA')
+  // Cookies.set('authenticationToken','eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ6d2pAYmFuZ3F1LmNvbSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE1NjQyOTgwNDh9.4QS4G0Genz3qYZWSrWkXY9ocjFcANqlWTWxXduaAyT6Ah_9RcYwcNi_-HTZZRY8pf5as8Eduga6Zfi3DhEI-rA')
   // 全局加Token
   config.headers.Authorization = 'Bearer ' + Cookies.get('authenticationToken')
   return config
