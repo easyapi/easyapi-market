@@ -64,7 +64,7 @@
                          @click="use(service.url,service.hasConsole,service.serviceId)">
                 立即使用
               </el-button>
-              <el-button type="primary" v-else @click="subscribeDialog()">立即开通</el-button>
+              <el-button type="primary" v-else @click="subscribeDialog">立即开通</el-button>
             </div>
           </div>
           <div class="service-explain">
@@ -135,7 +135,7 @@
     </div>
     <el-dialog
       title="开通服务"
-      v-model="subscribe">
+      :visible.sync="subscribe" width="400px">
       <p v-if="service.type===1" style="text-align: center;font-size: 14px">确定开通此服务吗？</p>
       <p v-if="service.type===2" style="text-align: center;font-size: 14px">开通即送100次免费体验次数，确定开通此服务吗？</p>
       <p v-if="service.type===3" style="text-align: center;font-size: 14px">开通即送7天免费体验期，确定开通此服务吗？</p>
@@ -210,7 +210,7 @@
     },
     methods: {
       getService() {
-        console.log(this.$route)
+
         axios.get(`/api/service/${this.$route.params.id}`, {
           headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
         }).then(res => {
@@ -255,19 +255,27 @@
       },
       subscribeService() {
         axios({
+          method: 'post',
+          url: '/console/team/service/' + this.$route.params.id + '/subscribe',
           headers: {
             'Authorization': 'Bearer ' + Cookies.get("authenticationToken")
           },
-          method: 'post',
-          url: '/console/team/service/' + this.$route.params.id + '/subscribe',
         }).then(res => {
-          this.$Message.success(res.data.message);
+
+          this.$message.success(res.data.message);
+          this.subscribe=false;
+          if (res.data.code==="1"){
+
+            // //临时处理方法
+            this.getService();
+            this.getServicePrice()
+          }
         }).catch(error => {
           if (error.response.data.code === -9) {
-            this.$Message.warning("请先登录");
+            this.$message.warning("请先登录");
             window.location.href = "https://account.easyapi.com/login";
           } else {
-            this.$Message.warning(error.response.data.message);
+            this.$message.warning(error.response.data.message);
           }
         });
       },
