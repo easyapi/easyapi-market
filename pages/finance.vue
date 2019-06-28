@@ -58,7 +58,7 @@
       DivListWrap,
       TitleMid
     },
-    data () {
+    data() {
       return {
         dataList: [
           {
@@ -133,21 +133,21 @@
         ]
       }
     },
-    head () {
+    head() {
       return {
         title: '金融专辑 - EasyAPI服务市场',
         meta: [
-          { charset: 'utf-8' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          { hid: 'description', name: 'description', content: '服务市场场景化服务' },
-          { hid: 'keyword', name: 'keyword', content: '服务市场场景化服务' }
+          {charset: 'utf-8'},
+          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+          {hid: 'description', name: 'description', content: '服务市场场景化服务'},
+          {hid: 'keyword', name: 'keyword', content: '服务市场场景化服务'}
         ]
       }
     },
   }
 </script>
 
-<style lang="stylus">
+<style lang="scss">
   .top .header .header-service-center {
     border-left: 0 !important;
   }
@@ -161,42 +161,44 @@
   }
 
   .banner {
-    width 100%
-    height 365px
-    background-image url('https://qiniu.easyapi.com/market/bg_finance_banner.png')
-    background-size cover
+    width: 100%;
+    height: 365px;
+    background-image: url('https://qiniu.easyapi.com/market/bg_finance_banner.png');
+    background-size: cover;
     background-color: white;
+
     P {
 
-      font-size 36px
-      font-family MicrosoftYaHei
-      font-weight 400
-      color rgba(255, 255, 255, 1)
-      padding-top 133px
-      text-align center
+      font-size: 36px;
+      font-family: MicrosoftYaHei;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      padding-top: 133px;
+      text-align: center;
 
     }
+
     .banner-text {
-      width 830px
-      height 53px
-      font-size 16px
-      text-align center
-      margin 24px auto 0 auto
-      font-family MicrosoftYaHei
-      font-weight 400
-      color rgba(255, 255, 255, 1)
-      line-height 34px
+      width: 830px;
+      height: 53px;
+      font-size: 16px;
+      text-align: center;
+      margin: 24px auto 0 auto;
+      font-family: MicrosoftYaHei;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 34px;
     }
   }
 
   .no-bg {
-    margin-bottom 0 !important
-    background transparent !important
-    position absolute !important
+    margin-bottom: 0 !important;
+    background: transparent !important;
+    position: absolute !important;
   }
 
   .img {
-    display block
+    display: block;
   }
 
   .finance-wrapper {
@@ -231,7 +233,7 @@
   }
 
   .finance-rl-inner:hover {
-    cursor: pointer
+    cursor: pointer;
     translate: 0.5s;
     box-shadow: 0 0 8px #e3e4e6;
   }

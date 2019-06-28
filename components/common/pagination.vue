@@ -110,7 +110,7 @@
     }
   }
 </script>
-<style lang="stylus">
+<style lang="scss">
   .pagination {
     overflow: hidden;
     display: table;
@@ -118,7 +118,7 @@
     /*width: 100%;*/
     height: 50px;
     li {
-      list-style none
+      list-style :none;
       float: left;
       height: 34px;
       border-radius: 5px;
@@ -138,7 +138,7 @@
         line-height: 30px;
         font-size: 12px;
         border-radius: 5px;
-        text-decoration: none
+        text-decoration: none;
         border: 1px solid #ddd;
       }
 

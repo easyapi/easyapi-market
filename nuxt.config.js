@@ -50,10 +50,10 @@ module.exports = {
     },
     loaders: [
       // 设置loader
-      {
-        test: /\.vue$/,
-        loader: 'style-loader!css-loader'
-      }
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'style-loader!css-loader'
+      // }
     ],
     maxChunkSize: 360000, // 单个包最大尺寸
     extractCSS: true // 单独提取CSS

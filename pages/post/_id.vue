@@ -62,7 +62,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="scss">
   .detail-wrapper {
     padding: 0 58px;
     border: 1px solid #ddd;

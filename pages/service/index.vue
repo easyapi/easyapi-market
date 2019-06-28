@@ -11,7 +11,8 @@
                 <a class="col-right-con" :class="{active:serviceTypeId==='全部'}" @click="getService('全部')">全部</a>
               </el-col>
               <el-col :span="2" v-for="(item, index) in serviceTypeList" :key="index">
-                <a class="col-right-con" :class="{active:serviceTypeId==item.serviceTypeId}" @click="getService(item.serviceTypeId)">
+                <a class="col-right-con" :class="{active:serviceTypeId==item.serviceTypeId}"
+                   @click="getService(item.serviceTypeId)">
                   {{item.name}}
                 </a>
               </el-col>
@@ -22,9 +23,12 @@
           <el-col :span="2" class="col-left">付费类型：</el-col>
           <el-col :span="21" class="col-right">
             <el-row>
-              <el-col :span="2"><a class="col-right-con" :class="{active:type==='全部'}" @click="charge('全部')">全部</a></el-col>
-              <el-col :span="2"><a class="col-right-con" :class="{active:type==='1'}" @click="charge('1')">免费</a></el-col>
-              <el-col :span="2"><a class="col-right-con" :class="{active:type==='2'}" @click="charge('2')">收费</a></el-col>
+              <el-col :span="2"><a class="col-right-con" :class="{active:type==='全部'}" @click="charge('全部')">全部</a>
+              </el-col>
+              <el-col :span="2"><a class="col-right-con" :class="{active:type==='1'}" @click="charge('1')">免费</a>
+              </el-col>
+              <el-col :span="2"><a class="col-right-con" :class="{active:type==='2'}" @click="charge('2')">收费</a>
+              </el-col>
             </el-row>
           </el-col>
         </el-row>
@@ -87,15 +91,15 @@
 
   export default {
     name: 'service',
-    head () {
+    head() {
       return {
         name: '',
         title: 'API接口 - EasyAPI服务市场',
         meta: [
-          { charset: 'utf-8' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          { hid: 'description', name: 'description', content: '服务市场API接口' },
-          { hid: 'keyword', name: 'keyword', content: '服务市场API接口' }
+          {charset: 'utf-8'},
+          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+          {hid: 'description', name: 'description', content: '服务市场API接口'},
+          {hid: 'keyword', name: 'keyword', content: '服务市场API接口'}
         ]
       }
     },
@@ -104,7 +108,7 @@
       Footer,
       Pagination
     },
-    data () {
+    data() {
       return {
         name: '',
         serviceTypeId: '全部',
@@ -119,7 +123,7 @@
         current: 0   // 当前的页数
       }
     },
-    async asyncData ({ params, error }) {
+    async asyncData({params, error}) {
       let [res1, res2] = await Promise.all([
         axios.get('/api/services'),
         axios.get('/api/service/types')
@@ -130,28 +134,28 @@
       }
     },
     methods: {
-      pageChange (currentPage) {
+      pageChange(currentPage) {
         let url = `/api/services?page=${currentPage}&size=${this.pageSize}`
         let urlName = this.$route.query.name && this.$route.query.name.trim()
         return urlName ? this.getServiceList(url, urlName) : this.getServiceList(url)
       },
       //样式切换
-      getService (id) {
+      getService(id) {
         this.serviceTypeId = id
         let action = 'click'
         this.getServiceList(null, null, action)
       },
-      charge (t) {
+      charge(t) {
         this.type = t
         let action = 'click'
         this.getServiceList(null, null, action)
       },
-      styleSwitch (t) {
+      styleSwitch(t) {
         this.sort = t
         this.getServiceList()
       },
 
-      getServiceList (url, name, action) {
+      getServiceList(url, name, action) {
         let _this = this
         let obj = {}
         if (name) {
@@ -179,7 +183,7 @@
             obj.sort = 'sales,desc'
           }
         }
-        let { query: { serviceTypeId, type, sort } } = this.$route
+        let {query: {serviceTypeId, type, sort}} = this.$route
 
         _this.saveParams({
           serviceTypeId: action ? this.serviceTypeId : serviceTypeId || '全部',
@@ -188,7 +192,7 @@
           ...obj,
         }).then(res => {
           setTimeout(() => {
-            let { query } = this.$route
+            let {query} = this.$route
 
             let newObj = {
               ...query,
@@ -198,7 +202,7 @@
             this.serviceTypeId = query.serviceTypeId
             this.type = query.type
 
-            let { page, size, serviceTypeId, type, sort, types } = newObj
+            let {page, size, serviceTypeId, type, sort, types} = newObj
 
             if (serviceTypeId == '全部') {
               delete newObj.serviceTypeId
@@ -234,7 +238,7 @@
           }, 0)
         })
       },
-      getName (name) {
+      getName(name) {
         let currentPage = 0
         let url = `/api/services`
         let urlName = name && name.trim()
@@ -243,7 +247,7 @@
       },
 
       //保存query参数
-      saveParams (params) {
+      saveParams(params) {
 
         if (params.types == '2,3,4') {
           params.type = 2
@@ -269,7 +273,7 @@
       },
 
       //拼接对象
-      contactObject (obj) {
+      contactObject(obj) {
         if (!obj) return
         let str = ''
 
@@ -281,7 +285,7 @@
       }
     },
 
-    mounted () {
+    mounted() {
     }
 
   }
@@ -295,29 +299,32 @@
     color: rgb(31, 81, 204)
   }
 </style>
-<style lang="stylus">
+<style lang="scss">
   .search-list {
-    padding 22px 22px 0;
-    color #666;
-    font-size 14px;
-    text-align center;
+    padding: 22px 22px 0;
+    color: #666;
+    font-size: 14px;
+    text-align: center;
     background-color: #f6fafa;
+
     .row {
       .col-left {
-        margin-bottom 43px;
+        margin-bottom: 43px;
       }
+
       .col-right {
         a {
-          color #666;
-          font-size 14px;
-          height 23px;
-          line-height 23px;
+          color: #666;
+          font-size: 14px;
+          height: 23px;
+          line-height: 23px;
         }
+
         .active {
           color: #18c1d6;
-          border 1px solid #18c1d6;
-          height 21px;
-          line-height 21px;
+          border: 1px solid #18c1d6;
+          height: 21px;
+          line-height: 21px;
         }
 
       }
@@ -325,49 +332,57 @@
   }
 
   .tqActive {
-    color #18c1d6 !important
+    color: #18c1d6 !important;
   }
 
   .pagination {
-    padding-top 50px
-    text-align center
+    padding-top: 50px;
+    text-align: center;
   }
 
   .recommend-service {
-    margin-top 40px;
+    margin-top: 40px;
+
     a {
       color: #333;
     }
+
     .recommend-service-con {
-      text-align center;
-      margin-top 20px;
-      overflow hidden;
+      text-align: center;
+      margin-top: 20px;
+      overflow: hidden;
+
       .col {
-        padding 40px 20px 20px;
-        border 1px solid #f4f4f4;
-        width 19%;
-        float left;
+        padding: 40px 20px 20px;
+        border: 1px solid #f4f4f4;
+        width: 19%;
+        float: left;
         margin-left: 15px;
         margin-bottom: 20px;
+
         .text {
-          font-size 16px;
-          margin-top 40px;
+          font-size: 16px;
+          margin-top: 40px;
         }
+
         .price {
-          margin-top 20px;
+          margin-top: 20px;
           color: #ff3636;
-          margin-bottom 10px;
-          font-size 14px;
+          margin-bottom: 10px;
+          font-size: 14px;
         }
+
         img {
-          width 100px;
+          width: 100px;
         }
       }
+
       .col:first-of-type {
-        margin-left 0 !important;
+        margin-left: 0 !important;
       }
+
       .col:nth-of-type(5n+1) {
-        margin-left 0 !important;
+        margin-left: 0 !important;
       }
     }
   }

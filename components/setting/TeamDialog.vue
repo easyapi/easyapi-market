@@ -82,7 +82,7 @@
     }
   }
 </script>
-<style  lang="stylus">
+<style  lang="scss">
   .current-team-info {
     position: absolute;
     padding: 0 20px;
@@ -96,18 +96,16 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     display: none;
-    z-index: 9999
+    z-index: 9999;
 
-    &.active {
-      display: block;
-    }
+
 
     .current-team-name {
       height: 60px;
       line-height: 60px;
       font-weight: bold;
       border-bottom: 1px solid #eaeaea;
-      font-size 18px;
+      font-size :18px;
     }
 
     .current-team-content {
@@ -161,7 +159,7 @@
         height: 60px;
         line-height: 60px;
         font-weight: bold;
-        font-size 18px
+        font-size: 18px;
       }
 
       .ea-team-list-box {
@@ -189,7 +187,7 @@
             height: 28px;
             border-radius: 50%;
             vertical-align: middle;
-            margin 0px
+            margin:  0;
           }
 
           & > span {
@@ -202,5 +200,8 @@
     .create-team {
       text-align: center;
     }
+  }
+  .current-team-info.active {
+    display: block;
   }
 </style>

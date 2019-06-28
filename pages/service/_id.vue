@@ -263,8 +263,8 @@
         }).then(res => {
 
           this.$message.success(res.data.message);
-          this.subscribe=false;
-          if (res.data.code==="1"){
+          this.subscribe = false;
+          if (res.data.code === "1") {
 
             // //临时处理方法
             this.getService();
@@ -283,43 +283,43 @@
   }
 </script>
 
-<style lang="stylus" >
+<style lang="scss">
 
   .service-detail-con {
     .service-detail-left {
-      padding-right 100px;
+      padding-right: 100px;
       font-size: 12px;
 
       .service-detail-left-title {
-        border-bottom 1px solid #f4f4f4;
+        border-bottom: 1px solid #f4f4f4;
 
         .col-left {
           .img {
-            float left;
+            float: left;
 
             img {
-              width 100px;
+              width: 100px;
               height: 100px;
             }
           }
 
           .con {
-            float left;
-            margin-left 20px;
+            float: left;
+            margin-left: 20px;
 
             .con-title {
-              font-size 20px;
-              color #333;
+              font-size: 20px;
+              color: #333;
             }
 
             .con-button {
-              margin-top 10px;
-              margin-bottom 10px;
-              font-size 14px;
+              margin-top: 10px;
+              margin-bottom: 10px;
+              font-size: 14px;
 
               span {
                 a {
-                  padding 1px 3px;
+                  padding: 1px 3px;
                 }
               }
 
@@ -345,7 +345,7 @@
         }
 
         .col-right {
-          padding-left 20px;
+          padding-left: 20px;
 
           p {
             el-button {
@@ -353,38 +353,38 @@
               height: 34px;
               color: #18c1d6;
               border: 1px solid #18c1d6;
-              border-radius 0;
+              border-radius: 0;
             }
           }
 
           p:last-of-type {
-            margin-top 10px;
+            margin-top: 10px;
           }
         }
       }
 
       .combo {
-        margin-top 20px;
+        margin-top: 20px;
 
         .combo-con {
           el-button {
-            min-width 80px;
-            height 40px;
-            border-radius 0;
-            margin-left 10px;
-            font-size 14px;
+            min-width: 80px;
+            height: 40px;
+            border-radius: 0;
+            margin-left: 10px;
+            font-size: 14px;
           }
 
           .active {
             background-color: #1ac1d6;
-            color #fff;
-            border none;
+            color: #fff;
+            border: none;
           }
         }
 
         .price {
-          margin-top 30px;
-          margin-bottom 35px;
+          margin-top: 30px;
+          margin-bottom: 35px;
         }
 
         .con-btn {
@@ -392,56 +392,56 @@
             width: 140px;
             height: 40px;
             background-color: #1ac1d6;
-            border-radius 0;
+            border-radius: 0;
             color: #fff;
-            font-size 14px;
+            font-size: 14px;
           }
         }
       }
 
       .service-explain {
-        margin-top 60px;
+        margin-top: 60px;
 
         .title {
-          padding-bottom 15px;
-          text-align center;
+          padding-bottom: 15px;
+          text-align: center;
           font-size: 16px;
           color: #1ac1d6;
-          border-bottom 2px solid #1ac1d6;
-          width 100px;
+          border-bottom: 2px solid #1ac1d6;
+          width: 100px;
         }
 
         .border {
-          border-bottom 1px solid #f4f4f4;
-          margin-bottom 20px;
+          border-bottom: 1px solid #f4f4f4;
+          margin-bottom: 20px;
         }
 
         .img {
-          width 100%;
-          min-height height 288px;
+          width: 100%;
+          height :288px;
         }
 
         .service-detail-imgs > div {
-          display flex
-          flex-direction column
-          align-items center
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       }
     }
 
     .service-detail-right {
       .contact {
-        background #f5f6f7;
-        padding 20px;
-        font-size 14px;
+        background: #f5f6f7;
+        padding: 20px;
+        font-size: 14px;
 
         .customer {
-          padding-bottom 27px;
-          border-bottom 1px solid #ddd;
+          padding-bottom: 27px;
+          border-bottom: 1px solid #ddd;
 
           .title {
-            margin-bottom 18px;
-            font-size 18px;
+            margin-bottom: 18px;
+            font-size: 18px;
           }
 
           .img {
@@ -452,57 +452,57 @@
             }
 
             .text {
-              margin-left 10px;
-              font-size 14px;
+              margin-left: 10px;
+              font-size: 14px;
             }
           }
         }
       }
 
       .scene {
-        padding 28px 29px 29px 30px;
-        margin-top 15px;
-        background #f5f6f7;
+        padding: 28px 29px 29px 30px;
+        margin-top: 15px;
+        background: #f5f6f7;
 
         .title {
           font-size: 24px;
           color: #333333;
-          margin-bottom 20px;
+          margin-bottom :20px;
         }
 
         .scene-con {
           img {
-            width 100%;
+            width: 100%;
           }
 
           .con {
-            margin-top 20px;
-            margin-bottom 29px;
+            margin-top: 20px;
+            margin-bottom: 29px;
 
             p:first-of-type {
-              margin-bottom 14px;
-              font-size 18px;
-              color #333;
+              margin-bottom: 14px;
+              font-size: 18px;
+              color: #333;
             }
 
             p:last-of-type {
-              margin-bottom 14px;
-              font-size 14px;
-              color #666;
+              margin-bottom: 14px;
+              font-size: 14px;
+              color: #666;
             }
           }
 
           .con:last-of-type {
-            margin-bottom 0;
+            margin-bottom: 0;
           }
         }
 
         .scene-con:last-of-type {
           .con {
-            margin-bottom 0;
+            margin-bottom: 0;
 
             p:last-of-type {
-              margin-bottom 0;
+              margin-bottom: 0;
             }
           }
         }

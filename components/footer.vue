@@ -17,7 +17,7 @@
   }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="scss">
   .footer {
     text-align: center;
     background: #fafafa;

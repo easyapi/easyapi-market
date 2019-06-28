@@ -265,28 +265,32 @@
   }
 </script>
 
-<style  lang="stylus">
+<style lang="scss">
   .index-container {
     font-size: 12px;
     color: #333;
     width: 1200px;
     margin: 0 auto;
     /*服务市场分类*/
+
     .service-market {
-      width 100%;
+      width: 100%;
       height: 372px;
+
       a {
-        color #fff;
+        color: #fff;
         font-size: 12px;
       }
+
       .service-market-left {
-        float left;
-        width 22%;
-        height 100%;
+        float: left;
+        width: 22%;
+        height: 100%;
         background: #1bc1d6;
+
         .service-title {
           color: #fff;
-          font-size 16px;
+          font-size: 16px;
           border-bottom: 1px solid #8ce0eb;
           height: 45px;
           line-height: 45px;
@@ -302,25 +306,26 @@
         }
 
         .row {
-          height 40px;
+          height: 40px;
           line-height: 40px;
 
           .col {
             border-bottom: 1px solid #8ce0eb;
-            height 41px;
+            height: 41px;
           }
 
           .col:nth-of-type(3n+1) {
             padding-left: 10px;
-            height 41px;
+            height: 41px;
+
             a {
-              display inline-block
-              width 58px;
-              height 22px;
+              display: inline-block;
+              width: 58px;
+              height: 22px;
               background-color: rgba(0, 0, 0, 0.1);
-              margin 0 auto
-              line-height 22px
-              text-align center
+              margin: 0 auto;
+              line-height: 22px;
+              text-align: center;
             }
           }
 
@@ -331,14 +336,14 @@
       }
 
       .service-market-right {
-        margin-left 1%;
-        float left;
-        width 77%;
-        height 100%;
+        margin-left :1%;
+        float :left;
+        width :77%;
+        height: 100%;
 
         img {
-          width 100%;
-          height 100%;
+          width :100%;
+          height: 100%;
         }
       }
     }
@@ -346,58 +351,58 @@
     /*推荐服务*/
 
     .recommend-service {
-      margin-top 40px;
+      margin-top :40px;
 
       a {
         color: #333;
       }
-      color #333;
+      color: #333;
 
       .recommend-service-title {
-        font-size 18px;
+        font-size :18px;
 
         .border {
-          border-left 5px solid #0fc5fe;
-          margin-right 10px;
+          border-left :5px solid #0fc5fe;
+          margin-right :10px;
         }
       }
 
       .recommend-service-con {
-        text-align center;
-        margin-top 20px;
-        overflow hidden;
+        text-align: center;
+        margin-top :20px;
+        overflow: hidden;
 
         .col {
-          padding 40px 40px 20px;
-          border 1px solid #f4f4f4;
-          width 19%;
-          float left;
+          padding :40px 40px 20px;
+          border: 1px solid #f4f4f4;
+          width: 19%;
+          float: left;
           margin-left: 15px;
           margin-bottom: 20px;
 
           .text {
-            font-size 16px;
-            margin-top 40px;
+            font-size :16px;
+            margin-top :40px;
           }
 
           .price {
-            margin-top 20px;
+            margin-top :20px;
             color: #ff3636;
-            margin-bottom 10px;
-            font-size 14px;
+            margin-bottom :10px;
+            font-size :14px;
           }
 
           img {
-            width 100px;
+            width :100px;
           }
         }
 
         .col:first-of-type {
-          margin-left 0 !important;
+          margin-left: 0 !important;
         }
 
         .col:nth-of-type(5n+1) {
-          margin-left 0 !important;
+          margin-left: 0 !important;
         }
       }
     }
@@ -405,89 +410,89 @@
     //最新更新
 
     .lastest-update {
-      margin-top 40px;
-      color #333;
+      margin-top :40px;
+      color :#333;
 
       a {
-        color #333;
+        color :#333;
       }
 
       .lastest-update-title {
-        font-size 18px;
-        margin-bottom 40px;
+        font-size :18px;
+        margin-bottom :40px;
 
         .border {
-          border-left 5px solid #57e7b8;
-          margin-right 10px;
+          border-left :5px solid #57e7b8;
+          margin-right :10px;
         }
       }
 
       .lastest-update-con-top {
-        font-size 12px
+        font-size :12px;
 
         .lastest-update-con-left {
-          height 100%;
+          height :100%;
 
           .col {
             img {
-              width 100px;
+              width :100px;
             }
 
             .text {
-              font-size 16px;
-              margin-top 10px;
-              width 100px;
-              text-align center;
-              min-height 60px;
+              font-size: 16px;
+              margin-top :10px;
+              width :100px;
+              text-align: center;
+              min-height :60px;
             }
           }
         }
 
         .lastest-update-con-right {
           min-height: 310px;
-          background #f2f6f6;
-          padding 10px;
+          background :#f2f6f6;
+          padding :10px;
 
           .row {
-            height 30px;
-            line-height 30px;
+            height: 30px;
+            line-height :30px;
 
             .more-state {
-              font-size 18px;
+              font-size :18px;
             }
 
             .more {
               font: 14px;
-              color #999;
+              color :#999;
             }
           }
 
           .row-con {
-            margin-top 5px;
+            margin-top :5px;
 
             div {
-              height 30px;
-              line-height 30px;
+              height :30px;
+              line-height :30px;
 
               .circle {
-                display block;
-                float left;
-                width 5px;
-                height 5px;
+                display: block;
+                float :left;
+                width :5px;
+                height: 5px;
                 background-color: #1cc1d5;
                 border-radius: 2px;
-                margin-top 13px;
+                margin-top :13px;
               }
 
               .circle-con {
                 // float left;
-                display inline-block
-                overflow hidden
-                text-overflow ellipsis
-                white-space nowrap
-                width: 250px
-                margin-left 7px
-                color #333
+                display: inline-block;
+                overflow :hidden;
+                text-overflow :ellipsis;
+                white-space :nowrap;
+                width: 250px;
+                margin-left :7px;
+                color: #333;
               }
             }
           }
@@ -498,30 +503,30 @@
     /*加入市场*/
 
     .join-market {
-      margin-top 40px;
+      margin-top: 40px;
 
       a {
-        color #000;
+        color: #000;
       }
 
       .join-market-title {
-        font-size 18px;
+        font-size :18px;
 
         .border {
-          border-left 5px solid #fe960f;
-          margin-right 10px;
+          border-left :5px solid #fe960f;
+          margin-right :10px;
         }
       }
 
       .join-market-con {
-        margin-bottom 40px;
-        margin-top 20px;
-        height 100px;
-        font-size 14px;
+        margin-bottom :40px;
+        margin-top :20px;
+        height :100px;
+        font-size :14px;
 
         .text {
-          font-weight 700;
-          font-size 14px;
+          font-weight :700;
+          font-size :14px;
         }
 
         .join-market-text {
@@ -530,18 +535,11 @@
         }
 
         img {
-          width 90%;
+          width: 90%;
         }
       }
     }
   }
-
-
-
-
-
-
-
 
 
   .lastest-update-con-bottom {

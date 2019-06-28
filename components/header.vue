@@ -139,14 +139,14 @@
   }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="scss">
   .header {
     font-weight: 700;
     font-size: 14px;
     height: 60px;
     line-height: 60px;
     background: #18c1d6;
-    margin-bottom 30px;
+    margin-bottom: 30px;
     align-items: center;
     justify-content: space-between;
     padding: 0 0 0 30px;
@@ -157,7 +157,7 @@
 
     .header-con-left {
       li {
-        height 100%;
+        height :100%;
         list-style: none;
 
         a {
@@ -177,7 +177,7 @@
           background: white;
           width: 6px;
           height: 6px;
-          border-radius 50%;
+          border-radius :50%;
         }
       }
 
@@ -203,7 +203,7 @@
 
       li {
         height: 100%;
-        list-style none;
+        list-style :none;
 
         img {
           width: 35px;

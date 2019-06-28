@@ -97,29 +97,32 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="scss">
   .scene-warp {
-    text-align center
-    margin-bottom 20px
-    width 387px
-    height 275px
+    text-align: center;
+    margin-bottom: 20px;
+    width: 387px;
+    height: 275px;
+
     img {
-      display block
-      width 387px
-      height 223px
-      background-color white
+      display: block;
+      width: 387px;
+      height: 223px;
+      background-color: white;
     }
+
     .tex {
-      display block
-      text-align center
-      line-height 50px
-      color #000000
-      font-size 18px
-      border 1px solid #ddd
+      display: block;
+      text-align: center;
+      line-height: 50px;
+      color: #000000;
+      font-size: 18px;
+      border: 1px solid #ddd;
     }
+
     .scene-t-color {
-      color #000000 !important
-      font-size 18px !important
+      color: #000000 !important;
+      font-size: 18px !important;
     }
   }
 
