@@ -17,8 +17,8 @@ module.exports = {
     ]
   },
   css: [
-    '~/assets/css/common.css',
-    '~/assets/scss/element-variables.scss'
+    '@/assets/css/common.css',
+    '@/assets/scss/element-variables.scss'
   ],
   plugins: [
     {

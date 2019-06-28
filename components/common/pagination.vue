@@ -110,7 +110,7 @@
     }
   }
 </script>
-<style lang="stylus" scope>
+<style lang="stylus">
   .pagination {
     overflow: hidden;
     display: table;

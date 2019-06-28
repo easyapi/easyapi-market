@@ -82,7 +82,7 @@
     }
   }
 </script>
-<style scoped lang="stylus">
+<style  lang="stylus">
   .current-team-info {
     position: absolute;
     padding: 0 20px;

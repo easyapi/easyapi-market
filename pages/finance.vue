@@ -147,7 +147,7 @@
   }
 </script>
 
-<style lang="stylus" scope>
+<style lang="stylus">
   .top .header .header-service-center {
     border-left: 0 !important;
   }

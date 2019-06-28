@@ -264,10 +264,8 @@
     }
   }
 </script>
-<style lang="stylus">
 
-</style>
-<style scoped lang="stylus">
+<style  lang="stylus">
   .index-container {
     font-size: 12px;
     color: #333;

@@ -283,7 +283,7 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" >
 
   .service-detail-con {
     .service-detail-left {
