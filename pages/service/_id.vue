@@ -418,7 +418,7 @@
 
         .img {
           width: 100%;
-          height :288px;
+          min-height :288px;
         }
 
         .service-detail-imgs > div {

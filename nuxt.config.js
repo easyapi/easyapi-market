@@ -25,7 +25,7 @@ module.exports = {
       src: '~/plugins/vue-notifications', ssr: false
     },
     {
-      src: '~/plugins/element-ui', ssr: true
+      src: '~/plugins/element-ui', ssr: false
     },
     {
       src: '~/plugins/axios', ssr: false
