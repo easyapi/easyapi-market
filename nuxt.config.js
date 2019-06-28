@@ -17,15 +17,15 @@ module.exports = {
     ]
   },
   css: [
-    '@/assets/css/common.css',
-    '@/assets/scss/element-variables.scss'
+    '~/assets/css/common.css',
+    '~/assets/scss/element-variables.scss'
   ],
   plugins: [
     {
       src: '~/plugins/vue-notifications', ssr: false
     },
     {
-      src: '~plugins/element-ui', ssr: true
+      src: '~/plugins/element-ui', ssr: true
     },
     {
       src: '~/plugins/axios', ssr: false
