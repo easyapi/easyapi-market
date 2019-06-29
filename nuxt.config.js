@@ -6,7 +6,7 @@ module.exports = {
     title: '{{ name }}',
     meta: [
       {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      // {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {hid: 'description', name: 'description', content: '{{escape description }}'}
     ],
     link: [
@@ -35,7 +35,7 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: {
-    olor: '#3B8070'
+    color: '#3B8070'
   },
   /*
   ** Build configuration
@@ -45,18 +45,18 @@ module.exports = {
     ** Run ESLint on save
     */
     // vendor: ['axios'],
-    extend(config, {isDev, isClient}) {
-
-    },
-    loaders: [
+    // extend(config, {isDev, isClient}) {
+    //
+    // },
+    // loaders: [
       // 设置loader
       // {
       //   test: /\.vue$/,
       //   loader: 'style-loader!css-loader'
       // }
-    ],
-    maxChunkSize: 360000, // 单个包最大尺寸
-    extractCSS: true // 单独提取CSS
+    // ],
+    // maxChunkSize: 360000, // 单个包最大尺寸
+    // extractCSS: true // 单独提取CSS
   },
   server: {
     port: 8265, // default: 3000
