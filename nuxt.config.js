@@ -55,8 +55,8 @@ module.exports = {
       //   loader: 'style-loader!css-loader'
       // }
     // ],
-    // maxChunkSize: 360000, // 单个包最大尺寸
-    // extractCSS: true // 单独提取CSS
+     maxChunkSize: 360000, // 单个包最大尺寸
+     extractCSS: true // 单独提取CSS
   },
   server: {
     port: 8265, // default: 3000
