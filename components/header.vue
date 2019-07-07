@@ -36,9 +36,9 @@
         <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo"
                     :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
       </li>
-      <li class="item-menu header-login">
+      <li class="item-menu header-login" v-if="token">
         <div class="userAvatar ea-Dropdown">
-          <a v-if="photo" class="flex-r">
+          <a class="flex-r">
             <img id="showPersonage" :src="photo+'!icon.jpg'" alt="" v-if="photo">
           </a>
 
@@ -49,6 +49,9 @@
           <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
         </div>
       </li>
+      <li class="item-menu header-login" v-else>
+        <a href="https://account.easyapi.com" class="flex-r">登录</a>
+      </li>
     </ul>
   </div>
 </template>
@@ -58,7 +61,7 @@
   import {getServiceList, getServiceTypeList, getMyTeam} from '~/api/api'
   import axios from '~/plugins/axios'
   import TeamDialog from './setting/TeamDialog'
-
+  import Cookies from 'js-cookie'
   export default {
     name: "Header",
     layout: '',
@@ -68,6 +71,7 @@
     },
     data() {
       return {
+        token: Cookies.get('authenticationToken'),
         serviceTypeList: [],
         serviceList: [],
         name: '',

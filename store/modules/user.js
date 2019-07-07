@@ -13,7 +13,7 @@ const user = {
     teamName:'',
     teamImg:'',
     userTeam: '',
-    token: Cookies.get('authenticationToken'),
+    token: Cookies.get('authenticationToken')
 
   },
 
