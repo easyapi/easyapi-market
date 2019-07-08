@@ -29,12 +29,11 @@
       <li class="item-menu header-service-center">
         <a href="https://service.easyapi.com">服务中心</a>
       </li>
-      <li class="item-menu current-team-box"  v-if="token">
+      <li class="item-menu current-team-box" v-if="token">
         <a id="showTeamInfo" class="flex-r" :class="{active:showTeamInfo}">
           <span class="team-icon"></span>
         </a>
-        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo"
-                    :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
+        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo" :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
       </li>
       <li class="item-menu header-login" v-if="token">
         <div class="userAvatar ea-Dropdown">
@@ -50,26 +49,28 @@
         </div>
       </li>
       <li class="item-menu header-login" v-else>
-        <a href="https://account.easyapi.com" class="flex-r">登录</a>
+        <a href="https://account.easyapi.com/login" class="flex-r">登录</a>
+        <a href="https://account.easyapi.com/signup" class="flex-r">注册</a>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
-  import {getServiceList, getServiceTypeList, getMyTeam} from '~/api/api'
+  import { mapGetters } from 'vuex'
+  import { getServiceList, getServiceTypeList, getMyTeam } from '~/api/api'
   import axios from '~/plugins/axios'
   import TeamDialog from './setting/TeamDialog'
   import Cookies from 'js-cookie'
+
   export default {
-    name: "Header",
+    name: 'Header',
     layout: '',
     props: ['callback'],
     components: {
       TeamDialog,
     },
-    data() {
+    data () {
       return {
         token: Cookies.get('authenticationToken'),
         serviceTypeList: [],
@@ -77,7 +78,7 @@
         name: '',
         isActive: false,
         showTeamInfo: false,
-      };
+      }
     },
     computed: {
       ...mapGetters([
@@ -89,54 +90,53 @@
       ])
     },
     methods: {
-      search() {
+      search () {
         if (!this.name) {
           return
         }
         let _this = this
-        _this.$router.push({path: "/service", query: {name: this.name}})
+        _this.$router.push({ path: '/service', query: { name: this.name } })
 
         setTimeout(() => {
           _this.callback && _this.callback(null, this.name)
-        }, 0);
+        }, 0)
       },
 
       //退出登录
-      quitLogin() {
-        this.$store.dispatch('Logout');
-        window.location.href = "https://www.easyapi.com/user/login";
+      quitLogin () {
+        this.$store.dispatch('Logout')
+        window.location.href = 'https://www.easyapi.com/user/login'
       },
 
-      jumpPage() {
-        window.location.href = "https://www.easyapi.com/launch"
+      jumpPage () {
+        window.location.href = 'https://www.easyapi.com/launch'
       },
       //切换团队
-      tabTeamFn(id) {
-        this.$store.dispatch('changeTeam', id);
+      tabTeamFn (id) {
+        this.$store.dispatch('changeTeam', id)
       },
-
 
     },
     created: function () {
     },
-    mounted() {
+    mounted () {
       //获取用户信息
-      this.$store.dispatch('GetUserInfo');
+      this.$store.dispatch('GetUserInfo')
       //获取团队列表
-      this.$store.dispatch('getTeamList');
+      this.$store.dispatch('getTeamList')
 
-      this.name = this.$route.query.name;
-      let body = document.querySelector('body');
+      this.name = this.$route.query.name
+      let body = document.querySelector('body')
       body.addEventListener('click', (e) => {
         if (e.target.id === 'showTeamInfo' || e.target.className === 'team-icon') {
-          this.isActive = false;
+          this.isActive = false
           this.showTeamInfo = !this.showTeamInfo
         } else if (e.target.id === 'showPersonage') {
-          this.isActive = !this.isActive;
-          this.showTeamInfo = false;
+          this.isActive = !this.isActive
+          this.showTeamInfo = false
         } else {
-          this.showTeamInfo = false;
-          this.isActive = false;
+          this.showTeamInfo = false
+          this.isActive = false
         }
       }, false)
     }
@@ -161,7 +161,7 @@
 
     .header-con-left {
       li {
-        height :100%;
+        height: 100%;
         list-style: none;
 
         a {
@@ -181,7 +181,7 @@
           background: white;
           width: 6px;
           height: 6px;
-          border-radius :50%;
+          border-radius: 50%;
         }
       }
 
@@ -196,10 +196,8 @@
         a {
           padding: 0 20px;
         }
-
       }
     }
-
 
     .header-con-right {
       height: 60px;
@@ -207,7 +205,7 @@
 
       li {
         height: 100%;
-        list-style :none;
+        list-style: none;
 
         img {
           width: 35px;
@@ -233,7 +231,6 @@
 
         }
       }
-
 
       .current-team-box {
         & > a {
@@ -270,7 +267,6 @@
     }
   }
 
-
   .ea-DropdownMenu {
     position: absolute;
     top: 60px;
@@ -288,7 +284,6 @@
     &.active {
       display: block;
     }
-
 
     a {
       display: block;
