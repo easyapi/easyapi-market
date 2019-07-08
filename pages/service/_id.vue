@@ -48,12 +48,12 @@
               </el-button>
             </div>
             <div class="price">
-              <p v-if="service.type===2">
+              <p v-if="service.type===2&&servicePriceList[clicked].price">
                 <span>价格：</span>
                 <span>{{servicePriceList[clicked].price}}</span>
                 <span>元</span><span>（约{{servicePriceList[clicked].price/servicePriceList[clicked].times}}元/次）</span>
               </p>
-              <p v-if="service.type===3">
+              <p v-if="service.type===3&&servicePriceList[clicked].price">
                 <span>价格：</span>
                 <span>{{servicePriceList[clicked].price}}</span>
                 <span>元</span><span>（约{{parseInt(servicePriceList[clicked].price/servicePriceList[clicked].month)}}元/月）</span>
