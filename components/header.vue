@@ -29,7 +29,7 @@
       <li class="item-menu header-service-center">
         <a href="https://service.easyapi.com">服务中心</a>
       </li>
-      <li class="item-menu current-team-box">
+      <li class="item-menu current-team-box"  v-if="token">
         <a id="showTeamInfo" class="flex-r" :class="{active:showTeamInfo}">
           <span class="team-icon"></span>
         </a>

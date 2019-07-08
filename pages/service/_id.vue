@@ -211,9 +211,7 @@
     methods: {
       getService() {
 
-        axios.get(`/api/service/${this.$route.params.id}`, {
-          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
-        }).then(res => {
+        axios.get(`/api/service/${this.$route.params.id}`).then(res => {
           if (res.data.code === "1") {
             this.service = res.data.content;
             if (this.service.serviceType) {
@@ -227,10 +225,7 @@
 
       },
       getServicePrice() {
-        axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${this.$route.params.id}`, {
-          headers: {'Authorization': 'Bearer ' + Cookies.get("authenticationToken")}
-        }).then(res => {
-
+        axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${this.$route.params.id}`, ).then(res => {
           this.servicePriceList = res.data.content;
         }).catch(error => {
           console.log(error)
