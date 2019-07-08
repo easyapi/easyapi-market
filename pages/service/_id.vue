@@ -78,8 +78,8 @@
             <div class="customer">
               <p class="title">在线客服</p>
               <div class="img flex-r">
-                <a target="_blank" class="flex-c" href="http://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
-                  border="0" src="http://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息"
+                <a target="_blank" class="flex-c" href="https://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
+                  border="0" src="https://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息"
                   title="点击这里给我发消息"/>
                 </a>
                 <span class="text">EasyAPI工程师</span>

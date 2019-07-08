@@ -89,7 +89,7 @@
         <div class="recommend-service-title"><span class="border"></span><span>推荐服务</span></div>
         <div class="recommend-service-con">
           <div class="col" v-for="(item, index) in recommendServiceList" :key="item.serviceId">
-            <nuxt-link :to="'/service/'+item.serviceId+'?id='+item.serviceId">
+            <nuxt-link :to="{name:'service-id',params:{id:item.serviceId}}">
               <p class="img"><img v-bind:src="item.img" alt=""></p>
               <p class="text">{{item.name}}</p>
               <p class="price" v-if="item.type===1">免费</p>
@@ -107,8 +107,7 @@
         <el-row class="lastest-update-con-top">
           <el-col :span="18" class="lastest-update-con-left">
             <el-row class="row">
-              <el-col :span="6" class="col" v-for="(item, index) in newestServiceList" :key="item.serviceId"
-                      v-if="index < 8">
+              <el-col :span="6" class="col" v-for="(item, index) in newestServiceList" :key="item.serviceId" v-if="index < 8">
                 <nuxt-link :to="{name:'service-id',params:{id:item.serviceId}}">
                   <p class="img"><img v-bind:src="item.img" alt=""></p>
                   <p class="text">{{item.name}}</p>
