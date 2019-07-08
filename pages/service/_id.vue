@@ -48,12 +48,12 @@
               </el-button>
             </div>
             <div class="price">
-              <p v-if="service.type===2&&servicePriceList[clicked].price">
+              <p v-if="service.type===2&&servicePriceList[clicked]">
                 <span>价格：</span>
                 <span>{{servicePriceList[clicked].price}}</span>
                 <span>元</span><span>（约{{servicePriceList[clicked].price/servicePriceList[clicked].times}}元/次）</span>
               </p>
-              <p v-if="service.type===3&&servicePriceList[clicked].price">
+              <p v-if="service.type===3&&servicePriceList[clicked]">
                 <span>价格：</span>
                 <span>{{servicePriceList[clicked].price}}</span>
                 <span>元</span><span>（约{{parseInt(servicePriceList[clicked].price/servicePriceList[clicked].month)}}元/月）</span>
@@ -201,7 +201,7 @@
       // if (Cookies.get('objService')) {
       //   this.service = JSON.parse(Cookies.get('objService'));
       // }
-      // //临时处理方法
+      //
       this.getService();
       this.getServicePrice()
     },
@@ -210,7 +210,6 @@
     },
     methods: {
       getService() {
-
         axios.get(`/api/service/${this.$route.params.id}`).then(res => {
           if (res.data.code === "1") {
             this.service = res.data.content;
@@ -252,11 +251,7 @@
         axios({
           method: 'post',
           url: '/console/team/service/' + this.$route.params.id + '/subscribe',
-          headers: {
-            'Authorization': 'Bearer ' + Cookies.get("authenticationToken")
-          },
         }).then(res => {
-
           this.$message.success(res.data.message);
           this.subscribe = false;
           if (res.data.code === "1") {

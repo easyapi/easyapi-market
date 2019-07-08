@@ -33,7 +33,8 @@
         <a id="showTeamInfo" class="flex-r" :class="{active:showTeamInfo}">
           <span class="team-icon"></span>
         </a>
-        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo" :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
+        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo"
+                    :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
       </li>
       <li class="item-menu header-login" v-if="token">
         <div class="userAvatar ea-Dropdown">
@@ -48,8 +49,10 @@
           <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
         </div>
       </li>
-      <li class="item-menu header-login" v-else>
+      <li class="item-menu header-login"  v-if="!token">
         <a href="https://account.easyapi.com/login" class="flex-r">登录</a>
+      </li>
+      <li class="item-menu header-login " v-if="!token">
         <a href="https://account.easyapi.com/signup" class="flex-r">注册</a>
       </li>
     </ul>
@@ -120,10 +123,13 @@
     created: function () {
     },
     mounted () {
-      //获取用户信息
-      this.$store.dispatch('GetUserInfo')
-      //获取团队列表
-      this.$store.dispatch('getTeamList')
+      if (Cookies.get('authenticationToken')){
+        //获取用户信息
+        this.$store.dispatch('GetUserInfo')
+        //获取团队列表
+        this.$store.dispatch('getTeamList')
+      }
+
 
       this.name = this.$route.query.name
       let body = document.querySelector('body')
@@ -262,6 +268,7 @@
           height: 60px;
           padding-top: 12.5px;
         }
+
         position: relative;
       }
     }
