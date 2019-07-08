@@ -1,5 +1,6 @@
 import axios from '@/plugins/axios'
 import { getMyTeam, changeTeam } from '@/api/api'
+
 const team = {
   state: {
     currentTeam: '',
@@ -27,7 +28,7 @@ const team = {
     getTeamList ({ commit, state }) {
       axios({
         url: getMyTeam,
-        method: 'get'
+        method: 'GET'
       }).then(res => {
         commit('SET_TEAMLIST', res.data)
       }).catch(error => {
@@ -35,10 +36,10 @@ const team = {
       })
     },
     // 切换团队
-    switchoverTeam ({ dispatch, commit, state }, id) {
+    changeTeam ({ dispatch, commit, state }, id) {
       axios({
         url: changeTeam + '/' + id,
-        method: 'put'
+        method: 'PUT'
       }).then(res => {
         if (res.data.code === 1) {
           dispatch('GetUserInfo')

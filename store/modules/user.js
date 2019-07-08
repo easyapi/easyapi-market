@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 import axios from '@/plugins/axios'
-import {UserInFo} from '@/api/api'
+import { UserInFo } from '@/api/api'
+
 const user = {
   state: {
     userId: '',
@@ -10,11 +11,10 @@ const user = {
     mobile: '',
     email: '',
     team: '',
-    teamName:'',
-    teamImg:'',
+    teamName: '',
+    teamImg: '',
     userTeam: '',
     token: Cookies.get('authenticationToken')
-
   },
 
   mutations: {
@@ -55,13 +55,13 @@ const user = {
 
   actions: {
     // 用户名登录
-    LoginByUsername({commit}, userInfo) {
+    LoginByUsername ({ commit }, userInfo) {
 
     },
     // 获取用户信息
-    GetUserInfo({commit, state}) {
+    GetUserInfo ({ commit, state }) {
       axios({
-        method: 'get',
+        method: 'GET',
         url: UserInFo,
       }).then(res => {
         let userInfoData = res.data
@@ -77,11 +77,11 @@ const user = {
         commit('SET_USERTEAM', userInfoData.userTeam)
       }).catch(error => {
         console.log(error.response)
-      });
+      })
     },
     // 登出
-    Logout({commit, state}) {
-      Cookies.remove('authenticationToken');
+    Logout ({ commit, state }) {
+      Cookies.remove('authenticationToken')
     },
   }
 }

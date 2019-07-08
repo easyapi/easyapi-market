@@ -112,7 +112,7 @@
       },
       //切换团队
       tabTeamFn(id) {
-        this.$store.dispatch('switchoverTeam', id);
+        this.$store.dispatch('changeTeam', id);
       },
 
 

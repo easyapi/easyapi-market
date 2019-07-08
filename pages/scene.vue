@@ -26,13 +26,13 @@
   import DivListWarp from '~/components/layout/divListWrap'
 
   export default {
-    name: "scene",
+    name: 'scene',
     components: {
       Header,
       DivListWarp,
       Footer
     },
-    data() {
+    data () {
       return {
         imgList: [
           {
@@ -83,14 +83,14 @@
         ]
       }
     },
-    head() {
+    head () {
       return {
         title: '场景化服务 - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '服务市场场景化服务'},
-          {hid: 'keyword', name: 'keyword', content: '服务市场场景化服务'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '服务市场场景化服务' },
+          { hid: 'keyword', name: 'keyword', content: '服务市场场景化服务' }
         ]
       }
     },
