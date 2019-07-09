@@ -78,7 +78,8 @@
             <div class="customer">
               <p class="title">在线客服</p>
               <div class="img flex-r">
-                <a target="_blank" class="flex-c" href="https://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
+                <a target="_blank" class="flex-c"
+                   href="https://wpa.qq.com/msgrd?v=3&uin=149151419&site=qq&menu=yes"><img
                   border="0" src="https://wpa.qq.com/pa?p=2:149151419:51" alt="点击这里给我发消息"
                   title="点击这里给我发消息"/>
                 </a>
@@ -156,14 +157,14 @@
   export default {
     name: 'service-detail',
     loading: true,
-    head() {
+    head () {
       return {
         title: this.service.name + ' - EasyAPI服务市场',
         meta: [
-          {charset: 'utf-8'},
-          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-          {hid: 'description', name: 'description', content: '服务市场详情'},
-          {hid: 'keyswords', name: 'keyswords', content: '服务市场详情'}
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: '服务市场详情' },
+          { hid: 'keyswords', name: 'keyswords', content: '服务市场详情' }
         ]
       }
     },
@@ -171,7 +172,7 @@
       Header,
       Footer
     },
-    data() {
+    data () {
       return {
         subscribe: false,
         service: '',
@@ -179,95 +180,55 @@
         clicked: 0,
         servicePriceList: [],
         isIfBuy: false
-      };
+      }
     },
-    // async asyncData({params, error}) {
-    //   console.log(params)
-    //   // const [res1, res2] = await Promise.all([
-    //   //   axios.get(`https://api2.easyapi.com/api/service/${params.id}`),
-    //   //   axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`)
-    //   // ])
-    //   const res1 = await axios.get(`https://api2.easyapi.com/api/service/${params.id}`)
-    //   const res2 = await axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`)
-    //   // Cookies.set('objService', JSON.stringify(res1.data.content))
-    //
-    //   return {
-    //     service: res1.data.content,
-    //     serviceType: res1.data.content.serviceType,
-    //     servicePriceList: res2.data.content
-    //   }
-    // },
-    created() {
-      // if (Cookies.get('objService')) {
-      //   this.service = JSON.parse(Cookies.get('objService'));
-      // }
-      //
-      this.getService();
-      this.getServicePrice()
+    async asyncData ({ params, error }) {
+      const res1 = await axios.get(`https://api2.easyapi.com/api/service/${params.id}`)
+      const res2 = await axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`)
+      return {
+        service: res1.data.content,
+        serviceType: res1.data.content.serviceType,
+        servicePriceList: res2.data.content
+      }
     },
-    mounted() {
-
+    created () {
+    },
+    mounted () {
     },
     methods: {
-      getService() {
-        axios.get(`/api/service/${this.$route.params.id}`).then(res => {
-          if (res.data.code === "1") {
-            this.service = res.data.content;
-            if (this.service.serviceType) {
-              this.serviceType = this.service.serviceType
-            }
-          }
-
-        }).catch(error => {
-          console.log(error)
-        });
-
-      },
-      getServicePrice() {
-        axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${this.$route.params.id}`, ).then(res => {
-          this.servicePriceList = res.data.content;
-        }).catch(error => {
-          console.log(error)
-        });
-      },
-
-      use(url, hasConsole, serviceId) {
+      use (url, hasConsole, serviceId) {
         if (hasConsole === true) {
           window.location.href = 'https://' + url + '.easyapi.com/console/'
         } else {
-          this.$router.push({path: "https://service.easyapi.com/stat", query: {serviceId: serviceId}})
+          window.location.href = 'https://service.easyapi.com/stat?serviceId=' + serviceId
         }
       },
-      homepage(url) {
+      homepage (url) {
         window.location.href = 'https://' + url + '.easyapi.com/'
       },
-      changeItem(index) {
-        this.clicked = index;
+      changeItem (index) {
+        this.clicked = index
       },
-      subscribeDialog() {
+      subscribeDialog () {
         this.subscribe = true
       },
-      subscribeService() {
+      subscribeService () {
         axios({
           method: 'post',
           url: '/console/team/service/' + this.$route.params.id + '/subscribe',
         }).then(res => {
-          this.$message.success(res.data.message);
-          this.subscribe = false;
-          if (res.data.code === "1") {
-
-            // //临时处理方法
-            this.getService();
-            this.getServicePrice()
+          this.$message.success(res.data.message)
+          this.subscribe = false
+          if (res.data.code === '1') {
           }
         }).catch(error => {
           if (error.response.data.code === -9) {
-            this.$message.warning("请先登录");
-            window.location.href = "https://account.easyapi.com/login";
+            this.$message.warning('请先登录')
+            window.location.href = 'https://account.easyapi.com/login'
           } else {
-            this.$message.warning(error.response.data.message);
+            this.$message.warning(error.response.data.message)
           }
-        });
+        })
       },
     },
   }
@@ -408,7 +369,7 @@
 
         .img {
           width: 100%;
-          min-height :288px;
+          min-height: 288px;
         }
 
         .service-detail-imgs > div {
@@ -457,7 +418,7 @@
         .title {
           font-size: 24px;
           color: #333333;
-          margin-bottom :20px;
+          margin-bottom: 20px;
         }
 
         .scene-con {

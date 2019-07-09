@@ -5,7 +5,7 @@
       <div v-for="item of list" :key="item.articleId">
         <ListItem v-bind:list="item"></ListItem>
       </div>
-      <Loading v-bind:method="getList.bind(this)" v-bind:totalPages="totalPages" v-if="totalPages"></Loading>
+      <Loading v-bind:method="getArticleList.bind(this)" v-bind:totalPages="totalPages" v-if="totalPages"></Loading>
     </div>
     <Footer></Footer>
   </div>
