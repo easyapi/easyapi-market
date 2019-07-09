@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 import axios from '@/plugins/axios'
-import { UserInFo } from '@/api/api'
+import { getUser } from '@/api/api'
 
 const user = {
   state: {
@@ -62,7 +62,7 @@ const user = {
     GetUserInfo ({ commit, state }) {
       axios({
         method: 'GET',
-        url: UserInFo,
+        url: getUser,
       }).then(res => {
         let userInfoData = res.data
         commit('SET_USERID', userInfoData.id)

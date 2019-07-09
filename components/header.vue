@@ -33,7 +33,7 @@
         <a id="showTeamInfo" class="flex-r" :class="{active:showTeamInfo}">
           <span class="team-icon"></span>
         </a>
-        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="tabTeamFn" :showTeamDialog="showTeamInfo"
+        <TeamDialog @on-creadTeam="jumpPage" @on-selectTeam="changeTeam" :showTeamDialog="showTeamInfo"
                     :teamImg="teamImg" :teamName="teamName" :teamList="teamList.content"></TeamDialog>
       </li>
       <li class="item-menu header-login" v-if="token">
@@ -62,7 +62,6 @@
 <script>
   import { mapGetters } from 'vuex'
   import { getServiceList, getServiceTypeList, getMyTeam } from '~/api/api'
-  import axios from '~/plugins/axios'
   import TeamDialog from './setting/TeamDialog'
   import Cookies from 'js-cookie'
 
@@ -108,7 +107,6 @@
           //   _this.callback && _this.callback(null, this.name)
           // }, 0)
         }
-
       },
 
       //退出登录
@@ -121,7 +119,7 @@
         window.location.href = 'https://www.easyapi.com/launch'
       },
       //切换团队
-      tabTeamFn (id) {
+      changeTeam (id) {
         this.$store.dispatch('changeTeam', id)
       },
 

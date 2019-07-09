@@ -19,7 +19,7 @@
                   <span v-if="service.state==-1"><a herf="">异常</a></span>
                 </p>
                 <p class="con-con">
-                  <span>{{serviceType.name}}</span>
+                  <span>{{service.serviceType.name}}</span>
                   |
                   <span>{{service.sales}}次接入</span>
                 </p>
@@ -60,8 +60,7 @@
               </p>
             </div>
             <div class="con-btn">
-              <el-button type="primary" v-if="service && service.ifBuy == true"
-                         @click="use(service.url,service.hasConsole,service.serviceId)">
+              <el-button type="primary" v-if="service && service.ifBuy == true" @click="use(service.url,service.hasConsole,service.serviceId)">
                 立即使用
               </el-button>
               <el-button type="primary" v-else @click="subscribeDialog">立即开通</el-button>
@@ -112,8 +111,7 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png"
-                                                      alt="广告管家"></a>
+                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png" alt="广告管家"></a>
               </div>
               <div class="con">
                 <p>广告管家</p>
@@ -122,8 +120,7 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png"
-                                                            alt="快速提现"></a>
+                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png" alt="快速提现"></a>
               </div>
               <div class="con">
                 <p>快速提现</p>
@@ -176,24 +173,22 @@
       return {
         subscribe: false,
         service: '',
-        serviceType: '',
         clicked: 0,
         servicePriceList: [],
-        isIfBuy: false
       }
     },
     async asyncData ({ params, error }) {
-      const res1 = await axios.get(`https://api2.easyapi.com/api/service/${params.id}`)
-      const res2 = await axios.get(`https://api2.easyapi.com/console/servicePrice?serviceId=${params.id}`)
+      const res1 = await axios.get(`/api/service/${params.id}`)
+      const res2 = await axios.get(`/console/servicePrice?serviceId=${params.id}`)
       return {
         service: res1.data.content,
-        serviceType: res1.data.content.serviceType,
         servicePriceList: res2.data.content
       }
     },
     created () {
     },
     mounted () {
+      console.log(this.service)
     },
     methods: {
       use (url, hasConsole, serviceId) {
@@ -214,7 +209,7 @@
       },
       subscribeService () {
         axios({
-          method: 'post',
+          method: 'POST',
           url: '/console/team/service/' + this.$route.params.id + '/subscribe',
         }).then(res => {
           this.$message.success(res.data.message)

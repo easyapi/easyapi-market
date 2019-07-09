@@ -1,7 +1,5 @@
-export const domainUrl = 'https://api2.easyapi.com'
-
 // 获取用户信息
-export const UserInFo = `https://account.easyapi.com/api/account`
+export const getUser = `https://account.easyapi.com/api/account`
 // 获取用户团队列表
 export const getMyTeam = `https://account.easyapi.com/api/user/teams`
 // 切换团队
