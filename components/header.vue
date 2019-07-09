@@ -49,7 +49,7 @@
           <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
         </div>
       </li>
-      <li class="item-menu header-login"  v-if="!token">
+      <li class="item-menu header-login" v-if="!token">
         <a href="https://account.easyapi.com/login" class="flex-r">登录</a>
       </li>
       <li class="item-menu header-login " v-if="!token">
@@ -93,16 +93,22 @@
       ])
     },
     methods: {
-      search () {
-        if (!this.name) {
-          return
-        }
-        let _this = this
-        _this.$router.push({ path: '/service', query: { name: this.name } })
 
-        setTimeout(() => {
-          _this.callback && _this.callback(null, this.name)
-        }, 0)
+      search () {
+        let _this = this
+        if (!this.name) {
+          this.$store.commit('SET_SERVICE_NAME', '')
+          return
+        } else {
+          //2019/7/9改
+          this.$store.commit('SET_SERVICE_NAME', this.name)
+          _this.$router.push({ path: '/service' })
+          // _this.$router.push({ path: '/service', query: { name: this.name } })
+          // setTimeout(() => {
+          //   _this.callback && _this.callback(null, this.name)
+          // }, 0)
+        }
+
       },
 
       //退出登录
@@ -123,15 +129,16 @@
     created: function () {
     },
     mounted () {
-      if (Cookies.get('authenticationToken')){
+      if (Cookies.get('authenticationToken')) {
         //获取用户信息
         this.$store.dispatch('GetUserInfo')
         //获取团队列表
         this.$store.dispatch('getTeamList')
       }
+      //2019/7/9改
+      this.name = this.$store.state.serviceName
+      // this.name = this.$route.query.name
 
-
-      this.name = this.$route.query.name
       let body = document.querySelector('body')
       body.addEventListener('click', (e) => {
         if (e.target.id === 'showTeamInfo' || e.target.className === 'team-icon') {

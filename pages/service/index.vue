@@ -52,7 +52,7 @@
           </el-col>
         </el-row>
       </div>
-      <div class="recommend-service">
+      <div v-loading="loading" class="recommend-service">
         <div class="recommend-service-con">
           <div class="col" v-for="(item, index) in serviceList" :key="index">
             <nuxt-link :to="'/service/'+item.serviceId">
@@ -71,14 +71,20 @@
           </div>
         </div>
       </div>
+      <div class="pagination" v-if="!isNoData">
+        <el-pagination
+          background
+          layout="total, sizes, prev, pager, next, jumper"
+          :page-sizes="[10, 15, 30]"
+          :page-size="pageSize"
+          :current-page="current"
+          :total="total"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        ></el-pagination>
+      </div>
     </div>
 
-    <div class="pagination" v-if="!isNoData">
-      <Pagination
-        :total="total"
-        :current-page='current'
-        @pagechange="pageChange"></Pagination>
-    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -110,6 +116,7 @@
     },
     data () {
       return {
+        loading:false,
         name: '',
         serviceTypeId: '全部',
         type: '全部',
@@ -118,27 +125,88 @@
         serviceList: [],
 
         serviceTypeList: [],
-        total: 150,     // 记录总条数
         pageSize: 10,   // 每页显示条数
-        current: 0   // 当前的页数
+        current: 0,   // 当前的页数
+        total: 0,     // 记录总条数
       }
     },
     async asyncData ({ params, error }) {
-      let [res1, res2] = await Promise.all([
-        axios.get('/api/services'),
+      let [ res2] = await Promise.all([
         axios.get('/api/service/types')
       ])
       return {
-        serviceList: res1.data.content,
         serviceTypeList: res2.data.content
       }
     },
+    watch:{
+      '$store.state.serviceName':function (v,oldv) {
+        this.name = this.$store.state.serviceName
+        this.getServiceList()
+      }
+    },
+    created () {
+      this.name = this.$store.state.serviceName
+      this.getServiceList()
+    },
+    mounted () {
+
+    },
     methods: {
-      pageChange (currentPage) {
-        let url = `/api/services?page=${currentPage}&size=${this.pageSize}`
-        let urlName = this.$route.query.name && this.$route.query.name.trim()
-        return urlName ? this.getServiceList(url, urlName) : this.getServiceList(url)
+      getServiceList () {
+        let _this = this
+        _this.loading = true
+        let obj = {}
+        if (this.name) {
+          obj.name = this.name
+        }
+        if (_this.serviceTypeId !== '全部') {
+          obj.serviceTypeId = this.serviceTypeId
+        }
+        if (_this.type !== '全部') {
+          if (_this.type == '1') {
+            obj.type = '1'
+          } else if (_this.type == '2') {
+            obj.types = '2,3,4'
+          }
+        }
+        if (_this.sort !== '全部') {
+          if (_this.sort == '1') {
+            obj.sort = 'addTime,desc'
+          } else if (_this.sort == '2') {
+            obj.sort = 'sales,desc'
+          }
+        }
+        obj.size = this.pageSize;
+        obj.page = this.current-1;
+        axios.get('/api/services', {
+          params: obj
+        }).then(res => {
+          this.loading = false
+          if (res.data.code === 0) {
+            _this.isNoData = true
+            _this.serviceList = []
+            _this.total = 0
+          } else {
+            _this.isNoData = false
+            _this.serviceList = res.data.content
+            _this.total = res.data.totalElements
+          }
+        }).catch(error => {
+          this.loading = false
+          console.log(error.response)
+        })
+
       },
+
+      handleSizeChange (val) {
+        this.pageSize = val;
+        this.getServiceList();
+      },
+      handleCurrentChange (val) {
+        this.current = val;
+        this.getServiceList()
+      },
+
       //样式切换
       getService (id) {
         this.serviceTypeId = id
@@ -155,123 +223,6 @@
         this.getServiceList()
       },
 
-      getServiceList (url, name, action) {
-        let _this = this
-        let obj = {}
-        if (name) {
-          obj.name = name
-        }
-
-        if (_this.serviceTypeId !== '全部') {
-          obj.serviceTypeId = this.serviceTypeId
-
-          if (name) {
-            delete obj.serviceTypeId
-          }
-        }
-        if (_this.type !== '全部') {
-          if (_this.type == '1') {
-            obj.type = '1'
-          } else if (_this.type == '2') {
-            obj.types = '2,3,4'
-          }
-        }
-        if (_this.sort !== '全部') {
-          if (_this.sort == '1') {
-            obj.sort = 'addTime,desc'
-          } else if (_this.sort == '2') {
-            obj.sort = 'sales,desc'
-          }
-        }
-        let { query: { serviceTypeId, type, sort } } = this.$route
-
-        _this.saveParams({
-          serviceTypeId: action ? this.serviceTypeId : serviceTypeId || '全部',
-          sort: sort || 1,
-          type: action ? this.type : type || '全部',
-          ...obj,
-        }).then(res => {
-          setTimeout(() => {
-            let { query } = this.$route
-
-            let newObj = {
-              ...query,
-              ...obj,
-            }
-
-            this.serviceTypeId = query.serviceTypeId
-            this.type = query.type
-
-            let { page, size, serviceTypeId, type, sort, types } = newObj
-
-            if (serviceTypeId == '全部') {
-              delete newObj.serviceTypeId
-            }
-            if (type == '全部' || type == '2') {
-              delete newObj.type
-            }
-            if (sort == '1') {
-              newObj.sort = 'addTime,desc'
-            }
-
-            if (sort == '2') {
-              newObj.sort = 'sales,desc'
-            }
-
-            delete newObj.page
-            delete newObj.size
-
-            _this.serviceList = []
-            axios.get(url || '/api/services', {
-              params: newObj
-            }).then(res => {
-              if (res.data.code === 0) {
-                _this.isNoData = true
-              } else {
-                _this.isNoData = false
-              }
-              _this.serviceList = res.data.content
-              _this.total = res.data.totalElements
-            }).catch(error => {
-              console.log(error.response)
-            })
-          }, 0)
-        })
-      },
-      getName (name) {
-        let currentPage = 0
-        let url = `/api/services`
-        let urlName = name && name.trim()
-
-        return urlName ? this.getServiceList(url, urlName) : this.getServiceList(url)
-      },
-
-      //保存query参数
-      saveParams (params) {
-
-        if (params.types == '2,3,4') {
-          params.type = 2
-        }
-
-        if (params.type == '2') {
-          params.types = '2,3,4'
-        }
-
-        console.log(params, 'push after')
-
-        if (!params.serviceTypeId) {
-          params.serviceTypeId = '全部'
-        }
-
-        if (!params.type) {
-          params.type = '全部'
-        }
-
-        let defaultParams = this.contactObject(params)
-        this.$router.push(`/service?${defaultParams}`)
-        return Promise.resolve(defaultParams)
-      },
-
       //拼接对象
       contactObject (obj) {
         if (!obj) return
@@ -284,9 +235,6 @@
         return str.slice(0, str.length)
       }
     },
-
-    mounted () {
-    }
 
   }
 </script>
