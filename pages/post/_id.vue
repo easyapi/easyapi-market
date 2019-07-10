@@ -95,6 +95,7 @@
 
   .detail-content {
     padding-top: 30px;
+    text-align: center;
   }
 
   .detail-con-inner {

@@ -179,6 +179,7 @@
     margin-bottom: 0 !important;
     background: transparent !important;
     position: absolute !important;
+    width: 100%;
   }
 
   .img {

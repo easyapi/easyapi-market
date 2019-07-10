@@ -27,10 +27,10 @@
             </el-col>
             <el-col :span="4" class="col-right">
               <p v-if="service.hasConsole===true">
-                <el-button size="small" plain @click="homepage(service.url)">进入官网</el-button>
+                <el-button class="ea-btn" size="small" plain @click="homepage(service.url)">进入官网</el-button>
               </p>
               <p>
-                <el-button size="small" plain>API文档</el-button>
+                <el-button  class="ea-btn" size="small" plain>API文档</el-button>
               </p>
             </el-col>
           </el-row>
@@ -233,7 +233,12 @@
     },
   }
 </script>
-
+<style lang="scss">
+.ea-btn{
+  border-color: #18c1d6;
+  color: #18c1d6;
+}
+</style>
 <style lang="scss" scoped>
 
   .service-detail-con {
