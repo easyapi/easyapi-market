@@ -16,8 +16,13 @@
 </template>
 
 <style scoped>
+  a{
+    display: inline-block;
+    width: 100%;
+  }
   .list-item {
     display: flex;
+    width: 100%;
     margin-bottom: 20px;
     padding: 25px;
     border: 1px solid #ddd;

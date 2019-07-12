@@ -12,7 +12,7 @@
               </el-col>
               <el-col :span="2" v-for="(item, index) in serviceTypeList" :key="index">
                 <a class="col-right-con" :class="{active:serviceTypeId==item.serviceTypeId}"
-                   @click="getService(item.serviceTypeId)">
+                   @click="getService(item.serviceTypeId,)">
                   {{item.name}}
                 </a>
               </el-col>
@@ -64,7 +64,7 @@
               <p class="price" v-if="item.type===4">按需</p>
             </nuxt-link>
           </div>
-          <div v-if="isNoData">
+          <div class="nodata" v-if="isNoData">
             <img src="https://qiniu.easyapi.com/market/empty.png" alt="">
             <p>暂无服务</p>
             <p>如果您有优质的提供商，欢迎给我们推荐 <a href="leida@easyapi.com" class="text-no-data">leida@easyapi.com</a></p>
@@ -145,7 +145,19 @@
       }
     },
     created () {
-      this.name = this.$store.state.serviceName
+      this.name = this.$store.state.serviceName;
+      let type=this.$route.query.type;
+      let payType=this.$route.query.payType;
+      let sort=this.$route.query.sort;
+      if (type){
+        this.serviceTypeId=type;
+      }
+      if (payType){
+        this.type=payType;
+      }
+      if (sort){
+        this.sort=sort
+      }
       this.getServiceList()
     },
     mounted () {
@@ -210,16 +222,48 @@
       //样式切换
       getService (id) {
         this.serviceTypeId = id
-        let action = 'click'
-        this.getServiceList(null, null, action)
+        let action = 'click';
+        let type=this.$route.query.type;
+        let payType=this.$route.query.payType;
+        let sort=this.$route.query.sort;
+        this.$router.replace({
+          path:"/service",query:{
+            type:this.serviceTypeId,
+            payType:payType,
+            sort:sort
+          }
+        })
+        this.getServiceList()
+        // this.getServiceList(null, null, action)
       },
       charge (t) {
         this.type = t
         let action = 'click'
-        this.getServiceList(null, null, action)
+        let type=this.$route.query.type;
+        let payType=this.$route.query.payType;
+        let sort=this.$route.query.sort;
+        this.$router.replace({
+          path:"/service",query:{
+            type:type,
+            payType:t,
+            sort:sort
+          }
+        })
+        this.getServiceList()
+        // this.getServiceList(null, null, action)
       },
       styleSwitch (t) {
         this.sort = t
+        let type=this.$route.query.type;
+        let payType=this.$route.query.payType;
+        let sort=this.$route.query.sort;
+        this.$router.replace({
+          path:"/service",query:{
+            type:type,
+            payType:payType,
+            sort:t
+          }
+        })
         this.getServiceList()
       },
 
@@ -240,6 +284,16 @@
 </script>
 
 <style lang="scss" scoped>
+  .nodata{
+    padding: 40px 0;
+    color: #999;
+    img{
+      margin-bottom: 10px;
+    }
+    p{
+      padding: 10px 0;
+    }
+  }
   .col-right-con {
     display: block;
   }
@@ -292,7 +346,7 @@
     margin-top: 40px;
 
     a {
-      color: #333;
+      color: #18c1d6;
     }
 
     .recommend-service-con {

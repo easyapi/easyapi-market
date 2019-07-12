@@ -5,7 +5,7 @@
 
       <el-row class="service-detail-con">
         <el-col :span="18" class="service-detail-left">
-          <el-row class="service-detail-left-title">
+          <el-row class="service-detail-left-title" v-if="service">
             <el-col :span="20" class="col-left">
               <div class="img"><img v-bind:src="service.img" alt=""></div>
               <div class="con">
@@ -30,7 +30,7 @@
                 <el-button class="ea-btn" size="small" plain @click="homepage(service.url)">进入官网</el-button>
               </p>
               <p>
-                <el-button  class="ea-btn" size="small" plain>API文档</el-button>
+                <el-button class="ea-btn" size="small" plain>API文档</el-button>
               </p>
             </el-col>
           </el-row>
@@ -60,7 +60,8 @@
               </p>
             </div>
             <div class="con-btn">
-              <el-button type="primary" v-if="service && service.ifBuy == true" @click="use(service.url,service.hasConsole,service.serviceId)">
+              <el-button type="primary" v-if="service && service.ifBuy"
+                         @click="use(service.url,service.hasConsole,service.serviceId)">
                 立即使用
               </el-button>
               <el-button type="primary" v-else @click="subscribeDialog">立即开通</el-button>
@@ -111,7 +112,8 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png" alt="广告管家"></a>
+                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png"
+                                                      alt="广告管家"></a>
               </div>
               <div class="con">
                 <p>广告管家</p>
@@ -120,7 +122,8 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png" alt="快速提现"></a>
+                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png"
+                                                            alt="快速提现"></a>
               </div>
               <div class="con">
                 <p>快速提现</p>
@@ -155,6 +158,7 @@
     name: 'service-detail',
     loading: true,
     head () {
+
       return {
         title: this.service.name + ' - EasyAPI服务市场',
         meta: [
@@ -164,6 +168,7 @@
           { hid: 'keyswords', name: 'keyswords', content: '服务市场详情' }
         ]
       }
+
     },
     components: {
       Header,
@@ -177,15 +182,22 @@
         servicePriceList: [],
       }
     },
-    async asyncData ({ params, error }) {
-      const res1 = await axios.get(`/api/service/${params.id}`)
-      const res2 = await axios.get(`/console/servicePrice?serviceId=${params.id}`)
+    async asyncData (context) {
+
+      // const res1 = await axios.get(`/api/service/${context.params.id}`, {
+      //   headers: {
+      //     'Authorization': 'Bearer ' +Cookies.get('authenticationToken')
+      //   }
+      // })
+      const res2 = await axios.get(`/console/servicePrice?serviceId=${context.params.id}`)
       return {
-        service: res1.data.content,
+        // service: res1.data.content,
         servicePriceList: res2.data.content
       }
+
     },
     created () {
+      this.getService();
     },
     mounted () {
       console.log(this.service)
@@ -215,6 +227,7 @@
           this.$message.success(res.data.message)
           this.subscribe = false
           if (res.data.code === '1') {
+            this.getService()
           }
         }).catch(error => {
           if (error.response.data.code === -9) {
@@ -225,14 +238,19 @@
           }
         })
       },
+      getService () {
+        axios.get(`/api/service/${this.$route.params.id}`).then(res => {
+          this.service = res.data.content
+        })
+      }
     },
   }
 </script>
 <style lang="scss">
-.ea-btn{
-  border-color: #18c1d6;
-  color: #18c1d6;
-}
+  .ea-btn {
+    border-color: #18c1d6;
+    color: #18c1d6;
+  }
 </style>
 <style lang="scss" scoped>
 
