@@ -37,14 +37,12 @@
           <div class="combo">
             <div class="combo-con" v-if="service.type===2">
               <span class="mg-rt-10">套餐:</span>
-              <el-button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index"
-                         @click="changeItem(index)">{{item.times}}次
+              <el-button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">{{item.times}}次
               </el-button>
             </div>
             <div class="combo-con" v-if="service.type===3">
               <span class="mg-rt-10">套餐:</span>
-              <el-button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index"
-                         @click="changeItem(index)">{{item.month}}个月
+              <el-button :class="[clicked===index?'active':'']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">{{item.month}}个月
               </el-button>
             </div>
             <div class="price">
@@ -112,8 +110,7 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png"
-                                                      alt="广告管家"></a>
+                <a href="https://ad.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/ad.png" alt="广告管家"></a>
               </div>
               <div class="con">
                 <p>广告管家</p>
@@ -122,8 +119,7 @@
             </div>
             <div class="scene-con">
               <div class="img">
-                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png"
-                                                            alt="快速提现"></a>
+                <a href="https://withdraw.easyapi.com"><img src="https://qiniu.easyapi.com/market/right/withdraw.png" alt="快速提现"></a>
               </div>
               <div class="con">
                 <p>快速提现</p>
@@ -152,13 +148,11 @@
   import Header from '~/components/header'
   import Footer from '~/components/footer'
   import axios from '~/plugins/axios'
-  import Cookies from 'js-cookie'
 
   export default {
     name: 'service-detail',
     loading: true,
     head () {
-
       return {
         title: this.service.name + ' - EasyAPI服务市场',
         meta: [
@@ -168,7 +162,6 @@
           { hid: 'keyswords', name: 'keyswords', content: '服务市场详情' }
         ]
       }
-
     },
     components: {
       Header,
@@ -183,24 +176,15 @@
       }
     },
     async asyncData (context) {
-
-      // const res1 = await axios.get(`/api/service/${context.params.id}`, {
-      //   headers: {
-      //     'Authorization': 'Bearer ' +Cookies.get('authenticationToken')
-      //   }
-      // })
-      const res2 = await axios.get(`/console/servicePrice?serviceId=${context.params.id}`)
+      const res = await axios.get(`/console/servicePrice?serviceId=${context.params.id}`)
       return {
-        // service: res1.data.content,
-        servicePriceList: res2.data.content
+        servicePriceList: res.data.content
       }
-
     },
     created () {
-      this.getService();
+      this.getService()
     },
     mounted () {
-      console.log(this.service)
     },
     methods: {
       use (url, hasConsole, serviceId) {
