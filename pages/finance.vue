@@ -82,52 +82,52 @@
         apiDatalist: [
           {
             avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '积分商城',
+            title: '身份证实名认证',
             money: '￥0.15/次'
           },
           {
             avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '意见反馈',
+            title: '运营商三要素',
             money: '￥0.15/次'
           },
           {
             avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '短信服务通知',
+            title: '金融反欺诈',
             money: '￥0.15/次'
           },
           {
             avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '在线翻译',
-            money: '￥0.15/次'
-          },
-          {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '水电煤',
-            money: '￥0.15/次'
-          },
-          {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '积分商城',
-            money: '￥0.15/次'
-          },
-          {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '意见反馈',
-            money: '￥0.15/次'
-          },
-          {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '短信服务通知',
-            money: '￥0.15/次'
-          },
-          {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '在线翻译',
+            title: '三网手机实名认证',
             money: '￥0.15/次'
           },
           {
             avter: 'https://qiniu.easyapi.com/ip.png',
-            title: '水电煤',
+            title: '银行卡三元素校验',
+            money: '￥0.15/次'
+          },
+          {
+            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            title: '银行卡四元素校验',
+            money: '￥0.15/次'
+          },
+          {
+            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            title: '证件识别',
+            money: '￥0.15/次'
+          },
+          {
+            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            title: '企业工商数据',
+            money: '￥0.15/次'
+          },
+          {
+            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            title: '短信服务通知',
+            money: '￥0.15/次'
+          },
+          {
+            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            title: '银行卡类别',
             money: '￥0.15/次'
           }
         ]
