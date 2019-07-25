@@ -15,7 +15,7 @@
         <DivListWrap>
           <div class='finance-top-list' v-for="(item,index) in dataList" :key="index">
             <div>
-              <img :src="item.avter" alt="图片加载中...">
+              <img :src="item.img" alt="图片加载中...">
             </div>
             <span>{{item.title}}</span>
           </div>
@@ -30,7 +30,7 @@
         <DivListWrap>
           <div class='finance-rl-inner' v-for="(item,index) in apiDatalist" :key="index">
             <div>
-              <img :src="item.avter" alt="图片加载中...">
+              <img :src="item.img" alt="图片加载中...">
             </div>
             <div>
               <span>{{item.title}}</span>
@@ -62,71 +62,71 @@
       return {
         dataList: [
           {
-            avter: 'https://qiniu.easyapi.com/market/finance/individual-risk.png',
+            img: 'https://qiniu.easyapi.com/market/finance/individual-risk.png',
             title: '个人风控数据'
           },
           {
-            avter: 'https://qiniu.easyapi.com/market/finance/portrayal.png',
+            img: 'https://qiniu.easyapi.com/market/finance/portrayal.png',
             title: '用户画像数据'
           },
 
           {
-            avter: 'https://qiniu.easyapi.com/market/finance/enterprise.png',
+            img: 'https://qiniu.easyapi.com/market/finance/enterprise.png',
             title: '企业相关数据'
           },
           {
-            avter: 'https://qiniu.easyapi.com/market/finance/risk.png',
+            img: 'https://qiniu.easyapi.com/market/finance/risk.png',
             title: '金融风控数据 '
           },
         ],
         apiDatalist: [
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
+            title: '身份证OCR识别',
+            money: '￥0.15/次'
+          },
+          {
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '身份证实名认证',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '运营商三要素',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '金融反欺诈',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '三网手机实名认证',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/ip.png',
+            img: 'https://qiniu.easyapi.com/ip.png',
             title: '银行卡三元素校验',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '银行卡四元素校验',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '证件识别',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '企业工商数据',
             money: '￥0.15/次'
           },
           {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
-            title: '短信服务通知',
-            money: '￥0.15/次'
-          },
-          {
-            avter: 'https://qiniu.easyapi.com/withdraw.png',
+            img: 'https://qiniu.easyapi.com/withdraw.png',
             title: '银行卡类别',
             money: '￥0.15/次'
           }
