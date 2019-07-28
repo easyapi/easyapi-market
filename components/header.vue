@@ -95,18 +95,32 @@
 
       search () {
         let _this = this
-        if (!this.name) {
-          this.$store.commit('SET_SERVICE_NAME', '')
-          return
-        } else {
-          //2019/7/9改
-          this.$store.commit('SET_SERVICE_NAME', this.name)
-          _this.$router.push({ path: '/service' })
-          // _this.$router.push({ path: '/service', query: { name: this.name } })
-          // setTimeout(() => {
-          //   _this.callback && _this.callback(null, this.name)
-          // }, 0)
+        console.log(111, this.$route)
+        this.$store.commit('SET_SERVICE_NAME', this.name)
+        // _this.$router.push({ path: '/service' })
+        let obj = {}
+        let name = this.name
+        let type = this.$route.query.type
+        let payType = this.$route.query.payType
+        let sort = this.$route.query.sort
+        if (name) {
+          obj.name = name
         }
+        if (type) {
+          obj.serviceTypeId = type
+        }
+        if (payType) {
+          obj.type = payType
+        }
+        if (sort) {
+          obj.sort = sort
+        }
+
+        _this.$router.push({ path: '/service', query: obj })
+        // setTimeout(() => {
+        //   _this.callback && _this.callback(null, this.name)
+        // }, 0)
+
       },
 
       //退出登录

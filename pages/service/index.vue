@@ -116,7 +116,7 @@
     },
     data () {
       return {
-        loading:false,
+        loading: false,
         name: '',
         serviceTypeId: '全部',
         type: '全部',
@@ -126,37 +126,45 @@
 
         serviceTypeList: [],
         pageSize: 10,   // 每页显示条数
-        current: 0,   // 当前的页数
+        current: 1,   // 当前的页数
         total: 0,     // 记录总条数
       }
     },
     async asyncData ({ params, error }) {
-      let [ res2] = await Promise.all([
+      let [res2] = await Promise.all([
         axios.get('/api/service/types')
       ])
       return {
         serviceTypeList: res2.data.content
       }
     },
-    watch:{
-      '$store.state.serviceName':function (v,oldv) {
+    watch: {
+      '$store.state.serviceName': function (v, oldv) {
         this.name = this.$store.state.serviceName
+        // this.getServiceList()
+      },
+      '$route':function () {
         this.getServiceList()
       }
     },
     created () {
-      this.name = this.$store.state.serviceName;
-      let type=this.$route.query.type;
-      let payType=this.$route.query.payType;
-      let sort=this.$route.query.sort;
-      if (type){
-        this.serviceTypeId=type;
+      // this.name = this.$store.state.serviceName;
+      let name = this.$route.query.name
+      let type = this.$route.query.type
+      let payType = this.$route.query.payType
+      let sort = this.$route.query.sort
+
+      if (name) {
+        this.name = name
       }
-      if (payType){
-        this.type=payType;
+      if (type) {
+        this.serviceTypeId = type
       }
-      if (sort){
-        this.sort=sort
+      if (payType) {
+        this.type = payType
+      }
+      if (sort) {
+        this.sort = sort
       }
       this.getServiceList()
     },
@@ -188,8 +196,8 @@
             obj.sort = 'sales,desc'
           }
         }
-        obj.size = this.pageSize;
-        obj.page = this.current-1;
+        obj.size = this.pageSize
+        obj.page = this.current - 1
         axios.get('/api/services', {
           params: obj
         }).then(res => {
@@ -211,26 +219,28 @@
       },
 
       handleSizeChange (val) {
-        this.pageSize = val;
-        this.getServiceList();
+        this.pageSize = val
+        this.getServiceList()
       },
       handleCurrentChange (val) {
-        this.current = val;
+        this.current = val
         this.getServiceList()
       },
 
       //样式切换
       getService (id) {
         this.serviceTypeId = id
-        let action = 'click';
-        let type=this.$route.query.type;
-        let payType=this.$route.query.payType;
-        let sort=this.$route.query.sort;
+        let action = 'click'
+        let name = this.$route.query.name
+        let type = this.$route.query.type
+        let payType = this.$route.query.payType
+        let sort = this.$route.query.sort
         this.$router.replace({
-          path:"/service",query:{
-            type:this.serviceTypeId,
-            payType:payType,
-            sort:sort
+          path: '/service', query: {
+            name: name,
+            type: this.serviceTypeId,
+            payType: payType,
+            sort: sort
           }
         })
         this.getServiceList()
@@ -238,15 +248,17 @@
       },
       charge (t) {
         this.type = t
+        let name = this.$route.query.name
         let action = 'click'
-        let type=this.$route.query.type;
-        let payType=this.$route.query.payType;
-        let sort=this.$route.query.sort;
+        let type = this.$route.query.type
+        let payType = this.$route.query.payType
+        let sort = this.$route.query.sort
         this.$router.replace({
-          path:"/service",query:{
-            type:type,
-            payType:t,
-            sort:sort
+          path: '/service', query: {
+            name: name,
+            type: type,
+            payType: t,
+            sort: sort
           }
         })
         this.getServiceList()
@@ -254,14 +266,16 @@
       },
       styleSwitch (t) {
         this.sort = t
-        let type=this.$route.query.type;
-        let payType=this.$route.query.payType;
-        let sort=this.$route.query.sort;
+        let name = this.$route.query.name
+        let type = this.$route.query.type
+        let payType = this.$route.query.payType
+        let sort = this.$route.query.sort
         this.$router.replace({
-          path:"/service",query:{
-            type:type,
-            payType:payType,
-            sort:t
+          path: '/service', query: {
+            name: name,
+            type: type,
+            payType: payType,
+            sort: t
           }
         })
         this.getServiceList()
@@ -284,16 +298,19 @@
 </script>
 
 <style lang="scss" scoped>
-  .nodata{
+  .nodata {
     padding: 40px 0;
     color: #999;
-    img{
+
+    img {
       margin-bottom: 10px;
     }
-    p{
+
+    p {
       padding: 10px 0;
     }
   }
+
   .col-right-con {
     display: block;
   }
