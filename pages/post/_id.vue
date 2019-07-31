@@ -19,7 +19,6 @@
   import Header from '~/components/header'
   import Footer from '~/components/footer'
   import axios from '~/plugins/axios'
-  import $ from 'jquery'
   export default {
     name: 'post-detail',
     head () {
@@ -58,9 +57,6 @@
     },
     mounted () {
       this.getArticle()
-
-        $(".detail-content p>img").parent().css({"text-align":"center"})
-
 
     }
   }
