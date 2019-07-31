@@ -21,12 +21,11 @@
             </div>
             <div>
               <h3>{{item.title}}</h3>
-              <span>{{item.freeSay}}</span>
-              <span>{{item.flow}}</span>
-              <span>{{item.network}}</span>
+              <span>{{item.subtitle1}}</span>
+              <span>{{item.subtitle2}}</span>
             </div>
             <div>
-              <label class="pointer">免费试用</label>
+              <label class="pointer">立即使用</label>
             </div>
           </div>
         </DivListWrap>
@@ -41,7 +40,7 @@
               {{item.title}}
             </div>
             <div>
-              {{item.freeSay}}
+              {{item.subtitle}}
             </div>
           </div>
 
@@ -73,43 +72,40 @@
           {
             icon: 'https://qiniu.easyapi.com/market/jiaofei/communication.png',
             title: '通讯业务',
-            freeSay: '话费充值',
-            flow: '流量充值',
-            network: '宽带充值',
+            subtitle1: '话费充值',
+            subtitle2: '宽带充值',
           },
           {
             icon: 'https://qiniu.easyapi.com/market/jiaofei/game.png',
 
             title: '游戏充值',
-            freeSay: '网络游戏',
-            flow: '手机游戏',
-            network: ' QQ业务',
+            subtitle1: '网络游戏',
+            subtitle2: '手机游戏',
           },
           {
             icon: 'https://qiniu.easyapi.com/market/jiaofei/payment.png',
             title: '生活缴费',
-            freeSay: '水电煤',
-            flow: '加油卡',
-            network: '交通罚款',
+            subtitle1: '水电煤',
+            subtitle2: '加油卡',
           }
         ],
         adviceList: [
           {
             icon: 'https://qiniu.easyapi.com/market/jiaofei/api.png',
             title: 'API充值',
-            freeSay: '无需提前充值，通过EasyAPI充值API接口，随冲随用，不占用资金',
+            subtitle: '无需提前充值，通过EasyAPI充值API接口，随充随用，不占用资金',
 
           },
           {
             icon: 'https://qiniu.easyapi.com/market/jiaofei/goods.png',
             title: '货源稳定',
-            freeSay: '海量优质货源供应，众多供应商后台随机切换，保障货源稳定',
+            subtitle: '海量优质货源供应，众多供应商后台随机切换，保障货源稳定',
 
           },
           {
             icon: 'https://qiniu.easyapi.com/market/jiaofei/others.png',
             title: '其他',
-            freeSay: ' 如果您需要更多其他充值缴费相关，请联系我们',
+            subtitle: '如果您需要更多其他充值缴费相关，请联系我们',
           },
         ]
       }
@@ -147,15 +143,13 @@
     background-image: url('https://qiniu.easyapi.com/market/bg_jiaofei_banner.png');
     background-size: cover;
 
-    P {
-
+    p {
       font-size: 36px;
       font-family: MicrosoftYaHei;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
       padding-top: 133px;
       text-align: center;
-
     }
 
     .banner-text {
