@@ -99,7 +99,6 @@
     z-index: 9999;
 
 
-
     .current-team-name {
       height: 60px;
       line-height: 60px;

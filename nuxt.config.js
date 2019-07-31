@@ -56,7 +56,18 @@ module.exports = {
     //   loader: 'style-loader!css-loader'
     // }
     // ],
-    maxChunkSize: 360000, // 单个包最大尺寸
+    babel: {
+      plugins: [
+        [
+          'component',
+          {
+            'libraryName': 'element-ui',
+            'styleLibraryName': 'theme-chalk'
+          }
+        ]
+      ]
+    },
+    maxChunkSize: 300000, // 单个包最大尺寸
     extractCSS: true // 单独提取CSS
   },
   server: {
