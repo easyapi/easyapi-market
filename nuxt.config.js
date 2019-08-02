@@ -22,9 +22,6 @@ module.exports = {
   ],
   plugins: [
     {
-      src: '~/plugins/vue-notifications', ssr: false
-    },
-    {
       src: '~/plugins/element-ui', ssr: false
     },
     {
