@@ -61,7 +61,6 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import { getServiceList, getServiceTypeList, getMyTeam } from '~/api/api'
   import TeamDialog from './setting/TeamDialog'
   import Cookies from 'js-cookie'
 

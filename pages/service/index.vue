@@ -94,6 +94,7 @@
   import Footer from '~/components/footer'
   import Pagination from '~/components/common/pagination'
   import axios from '~/plugins/axios'
+  import { getServiceList, getServiceTypeList } from '~/api/api'
 
   export default {
     name: 'service',
@@ -132,7 +133,7 @@
     },
     async asyncData ({ params, error }) {
       let [res2] = await Promise.all([
-        axios.get('/api/service/types')
+        axios.get(getServiceTypeList)
       ])
       return {
         serviceTypeList: res2.data.content
@@ -143,7 +144,7 @@
         this.name = this.$store.state.serviceName
         // this.getServiceList()
       },
-      '$route':function () {
+      '$route': function () {
         this.getServiceList()
       }
     },
@@ -198,7 +199,7 @@
         }
         obj.size = this.pageSize
         obj.page = this.current - 1
-        axios.get('/api/services', {
+        axios.get(getServiceList, {
           params: obj
         }).then(res => {
           this.loading = false
@@ -215,7 +216,6 @@
           this.loading = false
           console.log(error.response)
         })
-
       },
 
       handleSizeChange (val) {
