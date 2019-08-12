@@ -7,7 +7,7 @@
     <div class="container">
       <DivListWarp>
         <div class="scene-warp" v-for="(item,index) in imgList" :key="index">
-          <a :href="item.href" class="img">
+          <a :href="item.href" class="img" target="_blank">
             <img :src="item.src" alt="图片加载中...">
           </a>
           <a class="tex" :href="item.href">

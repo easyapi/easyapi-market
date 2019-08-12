@@ -215,7 +215,6 @@
           }
         }).catch(error => {
           if (error.response.data.code === -9) {
-            this.$message.warning('请先登录')
             window.location.href = 'https://account.easyapi.com/login'
           } else {
             this.$message.warning(error.response.data.message)
