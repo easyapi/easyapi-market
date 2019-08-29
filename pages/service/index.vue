@@ -38,14 +38,14 @@
             <el-row>
               <el-col :span="2">
                 <a class="col-right-con" :class="{tqActive:sort==='1'}" @click="styleSwitch('1')">热门
-                  <img src="../../assets/images/arrowTenBlue.png" alt="暂无数据" v-if="sort==='1'">
-                  <img src="../../assets/images/arrowTenGray.png" alt="暂无数据" v-else>
+                  <img src="../../assets/images/arrow-down-blue.png" alt="暂无数据" v-if="sort==='1'">
+                  <img src="../../assets/images/arrow-down-gray.png" alt="暂无数据" v-else>
                 </a>
               </el-col>
               <el-col :span="2">
                 <a class="col-right-con" :class="{tqActive:sort==='2'}" @click="styleSwitch('2')">最新
-                  <img src="../../assets/images/arrowTenBlue.png" alt="暂无数据" v-if="sort==='2'">
-                  <img src="../../assets/images/arrowTenGray.png" alt="暂无数据" v-else>
+                  <img src="../../assets/images/arrow-down-blue.png" alt="暂无数据" v-if="sort==='2'">
+                  <img src="../../assets/images/arrow-down-gray.png" alt="暂无数据" v-else>
                 </a>
               </el-col>
             </el-row>
@@ -92,7 +92,6 @@
 <script>
   import Header from '~/components/header'
   import Footer from '~/components/footer'
-  import Pagination from '~/components/common/pagination'
   import axios from '~/plugins/axios'
   import { getServiceList, getServiceTypeList } from '~/api/api'
 
@@ -112,8 +111,7 @@
     },
     components: {
       Header,
-      Footer,
-      Pagination
+      Footer
     },
     data () {
       return {

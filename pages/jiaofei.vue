@@ -247,7 +247,7 @@
   }
 
   .jiaofei-list:hover label {
-    background-image: url(../assets/images/arrow.png);
+    background-image: url(../assets/images/arrow-right.png);
     background-color: #18C1D6;
     color: #fff;
   }

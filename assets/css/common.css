@@ -1,25 +1,31 @@
-a{
+a {
   color: #333;
 }
-*{
+
+* {
   padding: 0;
   margin: 0;
 }
-html{
+
+html {
   font-family: MicrosoftYaHei;
 }
-a{
+
+a {
   text-decoration: none;
   outline: 0;
   cursor: pointer;
   display: inline-block;
 }
+
 ul, li, ol {
   list-style: none;
 }
-span,img{
+
+span, img {
   display: inline-block;
 }
+
 /*弹性布局*/
 .flex-r {
   display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
@@ -50,7 +56,6 @@ span,img{
   -ms-flex-direction: column;
   -o-flex-direction: column;
   flex-direction: column;
-
 }
 
 .container {
@@ -58,19 +63,15 @@ span,img{
   width: 1200px;
   margin: 0 auto;
 }
-.mg-lf-15{
+
+.mg-lf-15 {
   margin-left: 15px;
 }
-.mg-lf-20{
+
+.mg-lf-20 {
   margin-left: 20px;
 }
-.mg-rt-10{
+
+.mg-rt-10 {
   margin-right: 10px;
 }
-
-/*.page-enter-active, .page-leave-active {*/
-  /*transition: opacity .3s;*/
-/*}*/
-/*.page-enter, .page-leave-active {*/
-  /*opacity: 0;*/
-/*}*/
