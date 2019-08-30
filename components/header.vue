@@ -94,9 +94,7 @@
 
       search () {
         let _this = this
-        console.log(111, this.$route)
         this.$store.commit('SET_SERVICE_NAME', this.name)
-        // _this.$router.push({ path: '/service' })
         let obj = {}
         let name = this.name
         let type = this.$route.query.type
@@ -114,12 +112,7 @@
         if (sort) {
           obj.sort = sort
         }
-
         _this.$router.push({ path: '/service', query: obj })
-        // setTimeout(() => {
-        //   _this.callback && _this.callback(null, this.name)
-        // }, 0)
-
       },
 
       //退出登录
