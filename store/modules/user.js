@@ -76,7 +76,7 @@ const user = {
         commit('SET_TEAMIMG', userInfoData.team.img || '')
         commit('SET_USERTEAM', userInfoData.userTeam)
       }).catch(error => {
-        console.log(error.response)
+        Cookies.remove('authenticationToken')
       })
     },
     // 登出
