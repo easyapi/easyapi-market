@@ -22,10 +22,10 @@ module.exports = {
   ],
   plugins: [
     {
-      src: '~/plugins/element-ui', ssr: false
+      src: '~/plugins/element-ui', ssr: true
     },
     {
-      src: '~/plugins/axios', ssr: false
+      src: '~/plugins/axios', ssr: true
     }
   ],
   /*
