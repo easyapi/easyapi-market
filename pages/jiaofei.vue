@@ -180,13 +180,6 @@
     display: block;
   }
 
-  // .tex {
-  //   position absolute
-  //   bottom 20px
-  //   left 40%
-  //   color #454545
-  // }
-
   .jiaofei-list {
     width: 338px;
     padding: 51px 0 0;
