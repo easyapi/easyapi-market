@@ -290,10 +290,11 @@ export default {
     }
   },
   created() {
+  },
+  mounted() {
     this.getNewestServiceList()
     this.getArticleList()
-  },
-  mounted() {}
+  }
 }
 </script>
 

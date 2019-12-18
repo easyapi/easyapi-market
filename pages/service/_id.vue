@@ -223,9 +223,10 @@ export default {
     }
   },
   created() {
+  },
+  mounted() {
     this.getService()
   },
-  mounted() {},
   methods: {
     use(url, hasConsole, serviceId) {
       if (hasConsole === true) {

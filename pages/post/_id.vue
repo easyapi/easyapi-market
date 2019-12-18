@@ -57,7 +57,6 @@
     },
     mounted () {
       this.getArticle()
-
     }
   }
 </script>

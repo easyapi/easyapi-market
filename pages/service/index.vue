@@ -160,7 +160,8 @@ export default {
     }
   },
   created() {
-    // this.name = this.$store.state.serviceName;
+  },
+  mounted() {
     let name = this.$route.query.name
     let type = this.$route.query.type
     let payType = this.$route.query.payType
@@ -180,7 +181,6 @@ export default {
     }
     this.getServiceList()
   },
-  mounted() {},
   methods: {
     getServiceList() {
       let _this = this
