@@ -114,11 +114,8 @@ export default {
   name: 'service',
   head() {
     return {
-      name: '',
       title: 'API接口 - EasyAPI服务市场',
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: '服务市场API接口' },
         { hid: 'keyword', name: 'keyword', content: '服务市场API接口' }
       ]

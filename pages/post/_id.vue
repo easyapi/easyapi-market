@@ -19,14 +19,13 @@
   import Header from '~/components/header'
   import Footer from '~/components/footer'
   import axios from '~/plugins/axios'
+
   export default {
     name: 'post-detail',
     head () {
       return {
         title: this.result && this.result.title + ' - EasyAPI服务市场',
         meta: [
-          { charset: 'utf-8' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
           { hid: 'description', name: 'description', content: '服务市场详情' },
           { hid: 'keyword', name: 'keyword', content: '服务市场详情' }
         ]
