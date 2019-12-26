@@ -485,7 +485,7 @@
             }
 
             .more {
-              font: 14px;
+              font-size: 14px;
               color: #999;
             }
           }
