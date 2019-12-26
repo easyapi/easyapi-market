@@ -25,12 +25,9 @@ module.exports = {
   ** Customize the progress bar color
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    // 要安装npm i @nuxtjs/style-resources
-    // '@nuxtjs/eslint-module',
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
   ],
+  axios: {},
   loading: {
     color: '#3B8070'
   },
@@ -38,21 +35,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-
-    /*
-    ** Run ESLint on save
-    */
-    // vendor: ['axios'],
-    // extend(config, {isDev, isClient}) {
-    //
-    // },
-    // loaders: [
-    // 设置loader
-    // {
-    //   test: /\.vue$/,
-    //   loader: 'style-loader!css-loader'
-    // }
-    // ],
     babel: {
       plugins: [
         [
@@ -64,6 +46,7 @@ module.exports = {
         ]
       ]
     },
+    extend(config, ctx) {},
     maxChunkSize: 300000, // 单个包最大尺寸
     extractCSS: true // 单独提取CSS
   },

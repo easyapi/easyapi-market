@@ -215,17 +215,20 @@
       }
     },
     async asyncData (context) {
-      const res = await context.$axios.get(
+      const res1 = await context.$axios.get(
         `https://api2.easyapi.com/console/servicePrice?serviceId=${context.params.id}`
       )
+      const res2 = await context.$axios.get(
+        `https://api2.easyapi.com/api/service/${context.params.id}`
+      )
       return {
-        servicePriceList: res.data.content
+        servicePriceList: res1.data.content,
+        service: res2.data.content
       }
     },
     created () {
     },
     mounted () {
-      this.getService()
     },
     methods: {
       use (url, hasConsole, serviceId) {
@@ -246,30 +249,22 @@
         this.subscribe = true
       },
       subscribeService () {
-        this.$axios({
-          method: 'POST',
-          url: 'https://api2.easyapi.com/console/team/service/' + this.$route.params.id + '/subscribe'
+        this.$axios.post('https://api2.easyapi.com/console/team/service/' + this.$route.params.id + '/subscribe').then(res => {
+          this.$message.success(res.data.message)
+          this.subscribe = false
+          if (res.data.code === '1') {
+            this.$axios.get(`https://api2.easyapi.com/api/service/${this.$route.params.id}`).then(res => {
+              this.service = res.data.content
+            })
+          }
+        }).catch(error => {
+          if (error.response.data.code === -9) {
+            window.location.href = 'https://account.easyapi.com/login'
+          } else {
+            this.$message.warning(error.response.data.message)
+          }
         })
-          .then(res => {
-            this.$message.success(res.data.message)
-            this.subscribe = false
-            if (res.data.code === '1') {
-              this.getService()
-            }
-          })
-          .catch(error => {
-            if (error.response.data.code === -9) {
-              window.location.href = 'https://account.easyapi.com/login'
-            } else {
-              this.$message.warning(error.response.data.message)
-            }
-          })
       },
-      getService () {
-        this.$axios.get(`https://api2.easyapi.com/api/service/${this.$route.params.id}`).then(res => {
-          this.service = res.data.content
-        })
-      }
     }
   }
 </script>
