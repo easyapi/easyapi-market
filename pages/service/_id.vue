@@ -189,7 +189,6 @@
 <script>
   import Header from '~/components/header'
   import Footer from '~/components/footer'
-  import axios from '~/plugins/axios'
 
   export default {
     name: 'service-detail',
@@ -216,8 +215,8 @@
       }
     },
     async asyncData (context) {
-      const res = await axios.get(
-        `/console/servicePrice?serviceId=${context.params.id}`
+      const res = await context.$axios.get(
+        `https://api2.easyapi.com/console/servicePrice?serviceId=${context.params.id}`
       )
       return {
         servicePriceList: res.data.content
@@ -247,7 +246,7 @@
         this.subscribe = true
       },
       subscribeService () {
-        axios({
+        this.$axios({
           method: 'POST',
           url: '/console/team/service/' + this.$route.params.id + '/subscribe'
         })
@@ -267,7 +266,7 @@
           })
       },
       getService () {
-        axios.get(`/api/service/${this.$route.params.id}`).then(res => {
+        this.$axios.get(`/api/service/${this.$route.params.id}`).then(res => {
           this.service = res.data.content
         })
       }

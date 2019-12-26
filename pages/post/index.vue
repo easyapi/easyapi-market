@@ -16,7 +16,6 @@
   import Footer from '~/components/footer'
   import ListItem from '~/components/layout/listItem'
   import Loading from '~/components/layout/loading'
-  import axios from '~/plugins/axios'
 
   export default {
     name: 'post',
@@ -44,12 +43,10 @@
         list: [],
         totalPages: 0,
         getArticleList: function (page = 0) {
-          return axios
-            .get(`https://api2.easyapi.com/api/articles?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8&page=${page}&size=10`)
-            .then(res => {
-              this.list = this.list.length > 0 ? this.list.concat(res.data.content) : res.data.content
-              this.totalPages = res.data.totalPages
-            })
+          return this.$axios.get(`https://api2.easyapi.com/api/articles?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8&page=${page}&size=10`).then(res => {
+            this.list = this.list.length > 0 ? this.list.concat(res.data.content) : res.data.content
+            this.totalPages = res.data.totalPages
+          })
         }
       }
     },

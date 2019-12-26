@@ -9,7 +9,7 @@ export const changeTeam = `https://account-api.easyapi.com/api/changeTeam`
 
 
 // 获取服务列表
-export const getServiceList = `/api/services`
+export const getServiceList = `https://api2.easyapi.com/api/services`
 
 // 获取服务类型
-export const getServiceTypeList = `/api/service/types`
+export const getServiceTypeList = `https://api2.easyapi.com/api/service/types`

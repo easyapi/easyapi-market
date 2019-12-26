@@ -20,17 +20,17 @@ module.exports = {
     '@/assets/css/common.css',
     '@/assets/scss/element-variables.scss'
   ],
-  plugins: [
-    {
-      src: '~/plugins/element-ui', ssr: true
-    },
-    {
-      src: '~/plugins/axios', ssr: true
-    }
-  ],
+  plugins: ['@/plugins/element-ui', '@/plugins/axios'],
   /*
   ** Customize the progress bar color
   */
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    // 要安装npm i @nuxtjs/style-resources
+    // '@nuxtjs/eslint-module',
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
+  ],
   loading: {
     color: '#3B8070'
   },
