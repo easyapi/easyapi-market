@@ -52,7 +52,6 @@
     },
     methods: {},
     created () {
-      this.params = this.$route.query.params
     },
     mounted () {
       this.getArticleList()
