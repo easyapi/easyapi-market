@@ -36,10 +36,6 @@
     },
     data () {
       return {
-        subscribe: false,
-        serviceDetailList: [],
-        clicked: 0,
-        frequency: '',
         list: [],
         totalPages: 0,
         getArticleList: function (page = 0) {
