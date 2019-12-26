@@ -248,7 +248,7 @@
       subscribeService () {
         this.$axios({
           method: 'POST',
-          url: '/console/team/service/' + this.$route.params.id + '/subscribe'
+          url: 'http://api2.easyapi.com/console/team/service/' + this.$route.params.id + '/subscribe'
         })
           .then(res => {
             this.$message.success(res.data.message)
@@ -266,7 +266,7 @@
           })
       },
       getService () {
-        this.$axios.get(`/api/service/${this.$route.params.id}`).then(res => {
+        this.$axios.get(`https://api2.easyapi.com/api/service/${this.$route.params.id}`).then(res => {
           this.service = res.data.content
         })
       }

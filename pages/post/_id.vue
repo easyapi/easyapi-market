@@ -45,10 +45,9 @@
     },
     methods: {
       getArticle () {
-        return this.$axios.get(`https://api2.easyapi.com/api/article/${this.$route.params.id}?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8`)
-          .then(res => {
-            this.result = res.data.content
-          })
+        this.$axios.get(`https://api2.easyapi.com/api/article/${this.$route.params.id}?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8`).then(res => {
+          this.result = res.data.content
+        })
       }
     },
     created () {
