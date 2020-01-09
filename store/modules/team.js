@@ -1,4 +1,3 @@
-import axios from '@/plugins/axios'
 import { getMyTeam, changeTeam } from '@/api/api'
 
 const team = {
@@ -26,10 +25,7 @@ const team = {
 
   actions: {
     getTeamList ({ commit, state }) {
-      axios({
-        url: getMyTeam,
-        method: 'GET'
-      }).then(res => {
+      this.$axios.get(getMyTeam, {}).then(res => {
         commit('SET_TEAMLIST', res.data)
       }).catch(error => {
         console.log(error)
@@ -37,10 +33,7 @@ const team = {
     },
     // 切换团队
     changeTeam ({ dispatch, commit, state }, id) {
-      axios({
-        url: changeTeam + '/' + id,
-        method: 'PUT'
-      }).then(res => {
+      this.$axios.put(changeTeam + '/' + id, {}).then(res => {
         if (res.data.code === 1) {
           dispatch('GetUserInfo')
         }
