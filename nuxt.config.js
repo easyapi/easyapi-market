@@ -35,17 +35,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    babel: {
-      plugins: [
-        [
-          'component',
-          {
-            'libraryName': 'element-ui',
-            'styleLibraryName': 'theme-chalk'
-          }
-        ]
-      ]
-    },
+    transpile: [/^element-ui/],
     extend(config, ctx) {},
     maxChunkSize: 300000, // 单个包最大尺寸
     extractCSS: true // 单独提取CSS
