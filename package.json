@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "nuxt": "^2.11.0",
-    "@nuxtjs/axios": "^5.9.2",
+    "@nuxtjs/axios": "^5.9.3",
     "element-ui": "^2.13.0",
     "js-cookie": "^2.2.1"
   },
@@ -27,7 +27,7 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-nuxt": ">=0.5.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -35,6 +35,6 @@
     "node-sass": "^4.13.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.1"
   }
 }
