@@ -35,7 +35,7 @@
       <li class="item-menu header-service-center">
         <a href="https://service.easyapi.com">服务中心</a>
       </li>
-      <li class="item-menu current-team-box" v-if="token">
+      <li class="item-menu current-team-box" v-show="token">
         <a id="showTeamInfo" class="flex-r" :class="{active:showTeamInfo}">
           <span class="team-icon"></span>
         </a>
@@ -48,10 +48,10 @@
           :teamList="teamList.content"
         ></TeamDialog>
       </li>
-      <li class="item-menu header-login" v-if="token">
+      <li class="item-menu header-login" v-show="token">
         <div class="userAvatar ea-Dropdown">
           <a class="flex-r">
-            <img id="showPersonage" :src="photo+'!icon.jpg'" alt v-if="photo"/>
+            <img id="showPersonage" :src="photo+'!icon.jpg'" alt v-show="photo"/>
           </a>
         </div>
         <div :class="{active:isActive}" class="ea-DropdownMenu">
@@ -60,10 +60,10 @@
           <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
         </div>
       </li>
-      <li class="item-menu header-login" v-if="!token">
+      <li class="item-menu header-login" v-show="!token">
         <a href="https://account.easyapi.com/login" class="flex-r">登录</a>
       </li>
-      <li class="item-menu header-login" v-if="!token">
+      <li class="item-menu header-login" v-show="!token">
         <a href="https://account.easyapi.com/signup" class="flex-r">注册</a>
       </li>
     </ul>

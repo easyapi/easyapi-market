@@ -1,7 +1,7 @@
 <template>
   <a @click='jump(list.articleId)'>
     <div class='list-item'>
-      <div class='list-item-left' v-if="list.img">
+      <div class='list-item-left' v-show="list.img">
         <img :src="list.img"/>
       </div>
       <div class='list-item-right'>

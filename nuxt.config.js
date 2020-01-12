@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -13,9 +12,7 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      { type: 'text/javascript', charset: 'utf-8' }
-    ]
+    script: []
   },
   css: [
     '@/assets/css/common.css',

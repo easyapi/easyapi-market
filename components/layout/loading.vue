@@ -1,6 +1,6 @@
 <template>
   <div id='LoadWrap' class='loading-wrapper'>
-    <img src='../../assets/images/loading.png' v-if='(this.page < this.totalPages-1)'/>
+    <img src='../../assets/images/loading.png' v-show='(this.page < this.totalPages-1)'/>
     <span>{{this.totalPages && (this.page < this.totalPages-1) ? '正在加载...' : '已经到底了！！！'}}</span>
   </div>
 </template>

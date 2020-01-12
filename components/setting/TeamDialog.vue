@@ -3,7 +3,7 @@
     <h2 class="current-team-name lrPading-20">当前团队</h2>
     <div class="clear current-team-content lrPading-20">
       <!-- <span > -->
-      <img class="lf teams-img" :src='teamImg+"!icon.jpg"' alt="" v-if="teamImg">
+      <img class="lf teams-img" :src='teamImg+"!icon.jpg"' alt="" v-show="teamImg">
       <!-- </span> -->
       <div class="lf teams-img-r">
         <p>{{teamName}}</p>
@@ -18,7 +18,7 @@
       <h2 class="lrPading-20">切换团队：</h2>
       <div class="ea-team-list-box lrPading-20">
         <a class="ea-team-item" v-for="(item,index) in teamList" v-bind:key="index" @click="tabTeamFn(item.team.id)">
-          <img :src="item.team.img + '!icon.jpg'" alt="" v-if="item.team.img">
+          <img :src="item.team.img + '!icon.jpg'" alt="" v-show="item.team.img">
           <span>{{item.team.name}}</span>
         </a>
       </div>
