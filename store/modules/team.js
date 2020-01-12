@@ -24,7 +24,7 @@ const team = {
   },
 
   actions: {
-    getTeamList ({ commit, state }) {
+    getTeamList ({ commit }) {
       this.$axios.get(getMyTeam, {}).then(res => {
         commit('SET_TEAMLIST', res.data)
       }).catch(error => {

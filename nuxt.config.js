@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -36,7 +37,8 @@ module.exports = {
   */
   build: {
     transpile: [/^element-ui/],
-    extend(config, ctx) {},
+    extend (config, ctx) {
+    },
     maxChunkSize: 300000, // 单个包最大尺寸
     extractCSS: true // 单独提取CSS
   },

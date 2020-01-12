@@ -58,7 +58,7 @@ const user = {
 
     },
     // 获取用户信息
-    GetUserInfo ({ commit, state }) {
+    GetUserInfo ({ commit }) {
       this.$axios.get(getUser, {}).then(res => {
         let userInfoData = res.data
         commit('SET_USERID', userInfoData.id)
@@ -76,7 +76,7 @@ const user = {
       })
     },
     // 登出
-    Logout ({ commit, state }) {
+    Logout () {
       Cookies.remove('authenticationToken')
     },
   }
