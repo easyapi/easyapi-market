@@ -107,7 +107,7 @@
 <script>
   import Header from '~/components/header'
   import Footer from '~/components/footer'
-  import { getServiceList, getServiceTypeList } from '~/api/api'
+  import { getServiceList, getServiceTypeList } from '../../api/service'
 
   export default {
     name: 'service',
@@ -141,7 +141,7 @@
       }
     },
     async asyncData (context) {
-      let [res2] = await Promise.all([context.$axios.get(getServiceTypeList)])
+      let [res2] = await Promise.all([getServiceTypeList()])
       return {
         serviceTypeList: res2.data.content
       }
@@ -180,32 +180,30 @@
       getServiceList () {
         let _this = this
         _this.loading = true
-        let obj = {}
+        let params = {}
         if (this.name) {
-          obj.name = this.name
+          params.name = this.name
         }
         if (_this.serviceTypeId !== '全部') {
-          obj.serviceTypeId = this.serviceTypeId
+          params.serviceTypeId = this.serviceTypeId
         }
         if (_this.type !== '全部') {
           if (_this.type == '1') {
-            obj.type = '1'
+            params.type = '1'
           } else if (_this.type == '2') {
-            obj.types = '2,3,4'
+            params.types = '2,3,4'
           }
         }
         if (_this.sort !== '全部') {
           if (_this.sort == '1') {
-            obj.sort = 'addTime,desc'
+            params.sort = 'addTime,desc'
           } else if (_this.sort == '2') {
-            obj.sort = 'sales,desc'
+            params.sort = 'sales,desc'
           }
         }
-        obj.size = this.pageSize
-        obj.page = this.current - 1
-        this.$axios.get(getServiceList, {
-          params: obj
-        }).then(res => {
+        params.size = this.pageSize
+        params.page = this.current - 1
+        getServiceList(params).then(res => {
           this.loading = false
           if (res.data.code === 0) {
             _this.isNoData = true

@@ -4,10 +4,10 @@
     <div class="container">
       <div class='detail-wrapper'>
         <div class='detail-title'>
-          <span>{{result && result.title}}</span>
-          <label class="time">{{result && result.updateTime.split(' ')[0]}}</label>
+          <span>{{article && article.title}}</span>
+          <label class="time">{{article && article.updateTime.split(' ')[0]}}</label>
         </div>
-        <div class='detail-content' v-html='result && result.content'>
+        <div class='detail-content' v-html='article && article.content'>
         </div>
       </div>
     </div>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+  import { getArticle } from '../../api/article'
   import Header from '~/components/header'
   import Footer from '~/components/footer'
 
@@ -23,7 +24,7 @@
     name: 'post-detail',
     head () {
       return {
-        title: this.result && this.result.title + ' - EasyAPI服务市场',
+        title: this.article && this.article.title + ' - EasyAPI服务市场',
         meta: [
           { hid: 'description', name: 'description', content: '服务市场详情' },
           { hid: 'keyword', name: 'keyword', content: '服务市场详情' }
@@ -36,17 +37,13 @@
     },
     data () {
       return {
-        subscribe: false,
-        serviceDetailList: [],
-        clicked: 0,
-        frequency: '',
-        result: null
+        article: null
       }
     },
     methods: {
       getArticle () {
-        this.$axios.get(`https://api2.easyapi.com/api/article/${this.$route.params.id}?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8`).then(res => {
-          this.result = res.data.content
+        getArticle(this.$route.params.id).then(res => {
+          this.article = res.data.content
         })
       }
     },

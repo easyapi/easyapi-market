@@ -227,7 +227,7 @@
 <script>
   import Header from '~/components/header'
   import Footer from '~/components/footer'
-  import { getServiceList } from '~/api/api'
+  import { getServiceList } from '../api/service'
 
   export default {
     name: 'index',
@@ -256,7 +256,7 @@
 
     async asyncData (context) {
       let [res] = await Promise.all([
-        context.$axios.get(getServiceList + '?sort=sales,desc')
+        getServiceList({ sort: 'sales,desc' })
       ])
       return {
         recommendServiceList: res.data.content
@@ -264,7 +264,7 @@
     },
     methods: {
       getNewestServiceList () {
-        this.$axios.get(getServiceList + '?sort=addTime,desc').then(res => {
+        getServiceList({ 'sort': 'addTime,desc' }).then(res => {
           this.newestServiceList = res.data.content
         })
       },

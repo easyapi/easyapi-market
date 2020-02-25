@@ -1,4 +1,4 @@
-import { getMyTeam, changeTeam } from '@/api/api'
+import { getUserTeamList, changeTeam } from '@/api/api'
 
 const team = {
   state: {
@@ -25,7 +25,7 @@ const team = {
 
   actions: {
     getTeamList ({ commit }) {
-      this.$axios.get(getMyTeam, {}).then(res => {
+      getUserTeamList().then(res => {
         commit('SET_TEAMLIST', res.data)
       }).catch(error => {
         console.log(error)
@@ -33,7 +33,7 @@ const team = {
     },
     // 切换团队
     changeTeam ({ dispatch, commit, state }, id) {
-      this.$axios.put(changeTeam + '/' + id, {}).then(res => {
+      changeTeam(id).then(res => {
         if (res.data.code === 1) {
           dispatch('GetUserInfo')
         }

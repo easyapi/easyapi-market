@@ -59,7 +59,7 @@ const user = {
     },
     // 获取用户信息
     GetUserInfo ({ commit }) {
-      this.$axios.get(getUser, {}).then(res => {
+      getUser().then(res => {
         let userInfoData = res.data
         commit('SET_USERID', userInfoData.id)
         commit('SET_USERNAME', userInfoData.username)
