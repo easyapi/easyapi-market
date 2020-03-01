@@ -235,8 +235,7 @@
         if (hasConsole === true) {
           window.location.href = 'https://' + url + '.easyapi.com/console/'
         } else {
-          window.location.href =
-            'https://service.easyapi.com/stat?serviceId=' + serviceId
+          window.location.href = 'https://service.easyapi.com/stat?serviceId=' + serviceId
         }
       },
       homepage (url) {

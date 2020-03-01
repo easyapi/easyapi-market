@@ -13,6 +13,8 @@ export const getArticleList = (params) => axios.get(`https://api2.easyapi.com/ap
 
 /**
  * 获取文章详情
+ *
+ * @see http://www.easyapi.com/market/get/article
  */
 export const getArticle = (id) => axios.get(`https://api2.easyapi.com/api/article/${id}`, {
   params: {
