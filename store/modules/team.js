@@ -1,4 +1,4 @@
-import { getUserTeamList, changeTeam } from '@/api/api'
+import { getUserTeamList, changeTeam } from '@/api/account'
 
 const team = {
   state: {

@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { getUser } from '@/api/api'
+import { getUser } from '@/api/account'
 
 const user = {
   state: {

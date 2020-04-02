@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const baseUrl = 'https://account-api.easyapi.com'
+import {baseUrl} from "./api";
 
 /**
  * 获取用户信息

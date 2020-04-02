@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+import {serviceUrl} from "./api";
+
 /**
  * 获取服务列表
  */
-export const getServiceList = params => axios.get(`https://api2.easyapi.com/api/services`, {
+export const getServiceList = params => axios.get(`${serviceUrl}/api/services`, {
   params: {
     ...params
   }
@@ -12,4 +14,4 @@ export const getServiceList = params => axios.get(`https://api2.easyapi.com/api/
 /**
  * 获取服务类型
  */
-export const getServiceTypeList = () => axios.get(`https://api2.easyapi.com/api/service/types`)
+export const getServiceTypeList = () => axios.get(`${serviceUrl}/api/service/types`)
