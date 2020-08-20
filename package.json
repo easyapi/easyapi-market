@@ -13,7 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^2.14.1",
+    "nuxt": "^2.14.3",
     "@nuxtjs/axios": "^5.12.1",
     "element-ui": "^2.13.2",
     "js-cookie": "^2.2.1"
@@ -23,7 +23,7 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/proxy": "^2.0.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": ">=14.1.1",
     "eslint-plugin-import": ">=2.22.0",
