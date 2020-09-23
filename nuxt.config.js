@@ -40,6 +40,6 @@ module.exports = {
     extractCSS: true // 单独提取CSS
   },
   server: {
-    port: 8888, // default: 3000
+    port: 7777, // default: 3000
   }
 }
