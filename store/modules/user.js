@@ -38,13 +38,13 @@ const user = {
     SET_TEAM: (state, team) => {
       state.team = team
     },
-    SET_TEAMNAME: (state, teamName) => {
+    SET_TEAM_NAME: (state, teamName) => {
       state.teamName = teamName
     },
-    SET_TEAMIMG: (state, teamImg) => {
+    SET_TEAM_IMG: (state, teamImg) => {
       state.teamImg = teamImg
     },
-    SET_USERTEAM: (state, userTeam) => {
+    SET_USER_TEAM: (state, userTeam) => {
       state.userTeam = userTeam
     },
     SET_TOKEN: (state, token) => {
@@ -68,11 +68,11 @@ const user = {
         commit('SET_MOBILE', userInfoData.mobile)
         commit('SET_EMAIL', userInfoData.email)
         commit('SET_TEAM', userInfoData.team)
-        commit('SET_TEAMNAME', userInfoData.team.name)
-        commit('SET_TEAMIMG', userInfoData.team.img || '')
-        commit('SET_USERTEAM', userInfoData.userTeam)
+        commit('SET_TEAM_NAME', userInfoData.team.name)
+        commit('SET_TEAM_IMG', userInfoData.team.img || '')
+        commit('SET_USER_TEAM', userInfoData.userTeam)
       }).catch(error => {
-        Cookies.remove('authenticationToken')
+        // Cookies.remove('authenticationToken')
       })
     },
     // 登出
