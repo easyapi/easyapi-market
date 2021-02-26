@@ -23,7 +23,7 @@ module.exports = {
   ** Customize the progress bar color
   */
   modules: [
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   axios: {},
   loading: {
@@ -40,6 +40,6 @@ module.exports = {
     extractCSS: true // 单独提取CSS
   },
   server: {
-    port: 7777, // default: 3000
+    port: 7777 // default: 3000
   }
 }

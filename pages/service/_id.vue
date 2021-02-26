@@ -273,7 +273,7 @@ export default {
   },
   async asyncData(context) {
     const res1 = await context.$axios.get(
-      `https://api2.easyapi.com/console/servicePrice?serviceId=${context.params.id}`
+      `https://api2.easyapi.com/console/service-price/${context.params.id}`
     )
     const res2 = await context.$axios.get(
       `https://api2.easyapi.com/api/service/${context.params.id}`
