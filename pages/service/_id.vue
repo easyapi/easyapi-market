@@ -222,14 +222,17 @@
           }}</el-button>
         </div>
       </el-dialog>
-      <p v-if="service.type === 1" style="text-align: center; font-size: 14px">
-        确定开通此服务吗？
-      </p>
       <p v-if="service.type === 2" style="text-align: center; font-size: 14px">
         开通即送100次免费体验次数，确定开通此服务吗？
       </p>
       <p v-if="service.type === 3" style="text-align: center; font-size: 14px">
         开通即送7天免费体验期，确定开通此服务吗？
+      </p>
+      <p v-if="service.type === 4" style="text-align: center; font-size: 14px">
+        确定开通此服务吗？请保持团队账户余额充足。
+      </p>
+      <p v-else style="text-align: center; font-size: 14px">
+        确定开通此服务吗？
       </p>
       <div slot="footer">
         <el-button type="primary" @click="subscribeService">确 定</el-button>
@@ -285,6 +288,7 @@ export default {
   },
   created() {},
   mounted() {
+    this.getServiceInfo();
   },
   methods: {
     use(url, hasConsole, serviceId) {
@@ -313,6 +317,13 @@ export default {
     subscribeDialog() {
       this.subscribe = true
     },
+    getServiceInfo() {
+      this.$axios
+        .get(`https://api2.easyapi.com/api/service/${this.$route.params.id}`)
+        .then((res) => {
+          this.service = res.data.content
+        })
+    },
     subscribeService() {
       this.$axios
         .post(
@@ -324,13 +335,7 @@ export default {
           this.$message.success(res.data.message)
           this.subscribe = false
           if (res.data.code === 1) {
-            this.$axios
-              .get(
-                `https://api2.easyapi.com/api/service/${this.$route.params.id}`
-              )
-              .then((res) => {
-                this.service = res.data.content
-              })
+            this.getServiceInfo();
           }
         })
         .catch((error) => {
