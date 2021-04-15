@@ -49,7 +49,7 @@
                 >
               </p>
               <p>
-                <el-button class="ea-btn" size="small" plain>API文档</el-button>
+                <el-button class="ea-btn" @click="gotoPage(service.url)" size="small" plain>API文档</el-button>
               </p>
             </el-col>
           </el-row>
@@ -301,6 +301,9 @@ export default {
     },
     homepage(url) {
       window.location.href = 'https://' + url + '.easyapi.com/'
+    },
+    gotoPage(){
+      
     },
     jump() {
       if (this.buttonContent == '前 往') {
