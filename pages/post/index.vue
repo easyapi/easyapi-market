@@ -7,6 +7,7 @@
           <ListItem v-bind:list="item"></ListItem>
         </div>
       </div>
+      
       <div v-else class="no-data">
         <img src="../../assets/images/no-data.png" alt="" />
       </div>
