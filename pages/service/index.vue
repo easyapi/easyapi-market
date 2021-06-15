@@ -188,16 +188,16 @@
           params.serviceTypeId = this.serviceTypeId
         }
         if (_this.type !== '全部') {
-          if (_this.type == '1') {
+          if (_this.type === '1') {
             params.type = '1'
-          } else if (_this.type == '2') {
+          } else if (_this.type === '2') {
             params.types = '2,3,4'
           }
         }
         if (_this.sort !== '全部') {
-          if (_this.sort == '1') {
+          if (_this.sort === '1') {
             params.sort = 'addTime,desc'
-          } else if (_this.sort == '2') {
+          } else if (_this.sort === '2') {
             params.sort = 'sales,desc'
           }
         }

@@ -1,14 +1,14 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-import { baseUrl } from './api'
+import { accountUrl } from './api'
 
 /**
  * 获取用户信息
  *
  * @see https://www.easyai.com
  */
-export const getUser = () => axios.get(`${baseUrl}/api/account`, {
+export const getUser = () => axios.get(`${accountUrl}/api/account`, {
   headers: {
     Authorization: 'Bearer ' + Cookies.get('authenticationToken')
   }
@@ -20,7 +20,7 @@ export const getUser = () => axios.get(`${baseUrl}/api/account`, {
  * @see https://www.easyai.com
  */
 
-export const getUserTeamList = () => axios.get(`${baseUrl}/api/user/teams`, {
+export const getUserTeamList = () => axios.get(`${accountUrl}/api/user/teams`, {
   headers: {
     Authorization: 'Bearer ' + Cookies.get('authenticationToken')
   }
@@ -32,5 +32,5 @@ export const getUserTeamList = () => axios.get(`${baseUrl}/api/user/teams`, {
  * @see https://www.easyai.com
  */
 export const changeTeam = (teamId) => {
-  return axios.put(`${baseUrl}/api/team/${teamId}/change`, null, { headers: { 'Authorization': 'Bearer ' + Cookies.get('authenticationToken') } })
+  return axios.put(`${accountUrl}/api/team/${teamId}/change`, null, { headers: { 'Authorization': 'Bearer ' + Cookies.get('authenticationToken') } })
 }

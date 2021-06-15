@@ -1,6 +1,7 @@
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
-import {serviceUrl} from "./api";
+import { serviceUrl } from './api'
 
 /**
  * 获取服务列表
@@ -16,8 +17,13 @@ export const getServiceList = params => axios.get(`${serviceUrl}/api/services`, 
  */
 export const getServiceTypeList = () => axios.get(`${serviceUrl}/api/service/types`)
 
-
 /**
  * 开通服务
  */
-export const subscribeService = (serviceId,content) => content.$axios.post(`https://api2.easyapi.com/console/team/service/${serviceId}/subscribe`)
+export const subscribeService = (serviceId) => {
+  axios.post(`${serviceUrl}/console/team/service/${serviceId}/subscribe`, null, {
+    headers: {
+      Authorization: 'Bearer ' + Cookies.get('authenticationToken')
+    }
+  })
+}

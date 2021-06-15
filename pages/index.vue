@@ -269,7 +269,7 @@
         })
       },
       getArticleList: function () {
-        this.$axios.get(`https://api2.easyapi.com/api/articles?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8&size=7`).then(res => {
+        this.$axios.get(`https://api.easyapi.com/api/articles?appKey=ja4fkcz35kfqywi7&appSecret=k1v8c637vr4swgr8&size=7`).then(res => {
           this.list = this.list.length > 0 ? this.list.concat(res.data.content) : res.data.content
           this.totalPages = res.data.totalPages
         })

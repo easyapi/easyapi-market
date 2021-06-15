@@ -281,10 +281,10 @@
     },
     async asyncData (context) {
       const res1 = await context.$axios.get(
-        `https://api2.easyapi.com/console/service-prices?serviceId=${context.params.id}`
+        `https://api.easyapi.com/console/service-prices?serviceId=${context.params.id}`
       )
       const res2 = await context.$axios.get(
-        `https://api2.easyapi.com/api/service/${context.params.id}`
+        `https://api.easyapi.com/api/service/${context.params.id}`
       )
       return {
         servicePriceList: res1.data.content,
@@ -328,13 +328,13 @@
       },
       getServiceInfo () {
         this.$axios
-          .get(`https://api2.easyapi.com/api/service/${this.$route.params.id}`)
+          .get(`https://api.easyapi.com/api/service/${this.$route.params.id}`)
           .then((res) => {
             this.service = res.data.content
           })
       },
       subscribeService () {
-        subscribeService(this.$route.params.id,this).then((res) => {
+        subscribeService(this.$route.params.id).then((res) => {
           this.$message.success(res.data.message)
           this.subscribe = false
           if (res.data.code === 1) {
