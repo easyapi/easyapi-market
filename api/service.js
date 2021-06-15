@@ -18,6 +18,12 @@ export const getServiceList = params => axios.get(`${serviceUrl}/api/services`, 
 export const getServiceTypeList = () => axios.get(`${serviceUrl}/api/service/types`)
 
 /**
+ * 获取服务详情
+ */
+ export const getServiceInfo = (id) => axios.get(`${serviceUrl}/api/service/${id}`)
+
+
+/**
  * 开通服务
  */
 export const subscribeService = (serviceId) => {

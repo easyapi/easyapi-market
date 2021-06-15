@@ -250,7 +250,7 @@
 <script>
   import Header from '~/components/header'
   import Footer from '~/components/footer'
-  import { subscribeService } from '../../api/service'
+  import { subscribeService,getServiceInfo } from '../../api/service'
 
   export default {
     name: 'service-detail',
@@ -327,9 +327,7 @@
         this.subscribe = true
       },
       getServiceInfo () {
-        this.$axios
-          .get(`https://api.easyapi.com/api/service/${this.$route.params.id}`)
-          .then((res) => {
+        getServiceInfo(this.$route.params.id).then((res) => {
             this.service = res.data.content
           })
       },
@@ -342,7 +340,7 @@
           }
         }).catch((error) => {
           if (error.response.data.code === -9) {
-            // window.location.href = 'https://account.easyapi.com/login'
+            window.location.href = 'https://account.easyapi.com/login'
           } else if (error.response.data.code === -8) {
             this.establish = true
           } else {
