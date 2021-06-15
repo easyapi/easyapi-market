@@ -334,7 +334,7 @@
           })
       },
       subscribeService () {
-        subscribeService(this.$route.params.id).then((res) => {
+        subscribeService(this.$route.params.id,this).then((res) => {
           this.$message.success(res.data.message)
           this.subscribe = false
           if (res.data.code === 1) {
@@ -342,7 +342,7 @@
           }
         }).catch((error) => {
           if (error.response.data.code === -9) {
-            window.location.href = 'https://account.easyapi.com/login'
+            // window.location.href = 'https://account.easyapi.com/login'
           } else if (error.response.data.code === -8) {
             this.establish = true
           } else {
