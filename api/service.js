@@ -15,3 +15,9 @@ export const getServiceList = params => axios.get(`${serviceUrl}/api/services`, 
  * 获取服务类型
  */
 export const getServiceTypeList = () => axios.get(`${serviceUrl}/api/service/types`)
+
+
+/**
+ * 开通服务
+ */
+export const subscribeService = (serviceId) => axios.post(`https://api2.easyapi.com/console/team/service/${serviceId}/subscribe`)
