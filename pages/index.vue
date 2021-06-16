@@ -83,7 +83,7 @@
           </el-row>
         </div>
         <div class="service-market-right">
-          <img src="https://qiniu.easyapi.com/market/ad/easyapi.png" alt />
+          <img src="https://qiniu.easyapi.com/market/ad/easyapi.png" alt/>
         </div>
       </div>
 
@@ -102,7 +102,7 @@
               :to="{ name: 'service-id', params: { id: item.serviceId } }"
             >
               <p class="img">
-                <img v-bind:src="item.img" alt />
+                <img v-bind:src="item.img" alt/>
               </p>
               <p class="text">{{ item.name }}</p>
               <p class="price" v-if="item.type === 1">免费</p>
@@ -138,7 +138,7 @@
                   :to="{ name: 'service-id', params: { id: item.serviceId } }"
                 >
                   <p class="img">
-                    <img v-bind:src="item.img" alt />
+                    <img v-bind:src="item.img" alt/>
                   </p>
                   <p class="text">{{ item.name }}</p>
                 </nuxt-link>
@@ -250,418 +250,412 @@
 </template>
 
 <script>
-import Header from '~/components/header'
-import Footer from '~/components/footer'
-import { serviceUrl } from '../api/api'
-import { getServiceList } from '../api/service'
-import { getArticleList } from '../api/article'
+  import Header from '~/components/header'
+  import Footer from '~/components/footer'
+  import { serviceUrl } from '../api/api'
+  import { getServiceList } from '../api/service'
+  import { getArticleList } from '../api/article'
 
-export default {
-  name: 'index',
-  head() {
-    return {
-      title: '首页 - EasyAPI服务市场',
-      meta: [
-        { hid: 'description', name: 'description', content: '服务市场首页' },
-        { hid: 'keyword', name: 'keyword', content: '服务市场首页' },
-      ],
-    }
-  },
-  components: {
-    Header,
-    Footer,
-  },
-  data() {
-    return {
-      recommendServiceList: [],
-      newestServiceList: [],
-      arr: [],
-      list: [],
-      totalPages: 0,
-    }
-  },
-  async asyncData(context) {
-    let [res] = await Promise.all([
-      getServiceList({ sort: 'sales,desc' }, context),
-    ])
-    return {
-      recommendServiceList: res.data.content,
-    }
-  },
-  methods: {
-    getNewestServiceList() {
-      getServiceList({ sort: 'addTime,desc' }, this).then((res) => {
-        this.newestServiceList = res.data.content
-      })
+  export default {
+    name: 'index',
+    head () {
+      return {
+        title: '首页 - EasyAPI服务市场',
+        meta: [
+          { hid: 'description', name: 'description', content: '服务市场首页' },
+          { hid: 'keyword', name: 'keyword', content: '服务市场首页' }
+        ]
+      }
     },
-    getArticleList: function () {
-      let params = { size: 7 }
-      getArticleList(params, this).then((res) => {
-        this.list =
-          this.list.length > 0
-            ? this.list.concat(res.data.content)
-            : res.data.content
-        this.totalPages = res.data.totalPages
-      })
+    components: {
+      Header,
+      Footer
     },
-    jump(articleId) {
-      this.$router.push(`/post/${articleId}`)
+    data () {
+      return {
+        recommendServiceList: [],
+        newestServiceList: [],
+        list: [],
+        totalPages: 0
+      }
     },
-  },
-  created() {},
-  mounted() {
-    this.getNewestServiceList()
-    this.getArticleList()
-  },
-}
+    async asyncData (context) {
+      let [res] = await Promise.all([
+        getServiceList({ sort: 'sales,desc' }, context)
+      ])
+      return {
+        recommendServiceList: res.data.content
+      }
+    },
+    methods: {
+      getNewestServiceList () {
+        getServiceList({ sort: 'addTime,desc' }, this).then((res) => {
+          this.newestServiceList = res.data.content
+        })
+      },
+      getArticleList: function() {
+        let params = { size: 7 }
+        getArticleList(params, this).then((res) => {
+          this.list = this.list.length > 0 ? this.list.concat(res.data.content) : res.data.content
+          this.totalPages = res.data.totalPages
+        })
+      },
+      jump (articleId) {
+        this.$router.push(`/post/${articleId}`)
+      }
+    },
+    created () {
+    },
+    mounted () {
+      this.getNewestServiceList()
+      this.getArticleList()
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
-.index-container {
-  font-size: 12px;
-  color: #333;
-  width: 1200px;
-  margin: 0 auto;
-  /*服务市场分类*/
+  .index-container {
+    font-size: 12px;
+    color: #333;
+    width: 1200px;
+    margin: 0 auto;
+    /*服务市场分类*/
 
-  .service-market {
-    width: 100%;
-    height: 372px;
+    .service-market {
+      width: 100%;
+      height: 372px;
 
-    a {
-      color: #fff;
-      font-size: 12px;
-    }
-
-    .service-market-left {
-      float: left;
-      width: 22%;
-      height: 100%;
-      background: #1bc1d6;
-
-      .service-title {
+      a {
         color: #fff;
-        font-size: 16px;
-        border-bottom: 1px solid #8ce0eb;
-        height: 45px;
-        line-height: 45px;
-
-        h4 {
-          margin-left: 10px;
-          font-size: 16px;
-        }
-
-        a.col-fl {
-          font-size: 12px;
-        }
-      }
-
-      .row {
-        height: 40px;
-        line-height: 40px;
-
-        .col {
-          border-bottom: 1px solid #8ce0eb;
-          height: 41px;
-        }
-
-        .col:nth-of-type(3n + 1) {
-          padding-left: 10px;
-          height: 41px;
-
-          a {
-            display: inline-block;
-            width: 58px;
-            height: 22px;
-            background-color: rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
-            line-height: 22px;
-            text-align: center;
-          }
-        }
-
-        .col:nth-of-type(3n) {
-          padding-right: 30px;
-        }
-      }
-    }
-
-    .service-market-right {
-      margin-left: 1%;
-      float: left;
-      width: 77%;
-      height: 100%;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-
-  /*推荐服务*/
-
-  .recommend-service {
-    margin-top: 40px;
-
-    a {
-      color: #333;
-    }
-    color: #333;
-
-    .recommend-service-title {
-      font-size: 18px;
-
-      .border {
-        border-left: 5px solid #0fc5fe;
-        margin-right: 10px;
-      }
-    }
-
-    .recommend-service-con {
-      text-align: center;
-      margin-top: 20px;
-      overflow: hidden;
-
-      .col {
-        padding: 40px 40px 20px;
-        border: 1px solid #f4f4f4;
-        width: 19%;
-        float: left;
-        margin-left: 15px;
-        margin-bottom: 20px;
-
-        .text {
-          font-size: 16px;
-          margin-top: 40px;
-        }
-
-        .price {
-          margin-top: 20px;
-          color: #ff3636;
-          margin-bottom: 10px;
-          font-size: 14px;
-        }
-
-        img {
-          width: 100px;
-        }
-      }
-
-      .col:first-of-type {
-        margin-left: 0 !important;
-      }
-
-      .col:nth-of-type(5n + 1) {
-        margin-left: 0 !important;
-      }
-    }
-  }
-
-  //最新更新
-
-  .lastest-update {
-    margin-top: 40px;
-    color: #333;
-
-    a {
-      color: #333;
-    }
-
-    .lastest-update-title {
-      font-size: 18px;
-      margin-bottom: 40px;
-
-      .border {
-        border-left: 5px solid #57e7b8;
-        margin-right: 10px;
-      }
-    }
-
-    .lastest-update-con-top {
-      font-size: 12px;
-
-      .lastest-update-con-left {
-        height: 100%;
-
-        .col {
-          img {
-            width: 100px;
-          }
-
-          .text {
-            font-size: 16px;
-            margin-top: 10px;
-            width: 100px;
-            text-align: center;
-            min-height: 60px;
-          }
-        }
-      }
-
-      .lastest-update-con-right {
-        min-height: 310px;
-        background: #f2f6f6;
-        padding: 10px;
-
-        .row {
-          height: 30px;
-          line-height: 30px;
-
-          .more-state {
-            font-size: 18px;
-          }
-
-          .more {
-            font-size: 14px;
-            color: #999;
-          }
-        }
-
-        .row-con {
-          margin-top: 5px;
-
-          div {
-            height: 30px;
-            line-height: 30px;
-
-            .circle {
-              display: block;
-              float: left;
-              width: 5px;
-              height: 5px;
-              background-color: #1cc1d5;
-              border-radius: 2px;
-              margin-top: 13px;
-            }
-
-            .circle-con {
-              // float left;
-              display: inline-block;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              width: 250px;
-              margin-left: 7px;
-              color: #333;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  /*加入市场*/
-
-  .join-market {
-    margin-top: 40px;
-
-    a {
-      color: #000;
-    }
-
-    .join-market-title {
-      font-size: 18px;
-
-      .border {
-        border-left: 5px solid #fe960f;
-        margin-right: 10px;
-      }
-    }
-
-    .join-market-con {
-      margin-bottom: 40px;
-      margin-top: 20px;
-      height: 100px;
-      font-size: 14px;
-
-      .text {
-        font-weight: 700;
-        font-size: 14px;
-      }
-
-      .join-market-text {
-        color: #888;
         font-size: 12px;
       }
 
-      img {
-        width: 90%;
+      .service-market-left {
+        float: left;
+        width: 22%;
+        height: 100%;
+        background: #1bc1d6;
+
+        .service-title {
+          color: #fff;
+          font-size: 16px;
+          border-bottom: 1px solid #8ce0eb;
+          height: 45px;
+          line-height: 45px;
+
+          h4 {
+            margin-left: 10px;
+            font-size: 16px;
+          }
+
+          a.col-fl {
+            font-size: 12px;
+          }
+        }
+
+        .row {
+          height: 40px;
+          line-height: 40px;
+
+          .col {
+            border-bottom: 1px solid #8ce0eb;
+            height: 41px;
+          }
+
+          .col:nth-of-type(3n + 1) {
+            padding-left: 10px;
+            height: 41px;
+
+            a {
+              display: inline-block;
+              width: 58px;
+              height: 22px;
+              background-color: rgba(0, 0, 0, 0.1);
+              margin: 0 auto;
+              line-height: 22px;
+              text-align: center;
+            }
+          }
+
+          .col:nth-of-type(3n) {
+            padding-right: 30px;
+          }
+        }
+      }
+
+      .service-market-right {
+        margin-left: 1%;
+        float: left;
+        width: 77%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    /*推荐服务*/
+
+    .recommend-service {
+      margin-top: 40px;
+
+      a {
+        color: #333;
+      }
+      color: #333;
+
+      .recommend-service-title {
+        font-size: 18px;
+
+        .border {
+          border-left: 5px solid #0fc5fe;
+          margin-right: 10px;
+        }
+      }
+
+      .recommend-service-con {
+        text-align: center;
+        margin-top: 20px;
+        overflow: hidden;
+
+        .col {
+          padding: 40px 40px 20px;
+          border: 1px solid #f4f4f4;
+          width: 19%;
+          float: left;
+          margin-left: 15px;
+          margin-bottom: 20px;
+
+          .text {
+            font-size: 16px;
+            margin-top: 40px;
+          }
+
+          .price {
+            margin-top: 20px;
+            color: #ff3636;
+            margin-bottom: 10px;
+            font-size: 14px;
+          }
+
+          img {
+            width: 100px;
+          }
+        }
+
+        .col:first-of-type {
+          margin-left: 0 !important;
+        }
+
+        .col:nth-of-type(5n + 1) {
+          margin-left: 0 !important;
+        }
+      }
+    }
+
+    //最新更新
+
+    .lastest-update {
+      margin-top: 40px;
+      color: #333;
+
+      a {
+        color: #333;
+      }
+
+      .lastest-update-title {
+        font-size: 18px;
+        margin-bottom: 40px;
+
+        .border {
+          border-left: 5px solid #57e7b8;
+          margin-right: 10px;
+        }
+      }
+
+      .lastest-update-con-top {
+        font-size: 12px;
+
+        .lastest-update-con-left {
+          height: 100%;
+
+          .col {
+            img {
+              width: 100px;
+            }
+
+            .text {
+              font-size: 16px;
+              margin-top: 10px;
+              width: 100px;
+              text-align: center;
+              min-height: 60px;
+            }
+          }
+        }
+
+        .lastest-update-con-right {
+          min-height: 310px;
+          background: #f2f6f6;
+          padding: 10px;
+
+          .row {
+            height: 30px;
+            line-height: 30px;
+
+            .more-state {
+              font-size: 18px;
+            }
+
+            .more {
+              font-size: 14px;
+              color: #999;
+            }
+          }
+
+          .row-con {
+            margin-top: 5px;
+
+            div {
+              height: 30px;
+              line-height: 30px;
+
+              .circle {
+                display: block;
+                float: left;
+                width: 5px;
+                height: 5px;
+                background-color: #1cc1d5;
+                border-radius: 2px;
+                margin-top: 13px;
+              }
+
+              .circle-con {
+                // float left;
+                display: inline-block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 250px;
+                margin-left: 7px;
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /*加入市场*/
+
+    .join-market {
+      margin-top: 40px;
+
+      a {
+        color: #000;
+      }
+
+      .join-market-title {
+        font-size: 18px;
+
+        .border {
+          border-left: 5px solid #fe960f;
+          margin-right: 10px;
+        }
+      }
+
+      .join-market-con {
+        margin-bottom: 40px;
+        margin-top: 20px;
+        height: 100px;
+        font-size: 14px;
+
+        .text {
+          font-weight: 700;
+          font-size: 14px;
+        }
+
+        .join-market-text {
+          color: #888;
+          font-size: 12px;
+        }
+
+        img {
+          width: 90%;
+        }
       }
     }
   }
-}
 
-.lastest-update-con-bottom {
-  width: 100%;
-  height: auto;
-  display: flex;
-  margin-top: 10px;
-}
+  .lastest-update-con-bottom {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 10px;
+  }
 
-.lastest-update-con-bottom .scenarioServices {
-  width: 285px;
-  height: 146px;
-  background: url('https://qiniu.easyapi.com/market/index/scene.png') no-repeat;
-  background-size: 100% 100%;
-  margin-right: 18px;
-}
+  .lastest-update-con-bottom .scenarioServices {
+    width: 285px;
+    height: 146px;
+    background: url('https://qiniu.easyapi.com/market/index/scene.png') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 18px;
+  }
 
-.lastest-update-con-bottom .scenarioServices a {
-  color: #ffffff;
-  font-size: 18px;
-  text-align: center;
-  line-height: 146px;
-  display: block;
-}
+  .lastest-update-con-bottom .scenarioServices a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
 
-.lastest-update-con-bottom .paymentAlbum {
-  width: 285px;
-  height: 146px;
-  background: url('https://qiniu.easyapi.com/market/index/jiaofei.png')
-    no-repeat;
-  background-size: 100% 100%;
-  margin-right: 18px;
-}
+  .lastest-update-con-bottom .paymentAlbum {
+    width: 285px;
+    height: 146px;
+    background: url('https://qiniu.easyapi.com/market/index/jiaofei.png') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 18px;
+  }
 
-.lastest-update-con-bottom .paymentAlbum a {
-  color: #ffffff;
-  font-size: 18px;
-  text-align: center;
-  line-height: 146px;
-  display: block;
-}
+  .lastest-update-con-bottom .paymentAlbum a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
 
-.lastest-update-con-bottom .financialAlbum {
-  width: 285px;
-  height: 146px;
-  background: url('https://qiniu.easyapi.com/market/index/finance.png')
-    no-repeat;
-  background-size: 100% 100%;
-  margin-right: 18px;
-}
+  .lastest-update-con-bottom .financialAlbum {
+    width: 285px;
+    height: 146px;
+    background: url('https://qiniu.easyapi.com/market/index/finance.png') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 18px;
+  }
 
-.lastest-update-con-bottom .financialAlbum a {
-  color: #ffffff;
-  font-size: 18px;
-  text-align: center;
-  line-height: 146px;
-  display: block;
-}
+  .lastest-update-con-bottom .financialAlbum a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
 
-.lastest-update-con-bottom .clickInvoice {
-  width: 285px;
-  height: 146px;
-  background: url('https://qiniu.easyapi.com/market/index/e_invoice.png')
-    no-repeat;
-  background-size: 100% 100%;
-}
+  .lastest-update-con-bottom .clickInvoice {
+    width: 285px;
+    height: 146px;
+    background: url('https://qiniu.easyapi.com/market/index/e_invoice.png') no-repeat;
+    background-size: 100% 100%;
+  }
 
-.lastest-update-con-bottom .clickInvoice a {
-  color: #ffffff;
-  font-size: 18px;
-  text-align: center;
-  line-height: 146px;
-  display: block;
-}
+  .lastest-update-con-bottom .clickInvoice a {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 146px;
+    display: block;
+  }
 </style>

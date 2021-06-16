@@ -18,12 +18,12 @@ module.exports = {
     '@/assets/css/common.css',
     '@/assets/scss/element-variables.scss'
   ],
-  plugins: ['@/plugins/element-ui', '@/plugins/axios', '~/plugins/http'],
+  plugins: ['@/plugins/element-ui', '@/plugins/axios'],
   /*
   ** Customize the progress bar color
   */
   modules: [
-    '@nuxtjs/axios', '@nuxt/http'
+    '@nuxtjs/axios'
   ],
   http: {
     // proxyHeaders: false

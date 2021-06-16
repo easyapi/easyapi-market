@@ -20,6 +20,6 @@ export const getUserTeamList = (context) => context.$axios.get(`${accountUrl}/ap
  *
  * @see https://www.easyai.com
  */
-export const changeTeam = (teamId,context) => {
+export const changeTeam = (teamId, context) => {
   return context.$axios.put(`${accountUrl}/api/team/${teamId}/change`)
 }
