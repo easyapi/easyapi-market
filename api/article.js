@@ -8,8 +8,8 @@ export const getArticleList = (params, context) => {
     params: {
       ...params,
       appKey: 'ja4fkcz35kfqywi7',
-      appSecret: 'k1v8c637vr4swgr8',
-    },
+      appSecret: 'k1v8c637vr4swgr8'
+    }
   })
 }
 
@@ -22,7 +22,7 @@ export const getArticle = (id, context) => {
   return context.$axios.get(`${serviceUrl}/api/article/${id}`, {
     params: {
       appKey: 'ja4fkcz35kfqywi7',
-      appSecret: 'k1v8c637vr4swgr8',
-    },
+      appSecret: 'k1v8c637vr4swgr8'
+    }
   })
 }

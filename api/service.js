@@ -6,8 +6,8 @@ import { serviceUrl } from './api'
 export const getServiceList = (params, context) => {
   return context.$axios.get(`${serviceUrl}/api/services`, {
     params: {
-      ...params,
-    },
+      ...params
+    }
   })
 }
 
