@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import {serviceUrl} from "./api";
+import { serviceUrl } from './api'
 
 /**
  * 获取文章列表

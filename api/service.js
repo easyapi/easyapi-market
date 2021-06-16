@@ -15,13 +15,12 @@ export const getServiceList = params => axios.get(`${serviceUrl}/api/services`, 
 /**
  * 获取服务类型
  */
-export const getServiceTypeList = () => axios.get(`${serviceUrl}/api/service/types`)
+export const getServiceTypeList = () => this.http.$get(`${serviceUrl}/api/service/types`)
 
 /**
  * 获取服务详情
  */
- export const getServiceInfo = (id) => axios.get(`${serviceUrl}/api/service/${id}`)
-
+export const getServiceInfo = (id) => axios.get(`${serviceUrl}/api/service/${id}`)
 
 /**
  * 开通服务

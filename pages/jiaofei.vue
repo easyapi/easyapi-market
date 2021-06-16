@@ -57,6 +57,7 @@
   import Footer from '~/components/footer'
   import DivListWrap from '~/components/layout/divListWrap'
   import TitleMid from '~/components/layout/titleMid'
+  import { qiniuUrl } from '../api/api'
 
   export default {
     name: 'jiaofei',
@@ -70,43 +71,43 @@
       return {
         serviceList: [
           {
-            icon: 'https://qiniu.easyapi.com/market/jiaofei/communication.png',
+            icon: `${qiniuUrl}/market/jiaofei/communication.png`,
             title: '通讯业务',
             subtitle1: '话费充值',
-            subtitle2: '宽带充值',
+            subtitle2: '宽带充值'
           },
           {
-            icon: 'https://qiniu.easyapi.com/market/jiaofei/game.png',
+            icon: `${qiniuUrl}/market/jiaofei/game.png`,
 
             title: '游戏充值',
             subtitle1: '网络游戏',
-            subtitle2: '手机游戏',
+            subtitle2: '手机游戏'
           },
           {
-            icon: 'https://qiniu.easyapi.com/market/jiaofei/payment.png',
+            icon: `${qiniuUrl}/market/jiaofei/payment.png`,
             title: '生活缴费',
             subtitle1: '水电煤',
-            subtitle2: '加油卡',
+            subtitle2: '加油卡'
           }
         ],
         adviceList: [
           {
-            icon: 'https://qiniu.easyapi.com/market/jiaofei/api.png',
+            icon: `${qiniuUrl}/market/jiaofei/api.png`,
             title: 'API充值',
-            subtitle: '无需提前充值，通过EasyAPI充值API接口，随充随用，不占用资金',
+            subtitle: '无需提前充值，通过EasyAPI充值API接口，随充随用，不占用资金'
 
           },
           {
-            icon: 'https://qiniu.easyapi.com/market/jiaofei/goods.png',
+            icon: `${qiniuUrl}/market/jiaofei/goods.png`,
             title: '货源稳定',
-            subtitle: '海量优质货源供应，众多供应商后台随机切换，保障货源稳定',
+            subtitle: '海量优质货源供应，众多供应商后台随机切换，保障货源稳定'
 
           },
           {
-            icon: 'https://qiniu.easyapi.com/market/jiaofei/others.png',
+            icon: `${qiniuUrl}/market/jiaofei/others.png`,
             title: '其他',
-            subtitle: '如果您需要更多其他充值缴费相关，请联系我们',
-          },
+            subtitle: '如果您需要更多其他充值缴费相关，请联系我们'
+          }
         ]
       }
     },
@@ -118,7 +119,7 @@
           { hid: 'keyword', name: 'keyword', content: '服务市场场景化服务' }
         ]
       }
-    },
+    }
   }
 </script>
 
@@ -143,7 +144,7 @@
 
     p {
       font-size: 36px;
-      font-family: MicrosoftYaHei;
+      font-family: MicrosoftYaHei, serif;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
       padding-top: 133px;
@@ -156,7 +157,7 @@
       font-size: 16px;
       text-align: center;
       margin: 24px auto 0 auto;
-      font-family: MicrosoftYaHei;
+      font-family: MicrosoftYaHei, serif;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
       line-height: 34px;
@@ -226,9 +227,7 @@
     display: block;
     height: 100%;
     color: #18C1D6;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: 289px 23px;
+    background: #fff no-repeat 289px 23px;
     background-size: 17px auto;
   }
 
@@ -238,8 +237,7 @@
   }
 
   .jiaofei-list:hover label {
-    background-image: url(../assets/images/arrow-right.png);
-    background-color: #18C1D6;
+    background: #18C1D6 url(../assets/images/arrow-right.png);
     color: #fff;
   }
 

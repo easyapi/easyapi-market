@@ -51,7 +51,7 @@
       <li class="item-menu header-login" v-show="token">
         <div class="userAvatar ea-Dropdown">
           <a class="flex-r">
-            <img id="showPersonage" :src="photo+'!icon.jpg'" alt v-show="photo"/>
+            <img id="showPersonage" :src="photo+'!icon.jpg'" alt v-if="photo"/>
           </a>
         </div>
         <div :class="{active:isActive}" class="ea-DropdownMenu">
@@ -121,7 +121,7 @@
 
       //退出登录
       quitLogin () {
-        this.$store.dispatch('Logout')
+        this.$store.dispatch('logout')
         window.location.href = 'https://www.easyapi.com/user/login'
       },
 
@@ -138,7 +138,7 @@
     mounted () {
       if (Cookies.get('authenticationToken')) {
         //获取用户信息
-        this.$store.dispatch('GetUserInfo')
+        this.$store.dispatch('getUser')
       }
       if (Cookies.get('authenticationToken')) {
         //获取团队列表

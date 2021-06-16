@@ -250,7 +250,7 @@
 <script>
   import Header from '~/components/header'
   import Footer from '~/components/footer'
-  import { subscribeService,getServiceInfo } from '../../api/service'
+  import { subscribeService, getServiceInfo } from '../../api/service'
 
   export default {
     name: 'service-detail',
@@ -280,12 +280,8 @@
       }
     },
     async asyncData (context) {
-      const res1 = await context.$axios.get(
-        `https://api.easyapi.com/console/service-prices?serviceId=${context.params.id}`
-      )
-      const res2 = await context.$axios.get(
-        `https://api.easyapi.com/api/service/${context.params.id}`
-      )
+      const res1 = await context.$axios.get(`https://api.easyapi.com/console/service-prices?serviceId=${context.params.id}`)
+      const res2 = await context.$axios.get(`https://api.easyapi.com/api/service/${context.params.id}`)
       return {
         servicePriceList: res1.data.content,
         service: res2.data.content
@@ -301,8 +297,7 @@
         if (hasConsole === true) {
           window.location.href = 'https://' + url + '.easyapi.com/console/'
         } else {
-          window.location.href =
-            'https://service.easyapi.com/stat?serviceId=' + serviceId
+          window.location.href = 'https://service.easyapi.com/stat?serviceId=' + serviceId
         }
       },
       homepage (url) {
@@ -328,8 +323,8 @@
       },
       getServiceInfo () {
         getServiceInfo(this.$route.params.id).then((res) => {
-            this.service = res.data.content
-          })
+          this.service = res.data.content
+        })
       },
       subscribeService () {
         subscribeService(this.$route.params.id).then((res) => {

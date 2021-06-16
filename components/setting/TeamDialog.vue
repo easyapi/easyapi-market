@@ -2,9 +2,7 @@
   <div class="current-team-info" :class="{active:showTeamInfo}">
     <h2 class="current-team-name lrPading-20">当前团队</h2>
     <div class="clear current-team-content lrPading-20">
-      <!-- <span > -->
-      <img class="lf teams-img" :src='teamImg+"!icon.jpg"' alt="" v-show="teamImg">
-      <!-- </span> -->
+      <img class="lf teams-img" :src='teamImg + "!icon.jpg"' alt="" v-if="teamImg">
       <div class="lf teams-img-r">
         <p>{{teamName}}</p>
         <div class="team-btn">
@@ -42,48 +40,47 @@
       teamName: String,
       teamList: {
         type: Array,
-        default: function () {
+        default: function() {
           return []
         }
       }
     },
-    data() {
+    data () {
       return {
-        showTeamInfo: this.showTeamDialog,
-
+        showTeamInfo: this.showTeamDialog
       }
     },
     //计算属性
     computed: {},
     watch: {
-      showTeamDialog: function (v) {
+      showTeamDialog: function(v) {
         return this.showTeamInfo = v
       }
     },
-    created() {
+    created () {
 
     },
-    mounted() {
+    mounted () {
 
     },
     //keep-alive 组件激活时调用
-    activated() {
+    activated () {
     },
     //keep-alive 组件停用时调用。
-    deactivated() {
+    deactivated () {
     },
     //方法
     methods: {
-      tabTeamFn(e) {
-        this.$emit('on-selectTeam', e);
+      tabTeamFn (e) {
+        this.$emit('on-selectTeam', e)
       },
-      jumpPage() {
-        this.$emit('on-creadTeam');
+      jumpPage () {
+        this.$emit('on-creadTeam')
       }
     }
   }
 </script>
-<style  lang="scss" scoped>
+<style lang="scss" scoped>
   .current-team-info {
     position: absolute;
     padding: 0 20px;
@@ -99,13 +96,12 @@
     display: none;
     z-index: 9999;
 
-
     .current-team-name {
       height: 60px;
       line-height: 60px;
       font-weight: bold;
       border-bottom: 1px solid #eaeaea;
-      font-size :18px;
+      font-size: 18px;
     }
 
     .current-team-content {
@@ -187,7 +183,7 @@
             height: 28px;
             border-radius: 50%;
             vertical-align: middle;
-            margin:  0;
+            margin: 0;
           }
 
           & > span {
@@ -201,6 +197,7 @@
       text-align: center;
     }
   }
+
   .current-team-info.active {
     display: block;
   }

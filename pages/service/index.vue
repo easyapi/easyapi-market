@@ -147,10 +147,10 @@
       }
     },
     watch: {
-      '$store.state.serviceName': function (v, oldv) {
+      '$store.state.serviceName': function(v, oldv) {
         this.name = this.$store.state.serviceName
       },
-      $route: function () {
+      $route: function() {
         this.getServiceList()
       }
     },

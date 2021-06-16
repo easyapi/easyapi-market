@@ -17,7 +17,7 @@ const user = {
   },
 
   mutations: {
-    SET_USERID: (state, userId) => {
+    SET_USER_ID: (state, userId) => {
       state.userId = userId
     },
     SET_USERNAME: (state, username) => {
@@ -49,36 +49,36 @@ const user = {
     },
     SET_TOKEN: (state, token) => {
       state.token = token
-    },
+    }
   },
 
   actions: {
-    // 用户名登录
-    LoginByUsername ({ commit }, userInfo) {
-
-    },
-    // 获取用户信息
-    GetUserInfo ({ commit }) {
+    /**
+     * 获取用户信息
+     */
+    getUser ({ commit }) {
       getUser().then(res => {
-        let userInfoData = res.data
-        commit('SET_USERID', userInfoData.id)
-        commit('SET_USERNAME', userInfoData.username)
-        commit('SET_NICKNAME', userInfoData.nickname)
-        commit('SET_PHOTO', userInfoData.photo)
-        commit('SET_MOBILE', userInfoData.mobile)
-        commit('SET_EMAIL', userInfoData.email)
-        commit('SET_TEAM', userInfoData.team)
-        commit('SET_TEAM_NAME', userInfoData.team.name)
-        commit('SET_TEAM_IMG', userInfoData.team.img || '')
-        commit('SET_USER_TEAM', userInfoData.userTeam)
+        let user = res.data.content
+        commit('SET_USER_ID', user.id)
+        commit('SET_USERNAME', user.username)
+        commit('SET_NICKNAME', user.nickname)
+        commit('SET_PHOTO', user.photo)
+        commit('SET_MOBILE', user.mobile)
+        commit('SET_EMAIL', user.email)
+        commit('SET_TEAM', user.team)
+        commit('SET_TEAM_NAME', user.team.name)
+        commit('SET_TEAM_IMG', user.team.img || '')
+        commit('SET_USER_TEAM', user.userTeam)
       }).catch(error => {
-        // Cookies.remove('authenticationToken')
+        Cookies.remove('authenticationToken')
       })
     },
-    // 登出
-    Logout () {
+    /**
+     * 登出
+     */
+    logout () {
       Cookies.remove('authenticationToken')
-    },
+    }
   }
 }
 

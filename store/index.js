@@ -12,13 +12,12 @@ const store = () => new Vuex.Store({
     team
   },
   state: {
-    counter: 0,
-    serviceName:'',
+    serviceName: ''
   },
   mutations: {
     SET_SERVICE_NAME: (state, name) => {
-      state.serviceName = name;
-    },
+      state.serviceName = name
+    }
   },
   actions: {},
   getters

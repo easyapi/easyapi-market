@@ -28,7 +28,7 @@
 
       <div class="finance-recommend-list">
         <DivListWrap>
-          <div class="finance-rl-inner" v-for="(item,index) in apiDatalist" :key="index">
+          <div class="finance-rl-inner" v-for="(item,index) in apiDataList" :key="index">
             <div>
               <img :src="item.img" alt="图片加载中..."/>
             </div>
@@ -49,6 +49,7 @@
   import Footer from '~/components/footer'
   import DivListWrap from '~/components/layout/divListWrap'
   import TitleMid from '~/components/layout/titleMid'
+  import { qiniuUrl } from '../api/api'
 
   export default {
     name: 'finance',
@@ -62,71 +63,71 @@
       return {
         dataList: [
           {
-            img: 'https://qiniu.easyapi.com/market/finance/individual-risk.png',
+            img: `${qiniuUrl}/market/finance/individual-risk.png`,
             title: '个人风控数据'
           },
           {
-            img: 'https://qiniu.easyapi.com/market/finance/portrayal.png',
+            img: `${qiniuUrl}/market/finance/portrayal.png`,
             title: '用户画像数据'
           },
 
           {
-            img: 'https://qiniu.easyapi.com/market/finance/enterprise.png',
+            img: `${qiniuUrl}/market/finance/enterprise.png`,
             title: '企业相关数据'
           },
           {
-            img: 'https://qiniu.easyapi.com/market/finance/risk.png',
+            img: `${qiniuUrl}/market/finance/risk.png`,
             title: '金融风控数据 '
           }
         ],
-        apiDatalist: [
+        apiDataList: [
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '身份证OCR识别',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '身份证实名认证',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '运营商三要素',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '金融反欺诈',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '三网手机实名认证',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/ip.png',
+            img: `${qiniuUrl}/ip.png`,
             title: '银行卡三元素校验',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '银行卡四元素校验',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '证件识别',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '企业工商数据',
             money: '￥0.15/次'
           },
           {
-            img: 'https://qiniu.easyapi.com/withdraw.png',
+            img: `${qiniuUrl}/withdraw.png`,
             title: '银行卡类别',
             money: '￥0.15/次'
           }
@@ -161,13 +162,12 @@
   .banner {
     width: 100%;
     height: 365px;
-    background-image: url('https://qiniu.easyapi.com/market/bg_finance_banner.png');
     background-size: cover;
-    background-color: white;
+    background: white url('https://qiniu.easyapi.com/market/bg_finance_banner.png');
 
     p {
       font-size: 36px;
-      font-family: MicrosoftYaHei;
+      font-family: MicrosoftYaHei, serif;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
       padding-top: 133px;
@@ -180,7 +180,7 @@
       font-size: 16px;
       text-align: center;
       margin: 24px auto 0 auto;
-      font-family: MicrosoftYaHei;
+      font-family: MicrosoftYaHei,serif;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
       line-height: 34px;

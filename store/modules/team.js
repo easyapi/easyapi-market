@@ -9,16 +9,16 @@ const team = {
   },
 
   mutations: {
-    SET_CURRENTTEAM: (state, currentTeam) => {
+    SET_CURRENT_TEAM: (state, currentTeam) => {
       state.currentTeam = currentTeam
     },
-    SET_TTEAMNAME: (state, teamName) => {
+    SET_TTEAM_NAME: (state, teamName) => {
       state.teamName = teamName
     },
-    SET_TTEAMAVATAR: (state, teamAvatar) => {
+    SET_TTEAM_AVATAR: (state, teamAvatar) => {
       state.teamAvatar = teamAvatar
     },
-    SET_TEAMLIST: (state, teamList) => {
+    SET_TEAM_LIST: (state, teamList) => {
       state.teamList = teamList
     }
   },
@@ -26,7 +26,7 @@ const team = {
   actions: {
     getTeamList ({ commit }) {
       getUserTeamList().then(res => {
-        commit('SET_TEAMLIST', res.data)
+        commit('SET_TEAM_LIST', res.data)
       }).catch(error => {
         console.log(error)
       })
@@ -35,7 +35,7 @@ const team = {
     changeTeam ({ dispatch, commit, state }, id) {
       changeTeam(id).then(res => {
         if (res.data.code === 1) {
-          dispatch('GetUserInfo')
+          dispatch('getUser')
         }
       }).catch(error => {
         console.log(error)
