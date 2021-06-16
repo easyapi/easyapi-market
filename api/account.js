@@ -5,7 +5,9 @@ import { accountUrl } from './api'
  *
  * @see https://www.easyai.com
  */
-export const getUser = (context) => context.$axios.get(`${accountUrl}/api/account`)
+export const getUser = (context) => {
+  return context.$axios.get(`${accountUrl}/api/account`)
+}
 
 /**
  * 获取用户团队列表
@@ -13,7 +15,9 @@ export const getUser = (context) => context.$axios.get(`${accountUrl}/api/accoun
  * @see https://www.easyai.com
  */
 
-export const getUserTeamList = (context) => context.$axios.get(`${accountUrl}/api/user/teams`)
+export const getUserTeamList = (context) => {
+  return context.$axios.get(`${accountUrl}/api/user/teams`)
+}
 
 /**
  * 切换团队
