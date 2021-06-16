@@ -141,7 +141,7 @@
       }
     },
     async asyncData (context) {
-      let [res2] = await Promise.all([getServiceTypeList()])
+      let [res2] = await Promise.all([getServiceTypeList(context)])
       return {
         serviceTypeList: res2.data.content
       }
@@ -203,7 +203,7 @@
         }
         params.size = this.pageSize
         params.page = this.current - 1
-        getServiceList(params).then(res => {
+        getServiceList(params,this).then(res => {
           this.loading = false
           if (res.data.code === 0) {
             _this.isNoData = true

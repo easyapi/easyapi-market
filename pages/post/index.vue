@@ -73,7 +73,7 @@
           size: this.pagination.size,
           page: this.pagination.page
         }
-        getArticleList(params).then((res) => {
+        getArticleList(params,this).then((res) => {
           if (res.data.code === 1) {
             this.list = this.list.concat(res.data.content)
             this.pagination.totalPages = res.data.totalPages

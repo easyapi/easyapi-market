@@ -42,7 +42,7 @@
     },
     methods: {
       getArticle () {
-        getArticle(this.$route.params.id).then(res => {
+        getArticle(this.$route.params.id,this).then(res => {
           this.article = res.data.content
         })
       }

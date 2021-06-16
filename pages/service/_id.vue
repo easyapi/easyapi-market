@@ -322,12 +322,12 @@
         this.subscribe = true
       },
       getServiceInfo () {
-        getServiceInfo(this.$route.params.id).then((res) => {
+        getServiceInfo(this.$route.params.id,this).then((res) => {
           this.service = res.data.content
         })
       },
       subscribeService () {
-        subscribeService(this.$route.params.id).then((res) => {
+        subscribeService(this.$route.params.id,this).then((res) => {
           this.$message.success(res.data.message)
           this.subscribe = false
           if (res.data.code === 1) {

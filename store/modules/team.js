@@ -5,7 +5,7 @@ const team = {
     currentTeam: '',
     teamName: '',
     teamAvatar: '',
-    teamList: ''
+    teamList: '',
   },
 
   mutations: {
@@ -20,28 +20,32 @@ const team = {
     },
     SET_TEAM_LIST: (state, teamList) => {
       state.teamList = teamList
-    }
+    },
   },
 
   actions: {
-    getTeamList ({ commit }) {
-      getUserTeamList().then(res => {
-        commit('SET_TEAM_LIST', res.data)
-      }).catch(error => {
-        console.log(error)
-      })
+    getTeamList({ commit }) {
+      getUserTeamList(this)
+        .then((res) => {
+          commit('SET_TEAM_LIST', res.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
     // 切换团队
-    changeTeam ({ dispatch, commit, state }, id) {
-      changeTeam(id).then(res => {
-        if (res.data.code === 1) {
-          dispatch('getUser')
-        }
-      }).catch(error => {
-        console.log(error)
-      })
-    }
-  }
+    changeTeam({ dispatch, commit, state }, id) {
+      changeTeam(id, this)
+        .then((res) => {
+          if (res.data.code === 1) {
+            dispatch('getUser')
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+  },
 }
 
 export default team

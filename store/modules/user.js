@@ -57,7 +57,7 @@ const user = {
      * 获取用户信息
      */
     getUser ({ commit }) {
-      getUser().then(res => {
+      getUser(this).then(res => {
         let user = res.data.content
         commit('SET_USER_ID', user.id)
         commit('SET_USERNAME', user.username)
