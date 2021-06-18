@@ -55,8 +55,8 @@
           </a>
         </div>
         <div :class="{active:isActive}" class="ea-DropdownMenu">
-          <a href="https://account.easyapi.com/notification/">我的通知</a>
-          <a href="https://account.easyapi.com/user/edit">个人设置</a>
+          <a href="https://team.easyapi.com/notification/">我的通知</a>
+          <a href="https://team.easyapi.com/user/edit">个人设置</a>
           <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
         </div>
       </li>
@@ -85,8 +85,6 @@
     data () {
       return {
         token: Cookies.get('authenticationToken'),
-        serviceTypeList: [],
-        serviceList: [],
         name: '',
         isActive: false,
         showTeamInfo: false

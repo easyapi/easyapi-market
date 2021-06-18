@@ -26,8 +26,8 @@
       return {
         title: this.article && this.article.title + ' - EasyAPI服务市场',
         meta: [
-          { hid: 'description', name: 'description', content: '服务市场详情' },
-          { hid: 'keyword', name: 'keyword', content: '服务市场详情' }
+          { hid: 'description', name: 'description', content: this.article.title },
+          { hid: 'keyword', name: 'keyword', content: '文章详情' }
         ]
       }
     },
