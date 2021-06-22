@@ -295,12 +295,12 @@
       homepage (url) {
         window.location.href = 'https://' + url + '.easyapi.com/'
       },
-      gotoPage () {
-
+      gotoPage (url) {
+        window.location.href = url
       },
       jump () {
         if (this.buttonContent === '前 往') {
-          window.open('https://team.easyapi.com/new', '_blank')
+          window.open('https://team.easyapi.com/new?from=https://market.easyapi.com/service/' + this.$route.params.id, '_blank')
           this.message = '团队创建成功了吗？'
           this.buttonContent = '刷 新'
         } else {
