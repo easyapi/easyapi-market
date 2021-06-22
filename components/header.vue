@@ -48,8 +48,8 @@
         </a>
         <div ref="showTeamInfo">
           <TeamDialog
-            @on-creadTeam="jumpPage"
-            @on-selectTeam="changeTeam"
+            @on-createTeam="jumpPage"
+            @on-changeTeam="changeTeam"
             :showTeamDialog="showTeamInfo"
             :teamImg="teamImg"
             :teamName="teamName"
@@ -140,11 +140,10 @@ export default {
     //退出登录
     quitLogin() {
       this.$store.dispatch('logout')
-      window.location.href = 'https://account.easyapi.com/login'
+      window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com'
     },
-
     jumpPage() {
-      window.location.href = 'https://team.easyapi.com/new'
+      window.location.href = 'https://team.easyapi.com/new?from=https://market.easyapi.com'
     },
     //切换团队
     changeTeam(id) {

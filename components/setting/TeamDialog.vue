@@ -19,7 +19,7 @@
     <div class="change-team-box">
       <h2 class="lrPading-20">
         切换团队：
-        <el-button type="primary" size="small" @click="jumpPage"
+        <el-button type="primary" size="small" @click="createTeam"
           >创建新团队</el-button
         >
       </h2>
@@ -28,7 +28,7 @@
           class="ea-team-item"
           v-for="(item, index) in teamList"
           v-bind:key="index"
-          @click="tabTeamFn(item.team.id)"
+          @click="changeTeam(item.team.id)"
         >
           <img
             :src="item.team.img + '!icon.jpg'"
@@ -65,27 +65,18 @@ export default {
       showTeamInfo: this.showTeamDialog,
     }
   },
-  //计算属性
-  computed: {},
   watch: {
     showTeamDialog: function (v) {
       return (this.showTeamInfo = v)
     },
   },
-  created() {},
-  mounted() {},
-  //keep-alive 组件激活时调用
-  activated() {},
-  //keep-alive 组件停用时调用。
-  deactivated() {},
-  //方法
   methods: {
-    tabTeamFn(e) {
-      this.$emit('on-selectTeam', e)
+    changeTeam(e) {
+      this.$emit('on-changeTeam', e)
       location.reload()
     },
-    jumpPage() {
-      this.$emit('on-creadTeam')
+    createTeam() {
+      this.$emit('on-createTeam')
     },
   },
 }
