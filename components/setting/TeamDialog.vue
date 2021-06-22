@@ -82,6 +82,7 @@ export default {
   methods: {
     tabTeamFn(e) {
       this.$emit('on-selectTeam', e)
+      location.reload()
     },
     jumpPage() {
       this.$emit('on-creadTeam')

@@ -37,19 +37,25 @@
         </el-input>
       </li>
       <li class="item-menu current-team-box" v-show="token">
-        <a id="showTeamInfo" class="flex-r" :class="{ active: showTeamInfo }">
+        <a
+          @click.stop="showTeamInfo = !showTeamInfo"
+          class="flex-r"
+          :class="{ active: showTeamInfo }"
+        >
           {{ teamName }}
           <i v-if="showTeamInfo" class="team-icon icon-arrow-top iconfont"></i>
           <i v-else class="team-icon icon-xiangxiajiantou iconfont"></i>
         </a>
-        <TeamDialog
-          @on-creadTeam="jumpPage"
-          @on-selectTeam="changeTeam"
-          :showTeamDialog="showTeamInfo"
-          :teamImg="teamImg"
-          :teamName="teamName"
-          :teamList="teamList.content"
-        ></TeamDialog>
+        <div ref="showTeamInfo">
+          <TeamDialog
+            @on-creadTeam="jumpPage"
+            @on-selectTeam="changeTeam"
+            :showTeamDialog="showTeamInfo"
+            :teamImg="teamImg"
+            :teamName="teamName"
+            :teamList="teamList.content"
+          ></TeamDialog>
+        </div>
       </li>
       <li class="item-menu header-service-center">
         <a href="https://service.easyapi.com">服务中心</a>
@@ -134,11 +140,11 @@ export default {
     //退出登录
     quitLogin() {
       this.$store.dispatch('logout')
-      window.location.href = 'https://www.easyapi.com/user/login'
+      window.location.href = 'https://account.easyapi.com/login'
     },
 
     jumpPage() {
-      window.location.href = 'https://www.easyapi.com/launch'
+      window.location.href = 'https://team.easyapi.com/new'
     },
     //切换团队
     changeTeam(id) {
@@ -157,26 +163,19 @@ export default {
     }
     this.name = this.$store.state.serviceName
 
-    let body = document.querySelector('body')
-    body.addEventListener(
-      'click',
-      (e) => {
-        if (
-          e.target.id === 'showTeamInfo' ||
-          e.target.classList[0] === 'team-icon'
-        ) {
-          this.isActive = false
-          this.showTeamInfo = !this.showTeamInfo
-        } else if (e.target.id === 'showPersonage') {
-          this.isActive = !this.isActive
-          this.showTeamInfo = false
-        } else {
-          this.showTeamInfo = false
-          this.isActive = false
-        }
-      },
-      false
-    )
+    let that = this
+    document.addEventListener('click', function (e) {
+      if (!!that.$refs.showTeamInfo.contains(e.target)) {
+        that.showTeamInfo = true
+      } else {
+        that.showTeamInfo = false
+      }
+      if (e.target.id === 'showPersonage') {
+        that.isActive = !that.isActive
+      } else {
+        that.isActive = false
+      }
+    })
   },
 }
 </script>
