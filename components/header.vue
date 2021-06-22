@@ -74,10 +74,10 @@
         </div>
       </li>
       <li class="item-menu header-login" v-show="!token">
-        <a href="https://account.easyapi.com/login" class="flex-r">登录</a>
+        <a href="https://account.easyapi.com/login?from=https://market.easyapi.com" class="flex-r">登录</a>
       </li>
       <li class="item-menu header-login" v-show="!token">
-        <a href="https://account.easyapi.com/signup" class="flex-r">注册</a>
+        <a href="https://account.easyapi.com/signup?from=https://market.easyapi.com" class="flex-r">注册</a>
       </li>
     </ul>
   </div>

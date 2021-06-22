@@ -12,22 +12,22 @@
               <div class="con">
                 <p class="con-title">{{ service.name }}</p>
                 <p class="con-button">
-                  <span v-if="service.category == 1">
+                  <span v-if="service.category === 1">
                     <a herf>接口服务</a>
                   </span>
-                  <span v-if="service.category == 2">
+                  <span v-if="service.category === 2">
                     <a herf>场景服务</a>
                   </span>
-                  <span v-if="service.category == 3">
+                  <span v-if="service.category === 3">
                     <a herf>数据服务</a>
                   </span>
-                  <span v-if="service.state == 0">
+                  <span v-if="service.state === 0">
                     <a herf>未开通</a>
                   </span>
-                  <span v-if="service.state == 1">
+                  <span v-if="service.state === 1">
                     <a herf>正常</a>
                   </span>
-                  <span v-if="service.state == -1">
+                  <span v-if="service.state === -1">
                     <a herf>异常</a>
                   </span>
                 </p>
@@ -80,24 +80,17 @@
                 <span>价格：</span>
                 <span>{{ servicePriceList[clicked].price }}</span>
                 <span>元</span>
-                <span
-                >（约{{
-                    servicePriceList[clicked].price /
-                    servicePriceList[clicked].times
-                  }}元/次）</span
-                >
+                <span>
+                  （约{{servicePriceList[clicked].price / servicePriceList[clicked].times}}元/次）
+                </span>
               </p>
               <p v-if="service.type === 3 && servicePriceList[clicked]">
                 <span>价格：</span>
                 <span>{{ servicePriceList[clicked].price }}</span>
                 <span>元</span>
-                <span
-                >（约{{
-                    parseInt(
-                      servicePriceList[clicked].price /
-                        servicePriceList[clicked].month
-                    )
-                  }}元/月）</span
+                <span>
+                  （约{{parseInt(servicePriceList[clicked].price / servicePriceList[clicked].month)}}元/月）
+                </span
                 >
               </p>
             </div>
@@ -216,13 +209,12 @@
           {{ message }}
         </p>
         <div slot="footer">
-          <el-button @click="establish = false" v-if="buttonContent == '前 往'"
+          <el-button @click="establish = false" v-if="buttonContent === '前 往'"
           >取 消
           </el-button
           >
-          <el-button type="primary" @click="jump">{{
-            buttonContent
-            }}
+          <el-button type="primary" @click="jump">
+            {{buttonContent}}
           </el-button>
         </div>
       </el-dialog>
@@ -322,12 +314,12 @@
         this.subscribe = true
       },
       getServiceInfo () {
-        getServiceInfo(this.$route.params.id,this).then((res) => {
+        getServiceInfo(this.$route.params.id, this).then((res) => {
           this.service = res.data.content
         })
       },
       subscribeService () {
-        subscribeService(this.$route.params.id,this).then((res) => {
+        subscribeService(this.$route.params.id, this).then((res) => {
           this.$message.success(res.data.message)
           this.subscribe = false
           if (res.data.code === 1) {
@@ -335,7 +327,7 @@
           }
         }).catch((error) => {
           if (error.response.data.code === -9) {
-            window.location.href = 'https://account.easyapi.com/login'
+            window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com/service/' + this.$route.params.id
           } else if (error.response.data.code === -8) {
             this.establish = true
           } else {
