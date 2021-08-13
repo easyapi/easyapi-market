@@ -12,7 +12,7 @@ Resources:
         Runtime: custom
         CodeUri: ./
         MemorySize: 1024
-        InstanceConcurrency: 5
+        InstanceConcurrency: 10
         Timeout: 120
 
       Events:
