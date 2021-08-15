@@ -12,10 +12,11 @@
   "scripts": {
     "dev": "nuxt --open",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "nuxt start --hostname 0.0.0.0 --port 7777",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "pm2": "pm2 start npm --name 'easyapi-market' -- run start"
   },
   "dependencies": {
     "nuxt": "^2.15.7",
