@@ -16,10 +16,10 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "pm2": "pm2 delete easyapi-market \n pm2 start npm --name 'easyapi-market' -- run start",
+    "pm2": "pm2 delete easyapi-market \n pm2 start npm --name 'easyapi-market' -- run start"
   },
   "dependencies": {
-    "nuxt": "^2.15.7",
+    "nuxt": "^2.15.8",
     "@nuxtjs/axios": "^5.13.6",
     "element-ui": "^2.15.5",
     "js-cookie": "^3.0.0"
@@ -32,11 +32,11 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": ">=16.0.3",
-    "eslint-plugin-import": ">=2.24.0",
+    "eslint-plugin-import": ">=2.24.1",
     "eslint-plugin-jest": ">=24.4.0",
     "eslint-plugin-node": ">=11.1.0",
     "eslint-plugin-nuxt": ">=2.0.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-promise": ">=5.1.0",
     "eslint-plugin-standard": ">=5.0.0",
     "eslint-plugin-vue": "^7.16.0",
