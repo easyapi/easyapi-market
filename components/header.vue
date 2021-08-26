@@ -3,11 +3,7 @@
     <ul class="header-con-left flex-r">
       <div class="header-logo flex-r">
         <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
-          <img
-            src="https://qiniu.easyapi.com/market/logo.png"
-            alt
-            width="100"
-          />
+          <img src="https://qiniu.easyapi.com/market/logo.svg" alt />
         </nuxt-link>
         <span class="circle"></span>
       </div>
@@ -207,6 +203,11 @@ export default {
 
     .header-logo {
       align-items: center;
+
+      img{
+        margin: 2px 10px 0 0;
+        width: 100px;
+      }
 
       a.logo {
         align-items: center;

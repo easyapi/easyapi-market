@@ -25,10 +25,6 @@ module.exports = {
   modules: [
     '@nuxtjs/axios'
   ],
-  http: {
-    // proxyHeaders: false
-  },
-  axios: {},
   loading: {
     color: '#3B8070'
   },
