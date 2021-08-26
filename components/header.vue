@@ -40,7 +40,7 @@
         >
           {{ teamName }}
           <i v-if="showTeamInfo" class="team-icon icon-arrow-top iconfont"></i>
-          <i v-else class="team-icon icon-xiangxiajiantou iconfont"></i>
+          <i v-else class="icon-xiangxiajiantou iconfont"></i>
         </a>
         <div ref="showTeamInfo">
           <TeamDialog
@@ -281,14 +281,6 @@ export default {
 
         &:hover {
           background-color: #19b7cb;
-        }
-
-        .team-icon {
-          // display: inline-block;
-          // width: 35px;
-          // height: 35px;
-          // background: url('../assets/images/team-icon.png') no-repeat;
-          // background-size: cover;
         }
       }
     }
