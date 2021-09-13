@@ -144,7 +144,6 @@
 
     p {
       font-size: 36px;
-      font-family: MicrosoftYaHei, serif;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
       padding-top: 133px;
@@ -157,7 +156,6 @@
       font-size: 16px;
       text-align: center;
       margin: 24px auto 0 auto;
-      font-family: MicrosoftYaHei, serif;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
       line-height: 34px;
