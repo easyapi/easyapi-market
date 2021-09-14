@@ -83,7 +83,9 @@
           </el-row>
         </div>
         <div class='service-market-right'>
-          <img src='https://qiniu.easyapi.com/market/ad/easyapi.png' alt />
+          <a href='https://www.easyapi.com' target='_blank'>
+            <img src='https://qiniu.easyapi.com/market/ad/easyapi.png' alt />
+          </a>
         </div>
       </div>
 
