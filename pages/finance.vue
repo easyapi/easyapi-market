@@ -222,8 +222,12 @@
     width: 224px;
     height: 254px;
     margin-bottom: 20px;
-    padding: 41px 62px 24px;
+    // padding: 41px 62px 24px;
     border: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
   }
 
