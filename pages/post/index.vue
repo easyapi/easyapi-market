@@ -60,7 +60,7 @@ export default {
   methods: {
     getPageList() {
       this.pagination.page = this.pagination.page + 1
-      if (this.pagination.page == this.pagination.totalPages) {
+      if (this.pagination.page === this.pagination.totalPages) {
         this.noMoreData = true
       }
       if (this.pagination.page < this.pagination.totalPages) {
