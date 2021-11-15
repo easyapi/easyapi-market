@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import { Message } from 'element-ui'
 
 export default function({ $axios, redirect }) {
   $axios.onRequest((config) => {
@@ -14,7 +15,7 @@ export default function({ $axios, redirect }) {
       } else if (error.response.data.code === -8) {
         window.location.href = 'https://team.easyapi.com/new?from=https://market.easyapi.com'
       } else {
-        this.$message.warning(error.response.data.message)
+        Message.error(error.response.data.message)
       }
     }
   })

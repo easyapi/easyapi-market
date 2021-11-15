@@ -330,8 +330,6 @@
             window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com/service/' + this.$route.params.id
           } else if (error.response.data.code === -8) {
             this.establish = true
-          } else {
-            this.$message.warning(error.response.data.message)
           }
         })
       }
