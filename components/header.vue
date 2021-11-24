@@ -181,7 +181,7 @@ export default {
   font-size: 14px;
   height: 60px;
   line-height: 60px;
-  background: #18c1d6;
+  background: #00b2c8;
   margin-bottom: 30px;
   align-items: center;
   justify-content: space-between;
@@ -323,7 +323,7 @@ export default {
     font-weight: normal;
 
     &:hover {
-      background-color: #1ac1d6;
+      background-color: #00b2c8;
       color: #fff;
     }
   }

@@ -1,20 +1,20 @@
 <template>
   <div>
     <Header></Header>
-    <div class="container">
-      <div v-if="!noData">
-        <div v-for="item of list" :key="item.articleId">
-          <ListItem v-bind:list="item"></ListItem>
+    <div class='main'>
+      <div v-if='!noData'>
+        <div v-for='item of list' :key='item.articleId'>
+          <ListItem v-bind:list='item'></ListItem>
         </div>
       </div>
-      <div v-else class="no-data">
-        <el-empty description="暂无数据"></el-empty>
+      <div v-else class='no-data'>
+        <el-empty description='暂无数据'></el-empty>
       </div>
-      <div class="loading" v-if="loading">
-        <Icon type="ios-loading" size="18" class="demo-spin-icon-load"></Icon>
+      <div class='loading' v-if='loading'>
+        <Icon type='ios-loading' size='18' class='demo-spin-icon-load'></Icon>
         <div>加载中......</div>
       </div>
-      <div class="noMoreData" v-if="noMoreData">
+      <div class='noMoreData' v-if='noMoreData'>
         <div>没有更多数据了...</div>
       </div>
     </div>
@@ -35,14 +35,14 @@ export default {
       title: '市场动态 - EasyAPI服务市场',
       meta: [
         { hid: 'description', name: 'description', content: '市场动态' },
-        { hid: 'keyword', name: 'keyword', content: '市场动态' },
-      ],
+        { hid: 'keyword', name: 'keyword', content: '市场动态' }
+      ]
     }
   },
   components: {
     Header,
     Footer,
-    ListItem,
+    ListItem
   },
   data() {
     return {
@@ -53,8 +53,8 @@ export default {
       pagination: {
         size: 15,
         page: 0,
-        totalPages: 0,
-      },
+        totalPages: 0
+      }
     }
   },
   methods: {
@@ -71,7 +71,7 @@ export default {
       this.loading = true
       let params = {
         size: this.pagination.size,
-        page: this.pagination.page,
+        page: this.pagination.page
       }
       getArticleList(params, this).then((res) => {
         this.loading = false
@@ -96,17 +96,18 @@ export default {
           this.getPageList()
         }
       }
-    },
+    }
   },
-  created() {},
+  created() {
+  },
   mounted() {
     window.addEventListener('scroll', this.lazyLoading)
     this.getArticleList()
-  },
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .loading {
   text-align: center;
   color: #2d8cf0;

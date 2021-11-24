@@ -58,7 +58,7 @@ span, img {
   flex-direction: column;
 }
 
-.container {
+.main {
   color: #000;
   width: 1200px;
   margin: 0 auto;

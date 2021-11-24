@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class='container'>
+    <div class='main'>
       <div class='detail-wrapper'>
         <div class='detail-title'>
           <span>{{ article.title }}</span>

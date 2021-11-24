@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class="container">
+    <div class="main">
       <el-row class="service-detail-con">
         <el-col :span="18" class="service-detail-left">
           <el-row class="service-detail-left-title" v-if="service">
@@ -40,17 +40,10 @@
             </el-col>
             <el-col :span="4" class="col-right">
               <p v-if="service.hasConsole === true">
-                <el-button
-                  class="ea-btn"
-                  size="small"
-                  plain
-                  @click="homepage(service.url)"
-                >进入官网
-                </el-button
-                >
+                <el-button size="small" plain @click="homepage(service.url)">进入官网</el-button>
               </p>
               <p>
-                <el-button class="ea-btn" @click="gotoPage(service.url)" size="small" plain>API文档</el-button>
+                <el-button @click="gotoPage(service.url)" size="small" plain>API文档</el-button>
               </p>
             </el-col>
           </el-row>
@@ -336,12 +329,6 @@
     }
   }
 </script>
-<style lang="scss">
-  .ea-btn {
-    border-color: #18c1d6;
-    color: #18c1d6;
-  }
-</style>
 <style lang="scss" scoped>
   .service-detail-con {
     .service-detail-left {
@@ -383,8 +370,8 @@
 
               span:first-of-type {
                 a {
-                  color: #1ac1d6;
-                  border: solid 1px #1ac1d6;
+                  color: #00b2c8;
+                  border: solid 1px #00b2c8;
                 }
               }
 
@@ -409,8 +396,8 @@
             el-button {
               width: 100%;
               height: 34px;
-              color: #18c1d6;
-              border: 1px solid #18c1d6;
+              color: #00b2c8;
+              border: 1px solid #00b2c8;
               border-radius: 0;
             }
           }
@@ -434,7 +421,7 @@
           }
 
           .active {
-            background-color: #1ac1d6;
+            background-color: #00b2c8;
             color: #fff;
             border: none;
           }
@@ -449,7 +436,7 @@
           el-button {
             width: 140px;
             height: 40px;
-            background-color: #1ac1d6;
+            background-color: #00b2c8;
             border-radius: 0;
             color: #fff;
             font-size: 14px;
@@ -464,8 +451,8 @@
           padding-bottom: 15px;
           text-align: center;
           font-size: 16px;
-          color: #1ac1d6;
-          border-bottom: 2px solid #1ac1d6;
+          color: #00b2c8;
+          border-bottom: 2px solid #00b2c8;
           width: 100px;
         }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class='index-container'>
+    <div class='main'>
       <div class='service-market'>
         <div class='service-market-left'>
           <div class='service-title'>
@@ -115,13 +115,13 @@
       </div>
 
       <!--最新更新-->
-      <div class='lastest-update'>
-        <div class='lastest-update-title'>
+      <div class='newest-update'>
+        <div class='newest-update-title'>
           <span class='border'></span>
           <span>最新更新</span>
         </div>
-        <el-row class='lastest-update-con-top'>
-          <el-col :span='18' class='lastest-update-con-left'>
+        <el-row class='newest-update-con-top'>
+          <el-col :span='18' class='newest-update-con-left'>
             <el-row class='row'>
               <el-col :span='6' class='col' v-for='(item, index) in newestServiceList' :key='item.serviceId'>
                 <nuxt-link v-if='index < 8' :to="{ name: 'service-id', params: { id: item.serviceId } }">
@@ -133,7 +133,7 @@
               </el-col>
             </el-row>
           </el-col>
-          <el-col :span='6' class='lastest-update-con-right'>
+          <el-col :span='6' class='newest-update-con-right'>
             <el-row class='row'>
               <el-col :span='20'>
                 <nuxt-link to='/post/' class='more-state'>更多动态</nuxt-link>
@@ -152,7 +152,7 @@
             </div>
           </el-col>
         </el-row>
-        <div class='lastest-update-con-bottom'>
+        <div class='newest-update-con-bottom'>
           <span class='scenarioServices'>
             <nuxt-link to='/scene'>场景化服务</nuxt-link>
           </span>
@@ -289,7 +289,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.index-container {
+.main {
   font-size: 12px;
   color: #333;
   width: 1200px;
@@ -309,12 +309,12 @@ export default {
       float: left;
       width: 22%;
       height: 100%;
-      background: #1bc1d6;
+      background: #00b2c8;
 
       .service-title {
         color: #fff;
         font-size: 16px;
-        border-bottom: 1px solid #8ce0eb;
+        border-bottom: 1px solid #0aa5b7;
         height: 45px;
         line-height: 45px;
 
@@ -333,7 +333,7 @@ export default {
         line-height: 40px;
 
         .col {
-          border-bottom: 1px solid #8ce0eb;
+          border-bottom: 1px solid #0aa5b7;
           height: 41px;
         }
 
@@ -433,7 +433,7 @@ export default {
 
   //最新更新
 
-  .lastest-update {
+  .newest-update {
     margin-top: 40px;
     color: #333;
 
@@ -441,7 +441,7 @@ export default {
       color: #333;
     }
 
-    .lastest-update-title {
+    .newest-update-title {
       font-size: 18px;
       margin-bottom: 40px;
 
@@ -451,10 +451,10 @@ export default {
       }
     }
 
-    .lastest-update-con-top {
+    .newest-update-con-top {
       font-size: 12px;
 
-      .lastest-update-con-left {
+      .newest-update-con-left {
         height: 100%;
 
         .col {
@@ -472,7 +472,7 @@ export default {
         }
       }
 
-      .lastest-update-con-right {
+      .newest-update-con-right {
         min-height: 310px;
         background: #f2f6f6;
         padding: 10px;
@@ -565,14 +565,14 @@ export default {
   }
 }
 
-.lastest-update-con-bottom {
+.newest-update-con-bottom {
   width: 100%;
   height: auto;
   display: flex;
   margin-top: 10px;
 }
 
-.lastest-update-con-bottom .scenarioServices {
+.newest-update-con-bottom .scenarioServices {
   width: 285px;
   height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/scene.png') no-repeat;
@@ -580,7 +580,7 @@ export default {
   margin-right: 18px;
 }
 
-.lastest-update-con-bottom .scenarioServices a {
+.newest-update-con-bottom .scenarioServices a {
   color: #ffffff;
   font-size: 18px;
   text-align: center;
@@ -588,7 +588,7 @@ export default {
   display: block;
 }
 
-.lastest-update-con-bottom .paymentAlbum {
+.newest-update-con-bottom .paymentAlbum {
   width: 285px;
   height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/jiaofei.png') no-repeat;
@@ -596,7 +596,7 @@ export default {
   margin-right: 18px;
 }
 
-.lastest-update-con-bottom .paymentAlbum a {
+.newest-update-con-bottom .paymentAlbum a {
   color: #ffffff;
   font-size: 18px;
   text-align: center;
@@ -604,7 +604,7 @@ export default {
   display: block;
 }
 
-.lastest-update-con-bottom .financialAlbum {
+.newest-update-con-bottom .financialAlbum {
   width: 285px;
   height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/finance.png') no-repeat;
@@ -612,7 +612,7 @@ export default {
   margin-right: 18px;
 }
 
-.lastest-update-con-bottom .financialAlbum a {
+.newest-update-con-bottom .financialAlbum a {
   color: #ffffff;
   font-size: 18px;
   text-align: center;
@@ -620,14 +620,14 @@ export default {
   display: block;
 }
 
-.lastest-update-con-bottom .clickInvoice {
+.newest-update-con-bottom .clickInvoice {
   width: 285px;
   height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/e_invoice.png') no-repeat;
   background-size: 100% 100%;
 }
 
-.lastest-update-con-bottom .clickInvoice a {
+.newest-update-con-bottom .clickInvoice a {
   color: #ffffff;
   font-size: 18px;
   text-align: center;

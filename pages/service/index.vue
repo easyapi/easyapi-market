@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header v-bind:callback="getServiceList"></Header>
-    <div class="container">
+    <div class="main">
       <div class="search-list">
         <el-row class="row">
           <el-col :span="2" class="col-left">商品分类：</el-col>
@@ -342,8 +342,8 @@
         }
 
         .active {
-          color: #18c1d6;
-          border: 1px solid #18c1d6;
+          color: #00b2c8;
+          border: 1px solid #00b2c8;
           height: 21px;
           line-height: 21px;
         }
@@ -352,7 +352,7 @@
   }
 
   .tqActive {
-    color: #18c1d6 !important;
+    color: #00b2c8 !important;
   }
 
   .pagination {
@@ -364,7 +364,7 @@
     margin-top: 40px;
 
     a {
-      color: #18c1d6;
+      color: #00b2c8;
     }
 
     .recommend-service-con {
