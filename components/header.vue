@@ -54,7 +54,7 @@
         </div>
       </li>
       <li class="item-menu header-service-center">
-        <a href="https://service.easyapi.com">服务中心</a>
+        <a href="https://team.easyapi.com/service/">服务中心</a>
       </li>
       <li class="item-menu header-login" v-show="token">
         <div class="userAvatar ea-Dropdown">
