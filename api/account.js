@@ -1,12 +1,10 @@
-import { accountUrl } from './api'
-
 /**
  * 获取用户信息
  *
  * @see https://www.easyai.com
  */
 export const getUser = (context) => {
-  return context.$axios.get(`${accountUrl}/api/account`)
+  return context.$axios.get(`${process.env.accountUrl}/account`)
 }
 
 /**
@@ -16,7 +14,7 @@ export const getUser = (context) => {
  */
 
 export const getUserTeamList = (context) => {
-  return context.$axios.get(`${accountUrl}/api/user/teams`)
+  return context.$axios.get(`${process.env.accountUrl}/user/teams`)
 }
 
 /**
@@ -25,5 +23,5 @@ export const getUserTeamList = (context) => {
  * @see https://www.easyai.com
  */
 export const changeTeam = (teamId, context) => {
-  return context.$axios.put(`${accountUrl}/api/team/${teamId}/change`)
+  return context.$axios.put(`${process.env.accountUrl}/team/${teamId}/change`)
 }
