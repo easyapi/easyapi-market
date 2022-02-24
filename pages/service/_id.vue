@@ -40,10 +40,10 @@
             </el-col>
             <el-col :span="4" class="col-right">
               <p v-if="service.hasConsole === true">
-                <el-button size="small" plain @click="homepage(service.url)">进入官网</el-button>
+                <el-button class="width-80" size="small" plain @click="homepage(service.url)">进入官网</el-button>
               </p>
               <p>
-                <el-button @click="gotoPage(service.url)" size="small" plain>API文档</el-button>
+                <el-button class="width-80" @click="gotoPage(service.url)" size="small" plain>API文档</el-button>
               </p>
             </el-col>
           </el-row>
@@ -235,17 +235,17 @@
 <script>
   import Header from '~/components/header'
   import Footer from '~/components/footer'
-  import { subscribeService, getServiceInfo } from '../../api/service'
+  import {subscribeService, getServiceInfo} from '../../api/service'
 
   export default {
     name: 'service-detail',
     loading: true,
-    head () {
+    head() {
       return {
         title: this.service.name + ' - EasyAPI服务市场',
         meta: [
-          { hid: 'description', name: 'description', content: '服务市场详情' },
-          { hid: 'keyswords', name: 'keyswords', content: '服务市场详情' }
+          {hid: 'description', name: 'description', content: '服务市场详情'},
+          {hid: 'keyswords', name: 'keyswords', content: '服务市场详情'}
         ]
       }
     },
@@ -253,7 +253,7 @@
       Header,
       Footer
     },
-    data () {
+    data() {
       return {
         establish: false,
         subscribe: false,
@@ -264,7 +264,7 @@
         servicePriceList: []
       }
     },
-    async asyncData (context) {
+    async asyncData(context) {
       const res1 = await context.$axios.get(`https://api.easyapi.com/console/service-prices?serviceId=${context.params.id}`)
       const res2 = await context.$axios.get(`https://api.easyapi.com/api/service/${context.params.id}`)
       return {
@@ -272,26 +272,26 @@
         service: res2.data.content
       }
     },
-    created () {
+    created() {
     },
-    mounted () {
+    mounted() {
       this.getServiceInfo()
     },
     methods: {
-      use (url, hasConsole, serviceId) {
+      use(url, hasConsole, serviceId) {
         if (hasConsole === true) {
           window.location.href = 'https://' + url + '.easyapi.com/console/'
         } else {
           window.location.href = 'https://team.easyapi.com/stat?serviceId=' + serviceId
         }
       },
-      homepage (url) {
+      homepage(url) {
         window.location.href = 'https://' + url + '.easyapi.com/'
       },
-      gotoPage (url) {
+      gotoPage(url) {
         window.location.href = url
       },
-      jump () {
+      jump() {
         if (this.buttonContent === '前 往') {
           window.open('https://team.easyapi.com/new?from=https://market.easyapi.com/service/' + this.$route.params.id, '_blank')
           this.message = '团队创建成功了吗？'
@@ -300,18 +300,18 @@
           location.reload()
         }
       },
-      changeItem (index) {
+      changeItem(index) {
         this.clicked = index
       },
-      subscribeDialog () {
+      subscribeDialog() {
         this.subscribe = true
       },
-      getServiceInfo () {
+      getServiceInfo() {
         getServiceInfo(this.$route.params.id, this).then((res) => {
           this.service = res.data.content
         })
       },
-      subscribeService () {
+      subscribeService() {
         subscribeService(this.$route.params.id, this).then((res) => {
           this.$message.success(res.data.message)
           this.subscribe = false
@@ -391,6 +391,10 @@
 
         .col-right {
           padding-left: 20px;
+
+          .width-80 {
+            width: 80px;
+          }
 
           p {
             el-button {
