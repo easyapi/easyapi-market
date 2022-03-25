@@ -115,8 +115,8 @@ export default {
     return {
       title: '缴费专辑 - EasyAPI服务市场',
       meta: [
-        { hid: 'description', name: 'description', content: '服务市场场景化服务' },
-        { hid: 'keyword', name: 'keyword', content: '服务市场场景化服务' }
+        { hid: 'description', name: 'description', content: 'EasyAPI服务市场为您提供各类缴费类接口，欢迎在线咨询，并开通使用。' },
+        { hid: 'keyword', name: 'keyword', content: '话费充值API,游戏充值API,水电煤API,加油卡API' }
       ]
     }
   }
