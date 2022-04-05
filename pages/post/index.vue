@@ -4,7 +4,7 @@
     <div class='main'>
       <div v-if='!noData'>
         <div v-for='item of list' :key='item.articleId'>
-          <ListItem v-bind:list='item'></ListItem>
+          <Item v-bind:list='item'></Item>
         </div>
       </div>
       <div v-else class='no-data'>
@@ -24,12 +24,12 @@
 
 <script>
 import { getArticleList } from '../../api/article'
-import Header from '~/components/header'
-import Footer from '~/components/footer'
-import ListItem from '~/components/layout/listItem'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
+import Item from './components/item'
 
 export default {
-  name: 'post',
+  name: 'Post',
   head() {
     return {
       title: '市场动态 - EasyAPI服务市场',
@@ -42,7 +42,7 @@ export default {
   components: {
     Header,
     Footer,
-    ListItem
+    Item
   },
   data() {
     return {
@@ -97,8 +97,6 @@ export default {
         }
       }
     }
-  },
-  created() {
   },
   mounted() {
     window.addEventListener('scroll', this.lazyLoading)

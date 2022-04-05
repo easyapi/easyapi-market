@@ -19,9 +19,9 @@
     <div class="change-team-box">
       <h2 class="lrPading-20">
         切换团队：
-        <el-button type="primary" size="small" @click="createTeam"
-          >创建新团队</el-button
-        >
+        <el-button type="primary" size="small" @click="createTeam">
+          创建新团队
+        </el-button>
       </h2>
       <div class="ea-team-list-box lrPading-20">
         <a
@@ -89,9 +89,9 @@ export default {
   position: absolute;
   padding: 0 20px;
   top: 60px;
-  right: 0px;
+  right: 0;
   background-color: #ffffff;
-  box-shadow: 0px 1px 3px #ddd;
+  box-shadow: 0 1px 3px #ddd;
   border: 1px solid #eee;
   border-top: none;
   width: 410px;
@@ -152,7 +152,6 @@ export default {
   }
 
   .change-team-box {
-    // border-bottom: 1px solid #eaeaea;
     .el-button {
       background: #2db7f5;
     }
@@ -165,14 +164,9 @@ export default {
     }
 
     .ea-team-list-box {
-      /* 父元素设置弹性布局 */
       display: flex;
-      /* 主轴方向 */
-      /* column 列上下 */
       flex-direction: row;
-      /* 是否换行 */
       flex-wrap: wrap;
-      /* 在主轴对齐方式 */
       justify-content: flex-start;
 
       .ea-team-item {

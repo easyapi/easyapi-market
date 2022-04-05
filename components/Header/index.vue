@@ -86,9 +86,9 @@
 </template>
 
 <script>
-import '../assets/iconfont/icon-arrow.css'
+import '../../assets/iconfont/icon-arrow.css'
 import { mapGetters } from 'vuex'
-import TeamDialog from './setting/TeamDialog'
+import TeamDialog from '../EaTeam'
 import Cookies from 'js-cookie'
 
 export default {

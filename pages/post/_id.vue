@@ -17,12 +17,11 @@
 
 <script>
 import { getArticle } from '../../api/article'
-import Header from '~/components/header'
-import Footer from '~/components/footer'
-import { getServiceList } from '../../api/service'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
 
 export default {
-  name: 'post-detail',
+  name: 'PostDetail',
   head() {
     return {
       title: this.article.title + ' - EasyAPI服务市场',

@@ -25,6 +25,7 @@ module.exports = {
   modules: [
     '@nuxtjs/axios'
   ],
+  buildModules: ['@nuxtjs/tailwindcss'],
   loading: {
     color: '#3B8070'
   },

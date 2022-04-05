@@ -12,32 +12,26 @@
     </div>
     <div class='main'>
       <div class='finance-wrapper'>
-        <DivListWrap>
+        <div class='flex flex-wrap justify-between'>
           <div class='finance-top-list' v-for='(item,index) in dataList' :key='index'>
             <div>
               <img :src='item.img' alt='图片加载中...' />
             </div>
             <span>{{ item.title }}</span>
           </div>
-        </DivListWrap>
+        </div>
       </div>
-
-      <div class='finance-title'>
-        <TitleMid>相关API推荐</TitleMid>
-      </div>
-
-      <div class='finance-recommend-list'>
-        <DivListWrap>
-          <div class='finance-rl-inner' v-for='(item,index) in apiDataList' :key='index'>
-            <div>
-              <img :src='item.img' alt='图片加载中...' />
-            </div>
-            <div>
-              <span>{{ item.title }}</span>
-              <label>{{ item.money }}</label>
-            </div>
+      <h2 class='my-12 text-center text-2xl'>相关API推荐</h2>
+      <div class='flex flex-wrap justify-between'>
+        <div class='finance-rl-inner' v-for='(item,index) in apiDataList' :key='index'>
+          <div>
+            <img :src='item.img' alt='图片加载中...' />
           </div>
-        </DivListWrap>
+          <div>
+            <span>{{ item.title }}</span>
+            <label>{{ item.money }}</label>
+          </div>
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -45,19 +39,15 @@
 </template>
 
 <script>
-import Header from '~/components/header'
-import Footer from '~/components/footer'
-import DivListWrap from '~/components/layout/divListWrap'
-import TitleMid from '~/components/layout/titleMid'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
 import { qiniuUrl } from '../api/api'
 
 export default {
   name: 'finance',
   components: {
     Header,
-    Footer,
-    DivListWrap,
-    TitleMid
+    Footer
   },
   data() {
     return {

@@ -1,33 +1,31 @@
 <template>
   <div>
     <Header></Header>
-    <div class="main">
-      <DivListWarp>
-        <div class="scene-card" v-for="(item, index) in imgList" :key="index">
-          <a :href="item.href" class="img" target="_blank">
+    <div class='main'>
+      <div class='flex flex-wrap justify-between'>
+        <div class='scene-card' v-for='(item, index) in imgList' :key='index'>
+          <a :href='item.href' class='img' target='_blank'>
             <div>
-              <img :src="item.src" alt="图片加载中..." />
+              <img :src='item.src' alt='图片加载中...' />
             </div>
             <span>{{ item.title }}</span>
           </a>
         </div>
-      </DivListWarp>
+      </div>
     </div>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Header from '~/components/header'
-import Footer from '~/components/footer'
-import DivListWarp from '~/components/layout/divListWrap'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
 
 export default {
   name: 'scene',
   components: {
     Header,
-    DivListWarp,
-    Footer,
+    Footer
   },
   data() {
     return {
@@ -35,49 +33,49 @@ export default {
         {
           href: 'https://scrm.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/scrm.png',
-          title: '会员营销',
+          title: '会员营销'
         },
         {
           href: 'https://withdraw.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/withdraw.png',
-          title: '快速提现',
+          title: '快速提现'
         },
         {
           href: 'https://ad.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/ad.png',
-          title: '广告管家',
+          title: '广告管家'
         },
         {
           href: 'https://clockin.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/clockin.png',
-          title: '签到打卡',
+          title: '签到打卡'
         },
         {
           href: 'https://shop.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/shop.png',
-          title: '微商城',
+          title: '微商城'
         },
         {
           href: 'https://jifen.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/jifen.png',
-          title: '积分商城',
+          title: '积分商城'
         },
         {
           href: 'https://fapiao.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/invoice.png',
-          title: '发票管理',
+          title: '发票管理'
         },
         {
           href: 'https://workorder.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/work_order.png',
-          title: '工单系统',
+          title: '工单系统'
         },
         {
           href: 'https://lottery.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/lottery.png',
-          title: '抽奖活动',
-        },
-      ],
+          title: '抽奖活动'
+        }
+      ]
     }
   },
   head() {
@@ -87,16 +85,20 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'EasyAPI服务市场为您提供各类场景化服务接口，例如类似有赞、微盟的微商城全套接口，您企业的非核心模块，EasyAPI都可以为您提供。',
+          content: 'EasyAPI服务市场为您提供各类场景化服务接口，例如类似有赞、微盟的微商城全套接口，您企业的非核心模块，EasyAPI都可以为您提供。'
         },
-        { hid: 'keyword', name: 'keyword', content: '会员营销API接口,快速提现API接口,广告管家API接口,签到打开API接口,微商城API接口,积分商城API接口,电子发票API接口,工单系统API接口,抽奖活动API接口' },
-      ],
+        {
+          hid: 'keyword',
+          name: 'keyword',
+          content: '会员营销API接口,快速提现API接口,广告管家API接口,签到打开API接口,微商城API接口,积分商城API接口,电子发票API接口,工单系统API接口,抽奖活动API接口'
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .scene-card {
   text-align: center;
   margin-bottom: 20px;

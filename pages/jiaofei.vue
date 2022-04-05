@@ -11,10 +11,9 @@
       </div>
     </div>
     <div class='main'>
-
       <div class='jiaofei-wrapper'>
-        <TitleMid>我们的服务</TitleMid>
-        <DivListWrap>
+        <h2 class='my-16 text-center text-2xl'>我们的服务</h2>
+        <div class='flex flex-wrap justify-between'>
           <div class='jiaofei-list' v-for='(item,key) in serviceList' :key='key'>
             <div>
               <img :src='item.icon' alt='图片加载中...' />
@@ -28,10 +27,9 @@
               <label class='pointer'>立即使用</label>
             </div>
           </div>
-        </DivListWrap>
-
-        <TitleMid>我们的优势</TitleMid>
-        <DivListWrap>
+        </div>
+        <h2 class='my-16 text-center text-2xl'>我们的优势</h2>
+        <div class='flex flex-wrap justify-between'>
           <div class='jiao-us-advan' v-for='(item,key) in adviceList' :key='key'>
             <div>
               <img :src='item.icon' alt='图片加载中...' />
@@ -43,9 +41,7 @@
               {{ item.subtitle }}
             </div>
           </div>
-
-        </DivListWrap>
-
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -53,19 +49,15 @@
 </template>
 
 <script>
-import Header from '~/components/header'
-import Footer from '~/components/footer'
-import DivListWrap from '~/components/layout/divListWrap'
-import TitleMid from '~/components/layout/titleMid'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
 import { qiniuUrl } from '../api/api'
 
 export default {
   name: 'jiaofei',
   components: {
     Header,
-    Footer,
-    DivListWrap,
-    TitleMid
+    Footer
   },
   data() {
     return {
