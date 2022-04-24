@@ -70,9 +70,7 @@
         <div :class="{ active: isActive }" class="ea-DropdownMenu">
           <a href="https://team.easyapi.com/notification/">我的通知</a>
           <a href="https://team.easyapi.com/user/edit">个人设置</a>
-          <a @click="quitLogin()" href="https://account.easyapi.com/logout"
-            >退出</a
-          >
+          <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
         </div>
       </li>
       <li class="item-menu header-login" v-show="!token">
@@ -111,7 +109,7 @@ export default {
   },
   methods: {
     search() {
-      let _this = this
+      let that = this
       this.$store.commit('SET_SERVICE_NAME', this.name)
       let obj = {}
       let name = this.name
@@ -130,7 +128,7 @@ export default {
       if (sort) {
         obj.sort = sort
       }
-      _this.$router.push({ path: '/service', query: obj })
+      that.$router.push({ path: '/service', query: obj })
     },
 
     //退出登录
@@ -160,11 +158,7 @@ export default {
 
     let that = this
     document.addEventListener('click', function (e) {
-      if (!!that.$refs.showTeamInfo.contains(e.target)) {
-        that.showTeamInfo = true
-      } else {
-        that.showTeamInfo = false
-      }
+      that.showTeamInfo = !!that.$refs.showTeamInfo.contains(e.target);
       if (e.target.id === 'showPersonage') {
         that.isActive = !that.isActive
       } else {
