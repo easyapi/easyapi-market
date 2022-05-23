@@ -1,0 +1,23 @@
+.scene-card {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 387px;
+  height: 275px;
+  border: 1px solid #ddd;
+
+  img {
+    width: 386px;
+    height: 223px;
+    vertical-align: middle;
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 387px;
+    text-align: center;
+    line-height: 50px;
+    color: #000000;
+    font-size: 18px;
+  }
+}

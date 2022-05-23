@@ -1,23 +1,5 @@
-<template>
-  <div>
-    <Header></Header>
-    <div class='main'>
-      <div class='flex flex-wrap justify-between'>
-        <div class='scene-card' v-for='(item, index) in imgList' :key='index'>
-          <a :href='item.href' class='img' target='_blank'>
-            <div>
-              <img :src='item.src' alt='图片加载中...' />
-            </div>
-            <span>{{ item.title }}</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <Footer></Footer>
-  </div>
-</template>
+import './index.scss'
 
-<script>
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 
@@ -96,30 +78,3 @@ export default {
     }
   }
 }
-</script>
-
-<style lang='scss' scoped>
-.scene-card {
-  text-align: center;
-  margin-bottom: 20px;
-  width: 387px;
-  height: 275px;
-  border: 1px solid #ddd;
-
-  img {
-    width: 386px;
-    height: 223px;
-    vertical-align: middle;
-    display: flex;
-  }
-
-  span {
-    display: block;
-    width: 387px;
-    text-align: center;
-    line-height: 50px;
-    color: #000000;
-    font-size: 18px;
-  }
-}
-</style>

@@ -1,0 +1,106 @@
+.nodata {
+  padding: 40px 0;
+  color: #999;
+
+  img {
+    margin-bottom: 10px;
+  }
+
+  p {
+    padding: 10px 0;
+  }
+}
+
+.col-right-con {
+  display: block;
+}
+
+.text-no-data {
+  color: rgb(31, 81, 204);
+}
+
+.search-list {
+  padding: 22px 22px 0;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  background-color: #f6fafa;
+
+  .row {
+    .col-left {
+      margin-bottom: 43px;
+    }
+
+    .col-right {
+      a {
+        color: #666;
+        font-size: 14px;
+        height: 23px;
+        line-height: 23px;
+      }
+
+      .active {
+        color: #00b2c8;
+        border: 1px solid #00b2c8;
+        height: 21px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+
+.tqActive {
+  color: #00b2c8 !important;
+}
+
+.pagination {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.recommend-service {
+  margin-top: 40px;
+
+  a {
+    color: #00b2c8;
+  }
+
+  .recommend-service-con {
+    text-align: center;
+    margin-top: 20px;
+    overflow: hidden;
+
+    .col {
+      padding: 40px 20px 20px;
+      border: 1px solid #f4f4f4;
+      width: 19%;
+      float: left;
+      margin-left: 15px;
+      margin-bottom: 20px;
+
+      .text {
+        font-size: 16px;
+        margin-top: 40px;
+      }
+
+      .price {
+        margin-top: 20px;
+        color: #ff3636;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      img {
+        width: 100px;
+      }
+    }
+
+    .col:first-of-type {
+      margin-left: 0 !important;
+    }
+
+    .col:nth-of-type(5n + 1) {
+      margin-left: 0 !important;
+    }
+  }
+}

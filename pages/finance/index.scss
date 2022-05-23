@@ -1,0 +1,114 @@
+.top .header .header-service-center {
+  border-left: 0 !important;
+}
+
+.top .header .header-market {
+  border-right: 0 !important;
+}
+
+.top .header #showTeamInfo {
+  border: 0 !important;
+}
+
+.banner {
+  width: 100%;
+  height: 365px;
+  background-size: cover;
+  background: white url('https://qiniu.easyapi.com/market/bg_finance_banner.png');
+
+  p {
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    padding-top: 133px;
+    text-align: center;
+  }
+
+  .banner-text {
+    width: 830px;
+    height: 53px;
+    font-size: 16px;
+    text-align: center;
+    margin: 24px auto 0 auto;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 34px;
+  }
+}
+
+.no-bg {
+  margin-bottom: 0 !important;
+  background: transparent !important;
+  position: absolute !important;
+  width: 100%;
+}
+
+.img {
+  display: block;
+}
+
+.finance-wrapper {
+  padding: 54px 0 0;
+}
+
+.finance-top-list {
+  min-width: 285px;
+}
+
+.finance-top-list div {
+  height: 180px;
+  background-color: white;
+}
+
+.finance-top-list span {
+  display: block;
+  line-height: 48px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.finance-rl-inner {
+  width: 224px;
+  height: 254px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.finance-rl-inner:hover {
+  cursor: pointer;
+  translate: 0.5s;
+  box-shadow: 0 0 8px #e3e4e6;
+}
+
+.finance-rl-inner img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.finance-rl-inner span {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+
+.finance-rl-inner label {
+  display: block;
+  font-size: 14px;
+  color: #ff3636;
+}
+
+.finance-rl-inner div:nth-child(1) {
+  margin-bottom: 35px;
+}
+
+.finance-rl-inner div:nth-child(2) {
+  text-align: center;
+}
