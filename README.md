@@ -68,7 +68,7 @@ $ npm run generate
 
 * page目录页面命名规范，文件命令简明扼要，例如/pages/api/list.vue表示API列表页，/pages/api/detail.vue表示API详情页，其他还包括edit.vue，info.vue，report.vue
 * 如果页面必须是2个单词组成，使用短横线分隔命名，例如文章分类article-category，另外考虑是否可以使用/pages/article/category/list.vue来命名，尽量不使用短横线
-* page目录中尽量采用样式表和页面分离开发，例如login文件夹中包含login.vue，login.styl
+* page目录中尽量采用样式表和页面分离开发，例如login文件夹中包含login.vue，login.scss，login.js
 * 自定义组建说明，基于成熟的组建进行自定义开发，可平滑升级，打造属于EasyAPI的Vue组件库，以EasyAPI缩写ea为前缀，例如ea-table
 * 网络请求已使用axios
 * 用户信息等全局变量，必须使用store管理，包括相关api请求放置到modules文件夹下

@@ -136,17 +136,17 @@
           <el-col :span='6' class='newest-update-con-right'>
             <el-row class='row'>
               <el-col :span='20'>
-                <nuxt-link to='/post/' class='more-state'>更多动态</nuxt-link>
+                <span class='more-state'>更多动态</span>
               </el-col>
               <el-col :span='4'>
-                <nuxt-link to='/post/' class='more'>更多</nuxt-link>
+                <a href='https://www.easyapi.com/post/' target='_blank' class='more'>更多</a>
               </el-col>
             </el-row>
             <div class='row-con' v-for='(item, index) in list' :key='index'>
               <div>
                 <span class='circle'></span>
                 <span class='circle-con'>
-                  <a @click='jump(item.articleId)'>{{ item.title }}</a>
+                  <a :href="'https://www.easyapi.com/post/'+item.articleId">{{ item.title }}</a>
                 </span>
               </div>
             </div>
@@ -226,7 +226,7 @@
 </template>
 
 <script>
-import Index from "./index.js";
+import Index from './index.js'
 
-export default Index;
+export default Index
 </script>

@@ -49,9 +49,6 @@ export default {
         this.totalPages = res.data.totalPages
       })
     },
-    jump(articleId) {
-      this.$router.push(`/post/${articleId}`)
-    }
   },
   created() {
   },
