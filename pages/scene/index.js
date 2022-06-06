@@ -13,11 +13,6 @@ export default {
     return {
       imgList: [
         {
-          href: 'https://scrm.easyapi.com',
-          src: 'https://qiniu.easyapi.com/scene/scrm.png',
-          title: '会员营销'
-        },
-        {
           href: 'https://withdraw.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/withdraw.png',
           title: '快速提现'
@@ -28,34 +23,14 @@ export default {
           title: '广告管家'
         },
         {
-          href: 'https://clockin.easyapi.com',
-          src: 'https://qiniu.easyapi.com/scene/clockin.png',
-          title: '签到打卡'
-        },
-        {
           href: 'https://shop.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/shop.png',
           title: '微商城'
         },
         {
-          href: 'https://jifen.easyapi.com',
-          src: 'https://qiniu.easyapi.com/scene/jifen.png',
-          title: '积分商城'
-        },
-        {
           href: 'https://fapiao.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/invoice.png',
           title: '发票管理'
-        },
-        {
-          href: 'https://workorder.easyapi.com',
-          src: 'https://qiniu.easyapi.com/scene/work_order.png',
-          title: '工单系统'
-        },
-        {
-          href: 'https://lottery.easyapi.com',
-          src: 'https://qiniu.easyapi.com/scene/lottery.png',
-          title: '抽奖活动'
         }
       ]
     }
