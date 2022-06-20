@@ -146,7 +146,7 @@
               <div>
                 <span class='circle'></span>
                 <span class='circle-con'>
-                  <a :href="'https://www.easyapi.com/post/'+item.articleId">{{ item.title }}</a>
+                  <a :href="'https://www.easyapi.com/post/'+item.articleId" target='_blank'>{{ item.title }}</a>
                 </span>
               </div>
             </div>

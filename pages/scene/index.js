@@ -18,11 +18,6 @@ export default {
           title: '快速提现'
         },
         {
-          href: 'https://ad.easyapi.com',
-          src: 'https://qiniu.easyapi.com/scene/ad.png',
-          title: '广告管家'
-        },
-        {
           href: 'https://shop.easyapi.com',
           src: 'https://qiniu.easyapi.com/scene/shop.png',
           title: '微商城'

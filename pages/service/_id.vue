@@ -83,21 +83,19 @@
                 <span>元</span>
                 <span>
                   （约{{ parseInt(servicePriceList[clicked].price / servicePriceList[clicked].month) }}元/月）
-                </span
-                >
+                </span>
               </p>
             </div>
             <div class='con-btn'>
               <el-button
                 type='primary'
                 v-if='service && service.ifBuy'
-                @click='use(service.url, service.hasConsole, service.serviceId)'
-              >立即使用
+                @click='use(service.url, service.hasConsole, service.serviceId)'>
+                立即使用
               </el-button>
-              <el-button type='primary' v-else @click='subscribeDialog'
-              >立即开通
-              </el-button
-              >
+              <el-button type='primary' v-else @click='subscribeDialog'>
+                立即开通
+              </el-button>
             </div>
           </div>
           <div class='service-explain'>
@@ -148,10 +146,7 @@
             <div class='scene-con'>
               <div class='img'>
                 <a href='https://shop.easyapi.com'>
-                  <img
-                    src='https://qiniu.easyapi.com/market/right/shop.png'
-                    alt='微商城'
-                  />
+                  <img src='https://qiniu.easyapi.com/market/right/shop.png' alt='微商城' />
                 </a>
               </div>
               <div class='con'>
@@ -161,25 +156,8 @@
             </div>
             <div class='scene-con'>
               <div class='img'>
-                <a href='https://ad.easyapi.com'>
-                  <img
-                    src='https://qiniu.easyapi.com/market/right/ad.png'
-                    alt='广告管家'
-                  />
-                </a>
-              </div>
-              <div class='con'>
-                <p>广告管家</p>
-                <p>独立第三方一站式广告管理系统</p>
-              </div>
-            </div>
-            <div class='scene-con'>
-              <div class='img'>
                 <a href='https://withdraw.easyapi.com'>
-                  <img
-                    src='https://qiniu.easyapi.com/market/right/withdraw.png'
-                    alt='快速提现'
-                  />
+                  <img src='https://qiniu.easyapi.com/market/right/withdraw.png' alt='快速提现' />
                 </a>
               </div>
               <div class='con'>
@@ -202,10 +180,9 @@
           {{ message }}
         </p>
         <div slot='footer'>
-          <el-button @click='establish = false' v-if="buttonContent === '前 往'"
-          >取 消
-          </el-button
-          >
+          <el-button @click='establish = false' v-if="buttonContent === '前 往'">
+            取 消
+          </el-button>
           <el-button type='primary' @click='jump'>
             {{ buttonContent }}
           </el-button>
