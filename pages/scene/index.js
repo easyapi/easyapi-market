@@ -42,7 +42,8 @@ export default {
         {
           hid: 'keyword',
           name: 'keyword',
-          content: '会员营销API接口,快速提现API接口,广告管家API接口,签到打开API接口,微商城API接口,积分商城API接口,电子发票API接口,工单系统API接口,抽奖活动API接口'
+          content:
+            '会员营销API接口,快速提现API接口,广告管家API接口,签到打开API接口,微商城API接口,积分商城API接口,电子发票API接口,工单系统API接口,抽奖活动API接口'
         }
       ]
     }

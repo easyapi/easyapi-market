@@ -42,15 +42,14 @@ export default {
     }
   },
   watch: {
-    '$store.state.serviceName': function(v, oldv) {
+    '$store.state.serviceName': function (v, oldv) {
       this.name = this.$store.state.serviceName
     },
-    $route: function() {
+    $route: function () {
       this.getServiceList()
     }
   },
-  created() {
-  },
+  created() {},
   mounted() {
     let name = this.$route.query.name
     let type = this.$route.query.type
@@ -98,21 +97,23 @@ export default {
       }
       params.size = this.pageSize
       params.page = this.current - 1
-      getServiceList(params, this).then(res => {
-        this.loading = false
-        if (res.data.code === 0) {
-          _this.isNoData = true
-          _this.serviceList = []
-          _this.total = 0
-        } else {
-          _this.isNoData = false
-          _this.serviceList = res.data.content
-          _this.total = res.data.totalElements
-        }
-      }).catch(error => {
-        this.loading = false
-        console.log(error.response)
-      })
+      getServiceList(params, this)
+        .then(res => {
+          this.loading = false
+          if (res.data.code === 0) {
+            _this.isNoData = true
+            _this.serviceList = []
+            _this.total = 0
+          } else {
+            _this.isNoData = false
+            _this.serviceList = res.data.content
+            _this.total = res.data.totalElements
+          }
+        })
+        .catch(error => {
+          this.loading = false
+          console.log(error.response)
+        })
     },
 
     handleSizeChange(val) {

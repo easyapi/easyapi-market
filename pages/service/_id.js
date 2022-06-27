@@ -39,8 +39,7 @@ export default {
       service: res2.data.content
     }
   },
-  created() {
-  },
+  created() {},
   mounted() {
     this.getServiceInfo()
   },
@@ -74,24 +73,26 @@ export default {
       this.subscribe = true
     },
     getServiceInfo() {
-      getServiceInfo(this.$route.params.id, this).then((res) => {
+      getServiceInfo(this.$route.params.id, this).then(res => {
         this.service = res.data.content
       })
     },
     subscribeService() {
-      subscribeService(this.$route.params.id, this).then((res) => {
-        this.$message.success(res.data.message)
-        this.subscribe = false
-        if (res.data.code === 1) {
-          this.getServiceInfo()
-        }
-      }).catch((error) => {
-        if (error.response.data.code === -9) {
-          window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com/service/' + this.$route.params.id
-        } else if (error.response.data.code === -8) {
-          this.establish = true
-        }
-      })
+      subscribeService(this.$route.params.id, this)
+        .then(res => {
+          this.$message.success(res.data.message)
+          this.subscribe = false
+          if (res.data.code === 1) {
+            this.getServiceInfo()
+          }
+        })
+        .catch(error => {
+          if (error.response.data.code === -9) {
+            window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com/service/' + this.$route.params.id
+          } else if (error.response.data.code === -8) {
+            this.establish = true
+          }
+        })
     }
   }
 }

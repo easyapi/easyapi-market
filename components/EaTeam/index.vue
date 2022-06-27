@@ -1,12 +1,7 @@
 <template>
   <div class="current-team-info" :class="{ active: showTeamInfo }">
     <div class="clear current-team-content lrPading-20">
-      <img
-        class="lf teams-img"
-        :src="teamImg + '!icon.jpg'"
-        alt=""
-        v-if="teamImg"
-      />
+      <img class="lf teams-img" :src="teamImg + '!icon.jpg'" alt="" v-if="teamImg" />
       <div class="lf teams-img-r">
         <p>{{ teamName }}</p>
         <div class="team-btn">
@@ -19,22 +14,11 @@
     <div class="change-team-box">
       <h2 class="lrPading-20">
         切换团队：
-        <el-button type="primary" size="small" @click="createTeam">
-          创建新团队
-        </el-button>
+        <el-button type="primary" size="small" @click="createTeam">创建新团队</el-button>
       </h2>
       <div class="ea-team-list-box lrPading-20">
-        <a
-          class="ea-team-item"
-          v-for="(item, index) in teamList"
-          v-bind:key="index"
-          @click="changeTeam(item.team.id)"
-        >
-          <img
-            :src="item.team.img + '!icon.jpg'"
-            alt=""
-            v-show="item.team.img"
-          />
+        <a class="ea-team-item" v-for="(item, index) in teamList" v-bind:key="index" @click="changeTeam(item.team.id)">
+          <img :src="item.team.img + '!icon.jpg'" alt="" v-show="item.team.img" />
           <span>{{ item.team.name }}</span>
         </a>
       </div>
@@ -49,7 +33,7 @@ export default {
   props: {
     showTeamDialog: {
       type: Boolean,
-      default: false,
+      default: false
     },
     teamImg: String,
     teamName: String,
@@ -57,18 +41,18 @@ export default {
       type: Array,
       default: function () {
         return []
-      },
-    },
+      }
+    }
   },
   data() {
     return {
-      showTeamInfo: this.showTeamDialog,
+      showTeamInfo: this.showTeamDialog
     }
   },
   watch: {
     showTeamDialog: function (v) {
       return (this.showTeamInfo = v)
-    },
+    }
   },
   methods: {
     changeTeam(e) {
@@ -77,8 +61,8 @@ export default {
     },
     createTeam() {
       this.$emit('on-createTeam')
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -30,7 +30,7 @@
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/tailwindcss": "^4.2.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.17.0",
+    "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": ">=17.0.0",
     "eslint-plugin-import": ">=2.26.0",
@@ -40,11 +40,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": ">=6.0.0",
     "eslint-plugin-standard": ">=5.0.0",
-    "eslint-plugin-vue": "^9.1.0",
-    "sass": "^1.52.2",
+    "eslint-plugin-vue": "^9.1.1",
+    "sass": "^1.53.0",
     "node-sass": "^7.0.1",
     "sass-loader": "^10.2.1",
-    "nodemon": "^2.0.16",
-    "prettier": "^2.6.2"
+    "nodemon": "^2.0.18",
+    "prettier": "^2.7.1"
   }
 }

@@ -38,13 +38,11 @@ export default {
           icon: `${qiniuUrl}/market/jiaofei/api.png`,
           title: 'API充值',
           subtitle: '无需提前充值，通过EasyAPI充值API接口，随充随用，不占用资金'
-
         },
         {
           icon: `${qiniuUrl}/market/jiaofei/goods.png`,
           title: '货源稳定',
           subtitle: '海量优质货源供应，众多供应商后台随机切换，保障货源稳定'
-
         },
         {
           icon: `${qiniuUrl}/market/jiaofei/others.png`,

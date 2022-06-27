@@ -22,22 +22,12 @@
     </ul>
     <ul class="header-con-right flex-r">
       <li class="header-search">
-        <el-input
-          size="small"
-          placeholder="搜索服务"
-          class="search"
-          v-model="name"
-          @keyup.enter.native="search"
-        >
+        <el-input size="small" placeholder="搜索服务" class="search" v-model="name" @keyup.enter.native="search">
           <i slot="prefix" class="el-input__icon el-icon-search"></i>
         </el-input>
       </li>
       <li class="item-menu current-team-box" v-show="token">
-        <a
-          @click.stop="showTeamInfo = !showTeamInfo"
-          class="flex-r"
-          :class="{ active: showTeamInfo }"
-        >
+        <a @click.stop="showTeamInfo = !showTeamInfo" class="flex-r" :class="{ active: showTeamInfo }">
           {{ teamName }}
           <i v-if="showTeamInfo" class="team-icon icon-arrow-top iconfont"></i>
           <i v-else class="icon-xiangxiajiantou iconfont"></i>
@@ -49,8 +39,7 @@
             :showTeamDialog="showTeamInfo"
             :teamImg="teamImg"
             :teamName="teamName"
-            :teamList="teamList.content"
-          ></TeamDialog>
+            :teamList="teamList.content"></TeamDialog>
         </div>
       </li>
       <li class="item-menu header-service-center">
@@ -59,12 +48,7 @@
       <li class="item-menu header-login" v-show="token">
         <div class="userAvatar ea-Dropdown">
           <a class="flex-r">
-            <img
-              id="showPersonage"
-              :src="photo + '!icon.jpg'"
-              alt
-              v-if="photo"
-            />
+            <img id="showPersonage" :src="photo + '!icon.jpg'" alt v-if="photo" />
           </a>
         </div>
         <div :class="{ active: isActive }" class="ea-DropdownMenu">
@@ -94,20 +78,23 @@ export default {
   layout: '',
   props: ['callback'],
   components: {
-    TeamDialog,
+    TeamDialog
   },
   data() {
     return {
       token: Cookies.get('authenticationToken'),
       name: '',
       isActive: false,
-      showTeamInfo: false,
+      showTeamInfo: false
     }
   },
   computed: {
-    ...mapGetters(['photo', 'team', 'teamName', 'teamImg', 'teamList']),
+    ...mapGetters(['photo', 'team', 'teamName', 'teamImg', 'teamList'])
   },
   methods: {
+    /**
+     *
+     */
     search() {
       let that = this
       this.$store.commit('SET_SERVICE_NAME', this.name)
@@ -131,7 +118,9 @@ export default {
       that.$router.push({ path: '/service', query: obj })
     },
 
-    //退出登录
+    /**
+     * 退出登录
+     */
     quitLogin() {
       this.$store.dispatch('logout')
       window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com'
@@ -139,10 +128,13 @@ export default {
     jumpPage() {
       window.location.href = 'https://team.easyapi.com/new?from=https://market.easyapi.com'
     },
-    //切换团队
+    /**
+     * 切换团队
+     * @param id 团队ID
+     */
     changeTeam(id) {
       this.$store.dispatch('changeTeam', id)
-    },
+    }
   },
   created: function () {},
   mounted() {
@@ -158,14 +150,14 @@ export default {
 
     let that = this
     document.addEventListener('click', function (e) {
-      that.showTeamInfo = !!that.$refs.showTeamInfo.contains(e.target);
+      that.showTeamInfo = !!that.$refs.showTeamInfo.contains(e.target)
       if (e.target.id === 'showPersonage') {
         that.isActive = !that.isActive
       } else {
         that.isActive = false
       }
     })
-  },
+  }
 }
 </script>
 
@@ -198,7 +190,7 @@ export default {
     .header-logo {
       align-items: center;
 
-      img{
+      img {
         margin: 2px 10px 0 0;
         width: 100px;
       }
@@ -264,6 +256,7 @@ export default {
 
     .current-team-box {
       position: relative;
+
       & > a {
         position: relative;
         height: 60px;
