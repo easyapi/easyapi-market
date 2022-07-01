@@ -3,7 +3,7 @@
  *
  * @see https://www.easyai.com
  */
-export const getUser = (context) => {
+export const getUser = context => {
   return context.$axios.get(`${process.env.accountUrl}/account`)
 }
 
@@ -13,7 +13,7 @@ export const getUser = (context) => {
  * @see https://www.easyai.com
  */
 
-export const getUserTeamList = (context) => {
+export const getUserTeamList = context => {
   return context.$axios.get(`${process.env.accountUrl}/user/teams`)
 }
 

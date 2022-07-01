@@ -12,7 +12,7 @@ export const getServiceList = (params, context) => {
 /**
  * 获取服务类型
  */
-export const getServiceTypeList = (context) => {
+export const getServiceTypeList = context => {
   return context.$axios.get(`${process.env.baseUrl}/api/service/types`)
 }
 
@@ -27,8 +27,5 @@ export const getServiceInfo = (id, context) => {
  * 开通服务
  */
 export const subscribeService = (serviceId, context) => {
-  return context.$axios.post(
-    `${process.env.baseUrl}/console/team/service/${serviceId}/subscribe`,
-    null
-  )
+  return context.$axios.post(`${process.env.baseUrl}/console/team/service/${serviceId}/subscribe`, null)
 }
