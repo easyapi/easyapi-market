@@ -2,7 +2,7 @@ import './index.scss'
 
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
-import Category from 'components/category.vue'
+import Category from './components/category.vue'
 import { getServiceList } from '../api/service'
 import { getArticleList } from '../api/article'
 
