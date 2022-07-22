@@ -1,3 +1,299 @@
+@media screen and (min-width: 1200px) {
+  .jiaofei-list {
+    width: 338px;
+  }
+
+  .jiaofei-list img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .jiaofei-list h3 {
+    font-size: 24px;
+  }
+
+  .jiaofei-list div:nth-child(2) span {
+    font-size: 18px;
+  }
+
+  .jiao-us-advan {
+    width: 338px;
+    padding: 51px 55px 66px;
+  }
+
+  .jiao-us-advan div:nth-child(1) img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .jiao-us-advan div:nth-child(2) {
+    font-size: 24px;
+  }
+
+  .jiao-us-advan div:nth-child(3) {
+    font-size: 18px;
+  }
+
+  .banner {
+    width: 100%;
+    height: 365px;
+    background-image: url('https://qiniu.easyapi.com/market/bg_jiaofei_banner.png');
+    background-size: cover;
+
+    p {
+      font-size: 36px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      padding-top: 133px;
+      text-align: center;
+    }
+
+    .banner-text {
+      width: 830px;
+      height: 53px;
+      font-size: 16px;
+      text-align: center;
+      margin: 24px auto 0 auto;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 34px;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .jiaofei-list {
+    width: 238px;
+  }
+
+  .jiaofei-list img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .jiaofei-list h3 {
+    font-size: 20px;
+  }
+
+  .jiaofei-list div:nth-child(2) span {
+    font-size: 16px;
+  }
+
+  .jiao-us-advan {
+    width: 238px;
+    padding: 51px 55px 66px;
+  }
+
+  .jiao-us-advan div:nth-child(1) img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .jiao-us-advan div:nth-child(2) {
+    font-size: 20px;
+  }
+
+  .jiao-us-advan div:nth-child(3) {
+    font-size: 16px;
+  }
+
+  .banner {
+    width: 100%;
+    height: 365px;
+    background-image: url('https://qiniu.easyapi.com/market/bg_jiaofei_banner.png');
+    background-size: cover;
+
+    p {
+      font-size: 36px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      padding-top: 133px;
+      text-align: center;
+    }
+
+    .banner-text {
+      width: 730px;
+      height: 53px;
+      font-size: 16px;
+      text-align: center;
+      margin: 24px auto 0 auto;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 34px;
+    }
+  }
+}
+
+@media screen and (min-width: 624px) and (max-width: 800px) {
+  .jiaofei-list {
+    width: 138px;
+  }
+
+  .jiaofei-list img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .jiaofei-list h3 {
+    font-size: 20px;
+  }
+
+  .jiaofei-list div:nth-child(2) span {
+    font-size: 16px;
+  }
+
+  .jiao-us-advan {
+    width: 138px;
+    padding: 51px 10px 10px;
+  }
+
+  .jiao-us-advan div:nth-child(1) img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .jiao-us-advan div:nth-child(2) {
+    font-size: 20px;
+  }
+
+  .jiao-us-advan div:nth-child(3) {
+    font-size: 16px;
+  }
+
+  .banner {
+    width: 100%;
+    height: 365px;
+    background-image: url('https://qiniu.easyapi.com/market/bg_jiaofei_banner.png');
+    background-size: cover;
+
+    p {
+      font-size: 36px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      padding-top: 133px;
+      text-align: center;
+    }
+
+    .banner-text {
+      width: 630px;
+      height: 53px;
+      font-size: 16px;
+      text-align: center;
+      margin: 24px auto 0 auto;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 34px;
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 624px) {
+  .jiaofei-list {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .jiaofei-list img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .jiaofei-list h3 {
+    font-size: 22px;
+  }
+
+  .jiaofei-list div:nth-child(2) span {
+    font-size: 18px;
+  }
+
+  .jiao-us-advan {
+    width: 90%;
+    padding: 51px 55px 66px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .jiao-us-advan div:nth-child(1) img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .jiao-us-advan div:nth-child(2) {
+    font-size: 22px;
+  }
+
+  .jiao-us-advan div:nth-child(3) {
+    font-size: 18px;
+  }
+
+  .banner {
+    width: 100%;
+    height: 365px;
+    background-image: url('https://qiniu.easyapi.com/market/bg_jiaofei_banner.png');
+    background-size: cover;
+
+    p {
+      font-size: 26px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      padding-top: 83px;
+      text-align: center;
+    }
+
+    .banner-text {
+      width: 330px;
+      height: 53px;
+      font-size: 12px;
+      text-align: center;
+      margin: 24px auto 0 auto;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 34px;
+    }
+  }
+}
+
+.jiaofei-list {
+  padding: 51px 0 0;
+  border: 1px solid #ddd;
+}
+
+.jiaofei-list img {
+  display: block;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 100%;
+}
+
+.jiaofei-list h3 {
+  color: #333;
+  text-align: center;
+}
+
+.jiaofei-list div:nth-child(2) span {
+  display: block;
+  margin-top: 13px;
+  color: #999;
+  text-align: center;
+}
+
+.jiao-us-advan {
+  border: 1px solid #ddd;
+}
+
+.jiao-us-advan div:nth-child(1) img {
+  display: block;
+  margin: 0 auto;
+  background-color: #eafdff;
+  border-radius: 100%;
+}
+
+.jiao-us-advan div:nth-child(2) {
+  color: #333;
+  text-align: center;
+}
+
 .top .header .header-service-center {
   border-left: 0 !important;
 }
@@ -8,32 +304,6 @@
 
 .top .header #showTeamInfo {
   border: 0 !important;
-}
-
-.banner {
-  width: 100%;
-  height: 365px;
-  background-image: url('https://qiniu.easyapi.com/market/bg_jiaofei_banner.png');
-  background-size: cover;
-
-  p {
-    font-size: 36px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 1);
-    padding-top: 133px;
-    text-align: center;
-  }
-
-  .banner-text {
-    width: 830px;
-    height: 53px;
-    font-size: 16px;
-    text-align: center;
-    margin: 24px auto 0 auto;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 1);
-    line-height: 34px;
-  }
 }
 
 .pointer {
@@ -51,27 +321,6 @@
   display: block;
 }
 
-.jiaofei-list {
-  width: 338px;
-  padding: 51px 0 0;
-  border: 1px solid #ddd;
-}
-
-.jiaofei-list img {
-  display: block;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto;
-  background-color: white;
-  border-radius: 100%;
-}
-
-.jiaofei-list h3 {
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-}
-
 .jiaofei-list div:nth-child(1) {
   margin-bottom: 33px;
 }
@@ -84,14 +333,6 @@
   height: 60px;
   line-height: 60px;
   font-size: 16px;
-  text-align: center;
-}
-
-.jiaofei-list div:nth-child(2) span {
-  display: block;
-  margin-top: 13px;
-  color: #999;
-  font-size: 18px;
   text-align: center;
 }
 
@@ -114,35 +355,12 @@
   color: #fff;
 }
 
-.jiao-us-advan {
-  width: 338px;
-  padding: 51px 55px 66px;
-  border: 1px solid #ddd;
-}
-
 .jiao-us-advan div:nth-child(1) {
   margin-bottom: 16px;
 }
 
-.jiao-us-advan div:nth-child(2) {
-  margin-bottom: 18px;
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-}
-
 .jiao-us-advan div:nth-child(3) {
   text-align: center;
-  font-size: 18px;
   color: #999;
   line-height: 33px;
-}
-
-.jiao-us-advan div:nth-child(1) img {
-  display: block;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto;
-  background-color: #eafdff;
-  border-radius: 100%;
 }

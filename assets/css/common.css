@@ -18,11 +18,14 @@ a {
   display: inline-block;
 }
 
-ul, li, ol {
+ul,
+li,
+ol {
   list-style: none;
 }
 
-span, img {
+span,
+img {
   display: inline-block;
 }
 
@@ -58,14 +61,36 @@ span, img {
   flex-direction: column;
 }
 
-.main {
-  color: #000;
-  width: 1200px;
-  margin: 0 auto;
+@media screen and (min-width: 1200px) {
+  .main {
+    color: #000;
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .main {
+    color: #000;
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px) {
+  .main {
+    color: #000;
+    width: 500px;
+    margin: 0 auto;
+  }
 }
 
 .mg-lf-15 {
   margin-left: 15px;
+}
+
+.mg-lf-10 {
+  margin-left: 10px;
 }
 
 .mg-lf-20 {

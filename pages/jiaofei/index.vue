@@ -14,7 +14,7 @@
     <div class="main">
       <div class="jiaofei-wrapper">
         <h2 class="my-16 text-center text-2xl">我们的服务</h2>
-        <div class="flex flex-wrap justify-between">
+        <div class="flex sm:flex-wrap sm:justify-between sm:flex-row flex-col">
           <div class="jiaofei-list" v-for="(item, key) in serviceList" :key="key">
             <div>
               <img :src="item.icon" alt="图片加载中..." />
@@ -30,7 +30,7 @@
           </div>
         </div>
         <h2 class="my-16 text-center text-2xl">我们的优势</h2>
-        <div class="flex flex-wrap justify-between">
+        <div class="flex sm:flex-wrap sm:justify-between sm:flex-row flex-col">
           <div class="jiao-us-advan" v-for="(item, key) in adviceList" :key="key">
             <div>
               <img :src="item.icon" alt="图片加载中..." />

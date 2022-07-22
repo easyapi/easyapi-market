@@ -1,5 +1,5 @@
 <template>
-  <div class="header flex-r">
+  <div v-if="ifShow" class="header flex-r">
     <ul class="header-con-left flex-r">
       <div class="header-logo flex-r">
         <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
@@ -65,6 +65,60 @@
       </li>
     </ul>
   </div>
+  <div v-else class="header">
+    <div class="content header-con-left">
+      <div class="flex justify-between items-center">
+        <div class="header-logo flex-r">
+          <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
+            <img src="https://qiniu.easyapi.com/market/logo.svg" alt />
+          </nuxt-link>
+          <span class="circle"></span>
+          <nuxt-link class="mg-lf-10" :to="{ name: 'index' }">API市场</nuxt-link>
+        </div>
+        <div class="icon w-14 flex justify-between">
+          <i class="el-icon-user" @click="showNav('person')"></i>
+          <i class="el-icon-s-fold" @click="showNav('menu')"></i>
+        </div>
+      </div>
+    </div>
+    <div class="menu" v-if="ifNavShow">
+      <el-col v-if="type === 'menu'" :span="24">
+        <el-menu :default-active="this.$router.path" class="el-menu-vertical-demo" router>
+          <div class="float-right mr-10">
+            <el-button type="text" icon="el-icon-close" @click="closeMenu">关 闭</el-button>
+          </div>
+          <div class="clear-both"></div>
+          <el-menu-item index="/info/price">
+            <span slot="title">首页</span>
+          </el-menu-item>
+          <el-menu-item index="/info/price">
+            <span slot="title">API接口</span>
+          </el-menu-item>
+          <el-menu-item index="/info/price">
+            <span slot="title">场景化服务</span>
+          </el-menu-item>
+        </el-menu>
+      </el-col>
+      <el-col v-if="type === 'person'" :span="24">
+        <el-menu class="el-menu-vertical-demo">
+          <div class="float-right mr-10">
+            <el-button type="text" icon="el-icon-close" @click="closeMenu">关 闭</el-button>
+          </div>
+          <div class="clear-both"></div>
+          <el-menu-item @click="jumpSign">
+            <span slot="title">服务中心</span>
+          </el-menu-item>
+          <el-menu-item @click="jumpSign">
+            <span slot="title">注册</span>
+          </el-menu-item>
+          <el-menu-item @click="jumpLogin">
+            <span slot="title">登录</span>
+          </el-menu-item>
+        </el-menu>
+      </el-col>
+    </div>
+    <div v-if="ifNavShow" class="popContainer"></div>
+  </div>
 </template>
 
 <script>
@@ -82,16 +136,39 @@ export default {
   },
   data() {
     return {
+      screenWidth: null,
       token: Cookies.get('authenticationToken'),
       name: '',
       isActive: false,
-      showTeamInfo: false
+      showTeamInfo: false,
+      ifShow: true,
+      ifNavShow: false,
+      type: ''
     }
   },
   computed: {
     ...mapGetters(['photo', 'team', 'teamName', 'teamImg', 'teamList'])
   },
+  watch: {
+    $route() {
+      this.ifNavShow = false
+    },
+    screenWidth: {
+      handler: function (val, oldVal) {
+        console.log(val)
+        this.ifShow = val >= 1024
+      },
+      immediate: true
+    }
+  },
   methods: {
+    showNav(val) {
+      this.type = val
+      this.ifNavShow = !this.ifNavShow
+    },
+    closeMenu() {
+      this.ifNavShow = false
+    },
     /**
      *
      */
@@ -157,6 +234,13 @@ export default {
         that.isActive = false
       }
     })
+    this.screenWidth = document.body.clientWidth
+    window.onresize = () => {
+      //屏幕尺寸变化就重新赋值
+      return (() => {
+        this.screenWidth = document.body.clientWidth
+      })()
+    }
   }
 }
 </script>
@@ -314,5 +398,51 @@ export default {
       color: #fff;
     }
   }
+}
+
+.menu {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  .content {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  .content {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+</style>
+
+<style lang="scss">
+.el-menu {
+  z-index: 50;
+  width: 100%;
+}
+
+.el-icon-user {
+  color: #ffffff;
+}
+
+.el-icon-s-fold {
+  color: #ffffff;
+}
+
+.popContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 40;
 }
 </style>
