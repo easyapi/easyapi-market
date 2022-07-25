@@ -16,14 +16,14 @@
         <div class="flex flex-wrap justify-between">
           <div class="finance-top-list" v-for="(item, index) in dataList" :key="index">
             <div>
-              <img :src="item.img" alt="图片加载中..." />
+              <img  :src="item.img" alt="图片加载中..." />
             </div>
             <span>{{ item.title }}</span>
           </div>
         </div>
       </div>
       <h2 class="my-12 text-center text-2xl">相关API推荐</h2>
-      <div class="flex flex-wrap justify-between">
+      <div class="flex flex-wrap justify-between pd-20">
         <div class="finance-rl-inner" v-for="(item, index) in apiDataList" :key="index">
           <div>
             <img :src="item.img" alt="图片加载中..." />
