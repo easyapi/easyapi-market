@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
     <div class="main">
-      <div class="flex flex-wrap justify-between">
+      <div class="flex flex-wrap md:justify-between justify-center">
         <div class="scene-card" v-for="(item, index) in imgList" :key="index">
           <a :href="item.href" class="img" target="_blank">
             <div>

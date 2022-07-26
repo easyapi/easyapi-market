@@ -69,15 +69,15 @@ img {
   }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1200px) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
   .main {
     color: #000;
-    width: 800px;
+    width: 768px;
     margin: 0 auto;
   }
 }
 
-@media screen and (min-width: 500px) and (max-width: 800px) {
+@media screen and (min-width: 500px) and (max-width: 768px) {
   .main {
     color: #000;
     width: 500px;
