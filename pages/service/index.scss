@@ -1,3 +1,60 @@
+@media screen and (min-width: 1200px) {
+  .search-list {
+    font-size: 14px;
+
+    .col-right{
+      width: 860px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .col-left {
+    width: 100px;
+  }
+
+  .search-list {
+    font-size: 14px;
+
+    .col-right{
+      width: 650px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  .col-left {
+    width: 160px;
+  }
+
+  .search-list {
+    font-size: 14px;
+
+    .col-right{
+      width: 385px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .col-left {
+    width: 180px;
+  }
+
+  .search-list {
+    font-size: 12px;
+
+    .col-right{
+      width: 364px;
+      font-size: 12px;
+    }
+  }
+}
+
+
 .nodata {
   padding: 40px 0;
   color: #999;
@@ -13,6 +70,7 @@
 
 .col-right-con {
   display: block;
+  width: 70px;
 }
 
 .text-no-data {
@@ -22,11 +80,12 @@
 .search-list {
   padding: 22px 22px 0;
   color: #666;
-  font-size: 14px;
   text-align: center;
   background-color: #f6fafa;
 
   .row {
+    display: flex;
+
     .col-left {
       margin-bottom: 43px;
     }
@@ -34,7 +93,6 @@
     .col-right {
       a {
         color: #666;
-        font-size: 14px;
         height: 23px;
         line-height: 23px;
       }
@@ -65,42 +123,41 @@
     color: #00b2c8;
   }
 
-  .recommend-service-con {
-    text-align: center;
-    margin-top: 20px;
-    overflow: hidden;
-
-    .col {
-      padding: 40px 20px 20px;
-      border: 1px solid #f4f4f4;
-      width: 19%;
-      float: left;
-      margin-left: 15px;
-      margin-bottom: 20px;
-
-      .text {
-        font-size: 16px;
-        margin-top: 40px;
-      }
-
-      .price {
-        margin-top: 20px;
-        color: #ff3636;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      img {
-        width: 100px;
-      }
-    }
-
-    .col:first-of-type {
-      margin-left: 0 !important;
-    }
-
-    .col:nth-of-type(5n + 1) {
-      margin-left: 0 !important;
-    }
-  }
+  //.recommend-service-con {
+  //  text-align: center;
+  //  margin-top: 20px;
+  //  overflow: hidden;
+  //
+  //  .col {
+  //    padding: 40px 20px 20px;
+  //    border: 1px solid #f4f4f4;
+  //    width: 19%;
+  //    float: left;
+  //    margin-bottom: 20px;
+  //
+  //    .text {
+  //      font-size: 16px;
+  //      margin-top: 40px;
+  //    }
+  //
+  //    .price {
+  //      margin-top: 20px;
+  //      color: #ff3636;
+  //      margin-bottom: 10px;
+  //      font-size: 14px;
+  //    }
+  //
+  //    img {
+  //      width: 100px;
+  //    }
+  //  }
+  //
+  //  //.col:first-of-type {
+  //  //  margin-left: 0 !important;
+  //  //}
+  //  //
+  //  //.col:nth-of-type(5n + 1) {
+  //  //  margin-left: 0 !important;
+  //  //}
+  //}
 }

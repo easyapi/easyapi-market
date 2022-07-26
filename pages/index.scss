@@ -1,3 +1,45 @@
+@media screen and (min-width: 1200px) {
+  .recommend-service-con {
+    .col {
+      width: 19%;
+
+      .text {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .recommend-service-con {
+    .col {
+      width: 19%;
+
+      .text {
+        font-size: 12px;
+        height: 36px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px){
+  .recommend-service-con {
+    .col {
+      width: 49%;
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px){
+  .recommend-service-con {
+    .col {
+      width: 95%;
+    }
+  }
+}
+
+
 .main {
   /*服务市场分类*/
 
@@ -97,6 +139,9 @@
     }
 
     .recommend-service-con {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
       text-align: center;
       margin-top: 20px;
       overflow: hidden;
@@ -104,13 +149,10 @@
       .col {
         padding: 40px 40px 20px;
         border: 1px solid #f4f4f4;
-        width: 19%;
         float: left;
-        margin-left: 15px;
         margin-bottom: 20px;
 
         .text {
-          font-size: 16px;
           margin-top: 40px;
         }
 
