@@ -1,11 +1,11 @@
 <template>
   <div>
-    <Header></Header>
+    <Header @getScreenWidth="getScreenWidth"></Header>
     <div class="main">
-      <el-row class="service-detail-con">
-        <el-col :span="18" class="service-detail-left">
-          <el-row class="service-detail-left-title" v-if="service">
-            <el-col :span="20" class="col-left">
+      <div class="service-detail-con">
+        <div class="service-detail-left">
+          <div class="service-detail-left-title" v-if="service">
+            <div class="title-left">
               <div class="img">
                 <img v-bind:src="service.img" alt />
               </div>
@@ -37,26 +37,28 @@
                   <span>{{ service.sales }}次接入</span>
                 </p>
               </div>
-            </el-col>
-            <el-col :span="4" class="col-right">
+            </div>
+            <div class="col-right">
               <p v-if="service.hasConsole === true">
                 <el-button class="width-80" size="small" plain @click="homepage(service.url)">进入官网</el-button>
               </p>
               <p>
                 <el-button class="width-80" @click="gotoPage(service.url)" size="small" plain>API文档</el-button>
               </p>
-            </el-col>
-          </el-row>
+            </div>
+          </div>
           <div class="combo">
             <div class="combo-con" v-if="service.type === 2">
               <span class="mg-rt-10">套餐:</span>
-              <el-button :class="[clicked === index ? 'active' : '']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">
-                {{ item.times }}次
-              </el-button>
+              <div>
+                <el-button :size="size" :class="[clicked === index ? 'active' : '']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">
+                  {{ item.times }}次
+                </el-button>
+              </div>
             </div>
             <div class="combo-con" v-if="service.type === 3">
               <span class="mg-rt-10">套餐:</span>
-              <el-button :class="[clicked === index ? 'active' : '']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">
+              <el-button :size="size" :class="[clicked === index ? 'active' : '']" v-for="(item, index) in servicePriceList" :key="index" @click="changeItem(index)">
                 {{ item.month }}个月
               </el-button>
             </div>
@@ -75,8 +77,8 @@
               </p>
             </div>
             <div class="con-btn">
-              <el-button type="primary" v-if="service && service.ifBuy" @click="use(service.url, service.hasConsole, service.serviceId)">立即使用</el-button>
-              <el-button type="primary" v-else @click="subscribeDialog">立即开通</el-button>
+              <el-button :size="size" type="primary" v-if="service && service.ifBuy" @click="use(service.url, service.hasConsole, service.serviceId)">立即使用</el-button>
+              <el-button :size="size" type="primary" v-else @click="subscribeDialog">立即开通</el-button>
             </div>
           </div>
           <div class="service-explain">
@@ -84,8 +86,8 @@
             <div class="border"></div>
             <div class="img service-detail-imgs" v-html="service.content" style="text-align: center"></div>
           </div>
-        </el-col>
-        <el-col :span="6" class="service-detail-right">
+        </div>
+        <div class="service-detail-right">
           <div class="contact">
             <div class="customer">
               <p class="title">在线客服</p>
@@ -134,8 +136,8 @@
               </div>
             </div>
           </div>
-        </el-col>
-      </el-row>
+        </div>
+      </div>
     </div>
     <el-dialog title="开通服务" :visible.sync="subscribe" width="400px">
       <el-dialog width="30%" :visible.sync="establish" title="温馨提示" append-to-body>

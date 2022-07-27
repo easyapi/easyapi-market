@@ -28,7 +28,8 @@ export default {
       buttonContent: '前 往',
       service: '',
       clicked: 0,
-      servicePriceList: []
+      servicePriceList: [],
+      size: 'medium'
     }
   },
   async asyncData(context) {
@@ -44,6 +45,14 @@ export default {
     this.getServiceInfo()
   },
   methods: {
+    getScreenWidth(val) {
+      console.log(val)
+      if (val) {
+        this.size = 'small'
+      } else {
+        this.size = 'medium '
+      }
+    },
     use(url, hasConsole, serviceId) {
       if (hasConsole === true) {
         window.location.href = 'https://' + url + '.easyapi.com/console/'

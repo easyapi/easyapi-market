@@ -1,14 +1,82 @@
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 1200px) {
+  .service-detail-con {
+    display: flex;
+
+    .service-detail-left {
+      padding-right: 100px;
+
+      .service-explain {
+        .img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .service-detail-con {
+    display: flex;
+
+    .service-detail-left {
+      padding-right: 100px;
+
+      .service-explain {
+        .img {
+          embed {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  .service-detail-con {
+
+    .service-detail-left {
+
+      .service-explain {
+        .img {
+          embed {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .service-detail-con {
+
+    .service-detail-left {
+
+      .service-explain {
+        .img {
+          embed {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
 
 .service-detail-con {
+
   .service-detail-left {
-    padding-right: 100px;
     font-size: 12px;
 
     .service-detail-left-title {
+      display: flex;
+      justify-content: space-between;
       border-bottom: 1px solid #f4f4f4;
 
-      .col-left {
+      .title-left {
+        display: flex;
+
         .img {
           float: left;
 
@@ -86,6 +154,9 @@
       margin-top: 20px;
 
       .combo-con {
+        display: flex;
+        align-items: center;
+
         el-button {
           min-width: 80px;
           height: 40px;
@@ -136,7 +207,6 @@
       }
 
       .img {
-        width: 100%;
         min-height: 288px;
       }
 
