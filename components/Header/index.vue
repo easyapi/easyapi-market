@@ -1,5 +1,5 @@
 <template>
-  <div v-if="ifShow" class="header flex-r">
+  <div v-if="ifShow" class="header mx-auto flex-r">
     <ul class="header-con-left flex-r">
       <div class="header-logo flex-r">
         <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
@@ -247,6 +247,7 @@ export default {
 
 <style scoped lang="scss">
 .header {
+  max-width: 1919px;
   font-weight: 700;
   font-size: 14px;
   height: 60px;
