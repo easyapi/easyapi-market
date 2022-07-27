@@ -37,28 +37,28 @@
           <span class="border"></span>
           <span>最新更新</span>
         </div>
-        <el-row class="newest-update-con-top">
-          <el-col :span="18" class="newest-update-con-left">
-            <el-row class="row">
-              <el-col :span="6" class="col" v-for="(item, index) in newestServiceList" :key="item.serviceId">
-                <nuxt-link v-if="index < 8" :to="{ name: 'service-id', params: { id: item.serviceId } }">
+        <div class="newest-update-con-top">
+          <div class="newest-update-con-left">
+            <div class="row">
+              <div class="col" v-for="(item, index) in newestServiceList" :key="item.serviceId">
+                <nuxt-link class="col-item flex-c" v-if="index < 8" :to="{ name: 'service-id', params: { id: item.serviceId } }">
                   <p class="img">
                     <img v-bind:src="item.img" alt />
                   </p>
                   <p class="text">{{ item.name }}</p>
                 </nuxt-link>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="6" class="newest-update-con-right">
-            <el-row class="row">
-              <el-col :span="20">
+              </div>
+            </div>
+          </div>
+          <div class="newest-update-con-right">
+            <div class="row flex justify-between">
+              <div>
                 <span class="more-state">更多动态</span>
-              </el-col>
-              <el-col :span="4">
+              </div>
+              <div>
                 <a href="https://www.easyapi.com/post/" target="_blank" class="more">更多</a>
-              </el-col>
-            </el-row>
+              </div>
+            </div>
             <div class="row-con" v-for="(item, index) in list" :key="index">
               <div>
                 <span class="circle"></span>
@@ -67,8 +67,8 @@
                 </span>
               </div>
             </div>
-          </el-col>
-        </el-row>
+          </div>
+        </div>
         <div class="newest-update-con-bottom">
           <span class="scenarioServices">
             <nuxt-link to="/scene">场景化服务</nuxt-link>
@@ -90,52 +90,52 @@
           <span class="border"></span>
           <span>加入市场</span>
         </div>
-        <el-row class="join-market-con">
-          <el-col :span="6" class="col">
-            <el-row>
-              <el-col :span="8">
+        <div class="join-market-con">
+          <div class="col">
+            <div class="flex items-center">
+              <div class="img-box">
                 <img src="https://qiniu.easyapi.com/market/index/ic_time.png" alt />
-              </el-col>
-              <el-col :span="16" style="padding: 30px 0">
+              </div>
+              <div>
                 <p class="text">提升开发效率</p>
                 <p class="join-market-text">提供统一风格接口服务</p>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="6" class="col">
-            <el-row>
-              <el-col :span="8">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="flex items-center">
+              <div class="img-box">
                 <img src="https://qiniu.easyapi.com/market/index/ic_money.png" alt />
-              </el-col>
-              <el-col :span="16" style="padding: 30px 0">
+              </div>
+              <div>
                 <p class="text">服务转化收益</p>
                 <p class="join-market-text">把您的服务共享出来</p>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="6" class="col">
-            <el-row>
-              <el-col :span="8">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="flex items-center">
+              <div class="img-box">
                 <img src="https://qiniu.easyapi.com/market/index/ic_earth.png" alt />
-              </el-col>
-              <el-col :span="16" style="padding: 30px 0">
+              </div>
+              <div>
                 <p class="text">繁荣数据生态</p>
                 <p class="join-market-text">喂养数据，制造生态</p>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col :span="6" class="col">
-            <el-row>
-              <el-col :span="8">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="flex items-center">
+              <div class="img-box">
                 <img src="https://qiniu.easyapi.com/market/index/ic_feedback.png" alt />
-              </el-col>
-              <el-col :span="16" style="padding: 30px 0">
+              </div>
+              <div>
                 <p class="text">让世界拥抱API</p>
                 <p class="join-market-text">让一切服务通过API相连</p>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <Footer></Footer>

@@ -78,16 +78,18 @@
 }
 
 .search-list {
-  padding: 22px 22px 0;
+  padding: 22px;
   color: #666;
   text-align: center;
   background-color: #f6fafa;
 
   .row {
     display: flex;
+    margin-bottom: 43px;
+
 
     .col-left {
-      margin-bottom: 43px;
+      //margin-bottom: 43px;
     }
 
     .col-right {
