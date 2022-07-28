@@ -40,6 +40,15 @@
     width: 77%;
     margin-left: 1%;
   }
+
+  .newest-update-con-bottom span {
+    width: 285px;
+    height: 146px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 146px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
@@ -85,6 +94,15 @@
     width: 100%;
     margin-top: 20px;
   }
+
+  .newest-update-con-bottom span {
+    width: 178px;
+    height: 106px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 106px;
+  }
 }
 
 @media screen and (min-width: 500px) and (max-width: 768px) {
@@ -118,6 +136,19 @@
   .service-market-right {
     width: 100%;
     margin-top: 20px;
+  }
+
+  .newest-update-con-bottom span {
+    width: 230px;
+    height: 106px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 106px;
+  }
+
+  .newest-update-con-bottom .scenarioServices {
+    margin-bottom: 10px;
   }
 }
 
@@ -153,6 +184,19 @@
   .service-market-right {
     width: 100%;
     margin-top: 20px;
+  }
+
+  .newest-update-con-bottom span {
+    width: 140px;
+    height: 86px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 86px;
+  }
+
+  .newest-update-con-bottom .scenarioServices {
+    margin-bottom: 10px;
   }
 }
 
@@ -449,60 +493,48 @@
   width: 100%;
   height: auto;
   display: flex;
+  flex-wrap:wrap;
   margin-top: 10px;
+  justify-content: space-between;
 }
 
 .newest-update-con-bottom .scenarioServices {
-  width: 285px;
-  height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/scene.png') no-repeat;
   background-size: 100% 100%;
-  margin-right: 18px;
 }
 
 .newest-update-con-bottom .scenarioServices a {
   color: #ffffff;
   font-size: 18px;
   text-align: center;
-  line-height: 146px;
   display: block;
 }
 
 .newest-update-con-bottom .paymentAlbum {
-  width: 285px;
-  height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/jiaofei.png') no-repeat;
   background-size: 100% 100%;
-  margin-right: 18px;
 }
 
 .newest-update-con-bottom .paymentAlbum a {
   color: #ffffff;
   font-size: 18px;
   text-align: center;
-  line-height: 146px;
   display: block;
 }
 
 .newest-update-con-bottom .financialAlbum {
-  width: 285px;
-  height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/finance.png') no-repeat;
   background-size: 100% 100%;
-  margin-right: 18px;
 }
 
 .newest-update-con-bottom .financialAlbum a {
   color: #ffffff;
   font-size: 18px;
   text-align: center;
-  line-height: 146px;
   display: block;
 }
 
 .newest-update-con-bottom .clickInvoice {
-  width: 285px;
-  height: 146px;
   background: url('https://qiniu.easyapi.com/market/index/e_invoice.png') no-repeat;
   background-size: 100% 100%;
 }
@@ -511,6 +543,5 @@
   color: #ffffff;
   font-size: 18px;
   text-align: center;
-  line-height: 146px;
   display: block;
 }
