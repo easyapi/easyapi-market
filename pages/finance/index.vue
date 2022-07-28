@@ -1,7 +1,9 @@
 <template>
   <div>
-    <Header class="no-bg" :style="{ left: left }"></Header>
-    <div ref="getMargin" class="banner">
+    <div class="top">
+      <Header class="no-bg"></Header>
+    </div>
+    <div class="banner">
       <p>海量泛金融API服务</p>
       <div class="banner-text">
         适用多场景金融征信服务，权威数据。身份/银行卡认证，
@@ -14,7 +16,7 @@
         <div class="flex flex-wrap justify-between">
           <div class="finance-top-list" v-for="(item, index) in dataList" :key="index">
             <div>
-              <img :src="item.img" alt="图片加载中..." />
+              <img  :src="item.img" alt="图片加载中..." />
             </div>
             <span>{{ item.title }}</span>
           </div>
@@ -38,7 +40,7 @@
 </template>
 
 <script>
-import Index from './index.js'
+  import Index from './index.js'
 
-export default Index
+  export default Index
 </script>

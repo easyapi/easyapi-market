@@ -2,7 +2,7 @@ import './index.scss'
 
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
-import {qiniuUrl} from '../../api/api'
+import { qiniuUrl } from '../../api/api'
 
 export default {
     name: 'finance',
@@ -82,21 +82,16 @@ export default {
                     title: '银行卡类别',
                     money: '￥0.15/次'
                 }
-            ],
-            left: ""
+            ]
         }
     },
     head() {
         return {
             title: '金融专辑 - EasyAPI服务市场',
             meta: [
-                {hid: 'description', name: 'description', content: 'EasyAPI服务市场为您提供各类泛金融类接口，欢迎在线咨询，并开通使用。'},
-                {hid: 'keyword', name: 'keyword', content: '证件识别,银行卡类别,企业工商数据,银行卡四元素校验,三网手机实名认证'}
+                { hid: 'description', name: 'description', content: 'EasyAPI服务市场为您提供各类泛金融类接口，欢迎在线咨询，并开通使用。' },
+                { hid: 'keyword', name: 'keyword', content: '证件识别,银行卡类别,企业工商数据,银行卡四元素校验,三网手机实名认证' }
             ]
         }
-    },
-    watch: {},
-    mounted() {
-        this.left = window.getComputedStyle(this.$refs.getMargin).margin.slice(4);
     }
 }
