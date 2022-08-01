@@ -155,8 +155,8 @@
       },
       screenWidth: {
         handler: function (val, oldVal) {
-          console.log(val)
           this.ifShow = val >= 1024
+          this.$emit("getScreenWidth",val)
         },
         immediate: true
       }

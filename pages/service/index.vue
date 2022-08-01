@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-bind:callback="getServiceList"></Header>
+    <Header @getScreenWidth="getScreenWidth" v-bind:callback="getServiceList"></Header>
     <div class="main">
       <div class="search-list">
         <div class="row">
@@ -81,7 +81,7 @@
       <div class="pagination" v-if="!isNoData">
         <el-pagination
           background
-          layout="total, sizes, prev, pager, next, jumper"
+          :layout="layout"
           :page-sizes="[10, 15, 30]"
           :page-size="pageSize"
           :current-page="current"
