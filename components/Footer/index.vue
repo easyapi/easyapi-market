@@ -12,28 +12,27 @@
 </template>
 
 <script>
-export default {
-  name: 'Footer'
-}
+  export default {
+    name: 'Footer'
+  }
 </script>
 
 <style scoped lang="scss">
-.footer {
-  margin: auto;
-  max-width: 1919px;
-  text-align: center;
-  background: #fafafa;
-  color: #777;
-  padding: 70px 0 50px 0;
-  font-size: 12px;
-}
+  .footer {
+    text-align: center;
+    background: #fafafa;
+    color: #777;
+    margin: 20px 0 0 0;
+    padding: 70px 0 50px 0;
+    font-size: 12px;
+  }
 
-.footer p {
-  margin-bottom: 10px;
-}
+  .footer p {
+    margin-bottom: 10px;
+  }
 
-.footer a {
-  color: #777;
-  padding: 0 20px;
-}
+  .footer a {
+    color: #777;
+    padding: 0 20px;
+  }
 </style>

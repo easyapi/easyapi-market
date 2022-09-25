@@ -66,6 +66,7 @@ img {
     color: #000;
     width: 1200px;
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 
@@ -74,6 +75,7 @@ img {
     color: #000;
     width: 768px;
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 
@@ -82,6 +84,7 @@ img {
     color: #000;
     width: 500px;
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 
@@ -90,6 +93,7 @@ img {
     color: #000;
     width: 300px;
     margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 

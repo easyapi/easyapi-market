@@ -12,13 +12,13 @@
               <div class="con">
                 <p class="con-title">{{ service.name }}</p>
                 <p class="con-button">
-                  <span v-if="service.category === 1">
+                  <span class="category" v-if="service.category === 1">
                     <a herf>接口服务</a>
                   </span>
-                  <span v-if="service.category === 2">
+                  <span class="category" v-if="service.category === 2">
                     <a herf>场景服务</a>
                   </span>
-                  <span v-if="service.category === 3">
+                  <span class="category" v-if="service.category === 3">
                     <a herf>数据服务</a>
                   </span>
                   <span v-if="service.state === 0">

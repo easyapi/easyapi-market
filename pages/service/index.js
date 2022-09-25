@@ -28,6 +28,7 @@ export default {
       sort: '1',
       isNoData: false,
       serviceList: [],
+      layout: 'total, sizes, prev, pager, next, jumper',
 
       serviceTypeList: [],
       pageSize: 10, // 每页显示条数
@@ -71,6 +72,13 @@ export default {
     this.getServiceList()
   },
   methods: {
+    getScreenWidth(val) {
+      if (val < 500) {
+        this.layout = 'total,prev, pager, next'
+      } else {
+        this.layout = 'total, sizes, prev, pager, next, jumper'
+      }
+    },
     getServiceList() {
       let _this = this
       _this.loading = true
