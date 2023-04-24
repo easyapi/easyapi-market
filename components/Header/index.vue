@@ -203,7 +203,7 @@
         window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com'
       },
       jumpPage() {
-        window.location.href = 'https://team.easyapi.com/new?from=https://market.easyapi.com'
+        window.location.href = 'https://team.easyapi.com/create-team?from=https://market.easyapi.com'
       },
       /**
        * 切换团队
