@@ -1,21 +1,12 @@
-# dependencies
 node_modules
-
-# logs
-npm-debug.log
-
-# Nuxt build
+*.log*
 .nuxt
-
-# Nuxt generate
+.nitro
+.cache
+.output
+.env
+.idea
 dist
 
-.idea
-package-lock.json
-
-# Mac OSX
+# Misc
 .DS_Store
-
-# Aliyun FC
-.env
-.fun

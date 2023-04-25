@@ -1,0 +1,52 @@
+/** 按钮 **/
+.el-button {
+  background-color: #ffffff !important;
+  color: #18c1d6 !important;
+  border-color: #18c1d6 !important;
+
+  &:hover {
+    background-color: #E8F9FBFF !important;
+    color: #18c1d6 !important;
+    border-color: #E8F9FBFF !important;
+  }
+
+  &:active {
+    background-color: #E8F9FBFF !important;
+    color: #18c1d6 !important;
+    border-color: #18c1d6 !important;
+  }
+}
+
+/** primary 按钮 **/
+.el-button--primary {
+  background-color: #18c1d6 !important;
+  color: #ffffff !important;
+  border-color: #18c1d6 !important;
+
+  &:hover {
+    background-color: #18c1d6 !important;
+    color: #ffffff !important;
+    border-color: #18c1d6 !important;
+    opacity: 0.8;
+  }
+
+  &:active {
+    background-color: #18c1d6 !important;
+    color: #ffffff !important;
+    border-color: #18c1d6 !important;
+  }
+}
+
+/** el-dropdown 按钮 **/
+.el-dropdown{
+  .el-tooltip__trigger:focus {
+    outline: none !important;
+  }
+}
+.el-dropdown__popper{
+  .el-dropdown-menu__item{
+    &:hover{
+      color: #18c1d6 !important;
+    }
+  }
+}

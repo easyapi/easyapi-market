@@ -1,4 +1,3 @@
-node_modules
-assets
 dist
-.nuxt
+node_modules
+public

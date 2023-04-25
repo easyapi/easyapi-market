@@ -1,0 +1,116 @@
+@media screen and (min-width: 1200px) {
+  .banner {
+    height: 520px;
+    background-size: 100% 100%;
+
+    .title {
+      padding-top: 222px;
+      color: #ffffff;
+      text-align: center;
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .banner {
+    height: 380px;
+    background-size: 100% 100%;
+
+    .title {
+      padding-top: 150px;
+      color: #ffffff;
+      text-align: center;
+
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .banner {
+    height: 320px;
+    background-size: 100% 100%;
+
+    .title {
+      padding-top: 110px;
+      color: #ffffff;
+      text-align: center;
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px) {
+  .banner {
+    height: 280px;
+    background-size: 100% 100%;
+
+    .title {
+      padding-top: 100px;
+      color: #ffffff;
+      text-align: center;
+      width: 80%;
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .banner {
+    height: 200px;
+    background-size: 100% 100%;
+
+    .title {
+      padding-top: 45px;
+      color: #ffffff;
+      text-align: center;
+      width: 80%;
+
+      h1 {
+        font-size: 18px;
+      }
+
+      p {
+        margin: 10px 0;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+}

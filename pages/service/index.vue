@@ -1,23 +1,33 @@
+<script>
+import Index from './index.js'
+
+export default Index
+</script>
+
 <template>
   <div>
-    <Header @getScreenWidth="getScreenWidth" v-bind:callback="getServiceList"></Header>
+    <Header :callback="getServiceList" @getScreenWidth="getScreenWidth" />
     <div class="main">
       <div class="search-list">
         <div class="row">
-          <div class="col-left">商品分类：</div>
+          <div class="col-left">
+            商品分类：
+          </div>
           <div class="col-right">
             <div class="flex flex-wrap">
               <div>
                 <a class="col-right-con ml-4" :class="{ active: serviceTypeId === '全部' }" @click="getService('全部')">全部</a>
               </div>
-              <div class="ml-4" v-for="(item, index) in serviceTypeList" :key="index">
+              <div v-for="(item, index) in serviceTypeList" :key="index" class="ml-4">
                 <a class="col-right-con" :class="{ active: serviceTypeId == item.serviceTypeId }" @click="getService(item.serviceTypeId)">{{ item.name }}</a>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-left">付费类型：</div>
+          <div class="col-left">
+            付费类型：
+          </div>
           <div class="col-right">
             <div class="flex flex-wrap">
               <div>
@@ -33,21 +43,23 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-left" style="font-weight: 700">排序方式：</div>
+          <div class="col-left" style="font-weight: 700">
+            排序方式：
+          </div>
           <div class="col-right">
             <div class="flex flex-wrap">
               <div>
                 <a class="col-right-con" :class="{ tqActive: sort === '1' }" @click="styleSwitch('1')">
                   热门
-                  <img src="../../assets/images/arrow-down-blue.png" alt="暂无数据" v-if="sort === '1'" />
-                  <img src="../../assets/images/arrow-down-gray.png" alt="暂无数据" v-else />
+                  <img v-if="sort === '1'" src="../../assets/images/arrow-down-blue.png" alt="暂无数据">
+                  <img v-else src="../../assets/images/arrow-down-gray.png" alt="暂无数据">
                 </a>
               </div>
               <div>
                 <a class="col-right-con" :class="{ tqActive: sort === '2' }" @click="styleSwitch('2')">
                   最新
-                  <img src="../../assets/images/arrow-down-blue.png" alt="暂无数据" v-if="sort === '2'" />
-                  <img src="../../assets/images/arrow-down-gray.png" alt="暂无数据" v-else />
+                  <img v-if="sort === '2'" src="../../assets/images/arrow-down-blue.png" alt="暂无数据">
+                  <img v-else src="../../assets/images/arrow-down-gray.png" alt="暂无数据">
                 </a>
               </div>
             </div>
@@ -56,20 +68,30 @@
       </div>
       <div v-loading="loading" class="recommend-service">
         <div class="recommend-service-con">
-          <div class="col" v-for="(item, index) in serviceList" :key="index">
-            <nuxt-link :to="'/service/' + item.serviceId">
+          <div v-for="(item, index) in serviceList" :key="index" class="col">
+            <nuxt-link :to="`/service/${item.serviceId}`">
               <p class="img">
-                <img v-bind:src="item.img" alt />
+                <img :src="item.img" alt>
               </p>
-              <p class="text">{{ item.name }}</p>
-              <p class="price" v-if="item.type === 1">免费</p>
-              <p class="price" v-if="item.type === 2">￥{{ item.unitPrice }}次</p>
-              <p class="price" v-if="item.type === 3">￥{{ item.unitPrice }}月</p>
-              <p class="price" v-if="item.type === 4">按需</p>
+              <p class="text">
+                {{ item.name }}
+              </p>
+              <p v-if="item.type === 1" class="price">
+                免费
+              </p>
+              <p v-if="item.type === 2" class="price">
+                ￥{{ item.unitPrice }}次
+              </p>
+              <p v-if="item.type === 3" class="price">
+                ￥{{ item.unitPrice }}月
+              </p>
+              <p v-if="item.type === 4" class="price">
+                按需
+              </p>
             </nuxt-link>
           </div>
-          <div class="nodata" v-if="isNoData">
-            <img src="https://qiniu.easyapi.com/market/empty.png" alt />
+          <div v-if="isNoData" class="nodata">
+            <img src="https://qiniu.easyapi.com/market/empty.png" alt>
             <p>暂无服务</p>
             <p>
               如果您有优质的提供商，欢迎给我们推荐
@@ -78,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="pagination" v-if="!isNoData">
+      <div v-if="!isNoData" class="pagination">
         <el-pagination
           background
           :layout="layout"
@@ -87,15 +109,10 @@
           :current-page="current"
           :total="total"
           @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"></el-pagination>
+          @current-change="handleCurrentChange"
+        />
       </div>
     </div>
-    <Footer></Footer>
+    <Footer />
   </div>
 </template>
-
-<script>
-import Index from './index.js'
-
-export default Index
-</script>

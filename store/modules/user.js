@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 import { getUser } from '@/api/account'
 
 const user = {
@@ -13,7 +13,8 @@ const user = {
     teamName: '',
     teamImg: '',
     userTeam: '',
-    token: Cookies.get('authenticationToken')
+    // token: Cookies.get('authenticationToken')
+    token: '',
   },
 
   mutations: {
@@ -49,16 +50,16 @@ const user = {
     },
     SET_TOKEN: (state, token) => {
       state.token = token
-    }
+    },
   },
 
   actions: {
     /**
      * 获取用户信息
      */
-    getUser ({ commit }) {
-      getUser(this).then(res => {
-        let user = res.data.content
+    getUser({ commit }) {
+      getUser(this).then((res) => {
+        const user = res.data.content
         commit('SET_USER_ID', user.id)
         commit('SET_USERNAME', user.username)
         commit('SET_NICKNAME', user.nickname)
@@ -69,17 +70,17 @@ const user = {
         commit('SET_TEAM_NAME', user.team.name)
         commit('SET_TEAM_IMG', user.team.img || '')
         commit('SET_USER_TEAM', user.userTeam)
-      }).catch(error => {
+      }).catch((error) => {
         Cookies.remove('authenticationToken')
       })
     },
     /**
      * 登出
      */
-    logout () {
+    logout() {
       Cookies.remove('authenticationToken')
-    }
-  }
+    },
+  },
 }
 
 export default user

@@ -1,66 +1,198 @@
+<script>
+import '../../assets/iconfont/icon-arrow.css'
+import { mapGetters } from 'vuex'
+import TeamDialog from '../EaTeam'
+
+// import Cookies from 'js-cookie'
+
+export default {
+  components: {
+    TeamDialog,
+  },
+  layout: '',
+  props: ['callback'],
+  data() {
+    return {
+      screenWidth: null,
+      token: '',
+      name: '',
+      isActive: false,
+      showTeamInfo: false,
+      ifShow: true,
+      ifNavShow: false,
+      type: '',
+    }
+  },
+  computed: {
+    ...mapGetters(['photo', 'team', 'teamName', 'teamImg', 'teamList']),
+  },
+  watch: {
+    $route() {
+      this.ifNavShow = false
+    },
+    screenWidth: {
+      handler(val, oldVal) {
+        this.ifShow = val >= 1024
+        this.$emit('getScreenWidth', val)
+      },
+      immediate: true,
+    },
+  },
+  created() {},
+  mounted() {
+    // if (Cookies.get('authenticationToken')) {
+    //   // 获取用户信息
+    //   this.$store.dispatch('getUser')
+    // }
+    // if (Cookies.get('authenticationToken')) {
+    //   // 获取团队列表
+    //   this.$store.dispatch('getTeamList')
+    // }
+    this.name = this.$store.state.serviceName
+
+    const that = this
+    document.addEventListener('click', (e) => {
+      that.showTeamInfo = !!that.$refs.showTeamInfo.contains(e.target)
+      if (e.target.id === 'showPersonage')
+        that.isActive = !that.isActive
+      else
+        that.isActive = false
+    })
+    this.screenWidth = document.body.clientWidth
+    window.onresize = () => {
+      // 屏幕尺寸变化就重新赋值
+      return (() => {
+        this.screenWidth = document.body.clientWidth
+      })()
+    }
+  },
+  methods: {
+    showNav(val) {
+      this.type = val
+      this.ifNavShow = !this.ifNavShow
+    },
+    closeMenu() {
+      this.ifNavShow = false
+    },
+    /**
+       *
+       */
+    search() {
+      const that = this
+      this.$store.commit('SET_SERVICE_NAME', this.name)
+      const obj = {}
+      const name = this.name
+      const type = this.$route.query.type
+      const payType = this.$route.query.payType
+      const sort = this.$route.query.sort
+      if (name)
+        obj.name = name
+
+      if (type)
+        obj.serviceTypeId = type
+
+      if (payType)
+        obj.type = payType
+
+      if (sort)
+        obj.sort = sort
+
+      that.$router.push({ path: '/service', query: obj })
+    },
+
+    /**
+       * 退出登录
+       */
+    quitLogin() {
+      this.$store.dispatch('logout')
+      window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com'
+    },
+    jumpPage() {
+      window.location.href = 'https://team.easyapi.com/create-team?from=https://market.easyapi.com'
+    },
+    /**
+       * 切换团队
+       * @param id 团队ID
+       */
+    changeTeam(id) {
+      this.$store.dispatch('changeTeam', id)
+    },
+  },
+}
+</script>
+
 <template>
   <div v-if="ifShow" class="header flex-r">
     <ul class="header-con-left flex-r">
       <div class="header-logo flex-r">
         <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
-          <img src="https://qiniu.easyapi.com/market/logo.svg" alt />
+          <img src="https://qiniu.easyapi.com/market/logo.svg" alt>
         </nuxt-link>
-        <span class="circle"></span>
+        <span class="circle" />
       </div>
       <li class="header-market">
-        <nuxt-link :to="{ name: 'index' }">API市场</nuxt-link>
+        <nuxt-link :to="{ name: 'index' }">
+          API市场
+        </nuxt-link>
       </li>
       <li class="item-menu mg-lf-20">
-        <nuxt-link :to="{ name: 'index' }">首页</nuxt-link>
+        <nuxt-link :to="{ name: 'index' }">
+          首页
+        </nuxt-link>
       </li>
       <li class="item-menu">
-        <nuxt-link :to="{ name: 'service' }">API接口</nuxt-link>
+        <nuxt-link :to="{ name: 'service' }">
+          API接口
+        </nuxt-link>
       </li>
       <li class="item-menu">
-        <nuxt-link :to="{ name: 'scene' }">场景化服务</nuxt-link>
+        <nuxt-link :to="{ name: 'scene' }">
+          场景化服务
+        </nuxt-link>
       </li>
     </ul>
     <ul class="header-con-right flex-r">
       <li class="header-search">
-        <el-input size="small" placeholder="搜索服务" class="search" v-model="name" @keyup.enter.native="search">
-          <i slot="prefix" class="el-input__icon el-icon-search"></i>
+        <el-input v-model="name" size="small" placeholder="搜索服务" class="search" @keyup.enter.native="search">
+          <i slot="prefix" class="el-input__icon el-icon-search" />
         </el-input>
       </li>
-      <li class="item-menu current-team-box" v-show="token">
-        <a @click.stop="showTeamInfo = !showTeamInfo" class="flex-r" :class="{ active: showTeamInfo }">
+      <li v-show="token" class="item-menu current-team-box">
+        <a class="flex-r" :class="{ active: showTeamInfo }" @click.stop="showTeamInfo = !showTeamInfo">
           {{ teamName }}
-          <i v-if="showTeamInfo" class="team-icon icon-arrow-top iconfont"></i>
-          <i v-else class="icon-xiangxiajiantou iconfont"></i>
+          <i v-if="showTeamInfo" class="team-icon icon-arrow-top iconfont" />
+          <i v-else class="icon-xiangxiajiantou iconfont" />
         </a>
         <div ref="showTeamInfo">
           <TeamDialog
-                  @on-createTeam="jumpPage"
-                  @on-changeTeam="changeTeam"
-                  :showTeamDialog="showTeamInfo"
-                  :teamImg="teamImg"
-                  :teamName="teamName"
-                  :teamList="teamList.content"></TeamDialog>
+            :show-team-dialog="showTeamInfo"
+            :team-img="teamImg"
+            :team-name="teamName"
+            :team-list="teamList.content"
+            @on-createTeam="jumpPage"
+            @on-changeTeam="changeTeam"
+          />
         </div>
       </li>
       <li class="item-menu header-service-center">
         <a href="https://team.easyapi.com/service/">服务中心</a>
       </li>
-      <li class="item-menu header-login" v-show="token">
+      <li v-show="token" class="item-menu header-login">
         <div class="userAvatar ea-Dropdown">
           <a class="flex-r">
-            <img id="showPersonage" :src="photo + '!icon.jpg'" alt v-if="photo" />
+            <img v-if="photo" id="showPersonage" :src="`${photo}!icon.jpg`" alt>
           </a>
         </div>
         <div :class="{ active: isActive }" class="ea-DropdownMenu">
           <a href="https://team.easyapi.com/notification/">我的通知</a>
           <a href="https://team.easyapi.com/user/edit">个人设置</a>
-          <a @click="quitLogin()" href="https://account.easyapi.com/logout">退出</a>
+          <a href="https://account.easyapi.com/logout" @click="quitLogin()">退出</a>
         </div>
       </li>
-      <li class="item-menu header-login" v-show="!token">
+      <li v-show="!token" class="item-menu header-login">
         <a href="https://account.easyapi.com/login?from=https://market.easyapi.com" class="flex-r">登录</a>
       </li>
-      <li class="item-menu header-login" v-show="!token">
+      <li v-show="!token" class="item-menu header-login">
         <a href="https://account.easyapi.com/signup?from=https://market.easyapi.com" class="flex-r">注册</a>
       </li>
     </ul>
@@ -70,24 +202,28 @@
       <div class="flex justify-between items-center">
         <div class="header-logo flex-r">
           <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
-            <img src="https://qiniu.easyapi.com/market/logo.svg" alt />
+            <img src="https://qiniu.easyapi.com/market/logo.svg" alt>
           </nuxt-link>
-          <span class="circle"></span>
-          <nuxt-link class="mg-lf-10" :to="{ name: 'index' }">API市场</nuxt-link>
+          <span class="circle" />
+          <nuxt-link class="mg-lf-10" :to="{ name: 'index' }">
+            API市场
+          </nuxt-link>
         </div>
         <div class="icon w-14 flex justify-between">
-          <i class="el-icon-user" @click="showNav('person')"></i>
-          <i class="el-icon-s-fold" @click="showNav('menu')"></i>
+          <i class="el-icon-user" @click="showNav('person')" />
+          <i class="el-icon-s-fold" @click="showNav('menu')" />
         </div>
       </div>
     </div>
-    <div class="menu" v-if="ifNavShow">
+    <div v-if="ifNavShow" class="menu">
       <el-col v-if="type === 'menu'" :span="24">
-        <el-menu :default-active="this.$router.path" class="el-menu-vertical-demo" router>
+        <el-menu :default-active="$router.path" class="el-menu-vertical-demo" router>
           <div class="float-right mr-10">
-            <el-button type="text" icon="el-icon-close" @click="closeMenu">关 闭</el-button>
+            <el-button type="text" icon="el-icon-close" @click="closeMenu">
+              关 闭
+            </el-button>
           </div>
-          <div class="clear-both"></div>
+          <div class="clear-both" />
           <el-menu-item index="/info/price">
             <span slot="title">首页</span>
           </el-menu-item>
@@ -102,9 +238,11 @@
       <el-col v-if="type === 'person'" :span="24">
         <el-menu class="el-menu-vertical-demo">
           <div class="float-right mr-10">
-            <el-button type="text" icon="el-icon-close" @click="closeMenu">关 闭</el-button>
+            <el-button type="text" icon="el-icon-close" @click="closeMenu">
+              关 闭
+            </el-button>
           </div>
-          <div class="clear-both"></div>
+          <div class="clear-both" />
           <el-menu-item @click="jumpSign">
             <span slot="title">服务中心</span>
           </el-menu-item>
@@ -117,133 +255,9 @@
         </el-menu>
       </el-col>
     </div>
-    <div v-if="ifNavShow" class="popContainer"></div>
+    <div v-if="ifNavShow" class="popContainer" />
   </div>
 </template>
-
-<script>
-  import '../../assets/iconfont/icon-arrow.css'
-  import { mapGetters } from 'vuex'
-  import TeamDialog from '../EaTeam'
-  import Cookies from 'js-cookie'
-
-  export default {
-    name: 'Header',
-    layout: '',
-    props: ['callback'],
-    components: {
-      TeamDialog
-    },
-    data() {
-      return {
-        screenWidth: null,
-        token: Cookies.get('authenticationToken'),
-        name: '',
-        isActive: false,
-        showTeamInfo: false,
-        ifShow: true,
-        ifNavShow: false,
-        type: ''
-      }
-    },
-    computed: {
-      ...mapGetters(['photo', 'team', 'teamName', 'teamImg', 'teamList'])
-    },
-    watch: {
-      $route() {
-        this.ifNavShow = false
-      },
-      screenWidth: {
-        handler: function (val, oldVal) {
-          this.ifShow = val >= 1024
-          this.$emit("getScreenWidth",val)
-        },
-        immediate: true
-      }
-    },
-    methods: {
-      showNav(val) {
-        this.type = val
-        this.ifNavShow = !this.ifNavShow
-      },
-      closeMenu() {
-        this.ifNavShow = false
-      },
-      /**
-       *
-       */
-      search() {
-        let that = this
-        this.$store.commit('SET_SERVICE_NAME', this.name)
-        let obj = {}
-        let name = this.name
-        let type = this.$route.query.type
-        let payType = this.$route.query.payType
-        let sort = this.$route.query.sort
-        if (name) {
-          obj.name = name
-        }
-        if (type) {
-          obj.serviceTypeId = type
-        }
-        if (payType) {
-          obj.type = payType
-        }
-        if (sort) {
-          obj.sort = sort
-        }
-        that.$router.push({ path: '/service', query: obj })
-      },
-
-      /**
-       * 退出登录
-       */
-      quitLogin() {
-        this.$store.dispatch('logout')
-        window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com'
-      },
-      jumpPage() {
-        window.location.href = 'https://team.easyapi.com/create-team?from=https://market.easyapi.com'
-      },
-      /**
-       * 切换团队
-       * @param id 团队ID
-       */
-      changeTeam(id) {
-        this.$store.dispatch('changeTeam', id)
-      }
-    },
-    created: function () {},
-    mounted() {
-      if (Cookies.get('authenticationToken')) {
-        //获取用户信息
-        this.$store.dispatch('getUser')
-      }
-      if (Cookies.get('authenticationToken')) {
-        //获取团队列表
-        this.$store.dispatch('getTeamList')
-      }
-      this.name = this.$store.state.serviceName
-
-      let that = this
-      document.addEventListener('click', function (e) {
-        that.showTeamInfo = !!that.$refs.showTeamInfo.contains(e.target)
-        if (e.target.id === 'showPersonage') {
-          that.isActive = !that.isActive
-        } else {
-          that.isActive = false
-        }
-      })
-      this.screenWidth = document.body.clientWidth
-      window.onresize = () => {
-        //屏幕尺寸变化就重新赋值
-        return (() => {
-          this.screenWidth = document.body.clientWidth
-        })()
-      }
-    }
-  }
-</script>
 
 <style scoped lang="scss">
   .header {
