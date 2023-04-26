@@ -41,3 +41,27 @@
     color: #18c1d6 !important;
   }
 }
+
+/** 分页 **/
+.el-pagination {
+  .is-active {
+    background-color: #18c1d6 !important;
+  }
+}
+
+/** 选择框 **/
+.el-select__popper {
+  .selected {
+    color: #18c1d6 !important;
+  }
+
+}
+
+/** 输入框和选择框 **/
+.el-input .el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 1px #18c1d6 inset !important;
+}
+
+.el-pagination .el-select .el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px #18c1d6 inset !important;
+}
