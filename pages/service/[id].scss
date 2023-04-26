@@ -114,6 +114,7 @@
             }
 
             span:first-of-type {
+              margin-right: 8px;
               a {
                 color: #00b2c8;
                 border: solid 1px #00b2c8;
@@ -217,10 +218,12 @@
         min-height: 288px;
       }
 
-      .service-detail-imgs > div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .service-detail-imgs{
+        div {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+        }
       }
     }
   }

@@ -25,7 +25,6 @@ export default defineNuxtConfig({
   },
   css: [
     '@/assets/css/common.css',
-    '@/assets/scss/element-variables.scss',
   ],
   components: true,
   vite: {
@@ -35,13 +34,13 @@ export default defineNuxtConfig({
         output: {},
       },
     },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "~/assets/scss/variables.scss";',
-        },
-      },
-    },
+    // css: {
+    //   preprocessorOptions: {
+    //     scss: {
+    //       additionalData: '@import "~/assets/scss/variables.scss";',
+    //     },
+    //   },
+    // },
   },
   runtimeConfig: {
     public: {

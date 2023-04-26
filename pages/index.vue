@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
-import './index.scss'
 
 import Category from './components/category.vue'
 
@@ -13,6 +12,12 @@ const data = reactive({
   list: [],
   totalPages: 0,
 })
+
+function getServiceList() {
+  service.getServiceList({ sort: 'sales,desc' }).then((res: any) => {
+    data.recommendServiceList = res.content
+  })
+}
 
 function getNewestServiceList() {
   service.getServiceList({ sort: 'addTime,desc' }).then((res: any) => {
@@ -29,6 +34,7 @@ function getArticleList() {
 }
 
 onMounted(() => {
+  getServiceList()
   getNewestServiceList()
   getArticleList()
 })
@@ -54,6 +60,7 @@ onMounted(() => {
         </div>
         <div class="recommend-service-con">
           <div v-for="(item, index) in data.recommendServiceList" :key="index" class="col">
+            <!--            <div>{{ item.name }}</div> -->
             <nuxt-link :to="{ name: 'service-id', params: { id: item.serviceId } }">
               <p class="img">
                 <img :src="item.img" alt>
@@ -202,6 +209,553 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <!--  <Footer /> -->
+    <Footer />
   </div>
 </template>
+
+<style lang="scss">
+@media screen and (min-width: 1200px) {
+  .newest-update-con-top {
+    display: flex;
+    justify-content: space-between;
+
+    .newest-update-con-left {
+      width: 60%;
+
+      .col {
+        width: 25%;
+      }
+    }
+
+    .newest-update-con-right {
+      width: 40%;
+    }
+  }
+
+  .join-market-con {
+    .col {
+      width: 25%;
+    }
+  }
+
+  .recommend-service-con {
+    .col {
+      width: 19%;
+
+      .text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .service-market-left {
+    width: 22%;
+  }
+
+  .service-market-right {
+    width: 77%;
+    margin-left: 1%;
+  }
+
+  .newest-update-con-bottom span {
+    width: 285px;
+    height: 146px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 146px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .newest-update-con-top {
+    display: flex;
+    justify-content: space-between;
+
+    .newest-update-con-left {
+      width: 60%;
+
+      .col {
+        width: 25%;
+      }
+    }
+
+    .newest-update-con-right {
+      width: 40%;
+    }
+  }
+
+  .join-market-con {
+    .col {
+      width: 25%;
+    }
+  }
+
+  .recommend-service-con {
+    .col {
+      width: 19%;
+
+      .text {
+        font-size: 12px;
+        height: 36px;
+      }
+    }
+  }
+
+  .service-market-left {
+    width: 100%;
+  }
+
+  .service-market-right {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .newest-update-con-bottom span {
+    width: 178px;
+    height: 106px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 106px;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  .recommend-service-con {
+    .col {
+      width: 49%;
+    }
+  }
+
+  .newest-update-con-left {
+
+    .row {
+      flex-wrap: wrap;
+    }
+
+    .col {
+      width: 50%;
+    }
+  }
+
+  .join-market-con {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    .col {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+  }
+
+  .service-market-right {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .newest-update-con-bottom span {
+    width: 230px;
+    height: 106px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 106px;
+  }
+
+  .newest-update-con-bottom .scenarioServices {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .recommend-service-con {
+    .col {
+      width: 95%;
+    }
+  }
+
+  .newest-update-con-left {
+
+    .row {
+      flex-wrap: wrap;
+    }
+
+    .col {
+      width: 50%;
+    }
+  }
+
+  .join-market-con {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    .col {
+      width: 100%;
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
+  }
+
+  .service-market-right {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .newest-update-con-bottom span {
+    width: 140px;
+    height: 86px;
+  }
+
+  .newest-update-con-bottom span a {
+    line-height: 86px;
+  }
+
+  .newest-update-con-bottom .scenarioServices {
+    margin-bottom: 10px;
+  }
+}
+
+.main {
+  /*服务市场分类*/
+  .service-market {
+    width: 100%;
+    height: 372px;
+
+    a {
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .service-market-left {
+      float: left;
+      height: 100%;
+      background: #00b2c8;
+
+      .service-title {
+        color: #fff;
+        font-size: 16px;
+        border-bottom: 1px solid #0aa5b7;
+        height: 45px;
+        line-height: 45px;
+
+        h4 {
+          margin-left: 10px;
+          font-size: 16px;
+        }
+
+        a.col-fl {
+          font-size: 12px;
+        }
+      }
+
+      .row {
+        height: 40px;
+        line-height: 40px;
+
+        .col {
+          border-bottom: 1px solid #0aa5b7;
+          height: 41px;
+          display: flex;
+          align-items: center;
+          background: #0aa5b7;
+        }
+
+        .col:nth-of-type(3n + 1) {
+          padding-left: 10px;
+          height: 41px;
+
+          a {
+            display: inline-block;
+            width: 58px;
+            height: 22px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            line-height: 22px;
+            text-align: center;
+          }
+        }
+
+        .col:nth-of-type(3n) {
+          padding-right: 30px;
+        }
+      }
+    }
+
+    .service-market-right {
+      float: left;
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  /*推荐服务*/
+  .recommend-service {
+    margin-top: 40px;
+
+    a {
+      color: #333;
+    }
+
+    color: #333;
+
+    .recommend-service-title {
+      font-size: 18px;
+
+      .border {
+        border-left: 5px solid #0fc5fe;
+        margin-right: 10px;
+      }
+    }
+
+    .recommend-service-con {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      text-align: center;
+      margin-top: 20px;
+      overflow: hidden;
+
+      .col {
+        padding: 40px 40px 20px;
+        border: 1px solid #f4f4f4;
+        float: left;
+        margin-bottom: 20px;
+
+        .text {
+          margin-top: 40px;
+        }
+
+        .price {
+          margin-top: 20px;
+          color: #ff3636;
+          margin-bottom: 10px;
+          font-size: 14px;
+        }
+
+        img {
+          width: 100px;
+        }
+      }
+
+      .col:first-of-type {
+        margin-left: 0 !important;
+      }
+
+      .col:nth-of-type(5n + 1) {
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  //最新更新
+  .newest-update {
+    margin-top: 40px;
+    color: #333;
+
+    a {
+      color: #333;
+    }
+
+    .newest-update-title {
+      font-size: 18px;
+      margin-bottom: 40px;
+
+      .border {
+        border-left: 5px solid #57e7b8;
+        margin-right: 10px;
+      }
+    }
+
+    .newest-update-con-top {
+      font-size: 12px;
+      margin-bottom: 20px;
+
+      .newest-update-con-left {
+        height: 100%;
+
+        .row {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+
+        .col {
+
+          .col-item {
+            width: 100%;
+            align-items: center;
+          }
+
+          img {
+            width: 100px;
+          }
+
+          .text {
+            font-size: 16px;
+            margin-top: 10px;
+            text-align: center;
+            min-height: 60px;
+          }
+        }
+      }
+
+      .newest-update-con-right {
+        min-height: 310px;
+        background: #f2f6f6;
+        padding: 10px;
+
+        .row {
+          height: 30px;
+          line-height: 30px;
+
+          .more-state {
+            font-size: 18px;
+          }
+
+          .more {
+            font-size: 14px;
+            color: #999;
+          }
+        }
+
+        .row-con {
+          margin-top: 5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          div {
+            height: 30px;
+            line-height: 30px;
+
+            .circle {
+              display: block;
+              float: left;
+              width: 5px;
+              height: 5px;
+              background-color: #1cc1d5;
+              border-radius: 2px;
+              margin-top: 13px;
+            }
+
+            .circle-con {
+              // float left;
+              display: inline-block;
+              width: 250px;
+              margin-left: 7px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*加入市场*/
+  .join-market {
+    margin-top: 40px;
+
+    a {
+      color: #000;
+    }
+
+    .join-market-title {
+      font-size: 18px;
+
+      .border {
+        border-left: 5px solid #fe960f;
+        margin-right: 10px;
+      }
+    }
+
+    .join-market-con {
+      margin-bottom: 40px;
+      margin-top: 20px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+
+      .text {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .join-market-text {
+        color: #888;
+        font-size: 12px;
+      }
+
+      .img-box {
+        margin-right: 10px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.newest-update-con-bottom {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap:wrap;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.newest-update-con-bottom .scenarioServices {
+  background: url('https://qiniu.easyapi.com/market/index/scene.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.newest-update-con-bottom .scenarioServices a {
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+}
+
+.newest-update-con-bottom .paymentAlbum {
+  background: url('https://qiniu.easyapi.com/market/index/jiaofei.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.newest-update-con-bottom .paymentAlbum a {
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+}
+
+.newest-update-con-bottom .financialAlbum {
+  background: url('https://qiniu.easyapi.com/market/index/finance.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.newest-update-con-bottom .financialAlbum a {
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+}
+
+.newest-update-con-bottom .clickInvoice {
+  background: url('https://qiniu.easyapi.com/market/index/e_invoice.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.newest-update-con-bottom .clickInvoice a {
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+}
+</style>

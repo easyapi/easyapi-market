@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import './[id].scss'
 import { ElMessage } from 'element-plus'
 import { onMounted, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 import { service } from '@/api/service'
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 const route = useRoute()
@@ -26,6 +24,7 @@ onCreated()
 
 onMounted(() => {
   getServiceInfo()
+  getServicePrices()
 })
 
 function getScreenWidth(val) {
@@ -71,6 +70,13 @@ function subscribeDialog() {
 function getServiceInfo() {
   service.getServiceInfo(route.params.id).then((res) => {
     data.service = res.content
+    console.log(data.service)
+  })
+}
+
+function getServicePrices() {
+  service.getServicePrices({ serviceId: route.params.id }).then((res) => {
+    data.servicePriceList = res.content
   })
 }
 
@@ -94,7 +100,7 @@ function subscribeService() {
 
 <template>
   <div>
-    <Header @getScreenWidth="getScreenWidth" />
+    <!--    <Header @getScreenWidth="getScreenWidth" /> -->
     <div class="main">
       <div class="service-detail-con">
         <div class="service-detail-left">
@@ -105,7 +111,7 @@ function subscribeService() {
               </div>
               <div class="con">
                 <p class="con-title">
-                  <!--                  {{ data.service.name }} -->
+                  {{ data.service.name }}
                 </p>
                 <p class="con-button">
                   <span v-if="data.service.category === 1" class="category">
@@ -136,12 +142,12 @@ function subscribeService() {
             </div>
             <div class="col-right">
               <p v-if="data.service.hasConsole === true">
-                <el-button class="width-80" size="small" plain @click="homepage(data.service.url)">
+                <el-button class="width-80" plain @click="homepage(data.service.url)">
                   进入官网
                 </el-button>
               </p>
               <p>
-                <el-button class="width-80" size="small" plain @click="gotoPage(data.service.url)">
+                <el-button class="width-80" plain @click="gotoPage(data.service.url)">
                   API文档
                 </el-button>
               </p>
@@ -151,36 +157,36 @@ function subscribeService() {
             <div v-if="data.service.type === 2" class="combo-con">
               <span class="mg-rt-10">套餐:</span>
               <div>
-                <el-button v-for="(item, index) in servicePriceList" :key="index" :size="size" :class="[clicked === index ? 'active' : '']" @click="changeItem(index)">
+                <el-button v-for="(item, index) in data.servicePriceList" :key="index" :class="[data.clicked === index ? 'active' : '']" @click="changeItem(index)">
                   {{ item.times }}次
                 </el-button>
               </div>
             </div>
             <div v-if="data.service.type === 3" class="combo-con">
               <span class="mg-rt-10">套餐:</span>
-              <el-button v-for="(item, index) in servicePriceList" :key="index" :size="size" :class="[clicked === index ? 'active' : '']" @click="changeItem(index)">
+              <el-button v-for="(item, index) in data.servicePriceList" :key="index" :class="[data.clicked === index ? 'active' : '']" @click="changeItem(index)">
                 {{ item.month }}个月
               </el-button>
             </div>
             <div class="price">
-              <p v-if="data.service.type === 2 && data.servicePriceList[clicked]">
+              <p v-if="data.service.type === 2 && data.servicePriceList[data.clicked]">
                 <span>价格：</span>
-                <span>{{ data.servicePriceList[clicked].price }}</span>
+                <span>{{ data.servicePriceList[data.clicked].price }}</span>
                 <span>元</span>
-                <span>（约{{ data.servicePriceList[clicked].price / data.servicePriceList[clicked].times }}元/次）</span>
+                <span>（约{{ data.servicePriceList[data.clicked].price / data.servicePriceList[data.clicked].times }}元/次）</span>
               </p>
               <p v-if="data.service.type === 3 && data.servicePriceList[clicked]">
                 <span>价格：</span>
-                <span>{{ data.servicePriceList[clicked].price }}</span>
+                <span>{{ data.servicePriceList[data.clicked].price }}</span>
                 <span>元</span>
-                <span>（约{{ parseInt(data.servicePriceList[clicked].price / data.servicePriceList[clicked].month) }}元/月）</span>
+                <span>（约{{ parseInt(data.servicePriceList[data.clicked].price / data.servicePriceList[data.clicked].month) }}元/月）</span>
               </p>
             </div>
             <div class="con-btn">
-              <el-button v-if="service && service.ifBuy" :size="size" type="primary" @click="use(data.service.url, data.service.hasConsole, data.service.serviceId)">
+              <el-button v-if="service && data.service.ifBuy" type="primary" @click="use(data.service.url, data.service.hasConsole, data.service.serviceId)">
                 立即使用
               </el-button>
-              <el-button v-else :size="size" type="primary" @click="subscribeDialog">
+              <el-button v-else type="primary" @click="subscribeDialog">
                 立即开通
               </el-button>
             </div>
@@ -290,3 +296,7 @@ function subscribeService() {
     <Footer />
   </div>
 </template>
+
+<style lang="scss">
+@import  'pages/service/[id].scss';
+</style>
