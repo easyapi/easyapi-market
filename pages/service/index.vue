@@ -169,7 +169,7 @@ function styleSwitch(t) {
 
 <template>
   <div>
-    <!--    <Header :callback="getServiceList" @getScreenWidth="getScreenWidth" /> -->
+    <Header :callback="getServiceList" @getScreenWidth="getScreenWidth" />
     <div class="main">
       <div class="search-list">
         <div class="row">

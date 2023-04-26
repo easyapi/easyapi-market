@@ -1,30 +1,33 @@
 <script>
 import '../../assets/iconfont/icon-arrow.css'
-import { mapGetters } from 'vuex'
+import { Close, Fold, Search, User } from '@element-plus/icons-vue'
 import TeamDialog from '../EaTeam'
-
-// import Cookies from 'js-cookie'
+import { userStore } from '@/store/user'
+import { teamStore } from '@/store/team'
+import { getToken } from '~/utils/token'
 
 export default {
   components: {
+    Close,
+    Fold,
+    Search,
+    User,
     TeamDialog,
   },
-  layout: '',
   props: ['callback'],
   data() {
     return {
       screenWidth: null,
-      token: '',
+      token: getToken(),
       name: '',
       isActive: false,
       showTeamInfo: false,
       ifShow: true,
       ifNavShow: false,
       type: '',
+      userStore: userStore(),
+      teamStore: teamStore(),
     }
-  },
-  computed: {
-    ...mapGetters(['photo', 'team', 'teamName', 'teamImg', 'teamList']),
   },
   watch: {
     $route() {
@@ -32,31 +35,26 @@ export default {
     },
     screenWidth: {
       handler(val, oldVal) {
-        this.ifShow = val >= 1024
+        this.ifShow = val >= 1080
         this.$emit('getScreenWidth', val)
       },
       immediate: true,
     },
   },
-  created() {},
   mounted() {
-    // if (Cookies.get('authenticationToken')) {
-    //   // 获取用户信息
-    //   this.$store.dispatch('getUser')
-    // }
-    // if (Cookies.get('authenticationToken')) {
-    //   // 获取团队列表
-    //   this.$store.dispatch('getTeamList')
-    // }
-    this.name = this.$store.state.serviceName
+    if (this.token) {
+      // 获取用户信息和团队列表
+      userStore().getUser()
+      teamStore().getTeamList()
+    }
+    this.name = userStore().serviceName
 
-    const that = this
     document.addEventListener('click', (e) => {
-      that.showTeamInfo = !!that.$refs.showTeamInfo.contains(e.target)
+      this.showTeamInfo = !this.$refs.showTeamInfo
       if (e.target.id === 'showPersonage')
-        that.isActive = !that.isActive
+        this.isActive = !this.isActive
       else
-        that.isActive = false
+        this.isActive = false
     })
     this.screenWidth = document.body.clientWidth
     window.onresize = () => {
@@ -75,11 +73,10 @@ export default {
       this.ifNavShow = false
     },
     /**
-       *
-       */
+     *
+     */
     search() {
-      const that = this
-      this.$store.commit('SET_SERVICE_NAME', this.name)
+      userStore().serviceName = this.name
       const obj = {}
       const name = this.name
       const type = this.$route.query.type
@@ -97,14 +94,14 @@ export default {
       if (sort)
         obj.sort = sort
 
-      that.$router.push({ path: '/service', query: obj })
+      this.$router.push({ path: '/service', query: obj })
     },
 
     /**
        * 退出登录
        */
     quitLogin() {
-      this.$store.dispatch('logout')
+      userStore().logout()
       window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com'
     },
     jumpPage() {
@@ -115,7 +112,7 @@ export default {
        * @param id 团队ID
        */
     changeTeam(id) {
-      this.$store.dispatch('changeTeam', id)
+      teamStore().changeTeam(id)
     },
   },
 }
@@ -153,22 +150,27 @@ export default {
     </ul>
     <ul class="header-con-right flex-r">
       <li class="header-search">
-        <el-input v-model="name" size="small" placeholder="搜索服务" class="search" @keyup.enter.native="search">
-          <i slot="prefix" class="el-input__icon el-icon-search" />
+        <el-input v-model="name" placeholder="搜索服务" class="search" @keyup.enter="search">
+          <template #prefix>
+            <el-icon class="el-input__icon el-icon-search">
+              <Search />
+            </el-icon>
+          </template>
         </el-input>
       </li>
       <li v-show="token" class="item-menu current-team-box">
         <a class="flex-r" :class="{ active: showTeamInfo }" @click.stop="showTeamInfo = !showTeamInfo">
-          {{ teamName }}
+          {{ userStore.team.name }}
           <i v-if="showTeamInfo" class="team-icon icon-arrow-top iconfont" />
           <i v-else class="icon-xiangxiajiantou iconfont" />
         </a>
-        <div ref="showTeamInfo">
+        <div>
           <TeamDialog
+            ref="showTeamInfo"
             :show-team-dialog="showTeamInfo"
-            :team-img="teamImg"
-            :team-name="teamName"
-            :team-list="teamList.content"
+            :team-img="userStore.team.img"
+            :team-name="userStore.team.name"
+            :team-list="teamStore.teamList"
             @on-createTeam="jumpPage"
             @on-changeTeam="changeTeam"
           />
@@ -180,7 +182,7 @@ export default {
       <li v-show="token" class="item-menu header-login">
         <div class="userAvatar ea-Dropdown">
           <a class="flex-r">
-            <img v-if="photo" id="showPersonage" :src="`${photo}!icon.jpg`" alt>
+            <img v-if="userStore.photo" id="showPersonage" :src="`${userStore.photo}!icon.jpg`" alt>
           </a>
         </div>
         <div :class="{ active: isActive }" class="ea-DropdownMenu">
@@ -210,8 +212,12 @@ export default {
           </nuxt-link>
         </div>
         <div class="icon w-14 flex justify-between">
-          <i class="el-icon-user" @click="showNav('person')" />
-          <i class="el-icon-s-fold" @click="showNav('menu')" />
+          <el-icon class="el-icon-user" @click="showNav('person')">
+            <User />
+          </el-icon>
+          <el-icon class="el-icon-s-fold" @click="showNav('menu')">
+            <Fold />
+          </el-icon>
         </div>
       </div>
     </div>
@@ -219,38 +225,53 @@ export default {
       <el-col v-if="type === 'menu'" :span="24">
         <el-menu :default-active="$router.path" class="el-menu-vertical-demo" router>
           <div class="float-right mr-10">
-            <el-button type="text" icon="el-icon-close" @click="closeMenu">
+            <el-button type="text" @click="closeMenu">
+              <el-icon><Close /></el-icon>
               关 闭
             </el-button>
           </div>
           <div class="clear-both" />
-          <el-menu-item index="/info/price">
-            <span slot="title">首页</span>
+          <el-menu-item index="/home">
+            <template #title>
+              <span>首页</span>
+            </template>
           </el-menu-item>
-          <el-menu-item index="/info/price">
-            <span slot="title">API接口</span>
+
+          <el-menu-item index="/service">
+            <template #title>
+              <span>API接口</span>
+            </template>
           </el-menu-item>
-          <el-menu-item index="/info/price">
-            <span slot="title">场景化服务</span>
+          <el-menu-item index="/scene">
+            <template #title>
+              <span>场景化服务</span>
+            </template>
           </el-menu-item>
         </el-menu>
       </el-col>
       <el-col v-if="type === 'person'" :span="24">
         <el-menu class="el-menu-vertical-demo">
           <div class="float-right mr-10">
-            <el-button type="text" icon="el-icon-close" @click="closeMenu">
+            <el-button type="text" @click="closeMenu">
+              <el-icon><Close /></el-icon>
               关 闭
             </el-button>
           </div>
           <div class="clear-both" />
-          <el-menu-item @click="jumpSign">
-            <span slot="title">服务中心</span>
+          <el-menu-item>
+            <template #title>
+              <a href="https://team.easyapi.com/service/" class="menu-item-text w-full">服务中心</a>
+            </template>
           </el-menu-item>
-          <el-menu-item @click="jumpSign">
-            <span slot="title">注册</span>
+          <el-menu-item>
+            <template #title>
+              <a href="https://account.easyapi.com/signup?from=https://market.easyapi.com" class="menu-item-text w-full">注册</a>
+            </template>
           </el-menu-item>
-          <el-menu-item @click="jumpLogin">
-            <span slot="title">登录</span>
+          <el-menu-item>
+            <template #title>
+              <a href="https://account.easyapi.com/login?from=https://market.easyapi.com" class="menu-item-text w-full">登录</a>
+            </template>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -421,7 +442,7 @@ export default {
     left: 0px;
   }
 
-  @media screen and (min-width: 800px) and (max-width: 1024px) {
+  @media screen and (min-width: 800px) and (max-width: 1080px) {
     .content {
       width: 600px;
       margin: 0 auto;
@@ -442,12 +463,18 @@ export default {
     width: 100%;
   }
 
+  .menu-item-text {
+    color: #333333 !important;
+  }
+
   .el-icon-user {
-    color: #ffffff;
+    color: #ffffff !important;
+    cursor: pointer;
   }
 
   .el-icon-s-fold {
-    color: #ffffff;
+    color: #ffffff !important;
+    cursor: pointer;
   }
 
   .popContainer {

@@ -42,7 +42,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <!--    <Header /> -->
+    <Header />
     <div class="main">
       <div class="service-market">
         <Category />

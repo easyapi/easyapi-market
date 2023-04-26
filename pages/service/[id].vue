@@ -13,14 +13,15 @@ const data = reactive({
   subscribe: false,
   message: '暂无团队信息，请前往创建团队才能开通服务。',
   buttonContent: '前 往',
-  service: '',
+  service: {
+    serviceType: {
+      name: '',
+    },
+  },
   clicked: 0,
   servicePriceList: [],
   size: 'medium',
 })
-
-function onCreated() {}
-onCreated()
 
 onMounted(() => {
   getServiceInfo()
@@ -31,7 +32,7 @@ function getScreenWidth(val) {
   if (val)
     data.size = 'small'
   else
-    data.size = 'medium '
+    data.size = 'medium'
 }
 
 function use(url, hasConsole, serviceId) {
@@ -70,7 +71,6 @@ function subscribeDialog() {
 function getServiceInfo() {
   service.getServiceInfo(route.params.id).then((res) => {
     data.service = res.content
-    console.log(data.service)
   })
 }
 
@@ -100,7 +100,7 @@ function subscribeService() {
 
 <template>
   <div>
-    <!--    <Header @getScreenWidth="getScreenWidth" /> -->
+    <Header @getScreenWidth="getScreenWidth" />
     <div class="main">
       <div class="service-detail-con">
         <div class="service-detail-left">
@@ -115,26 +115,26 @@ function subscribeService() {
                 </p>
                 <p class="con-button">
                   <span v-if="data.service.category === 1" class="category">
-                    <a herf>接口服务</a>
+                    <a>接口服务</a>
                   </span>
                   <span v-if="data.service.category === 2" class="category">
-                    <a herf>场景服务</a>
+                    <a>场景服务</a>
                   </span>
                   <span v-if="data.service.category === 3" class="category">
-                    <a herf>数据服务</a>
+                    <a>数据服务</a>
                   </span>
                   <span v-if="data.service.state === 0">
-                    <a herf>未开通</a>
+                    <a>未开通</a>
                   </span>
                   <span v-if="data.service.state === 1">
-                    <a herf>正常</a>
+                    <a>正常</a>
                   </span>
                   <span v-if="data.service.state === -1">
-                    <a herf>异常</a>
+                    <a>异常</a>
                   </span>
                 </p>
                 <p class="con-con">
-                  <!-- <span>{{ data.service.serviceType.name }}</span> -->
+                  <span>{{ data.service.serviceType.name }}</span>
                   |
                   <span>{{ data.service.sales }}次接入</span>
                 </p>

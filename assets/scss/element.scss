@@ -1,0 +1,43 @@
+///** 按钮 **/
+.el-button {
+
+  &:hover {
+    background-color: #E8F9FBFF !important;
+    color: #18c1d6 !important;
+    border-color: #18c1d6 !important;
+  }
+}
+
+/** primary 按钮 **/
+.el-button--primary {
+  background-color: #18c1d6 !important;
+  color: #ffffff !important;
+  border-color: #18c1d6 !important;
+
+  &:hover {
+    background-color: #18c1d6 !important;
+    color: #ffffff !important;
+    border-color: #18c1d6 !important;
+    opacity: 0.8;
+  }
+
+  &:active {
+    background-color: #18c1d6 !important;
+    color: #ffffff !important;
+    border-color: #18c1d6 !important;
+  }
+}
+
+/** primary 按钮 **/
+.el-button--text {
+  color: #18c1d6 !important;
+
+  &:hover {
+    color: #18c1d6 !important;
+    opacity: 0.8;
+  }
+
+  &:active {
+    color: #18c1d6 !important;
+  }
+}

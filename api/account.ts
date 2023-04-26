@@ -16,7 +16,7 @@ export const account = {
    * @see https://www.easyai.com
    */
   getUserTeamList() {
-    return http.get(`${process.env.serviceUrl}/user/teams`)
+    return http.get(`${useRuntimeConfig().public.serviceUrl}/user/teams`)
   },
 
   /**
@@ -25,6 +25,6 @@ export const account = {
    * @see https://www.easyai.com
    */
   changeTeam(teamId: any) {
-    return http.put(`${process.env.serviceUrl}/team/${teamId}/change`)
+    return http.put(`${useRuntimeConfig().public.serviceUrl}/team/${teamId}/change`)
   },
 }

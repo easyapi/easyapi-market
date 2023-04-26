@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   },
   css: [
     '@/assets/css/common.css',
+    '@/assets/scss/element.scss',
   ],
   components: true,
   vite: {

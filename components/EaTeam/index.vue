@@ -1,9 +1,49 @@
+<script setup lang="ts">
+import { reactive, watch } from 'vue'
+
+const props = defineProps({
+  showTeamDialog: {
+    type: Boolean,
+    default: false,
+  },
+  teamImg: String,
+  teamName: String,
+  teamList: {
+    type: Array,
+    default: () => {
+      return []
+    },
+  },
+})
+
+const emit = defineEmits(['on-changeTeam', 'on-createTeam'])
+
+const data = reactive({
+  showTeamInfo: props.showTeamDialog,
+})
+
+watch(() => props.showTeamDialog, (v) => {
+  return (data.showTeamInfo = v)
+})
+
+function changeTeam(e) {
+  // eslint-disable-next-line vue/custom-event-name-casing
+  emit('on-changeTeam', e)
+  location.reload()
+}
+
+function createTeam() {
+  // eslint-disable-next-line vue/custom-event-name-casing
+  emit('on-createTeam')
+}
+</script>
+
 <template>
-  <div class="current-team-info" :class="{ active: showTeamInfo }">
+  <div class="current-team-info" :class="{ active: data.showTeamInfo }">
     <div class="clear current-team-content lrPading-20">
-      <img class="lf teams-img" :src="teamImg + '!icon.jpg'" alt="" v-if="teamImg" />
+      <img v-if="props.teamImg" class="lf teams-img" :src="`${props.teamImg}!icon.jpg`" alt="">
       <div class="lf teams-img-r">
-        <p>{{ teamName }}</p>
+        <p>{{ props.teamName }}</p>
         <div class="team-btn">
           <a class="ea-btn" href="https://team.easyapi.com/account">账户</a>
           <a class="ea-btn" href="https://team.easyapi.com/members">成员</a>
@@ -14,57 +54,21 @@
     <div class="change-team-box">
       <h2 class="lrPading-20">
         切换团队：
-        <el-button type="primary" size="small" @click="createTeam">创建新团队</el-button>
+        <el-button type="primary" size="small" @click="createTeam">
+          创建新团队
+        </el-button>
       </h2>
       <div class="ea-team-list-box lrPading-20">
-        <a class="ea-team-item" v-for="(item, index) in teamList" v-bind:key="index" @click="changeTeam(item.team.id)">
-          <img :src="item.team.img + '!icon.jpg'" alt="" v-show="item.team.img" />
+        <a v-for="(item, index) in props.teamList" :key="index" class="ea-team-item" @click="changeTeam(item.team.id)">
+          <img v-show="item.team.img" :src="`${item.team.img}!icon.jpg`" alt="">
           <span>{{ item.team.name }}</span>
         </a>
       </div>
     </div>
-    <div class="create-team"></div>
+    <div class="create-team" />
   </div>
 </template>
-<script>
-export default {
-  name: '',
-  components: {},
-  props: {
-    showTeamDialog: {
-      type: Boolean,
-      default: false
-    },
-    teamImg: String,
-    teamName: String,
-    teamList: {
-      type: Array,
-      default: function () {
-        return []
-      }
-    }
-  },
-  data() {
-    return {
-      showTeamInfo: this.showTeamDialog
-    }
-  },
-  watch: {
-    showTeamDialog: function (v) {
-      return (this.showTeamInfo = v)
-    }
-  },
-  methods: {
-    changeTeam(e) {
-      this.$emit('on-changeTeam', e)
-      location.reload()
-    },
-    createTeam() {
-      this.$emit('on-createTeam')
-    }
-  }
-}
-</script>
+
 <style lang="scss" scoped>
 .current-team-info {
   max-height: 700px;
