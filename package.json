@@ -1,11 +1,11 @@
 {
-  "name": "easyapi-www",
+  "name": "easyapi-market",
   "version": "1.0.0",
-  "description": "EasyAPI官网",
-  "homepage": "https://www.easyapi.com",
+  "description": "EasyAPI服务市场",
+  "homepage": "https://market.easyapi.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/easyapi/easyapi-www.git"
+    "url": "git+https://github.com/easyapi/easyapi-market.git"
   },
   "author": "EasyAPI <leida@easyapi.com>",
   "scripts": {
@@ -17,7 +17,7 @@
     "preview": "nuxi preview"
   },
   "dependencies": {
-    "@vueuse/integrations": "^9.13.0",
+    "@vueuse/integrations": "^10.1.0",
     "nuxt": "^3.4.2",
     "universal-cookie": "^4.0.4",
     "vuex": "4.1.0"
@@ -32,13 +32,13 @@
     "@pinia/nuxt": "^0.4.9",
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.14.194",
-    "@types/node": "^18.15.12",
+    "@types/node": "^18.16.1",
     "consola": "^3.1.0",
     "cross-env": "^7.0.3",
-    "element-plus": "^2.3.3",
-    "eslint": "^8.38.0",
+    "element-plus": "^2.3.4",
+    "eslint": "^8.39.0",
     "postcss-custom-properties": "^13.1.5",
-    "sass": "^1.62.0",
+    "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "typescript": "^5.0.4",
     "vite-plugin-svg-icons": "^2.0.1"
