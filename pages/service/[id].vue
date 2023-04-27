@@ -261,8 +261,8 @@ function subscribeService() {
         </div>
       </div>
     </div>
-    <el-dialog v-model:visible="data.subscribe" title="开通服务" width="400px" append-to-body>
-      <el-dialog v-model:visible="data.establish" width="30%" title="温馨提示" append-to-body>
+    <el-dialog v-model="data.subscribe" title="开通服务" width="400px" append-to-body>
+      <el-dialog v-model="data.establish" width="30%" title="温馨提示" append-to-body>
         <p style="text-align: center; font-size: 14px">
           {{ data.message }}
         </p>

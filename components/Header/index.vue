@@ -98,8 +98,8 @@ export default {
     },
 
     /**
-       * 退出登录
-       */
+     * 退出登录
+     */
     quitLogin() {
       userStore().logout()
       window.location.href = 'https://account.easyapi.com/login?from=https://market.easyapi.com'
