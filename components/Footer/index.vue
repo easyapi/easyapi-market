@@ -11,12 +11,6 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'Footer'
-  }
-</script>
-
 <style scoped lang="scss">
   .footer {
     text-align: center;

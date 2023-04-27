@@ -6,7 +6,6 @@ import { service } from '@/api/service'
 import Footer from '@/components/Footer'
 
 const route = useRoute()
-// const { proxy: $vm } = getCurrentInstance()
 
 const data = reactive({
   establish: false,
@@ -81,20 +80,17 @@ function getServicePrices() {
 }
 
 function subscribeService() {
-  service.subscribeService(route.params.id)
-    .then((res) => {
-      /* Warn: Unknown source: $message */
-      ElMessage.success(res.message)
-      data.subscribe = false
-      if (res.code === 1)
-        getServiceInfo()
-    })
-    .catch((error) => {
-      if (error.response.data.code === -9)
-        window.location.href = `https://account.easyapi.com/login?from=https://market.easyapi.com/service/${route.params.id}`
-      else if (error.response.data.code === -8)
-        data.establish = true
-    })
+  service.subscribeService(route.params.id).then((res) => {
+    ElMessage.success(res.message)
+    data.subscribe = false
+    if (res.code === 1)
+      getServiceInfo()
+  }).catch((error) => {
+    if (error.response.data.code === -9)
+      window.location.href = `https://account.easyapi.com/login?from=https://market.easyapi.com/service/${route.params.id}`
+    else if (error.response.data.code === -8)
+      data.establish = true
+  })
 }
 </script>
 
