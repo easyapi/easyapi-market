@@ -60,7 +60,6 @@ onMounted(() => {
         </div>
         <div class="recommend-service-con">
           <div v-for="(item, index) in data.recommendServiceList" :key="index" class="col">
-            <!--            <div>{{ item.name }}</div> -->
             <nuxt-link :to="{ name: 'service-id', params: { id: item.serviceId } }">
               <p class="img">
                 <img :src="item.img" alt>

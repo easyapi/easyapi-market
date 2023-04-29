@@ -8,7 +8,7 @@ a {
 }
 
 html {
-  font-family: MicrosoftYaHei;
+  font-family: MicrosoftYaHei, serif;
 }
 
 a {
@@ -65,8 +65,7 @@ img {
   .main {
     color: #000;
     width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
   }
 }
 
@@ -74,8 +73,7 @@ img {
   .main {
     color: #000;
     width: 768px;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
   }
 }
 
@@ -83,8 +81,7 @@ img {
   .main {
     color: #000;
     width: 500px;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
   }
 }
 
@@ -92,23 +89,6 @@ img {
   .main {
     color: #000;
     width: 300px;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
   }
-}
-
-.mg-lf-15 {
-  margin-left: 15px;
-}
-
-.mg-lf-10 {
-  margin-left: 10px;
-}
-
-.mg-lf-20 {
-  margin-left: 20px;
-}
-
-.mg-rt-10 {
-  margin-right: 10px;
 }

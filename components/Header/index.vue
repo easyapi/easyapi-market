@@ -132,7 +132,7 @@ export default {
           API市场
         </nuxt-link>
       </li>
-      <li class="item-menu mg-lf-20">
+      <li class="item-menu ml-10">
         <nuxt-link :to="{ name: 'index' }">
           首页
         </nuxt-link>
@@ -207,7 +207,7 @@ export default {
             <img src="https://qiniu.easyapi.com/market/logo.svg" alt>
           </nuxt-link>
           <span class="circle" />
-          <nuxt-link class="mg-lf-10" :to="{ name: 'index' }">
+          <nuxt-link class="ml-8" :to="{ name: 'index' }">
             API市场
           </nuxt-link>
         </div>
@@ -438,8 +438,8 @@ export default {
   .menu {
     position: absolute;
     width: 100%;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
   }
 
   @media screen and (min-width: 800px) and (max-width: 1080px) {

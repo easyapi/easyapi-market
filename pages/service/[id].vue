@@ -151,7 +151,7 @@ function subscribeService() {
           </div>
           <div class="combo">
             <div v-if="data.service.type === 2" class="combo-con">
-              <span class="mg-rt-10">套餐:</span>
+              <span class="mr-5">套餐:</span>
               <div>
                 <el-button v-for="(item, index) in data.servicePriceList" :key="index" :class="[data.clicked === index ? 'active' : '']" @click="changeItem(index)">
                   {{ item.times }}次
@@ -159,7 +159,7 @@ function subscribeService() {
               </div>
             </div>
             <div v-if="data.service.type === 3" class="combo-con">
-              <span class="mg-rt-10">套餐:</span>
+              <span class="mr-5">套餐:</span>
               <el-button v-for="(item, index) in data.servicePriceList" :key="index" :class="[data.clicked === index ? 'active' : '']" @click="changeItem(index)">
                 {{ item.month }}个月
               </el-button>
