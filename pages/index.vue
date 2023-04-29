@@ -475,7 +475,7 @@ useHead(() => {
           height: 41px;
           display: flex;
           align-items: center;
-          background: #0aa5b7;
+          background: #00b2c8;
         }
 
         .col:nth-of-type(3n + 1) {

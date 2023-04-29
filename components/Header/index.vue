@@ -1,5 +1,4 @@
 <script>
-import '../../assets/iconfont/icon-arrow.css'
 import { Close, Fold, Search, User } from '@element-plus/icons-vue'
 import TeamDialog from '../EaTeam'
 import { userStore } from '@/store/user'
