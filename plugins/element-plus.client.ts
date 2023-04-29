@@ -4,7 +4,7 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
 export default defineNuxtPlugin(({ vueApp }) => {
   vueApp.provide(ID_INJECTION_KEY, {
-    prefix: 0,
+    prefix: 1024,
     current: 0,
   })
   vueApp.use(ElementPlus, {
