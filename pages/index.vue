@@ -38,6 +38,24 @@ onMounted(() => {
   getNewestServiceList()
   getArticleList()
 })
+
+useHead(() => {
+  return {
+    title: 'EasyAPI服务市场 - API接口服务、API场景化服务',
+    meta: [
+      {
+        name: 'description',
+        content:
+          'EasyAPI服务市场为您提供各类API接口服务，各类场景化接口服务，例如类似有赞、微盟的全套微商城API接口，非核心业务模块接口EasyAPI均能为为您通过，欢迎联系技术专线咨询！',
+      },
+      {
+        name: 'keyword',
+        content:
+          'API接口,API接口服务,API场景化服务,电子发票API,微商城API接口,水电煤缴费API接口,手机话费充值API接口,金融API接口,医疗健康API接口,会员营销API接口',
+      },
+    ],
+  }
+})
 </script>
 
 <template>
@@ -469,7 +487,6 @@ onMounted(() => {
             width: 58px;
             height: 22px;
             background-color: rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
             line-height: 22px;
             text-align: center;
           }

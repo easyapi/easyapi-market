@@ -92,6 +92,16 @@ function subscribeService() {
       data.establish = true
   })
 }
+
+useHead(() => {
+  return {
+    title: `${data.service.name} - EasyAPI服务市场`,
+    meta: [
+      { name: 'description', content: '服务市场详情' },
+      { name: 'keyswords', content: '服务市场详情' },
+    ],
+  }
+})
 </script>
 
 <template>

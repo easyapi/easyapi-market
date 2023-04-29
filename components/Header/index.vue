@@ -159,10 +159,10 @@ export default {
         </el-input>
       </li>
       <li v-show="token" class="item-menu current-team-box">
-        <a class="flex-r" :class="{ active: showTeamInfo }" @click.stop="showTeamInfo = !showTeamInfo">
-          {{ userStore.team.name }}
-          <i v-if="showTeamInfo" class="team-icon icon-arrow-top iconfont" />
-          <i v-else class="icon-xiangxiajiantou iconfont" />
+        <a class="flex" :class="{ active: showTeamInfo }" @click.stop="showTeamInfo = !showTeamInfo">
+          <div>{{ userStore.team.name }}</div>
+          <svg-icon v-if="showTeamInfo" name="upArrow" class="svg-icon" />
+          <svg-icon v-else name="downArrow" class="svg-icon" />
         </a>
         <div>
           <TeamDialog
@@ -376,18 +376,14 @@ export default {
       .current-team-box {
         position: relative;
 
-        & > a {
-          position: relative;
-          height: 60px;
-          display: inline-block;
-
-          &.active {
-            background-color: #19b7cb;
-          }
-
-          &:hover {
-            background-color: #19b7cb;
-          }
+        a{
+          display: flex;
+          align-items: center;
+        }
+        .svg-icon{
+          width: 16px;
+          height: 16px;
+          margin-left: 8px;
         }
       }
 

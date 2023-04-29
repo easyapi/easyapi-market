@@ -1,3 +1,6 @@
+import path from 'node:path'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+
 const lifecycle = process.env.npm_lifecycle_event
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -29,6 +32,11 @@ export default defineNuxtConfig({
   ],
   components: true,
   vite: {
+    plugins: [
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'assets/svg')],
+      }),
+    ],
     build: {
       chunkSizeWarningLimit: 4096,
       rollupOptions: {

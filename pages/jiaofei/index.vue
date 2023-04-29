@@ -33,6 +33,16 @@ const data = reactive({
     subtitle: '如果您需要更多其他充值缴费相关，请联系我们',
   }],
 })
+
+useHead(() => {
+  return {
+    title: '缴费专辑 - EasyAPI服务市场',
+    meta: [
+      { name: 'description', content: 'EasyAPI服务市场为您提供各类缴费类接口，欢迎在线咨询，并开通使用。' },
+      { name: 'keyword', content: '话费充值API,游戏充值API,水电煤API,加油卡API' },
+    ],
+  }
+})
 </script>
 
 <template>

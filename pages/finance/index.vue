@@ -58,6 +58,16 @@ const data = reactive({
     money: '￥0.15/次',
   }],
 })
+
+useHead(() => {
+  return {
+    title: '金融专辑 - EasyAPI服务市场',
+    meta: [
+      { name: 'description', content: 'EasyAPI服务市场为您提供各类泛金融类接口，欢迎在线咨询，并开通使用。' },
+      { name: 'keyword', content: '证件识别,银行卡类别,企业工商数据,银行卡四元素校验,三网手机实名认证' },
+    ],
+  }
+})
 </script>
 
 <template>

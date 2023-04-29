@@ -165,6 +165,16 @@ function styleSwitch(t) {
     },
   })
 }
+
+useHead(() => {
+  return {
+    title: 'API接口 - EasyAPI服务市场',
+    meta: [
+      { name: 'description', content: '服务市场API接口' },
+      { name: 'keyword', content: '服务市场API接口' },
+    ],
+  }
+})
 </script>
 
 <template>
