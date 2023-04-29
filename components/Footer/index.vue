@@ -7,7 +7,7 @@
       <a href="https://www.easyapi.com/info/donate">支持我们</a>
       <a href="https://www.easyapi.com/post/">平台动态</a>
     </p>
-    <p>Copyright © 2015～2022 帮趣团队</p>
+    <p>Copyright © 2015～2023 帮趣团队</p>
   </div>
 </template>
 
