@@ -861,10 +861,10 @@
     eslint-plugin-vue "^9.7.0"
     local-pkg "^0.4.2"
 
-"@nuxtjs/tailwindcss@^6.6.6":
-  version "6.6.6"
-  resolved "https://mirrors.cloud.tencent.com/npm/@nuxtjs/tailwindcss/-/tailwindcss-6.6.6.tgz#4d5d17719c85647ed410dc0936a12ece87882194"
-  integrity sha512-cUiwO28TQYww+2H8x1BtxGjYpzzAdiHi2S4z6seGDM0g0sv5P1Zn8VO6N9crSxNkAZjKVhof9CD+D8ykMloZbA==
+"@nuxtjs/tailwindcss@^6.6.7":
+  version "6.6.7"
+  resolved "https://mirrors.cloud.tencent.com/npm/@nuxtjs/tailwindcss/-/tailwindcss-6.6.7.tgz#1217e05afd5dbd7c63d0178c3d29df1b1abec33a"
+  integrity sha512-WxkvOH05YURffpPBjtHavwY/nu13+u90tTj2rHdTQ3CcvWcnKZ9e2q7NjIrz5sopkuRYNGtKnSZa3eA9iTk0Og==
   dependencies:
     "@nuxt/kit" "^3.4.2"
     "@nuxt/postcss8" "^1.1.3"
@@ -5500,17 +5500,17 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
-nuxi@3.4.2:
-  version "3.4.2"
-  resolved "https://mirrors.cloud.tencent.com/npm/nuxi/-/nuxi-3.4.2.tgz#52c5acd629cfe44a0e3d75e350ccbd3ad090d8d8"
-  integrity sha512-kwKEbfS3EhiQX8BMwcAPgfWiFlV8gBa2dI0kPNYD3Egab5Vixs3P2h6dGq7RsEYZEJ6aU876J44ySF7l8bmDGg==
+nuxi@3.4.3:
+  version "3.4.3"
+  resolved "https://mirrors.cloud.tencent.com/npm/nuxi/-/nuxi-3.4.3.tgz#06833bab32b494f92d913917246ad27192192613"
+  integrity sha512-Flb23UkrWrTP/MmvHTpk+OLu+x2T2V9ciS8aCRsvADXTW3YIY2zGqFkqg6rKDCCeaoFn/MS1IxVgViT/FFe3QQ==
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt@^3.4.2:
-  version "3.4.2"
-  resolved "https://mirrors.cloud.tencent.com/npm/nuxt/-/nuxt-3.4.2.tgz#d5238373df8132b568ddee7e5fc251e7ede1a895"
-  integrity sha512-4v+oeBL4ZI8nHzF0Dm1p5kF9VCNlzrpvOt7wu3BnmzlueXsu4A/LfmFvpfZLxws+r5U74eM5Ut/LMD8B8LrZIw==
+nuxt@^3.4.3:
+  version "3.4.3"
+  resolved "https://mirrors.cloud.tencent.com/npm/nuxt/-/nuxt-3.4.3.tgz#0db58e3a70afa3c06744868cd6a13e5f0d83dbf1"
+  integrity sha512-rOEdhHRH33m3L7aJDO7N8C+NC2vSa2mC/0hH/ePmg2S03qkzS0bVg1pIWW9ESDV5UVPFtfhOGoDTEkLJqvE18A==
   dependencies:
     "@nuxt/devalue" "^2.0.0"
     "@nuxt/kit" "3.4.3"
