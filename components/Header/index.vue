@@ -187,7 +187,7 @@ export default {
         <div :class="{ active: isActive }" class="ea-DropdownMenu">
           <a href="https://team.easyapi.com/notification/">我的通知</a>
           <a href="https://team.easyapi.com/user/edit">个人设置</a>
-          <a @click="quitLogin()">退出</a>
+          <a @click="quitLogin">退出</a>
         </div>
       </li>
       <li v-show="!token" class="item-menu header-login">
