@@ -161,7 +161,7 @@ useHead(() => {
           </div>
           <div class="combo">
             <div v-if="data.service.type === 2" class="combo-con">
-              <span class="mr-5">套餐:</span>
+              <span class="text-sm">套餐：</span>
               <div>
                 <el-button v-for="(item, index) in data.servicePriceList" :key="index" :class="[data.clicked === index ? 'active' : '']" @click="changeItem(index)">
                   {{ item.times }}次
@@ -169,27 +169,27 @@ useHead(() => {
               </div>
             </div>
             <div v-if="data.service.type === 3" class="combo-con">
-              <span class="mr-5">套餐:</span>
+              <span class="text-sm">套餐：</span>
               <el-button v-for="(item, index) in data.servicePriceList" :key="index" :class="[data.clicked === index ? 'active' : '']" @click="changeItem(index)">
                 {{ item.month }}个月
               </el-button>
             </div>
-            <div class="price">
+            <div class="my-4 text-sm">
               <p v-if="data.service.type === 2 && data.servicePriceList[data.clicked]">
                 <span>价格：</span>
-                <span>{{ data.servicePriceList[data.clicked].price }}</span>
-                <span>元</span>
-                <span>（约{{ data.servicePriceList[data.clicked].price / data.servicePriceList[data.clicked].times }}元/次）</span>
+                <span class="text-red-600 text-xl font-bold">{{ data.servicePriceList[data.clicked].price }}</span>
+                <span class="text-red-600 mx-1">元</span>
+                <span class="text-gray-400 tracking-widest">（约{{ data.servicePriceList[data.clicked].price / data.servicePriceList[data.clicked].times }}元/次）</span>
               </p>
-              <p v-if="data.service.type === 3 && data.servicePriceList[clicked]">
+              <p v-if="data.service.type === 3 && data.servicePriceList[data.clicked]">
                 <span>价格：</span>
-                <span>{{ data.servicePriceList[data.clicked].price }}</span>
-                <span>元</span>
-                <span>（约{{ parseInt(data.servicePriceList[data.clicked].price / data.servicePriceList[data.clicked].month) }}元/月）</span>
+                <span class="text-red-600 text-xl font-bold">{{ data.servicePriceList[data.clicked].price }}</span>
+                <span class="text-red-600 mx-1">元</span>
+                <span class="text-gray-400 tracking-widest">（约{{ parseInt(data.servicePriceList[data.clicked].price / data.servicePriceList[data.clicked].month) }}元/月）</span>
               </p>
             </div>
             <div class="con-btn">
-              <el-button v-if="service && data.service.ifBuy" type="primary" @click="use(data.service.url, data.service.hasConsole, data.service.serviceId)">
+              <el-button v-if="data.service && data.service.ifBuy" type="primary" @click="use(data.service.url, data.service.hasConsole, data.service.serviceId)">
                 立即使用
               </el-button>
               <el-button v-else type="primary" @click="subscribeDialog">

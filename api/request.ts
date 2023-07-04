@@ -19,7 +19,7 @@ async function fetch(url: string, options?: any, headers?: any): Promise<ApiResp
   } catch (error: any) {
     if (error.data.code === -9) {
       removeToken()
-      window.location.href = 'https://account.easyapi.com/login?from=https://wwww.easyapi.com/home'
+      window.location.href = 'https://account.easyapi.com/login?from=https://www.easyapi.com/home'
       return
     }
     ElMessage.error(error.data.message)
