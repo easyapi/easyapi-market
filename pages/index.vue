@@ -5,6 +5,7 @@ import Category from './components/category.vue'
 
 import { service } from '@/api/service'
 import { article } from '@/api/article'
+import { useHead } from '@unhead/vue'
 
 const data = reactive({
   recommendServiceList: [],
