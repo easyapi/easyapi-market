@@ -1,29 +1,11 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { useHead } from '@unhead/vue'
 import Footer from '~/components/Footer'
-
-const data = reactive({
-  imgList: [{
-    href: 'https://withdraw.easyapi.com',
-    src: 'https://qiniu.easyapi.com/scene/withdraw.png',
-    title: '快速提现',
-  },
-  {
-    href: 'https://shop.easyapi.com',
-    src: 'https://qiniu.easyapi.com/scene/shop.png',
-    title: '微商城',
-  },
-  {
-    href: 'https://fapiao.easyapi.com',
-    src: 'https://qiniu.easyapi.com/scene/invoice.png',
-    title: '发票管理',
-  },
-  ],
-})
+import { sceneList } from '~/utils/scene'
 
 useHead(() => {
   return {
-    title: '场景化服务 - EasyAPI服务市场',
+    title: '场景化服务',
     meta: [
       {
         name: 'description',
@@ -44,7 +26,7 @@ useHead(() => {
     <Header />
     <div class="main">
       <div class="flex flex-wrap md:justify-between justify-center">
-        <div v-for="(item, index) in data.imgList" :key="index" class="scene-card">
+        <div v-for="(item, index) in sceneList" :key="index" class="scene-card">
           <a :href="item.href" class="img" target="_blank">
             <div>
               <img :src="item.src" alt="图片加载中...">
