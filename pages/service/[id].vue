@@ -4,6 +4,7 @@ import { onMounted, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 import { service } from '@/api/service'
 import Footer from '@/components/Footer'
+import { useHead } from '@unhead/vue'
 
 const route = useRoute()
 
@@ -80,15 +81,15 @@ function getServicePrices() {
 }
 
 function subscribeService() {
+  //设置登录成功跳转地址 https://market.easyapi.com/service/${route.params.id}
   service.subscribeService(route.params.id).then((res) => {
-    ElMessage.success(res.message)
     data.subscribe = false
-    if (res.code === 1)
+    if (res.code === 1) {
+      ElMessage.success(res.message)
       getServiceInfo()
+    }
   }).catch((error) => {
-    if (error.response.data.code === -9)
-      window.location.href = `https://account.easyapi.com/login?from=https://market.easyapi.com/service/${route.params.id}`
-    else if (error.response.data.code === -8)
+    if (error.response.data.code === -8)
       data.establish = true
   })
 }
