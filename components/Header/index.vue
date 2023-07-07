@@ -160,8 +160,8 @@ export default {
       <li v-show="token" class="item-menu current-team-box">
         <a class="flex" :class="{ active: showTeamInfo }" @click.stop="showTeamInfo = !showTeamInfo">
           <div>{{ userStore.team.name }}</div>
-          <svg-icon v-if="showTeamInfo" name="upArrow" class="svg-icon" />
-          <svg-icon v-else name="downArrow" class="svg-icon" />
+          <svg-icon v-if="showTeamInfo" name="arrow-up" class="svg-icon" />
+          <svg-icon v-else name="arrow-down" class="svg-icon" />
         </a>
         <div>
           <TeamDialog
