@@ -54,7 +54,7 @@ function createTeam() {
     <div class="change-team-box">
       <h2 class="lrPading-20">
         切换团队：
-        <el-button type="primary" size="small" @click="createTeam">
+        <el-button type="primary" @click="createTeam">
           创建新团队
         </el-button>
       </h2>
