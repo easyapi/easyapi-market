@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
 import { useHead } from '@unhead/vue'
 import { adviceList, serviceList } from '~/utils/jiaofei'
 

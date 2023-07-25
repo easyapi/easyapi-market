@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import { typeList, serviceList } from '~/utils/finance'
+import { serviceList, typeList } from '~/utils/finance'
 
 useHead(() => {
   return {
