@@ -1,19 +1,18 @@
-import { useCookies } from '@vueuse/integrations/useCookies'
+import { useCookie } from '#app/composables/cookie'
 
 const key = 'authenticationToken'
-const cookies = useCookies()
 
 /**
  * 获取token
  */
 export function getToken() {
-  return cookies.get(key)
+  return useCookie(key).value
 }
 
 /**
  * 移除token
  */
 export function removeToken() {
-  cookies.remove(key)
-  cookies.remove(key, { path: '/', domain: '.easyapi.com' })
+  useCookie(key).value = null
+  useCookie(key, { path: '/', domain: '.easyapi.com' }).value = null
 }

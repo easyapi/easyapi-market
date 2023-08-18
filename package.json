@@ -19,13 +19,12 @@
     "pm2": "pm2 delete easyapi-market \n pm2 start npm --name 'easyapi-market' -- run start"
   },
   "dependencies": {
-    "@vueuse/integrations": "^10.2.1",
+    "@vueuse/integrations": "^10.3.0",
     "nuxt": "^3.6.5",
-    "universal-cookie": "^4.0.4",
     "vuex": "4.1.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.8",
+    "@antfu/eslint-config": "^0.40.2",
     "@element-plus/icons-vue": "^2.1.0",
     "@element-plus/nuxt": "^1.0.5",
     "@nuxt/kit": "^3.6.5",
@@ -33,14 +32,14 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@pinia/nuxt": "^0.4.11",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/lodash": "^4.14.195",
-    "@types/node": "^20.4.4",
+    "@types/lodash": "^4.14.197",
+    "@types/node": "^20.5.0",
     "consola": "^3.2.3",
     "cross-env": "^7.0.3",
-    "element-plus": "^2.3.8",
-    "eslint": "^8.45.0",
+    "element-plus": "^2.3.9",
+    "eslint": "^8.47.0",
     "postcss-custom-properties": "^13.3.0",
-    "sass": "^1.64.1",
+    "sass": "^1.66.0",
     "sass-loader": "^13.3.2",
     "typescript": "^5.1.6",
     "vite-plugin-svg-icons": "^2.0.1"
