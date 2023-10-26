@@ -1,5 +1,5 @@
 import { ElMessage } from 'element-plus'
-import { getToken, removeToken } from '~/utils/token'
+import { getToken, removeToken } from '../utils/token'
 
 /**
  * API请求封装
