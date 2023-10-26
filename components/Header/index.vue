@@ -50,7 +50,8 @@ export default {
 
     document.addEventListener('click', (e) => {
       this.showTeamInfo = !this.$refs.showTeamInfo
-      if (e.target.id === 'showPersonage') this.isActive = !this.isActive
+      if (e.target.id === 'showPersonage')
+        this.isActive = !this.isActive
       else this.isActive = false
     })
     this.screenWidth = document.body.clientWidth
@@ -121,21 +122,29 @@ export default {
     <ul class="header-con-left flex-r">
       <div class="header-logo flex-r">
         <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
-          <img src="https://qiniu.easyapi.com/market/logo.svg" alt />
+          <img src="https://qiniu.easyapi.com/market/logo.svg" alt>
         </nuxt-link>
         <span class="circle" />
       </div>
       <li class="header-market">
-        <nuxt-link :to="{ name: 'index' }"> API市场 </nuxt-link>
+        <nuxt-link :to="{ name: 'index' }">
+          API市场
+        </nuxt-link>
       </li>
       <li class="item-menu ml-10">
-        <nuxt-link :to="{ name: 'index' }"> 首页 </nuxt-link>
+        <nuxt-link :to="{ name: 'index' }">
+          首页
+        </nuxt-link>
       </li>
       <li class="item-menu">
-        <nuxt-link :to="{ name: 'service' }"> API接口 </nuxt-link>
+        <nuxt-link :to="{ name: 'service' }">
+          API接口
+        </nuxt-link>
       </li>
       <li class="item-menu">
-        <nuxt-link :to="{ name: 'scene' }"> 场景化服务 </nuxt-link>
+        <nuxt-link :to="{ name: 'scene' }">
+          场景化服务
+        </nuxt-link>
       </li>
     </ul>
     <ul class="header-con-right flex-r">
@@ -186,7 +195,7 @@ export default {
               id="showPersonage"
               :src="`${userStore.photo}!icon.jpg`"
               alt
-            />
+            >
           </a>
         </div>
         <div :class="{ active: isActive }" class="ea-DropdownMenu">
@@ -208,10 +217,12 @@ export default {
       <div class="flex justify-between items-center">
         <div class="header-logo flex-r">
           <nuxt-link :to="{ name: 'index' }" class="logo flex-r">
-            <img src="https://qiniu.easyapi.com/market/logo.svg" alt />
+            <img src="https://qiniu.easyapi.com/market/logo.svg" alt>
           </nuxt-link>
           <span class="circle" />
-          <nuxt-link class="ml-8" :to="{ name: 'index' }"> API市场 </nuxt-link>
+          <nuxt-link class="ml-8" :to="{ name: 'index' }">
+            API市场
+          </nuxt-link>
         </div>
         <div class="icon w-14 flex justify-between">
           <el-icon class="el-icon-user" @click="showNav('person')">
@@ -266,11 +277,7 @@ export default {
           <div class="clear-both" />
           <el-menu-item>
             <template #title>
-              <a
-                href="https://team.easyapi.com/service/"
-                class="menu-item-text w-full"
-                >服务中心</a
-              >
+              <a href="https://team.easyapi.com/service/" class="menu-item-text w-full">服务中心</a>
             </template>
           </el-menu-item>
           <el-menu-item>

@@ -16,7 +16,8 @@ async function fetch(url: string, options?: any, headers?: any): Promise<ApiResp
     return await $fetch<ApiResponse>(url,
       { ...options, headers: customHeaders },
     )
-  } catch (error: any) {
+  }
+  catch (error: any) {
     if (error.data.code === -9) {
       removeToken()
       window.location.href = `https://account.easyapi.com/login?from=${window.location.href}`
